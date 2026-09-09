@@ -1,0 +1,11 @@
+--- run_deepseek_v4_server.sh (latest known-good launcher)
++++ run_deepseek_v4_harness_server.sh (failed launcher)
+@@ -27,6 +27,8 @@
+   --tokenizer "$DEEPSEEK_MODEL" \
+   --tokenizer-mode deepseek_v4 \
+   --reasoning-parser deepseek_v4 \
++  --enable-auto-tool-choice \
++  --tool-call-parser deepseek_v4 \
+   --trust-remote-code \
+   --dtype bfloat16 \
+   --max-model-len 131072 \

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek-V4-Flash-0731 QuietBox2 Autoport Report</title>
+<style>
+:root{color-scheme:light dark;--ground:#f4f6f8;--surface:#fff;--surface2:#eaeef3;--ink:#101720;--ink2:#3b4654;--ink3:#647180;--rule:#d5dbe3;--strong:#b4bec9;--accent:#9a5410;--pass:#2e6b4f;--passbg:#e2efe8;--caveat:#856419;--caveatbg:#f3ebd6;--critical:#8c2f2f;--criticalbg:#f6e3e3;--mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;--sans:"Segoe UI",Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--ground:#0e141b;--surface:#161e27;--surface2:#1c2631;--ink:#e9eef3;--ink2:#b7c2ce;--ink3:#8a98a7;--rule:#2a3542;--strong:#3b4755;--accent:#e0a04a;--pass:#74c29a;--passbg:#16261e;--caveat:#d3ac5c;--caveatbg:#272013;--critical:#e38c8c;--criticalbg:#2a1919}}
+*{box-sizing:border-box}body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.62 var(--sans)}.wrap{max-width:790px;margin:auto;padding:0 24px 80px}header{padding:56px 0 28px;border-bottom:1px solid var(--strong)}h1{font-size:clamp(1.95rem,5vw,2.7rem);line-height:1.13;letter-spacing:-.025em;margin:0 0 12px}header .sub{color:var(--ink2);max-width:65ch}.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:17px 24px;margin:28px 0 0}.facts dt{font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}.facts dd{margin:4px 0 0;font:13px var(--mono);overflow-wrap:anywhere}section{padding-top:43px}h2{font-size:1.28rem;letter-spacing:-.01em;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid var(--rule)}h3{font-size:1rem;margin:28px 0 8px}p{max-width:66ch;margin:.8rem 0;color:var(--ink2)}strong{color:var(--ink)}code{font:0.84em var(--mono);background:var(--surface2);padding:.1em .34em;border-radius:2px;overflow-wrap:anywhere}ul,ol{max-width:66ch;padding-left:21px;color:var(--ink2)}li{margin:.45rem 0}.scroller{overflow:auto;border:1px solid var(--rule);background:var(--surface);margin:15px 0;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:.82rem}th,td{padding:8px 11px;border-bottom:1px solid var(--rule);vertical-align:top}thead th{font:700 10px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);background:var(--surface2);white-space:nowrap;text-align:left}tbody tr:last-child td{border-bottom:0}td.n,th.n{text-align:right;font-family:var(--mono);white-space:nowrap}td.mono{font-family:var(--mono);font-size:.76rem}.chip{display:inline-block;font:700 10px var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap}.pass{color:var(--pass);background:var(--passbg)}.caveat{color:var(--caveat);background:var(--caveatbg)}.critical{color:var(--critical);background:var(--criticalbg)}blockquote{border-left:2px solid var(--strong);margin:16px 0;padding:2px 0 2px 16px;color:var(--ink2)}blockquote p{margin:0}.metric{font-family:var(--mono);font-variant-numeric:tabular-nums}.bar{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;margin:9px 0}.track{height:10px;background:var(--surface2);border:1px solid var(--rule)}.fill{height:100%;background:var(--accent)}footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--rule);font:12px/1.7 var(--mono);color:var(--ink3)}
+@media(max-width:600px){.wrap{padding:0 17px 60px}.bar{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
+</style></head><body><main class="wrap">
+<header><h1>DeepSeek-V4-Flash-0731 Autoport Report</h1>
+<p class="sub">A capacity-driven TTNN bring-up of <code>deepseek-ai/DeepSeek-V4-Flash-0731</code> on one four-chip QuietBox2. This is both the evidence summary and a retrospective for people reproducing or extending the port.</p>
+<dl class="facts">
+<div><dt>Hardware</dt><dd>4× Blackhole p300c</dd></div>
+<div><dt>Code commit</dt><dd>5114991f9f</dd></div>
+<div><dt>Checkpoint</dt><dd>7872f01b1d1f</dd></div>
+<div><dt>Plugin</dt><dd>e3fc84941bf7</dd></div>
+<div><dt>Deployment</dt><dd>TP4 · batch 1 · 131072</dd></div>
+<div><dt>Status</dt><dd>Full-context qualified · official Harness blocked</dd></div>
+</dl></header>
+
+<section><h2>Outcome</h2>
+<p><strong>The premise was true:</strong> the preserved stock model cannot fit. A real, exact-architecture alternative now fits and performs native autoregressive token-out on all four devices. The selected policy keeps all 43 layers and all 256 experts. Routed gate/up uses BFP4 in layers 2, 27, 29, 32, 34, 36, 41, and 42 and BFP2 in the other 35 layers. Routed down and shared experts use BFP4; dense/control paths retain their selected higher precision.</p>
+<p>The all-layer allocation is not an estimate: it occupied <span class="metric">33,389,479,936 B/device</span> and left <span class="metric">520,815,616 B/device</span> free, with a largest contiguous block of <span class="metric">439,356,416 B</span>. A 32-token real vLLM completion then ran through the complete model with coherent text and TT on-device sampling.</p>
+<blockquote><p>The repaired vLLM path, exact 131072-token residency, focused correctness gates, and real 32-token completion pass. An initial final-policy sweep exposed unbounded context-shaped program residency beyond 32K. Streaming prefill now bounds the program cache in 8192-token epochs, and the replacement resident-server sweep passed every required ISL through 130560 with OSL 512.</p></blockquote>
+</section>
+
+<section><h2>How it ran</h2>
+<p>The work followed the staged prompts under <code>.agents/prompts/model_bringup_multigoal/</code>, then inserted a capacity and quantization branch required by this model. Decoder stages were run through the repository's multigoal workflow; the full-model, datatype, and vLLM work continued in the primary Codex session with explicit pause/resume handoffs. Three bounded review agents audited policy locking, sampler state, and the final full-model stage.</p>
+<p>The source tree is a fresh copy of current tt-metal main, not the unrelated Nemotron checkout. All implementation changes remain on the local branch <code>deepseek-v4-flash-0731-quietbox2</code>. The user later prohibited remote writes without an additional permission step, so no GitHub branch or Hugging Face artifact has been published.</p>
+</section>
+
+<section><h2>Where the time went</h2>
+<div class="bar"><span>Checkpoint transfer</span><div class="track"><div class="fill" style="width:78%"></div></div></div>
+<div class="bar"><span>Decoder correctness</span><div class="track"><div class="fill" style="width:100%"></div></div></div>
+<div class="bar"><span>CPU quality screen</span><div class="track"><div class="fill" style="width:87%"></div></div></div>
+<div class="bar"><span>All-layer loads</span><div class="track"><div class="fill" style="width:63%"></div></div></div>
+<p>These bars are relative qualitative effort, not a duration chart. The recurring long pole is reloading 166.9 GB of official safetensors and constructing 43 layers: successful native builds took 1,410–1,428 seconds. The complete CPU teacher-forced screen was also intentionally expensive: one full prefill, then roughly 23–24 seconds per token.</p>
+</section>
+
+<section><h2>Capacity decision</h2>
+<div class="scroller"><table><thead><tr><th>Policy</th><th class="n">Bytes/device</th><th class="n">Headroom</th><th>Result</th></tr></thead><tbody>
+<tr><td>Stock, 1M lower bound</td><td class="n">57,998,069,952</td><td class="n">−24,087,774,400</td><td><span class="chip critical">Cannot fit</span></td></tr>
+<tr><td>Stock, minimum cache</td><td class="n">53,749,321,312</td><td class="n">−19,839,025,760</td><td><span class="chip critical">Cannot fit</span></td></tr>
+<tr><td>Selected 8-layer BFP4 gate/up, real</td><td class="n">33,389,479,936</td><td class="n">+520,815,616</td><td><span class="chip pass">Resident</span></td></tr>
+<tr><td>9-layer candidate (+ layer 38), real</td><td class="n">33,657,915,392</td><td class="n">+252,380,160</td><td><span class="chip caveat">Fits; quality rejected</span></td></tr>
+</tbody></table></div>
+<p>Routed experts alone consume <span class="metric">38,956,695,552 B/device</span> under stock BFP4, already more than usable device memory. That isolates the physical cause without relying on a failed out-of-memory run.</p>
+
+<h3>Alternatives researched</h3>
+<div class="scroller"><table><thead><tr><th>Candidate</th><th>Finding</th><th>Decision</th></tr></thead><tbody>
+<tr><td>MLX 2.44 bpw mixed</td><td>About 92.8 GB, MLX runtime; model card reports a material MMLU-Pro reduction.</td><td>Rejected: runtime and quality.</td></tr>
+<tr><td>REAP derivative</td><td>Keeps 160 of 256 routed experts.</td><td>Rejected: changes architecture.</td></tr>
+<tr><td>TQ3_4S GGUF</td><td>Useful evidence for asymmetric expert precision, but custom/GGUF runtime.</td><td>Research input only.</td></tr>
+<tr><td>Direct TT mixed BFP2/BFP4</td><td>Exact architecture, native TT formats, fits the target context.</td><td><span class="chip pass">Selected</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section><h2>Quantization quality</h2>
+<p>The decision gate compared compressed policies against the official checkpoint's CPU-translated implementation over all 43 layers. The BFP2 emulator was first checked against tt-metal's actual <code>pack_bfp2</code>/<code>unpack_bfp2</code> behavior; an older two-stage rounding interpretation was discarded after it disagreed on about 28% of values. The original 100-token screen reached 91% top-1 and 100% top-5 agreement. A later matched 20-token shortlist specifically tested every whole-layer precision upgrade that fit the final context.</p>
+<div class="scroller"><table><thead><tr><th>Metric</th><th class="n">Gate</th><th class="n">Measured</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>Selected 8-layer policy, top-1/top-5</td><td class="n">Matched screen</td><td class="n">85% / 100%</td><td><span class="chip pass">Selected</span></td></tr>
+<tr><td>Add layer 38</td><td class="n">Must improve baseline</td><td class="n">70% / 100%</td><td><span class="chip critical">Rejected</span></td></tr>
+<tr><td>Add layer 35</td><td class="n">Must improve baseline</td><td class="n">70% / 100%</td><td><span class="chip critical">Rejected</span></td></tr>
+<tr><td>Add layer 37</td><td class="n">Must improve baseline</td><td class="n">80% / 100%</td><td><span class="chip critical">Rejected</span></td></tr>
+<tr><td>Add layer 31</td><td class="n">Must improve baseline</td><td class="n">75% / 100%</td><td><span class="chip critical">Rejected</span></td></tr>
+</tbody></table></div>
+<p>This is a strong selection screen, not a public benchmark score. It measures token-ranking preservation under teacher forcing; it does not claim AIME accuracy or equivalence to a GPU serving stack.</p>
+</section>
+
+<section><h2>Implementation and gates</h2>
+<div class="scroller"><table><thead><tr><th>Gate</th><th>Evidence</th><th>Result</th></tr></thead><tbody>
+<tr><td>BFLOAT2_B public dtype</td><td>TTNN type, host conversion, serialization, Python binding, fail-closed unsupported paths</td><td><span class="chip pass">Pass</span></td></tr>
+<tr><td>Host round trip</td><td>32×32 tile, exact, 320 packed bytes</td><td><span class="chip pass">Pass</span></td></tr>
+<tr><td>Sparse indexed matmul</td><td>16 experts, 256 experts, full TP4 4×1 layout</td><td><span class="chip pass">Pass</span></td></tr>
+<tr><td>Policy/capacity suite</td><td>44 tests</td><td><span class="chip pass">Pass</span></td></tr>
+<tr><td>All-layer residency</td><td>43 layers, exact 131072 context</td><td><span class="chip pass">Pass</span></td></tr>
+<tr><td>Native generation</td><td>Prefill + split greedy + two traced model/sampler replays</td><td><span class="chip pass">Pass</span></td></tr>
+<tr><td>Valid-tail regression</td><td>focused host suite after streaming KV fix</td><td><span class="chip pass">62 passed</span></td></tr>
+<tr><td>vLLM adapter/server benchmark</td><td>device-only request guard and streamed metric client</td><td><span class="chip pass">18 passed</span></td></tr>
+<tr><td>vLLM request</td><td>32 tokens, complete 43-layer model, coherent completion</td><td><span class="chip pass">Pass</span></td></tr>
+<tr><td>Final-policy performance sweep</td><td>All 8 required ISLs, OSL 512, bounded program cache</td><td><span class="chip pass">Pass</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section><h2>The zero-score corruption bug and repair</h2>
+<p>The original Terminal-Bench prompt was 415 tokens and padded into four fixed 128-token prefill blocks. The local five-page KV ring incorrectly persisted all 97 synthetic padding rows from the last block. Those rows evicted 96 real prompt rows, so decode attended to corrupted context and entered semantic/token loops.</p>
+<p>The retained fix keeps fixed 128-token compute and collective shapes but carries <code>valid_seq_len</code> through streaming prefill. Only page-rounded prefixes containing real tokens are written into local KV, bounded compressor state, and CSA boundary state. Padding participates in fixed-shape compute but cannot overwrite live cache entries.</p>
+<p>A separate full-context runtime issue appeared only when the final selective policy crossed previously compiled 32K attention shapes. The selected weights and all caches were resident, but context-specific TTNN programs exhausted the remaining 520,815,616 bytes/device. The local fix releases block inputs, synchronizes, and clears cached programs only after each nonterminal 64-block (8192-token) epoch. This keeps all eight selected BFP4 gate/up layers while bounding runtime residency; both the excluded warmups and measured requests passed at 65536 and 130560.</p>
+<p>Post-fix evidence includes bit-exact layer-0 cache state, attention-head PCC <span class="metric">0.99948394</span>, full layer-0 output PCC <span class="metric">0.9982314</span>, a passing 43-layer eager token discriminator, and minimum CPU-versus-TT layer-state PCC <span class="metric">0.937118</span> with no layer below 0.90.</p>
+</section>
+
+<section><h2>The first vLLM failure was useful</h2>
+<p>The first vLLM smoke loaded the entire model, then failed while the plugin built scheduler KV metadata: its generic path asserts that MLA cannot coexist with a sliding window. DeepSeek V4 has multiple attention/cache regimes, but this adapter already owns their physical TT caches.</p>
+<p>The fix stayed in tt-metal. The dynamic model now implements the plugin-supported <code>get_kv_cache_spec</code> hook and advertises one uniform logical block table for batch-one request admission. The adapter records that scheduler shape but allocates no duplicate physical cache. The standalone <code>vllm-tt-plugin</code> checkout remains clean.</p>
+</section>
+
+<section><h2>Latency sweep</h2>
+<p><strong>Final selected-policy resident-server measurement.</strong> Method: one resident model, batch/concurrency one, prefix caching off, exact token-ID prompts, one excluded two-token warmup at each ISL, then one measured 512-token streamed request. TTFT is request start to first streamed token; TPOT is <code>(last token − first token) / 511</code>; E2EL is request start to final streamed event. Every row was checkpointed atomically, and all eight passed.</p>
+<div class="scroller"><table><thead><tr><th class="n">ISL</th><th class="n">OSL</th><th class="n">TTFT ms</th><th class="n">TPOT ms</th><th class="n">E2EL ms</th><th class="n">t/s/u</th><th class="n">TTFT %</th></tr></thead><tbody>
+<tr><td class="n">128</td><td class="n">512</td><td class="n">2,590.36</td><td class="n">150.384</td><td class="n">79,436.60</td><td class="n">6.6496</td><td class="n">3.2609%</td></tr>
+<tr><td class="n">1,024</td><td class="n">512</td><td class="n">22,301.18</td><td class="n">150.363</td><td class="n">99,136.88</td><td class="n">6.6506</td><td class="n">22.4953%</td></tr>
+<tr><td class="n">4,096</td><td class="n">512</td><td class="n">90,193.70</td><td class="n">150.314</td><td class="n">167,004.04</td><td class="n">6.6528</td><td class="n">54.0069%</td></tr>
+<tr><td class="n">8,192</td><td class="n">512</td><td class="n">180,921.14</td><td class="n">150.322</td><td class="n">257,735.78</td><td class="n">6.6524</td><td class="n">70.1964%</td></tr>
+<tr><td class="n">16,384</td><td class="n">512</td><td class="n">364,159.40</td><td class="n">150.360</td><td class="n">440,993.59</td><td class="n">6.6507</td><td class="n">82.5770%</td></tr>
+<tr><td class="n">32,768</td><td class="n">512</td><td class="n">727,058.97</td><td class="n">150.324</td><td class="n">803,874.47</td><td class="n">6.6523</td><td class="n">90.4443%</td></tr>
+<tr><td class="n">65,536</td><td class="n">512</td><td class="n">1,543,989.33</td><td class="n">150.667</td><td class="n">1,620,979.99</td><td class="n">6.6372</td><td class="n">95.2504%</td></tr>
+<tr><td class="n">130,560</td><td class="n">512</td><td class="n">3,160,809.93</td><td class="n">150.898</td><td class="n">3,237,918.75</td><td class="n">6.6270</td><td class="n">97.6186%</td></tr>
+</tbody></table></div>
+<p>The largest prompt sustained 41.3 prompt tokens/s during prefill and filled 99.6% of the logical vLLM KV allocation before decode. Decode remained essentially flat across the entire sweep at 6.6270–6.6528 tokens/s/user.</p>
+</section>
+
+<section><h2>Issues not asked for, but worth knowing</h2>
+<ul>
+<li>The official model card advertises 1,048,576 tokens. This deployment qualifies 131,072, chosen exactly for the largest requested ISL plus OSL. That is a deliberate capacity contract, not a silent capability claim.</li>
+<li>The bridge currently qualifies only batch one and rejects prefix caching, chunked prefill, async decode, host sampling, speculative decoding, LoRA, and vLLM data parallelism.</li>
+<li>On this QuietBox2, later server reopen attempts failed device-0 ERISC firmware initialization. An owner-authorized physical reboot, bounded list/reset/list recovery, and a successful standalone 4×1 mesh smoke still did not restore vLLM startup: the next server open froze the same cores before weight loading. Do not loop resets indefinitely; preserve the failure log and escalate firmware/board recovery.</li>
+<li>vLLM structured-output requests are not supported: <code>response_format</code> selects host sampling, while this adapter requires full TT on-device sampling. Applications must use unconstrained generation and validate output in the client.</li>
+<li>Model construction is approximately 24 minutes because official weights are translated and quantized at load time. A future serialized TT checkpoint could improve startup, but none was uploaded or treated as a prerequisite here.</li>
+<li>The remaining free DRAM is real but modest. Increasing context, trace reservation, cache geometry, or batch can invalidate residency.</li>
+<li>vLLM 0.25.1 emits a shutdown-only <code>torch.accelerator.empty_cache()</code> traceback on this non-CUDA platform. The benchmark request and atomic artifact complete first, and the wrapper exits zero; this is recorded as teardown noise rather than a request failure.</li>
+<li>Many earlier reduced-layer artifacts are diagnostic evidence only. Full-model claims in this report cite only the all-resident 43-layer artifacts.</li>
+</ul>
+</section>
+
+<section><h2>Terminal-Bench 2.1 evaluation</h2>
+<p>The completed 0.000 results below belong to a superseded local Terminus/native-DSML integration. Later parity work prepared a request-identical official DeepSeek Harness path using pinned <code>@deepseek-ai/dsh@0.1.0-rc.6</code>, thinking enabled, <code>reasoning_effort=max</code>, <code>max_tokens=49152</code>, <code>temperature=1</code>, <code>top_p=.95</code>, automatic tool choice, and exactly the official lowercase <code>bash</code> and <code>str_replace_editor</code> tools. A constrained Unix-socket bridge limits the container to loopback inference. Mock end-to-end request metadata, tool composition, mounts, configuration, syntax, and relay startup all passed.</p>
+<p>The owner clarified that OSL 512 constrains only the required deployment performance sweep; it does not cap Terminal-Bench reasoning. The request-identical v27 <code>fix-git</code> canary was therefore prepared with a 49,152-token ceiling and a 14,400-second agent timeout. It could not start: after an owner-authorized physical reboot, the vLLM engine reproduced the same device-0 ERISC heartbeat freeze during mesh initialization, before model allocation, relay startup, or any canary request.</p>
+<div class="scroller"><table><thead><tr><th>Run</th><th>Trials</th><th>Exceptions</th><th class="n">Mean</th><th>Status</th></tr></thead><tbody>
+<tr><td>v6 smoke</td><td>5 completed</td><td>0</td><td class="n">0.000</td><td><span class="chip pass">Infrastructure pass</span></td></tr>
+<tr><td>v18 OpenSSL, recommended sampling, OSL 1024</td><td>1</td><td>0</td><td class="n">0.000</td><td><span class="chip caveat">4/6 checks</span></td></tr>
+<tr><td>v19/v20 OpenSSL, OSL 512</td><td>2</td><td>0</td><td class="n">0.000</td><td><span class="chip critical">2/6 checks each</span></td></tr>
+<tr><td>v23 fix-git, JSON action prefix</td><td>1</td><td>0</td><td class="n">0.000</td><td><span class="chip critical">15 wandering actions</span></td></tr>
+<tr><td>v24 fix-git, native DSML prefix</td><td>diagnostic</td><td>0</td><td class="n">N/A</td><td><span class="chip caveat">parsed; never used reflog</span></td></tr>
+<tr><td>v25 fix-git, native DSML, final deployment</td><td>1</td><td>1 timeout</td><td class="n">0.000</td><td><span class="chip critical">found commit; chose wrong hash</span></td></tr>
+<tr><td>v27 fix-git, official DeepSeek Harness</td><td>not started</td><td>server init</td><td class="n">N/A</td><td><span class="chip critical">TT firmware blocked before model load</span></td></tr>
+<tr><td>Full 89 × 5, official Harness</td><td>not started</td><td>N/A</td><td class="n">N/A</td><td><span class="chip caveat">Awaiting scored v27 gate</span></td></tr>
+</tbody></table></div>
+<p>The honest status is: <strong>official-Harness score not measured</strong>. The last completed superseded-path score is 0.000, but it is not evidence for the prepared official-Harness configuration. The post-reboot failure log has SHA-256 <code>0687321da09edb320876bf07843216cf9d35217adf52a7cc7c6a0272b600e804</code>. The full 445-trial evaluation remains gated on a scored official-Harness canary after TT infrastructure recovery.</p>
+</section>
+
+<section><h2>What worked</h2>
+<ul>
+<li>Capacity accounting before allocation prevented repeated 58 GB/device stock failures.</li>
+<li>Fail-closed deployment policies stopped reduced-layer or short-context probes from masquerading as production.</li>
+<li>Comparing the quantizer emulator to tt-metal pack/unpack found a subtle rounding error before the expensive quality screen.</li>
+<li>The dynamic <code>EXTRA_MODELS_DIR</code> bundle integrated a new architecture without modifying or dirtying the plugin checkout.</li>
+<li>Atomic JSON checkpoints preserved long CPU and vLLM sweeps across pauses and failures.</li>
+<li>Stable token, position, and sampler buffers kept autoregressive feedback on device under trace replay.</li>
+</ul>
+</section>
+
+<section><h2>Changes I would make to the bring-up pipeline</h2>
+<ol>
+<li>Insert a mandatory whole-model byte ledger before functional decoder work for any model near device capacity.</li>
+<li>Add datatype-runtime availability to the quantization gate. A theoretical BFP2 choice is incomplete until TTNN exposes it and the production matmul accepts it.</li>
+<li>Require every stage document claim to resolve to a machine-readable artifact and SHA256, with an explicit scope field such as reduced, representative-layer, or full-model.</li>
+<li>Add a plugin scheduler-metadata dry run before a 24-minute full model load. The MLA/sliding assertion was discoverable from configuration alone.</li>
+<li>Separate cold-start, compile-warm, and steady-state request metrics. The final table should always state which boundary each number includes.</li>
+<li>Keep device lifecycle commands serialized and log every reset/list pair around long hardware gates.</li>
+</ol>
+</section>
+
+<section><h2>Reproduction surfaces</h2>
+<ul>
+<li>Implementation: <code>models/autoports/deepseek_ai_deepseek_v4_flash_0731/</code></li>
+<li>Capacity tool: <code>tools/capacity_analysis.py</code></li>
+<li>CPU quality tool: <code>tools/run_quantized_reference_cpu.py</code></li>
+<li>vLLM bundle: <code>vllm_models/deepseek_v4_flash_0731/</code></li>
+<li>Smoke: <code>tools/run_vllm_smoke.py</code></li>
+<li>Offline latency sweep: <code>tools/run_vllm_benchmark.py</code></li>
+<li>Resident-server latency sweep: <code>tools/run_vllm_server_benchmark.py</code></li>
+<li>Final selected-policy eight-row sweep SHA256: <code>599915a3ef7cd9ee19b21e34c391455112470769a3b1af3f48d36163f958f249</code></li>
+<li>Primary residency artifact SHA256: <code>357339fe8041e9098e73f1448c4c0ac8bdf7b796f0752d95adc3f79f87389c20</code></li>
+<li>Primary native generation artifact SHA256: <code>e3f58d4c355b72a7534ed87f35c857af7b6dfb2d6f4bfac1329240c841269c6d</code></li>
+</ul>
+</section>
+
+<footer>Updated 2026-08-27 UTC · DeepSeek-V4-Flash-0731 QuietBox2 bring-up<br>Local-only working branch: deepseek-v4-flash-0731-quietbox2 · remote publication requires explicit owner permission<br>Runtime qualification and the final-policy eight-row OSL-512 sweep pass. Official-Harness Terminal-Bench is not scored because persistent TT firmware initialization failure blocked v27 before model load; the superseded Terminus/DSML score is 0.000. No GitHub or Hugging Face write was performed.</footer>
+</main></body></html>

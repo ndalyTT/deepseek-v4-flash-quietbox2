@@ -1,0 +1,99 @@
+{
+    "schema_version": 3,
+    "created_at": "2026-08-27T10:47:21.445382Z",
+    "harbor": {
+        "version": "0.22.0",
+        "git_commit_hash": "6ecebe4ae9910ee0b28a2e6e8fa30934c0b41dfa",
+        "is_editable": true
+    },
+    "n_concurrent_trials": 1,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "ModelNotFoundError",
+            "VerifierOutputParseError",
+            "ApiUsageLimitError",
+            "VerifierTimeoutError",
+            "AgentTimeoutError",
+            "RewardFileEmptyError",
+            "AgentAuthenticationError",
+            "RewardFileNotFoundError",
+            "AgentSafetyRefusalError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "schema_version": 2,
+            "task": {
+                "name": "terminal-bench/write-compressor",
+                "type": "package",
+                "digest": "sha256:d9ddd9a8e925e2c566b37b2492cbf995afecefe58874e4043ef78d7f3c892c7e",
+                "source": "terminal-bench/terminal-bench-2-1"
+            },
+            "install_only": false,
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "name": "terminus-2",
+                "model_name": "openai/deepseek-ai/DeepSeek-V4-Flash-0731",
+                "skills": [],
+                "resume_trajectory": false,
+                "extra_allowed_hosts": [],
+                "kwargs": {
+                    "api_base": "http://127.0.0.1:8010/v1",
+                    "parser_name": "json",
+                    "prompt_template_path": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/agents/terminus_2/templates/terminus-deepseek-native.txt",
+                    "max_turns": 30,
+                    "suppress_max_turns_warning": true,
+                    "max_consecutive_identical_commands": 3,
+                    "reject_repeated_commands": true,
+                    "temperature": 0.0,
+                    "reasoning_effort": "none",
+                    "enable_summarize": false,
+                    "store_all_messages": true,
+                    "record_terminal_session": true,
+                    "model_info": {
+                        "max_tokens": 131072,
+                        "max_input_tokens": 130048,
+                        "max_output_tokens": 256,
+                        "input_cost_per_token": 0.0,
+                        "output_cost_per_token": 0.0
+                    },
+                    "llm_kwargs": {
+                        "max_tokens": 256,
+                        "early_stop_balanced_json": true,
+                        "deepseek_v4_encoding_file": "/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731/encoding/encoding_dsv4.py",
+                        "deepseek_v4_native_terminal_tools": true,
+                        "deepseek_v4_action_task": true,
+                        "timeout": 12000
+                    },
+                    "llm_call_kwargs": {
+                        "extra_body": {
+                            "top_p": 1.0,
+                            "top_k": 1
+                        }
+                    }
+                },
+                "mcp_servers": []
+            },
+            "bridge_inputs": {},
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "cpu_enforcement_policy": "auto",
+                "memory_enforcement_policy": "auto",
+                "extra_docker_compose": [],
+                "kwargs": {},
+                "extra_allowed_hosts": []
+            },
+            "verifier": {
+                "disable": false,
+                "environment_mode": "shared"
+            }
+        }
+    ]
+}

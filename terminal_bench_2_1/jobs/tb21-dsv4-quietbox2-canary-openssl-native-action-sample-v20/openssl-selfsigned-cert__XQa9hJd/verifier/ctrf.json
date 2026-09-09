@@ -1,0 +1,86 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 2,
+            "failed": 4,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1787842317.1075714,
+            "stop": 1787842317.1591182
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_directory_structure",
+                "status": "passed",
+                "duration": 0.00025577982887625694,
+                "start": 1787842317.1451645,
+                "stop": 1787842317.1455562,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_key_file",
+                "status": "passed",
+                "duration": 0.003240178106352687,
+                "start": 1787842317.1456535,
+                "stop": 1787842317.149006,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_certificate_file",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0002617709105834365,
+                "start": 1787842317.1491024,
+                "stop": 1787842317.1549273,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_certificate_file():\n        \"\"\"Test that the certificate file exists with correct attributes.\"\"\"\n        cert_file = \"/app/ssl/server.crt\"\n>       assert os.path.exists(cert_file), \"Certificate file does not exist\"\nE       AssertionError: Certificate file does not exist\nE       assert False\nE        +  where False = <function exists at 0x70458ab13100>('/app/ssl/server.crt')\nE        +    where <function exists at 0x70458ab13100> = <module 'posixpath' (frozen)>.exists\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:37: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_combined_pem_file",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.00021140521857887506,
+                "start": 1787842317.1550243,
+                "stop": 1787842317.1563542,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_combined_pem_file():\n        \"\"\"Test that the combined PEM file exists with both key and certificate.\"\"\"\n        pem_file = \"/app/ssl/server.pem\"\n>       assert os.path.exists(pem_file), \"Combined PEM file does not exist\"\nE       AssertionError: Combined PEM file does not exist\nE       assert False\nE        +  where False = <function exists at 0x70458ab13100>('/app/ssl/server.pem')\nE        +    where <function exists at 0x70458ab13100> = <module 'posixpath' (frozen)>.exists\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:87: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_verification_file",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.00019180693197995424,
+                "start": 1787842317.1564488,
+                "stop": 1787842317.1577017,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_verification_file():\n        \"\"\"Test that the verification file exists with correct content.\"\"\"\n        verification_file = \"/app/ssl/verification.txt\"\n>       assert os.path.exists(verification_file), \"Verification file does not exist\"\nE       AssertionError: Verification file does not exist\nE       assert False\nE        +  where False = <function exists at 0x70458ab13100>('/app/ssl/verification.txt')\nE        +    where <function exists at 0x70458ab13100> = <module 'posixpath' (frozen)>.exists\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:108: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_python_verification_script",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.00019002310000360012,
+                "start": 1787842317.1577854,
+                "stop": 1787842317.1590307,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_python_verification_script():\n        \"\"\"Test that the Python verification script exists and works correctly.\"\"\"\n        script_path = \"/app/check_cert.py\"\n>       assert os.path.exists(script_path), \"Python verification script does not exist\"\nE       AssertionError: Python verification script does not exist\nE       assert False\nE        +  where False = <function exists at 0x70458ab13100>('/app/check_cert.py')\nE        +    where <function exists at 0x70458ab13100> = <module 'posixpath' (frozen)>.exists\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:142: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

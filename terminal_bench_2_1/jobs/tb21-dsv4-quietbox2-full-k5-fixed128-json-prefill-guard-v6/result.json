@@ -1,0 +1,81 @@
+{
+    "id": "f046d3cf-9f0c-4113-88bd-952908d79871",
+    "started_at": "2026-08-25T23:16:43.942099",
+    "updated_at": "2026-08-26T04:03:05.052245Z",
+    "finished_at": null,
+    "n_total_trials": 445,
+    "stats": {
+        "n_completed_trials": 33,
+        "n_errored_trials": 5,
+        "n_running_trials": 0,
+        "n_pending_trials": 412,
+        "n_cancelled_trials": 1,
+        "n_retries": 0,
+        "evals": {
+            "terminus-2__deepseek-ai/DeepSeek-V4-Flash-0731__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 31,
+                "n_errors": 5,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "write-compressor__8kan7tC",
+                            "torch-tensor-parallelism__WUg5Gfc",
+                            "schemelike-metacircular-eval__L3RhAR4",
+                            "kv-store-grpc__TxXCTt7",
+                            "pypi-server__SSA67V5",
+                            "dna-assembly__K4e6CHB",
+                            "torch-pipeline-parallelism__nBhAbDQ",
+                            "qemu-alpine-ssh__kjLG92x",
+                            "openssl-selfsigned-cert__2JhERn4",
+                            "regex-chess__aN7xePQ",
+                            "log-summary-date-ranges__F7Fujzm",
+                            "model-extraction-relu-logits__aGJvKCQ",
+                            "path-tracing__GR3FjE6",
+                            "regex-log__Y4b6c4Z",
+                            "caffe-cifar-10__fVPpNzN",
+                            "mteb-leaderboard__W3w4ZZe",
+                            "llm-inference-batching-scheduler__Lg5fxFm",
+                            "pytorch-model-recovery__euaYL4f",
+                            "circuit-fibsqrt__e3wkMva",
+                            "merge-diff-arc-agi-task__J7Ln6bj",
+                            "build-pov-ray__XdqB3rF",
+                            "cobol-modernization__i5RM6J5",
+                            "mcmc-sampling-stan__brYGT7Z",
+                            "gpt2-codegolf__nQEFbiF",
+                            "filter-js-from-html__AC5MJZg",
+                            "sam-cell-seg__rLNHiz3",
+                            "mteb-retrieve__zRXPdEz",
+                            "adaptive-rejection-sampler__CM8gfoF",
+                            "vulnerable-secret__vEoAbWn",
+                            "nginx-request-logging__5P39y5n",
+                            "make-doom-for-mips__aFMkp3w"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "regex-chess__aN7xePQ",
+                        "llm-inference-batching-scheduler__Lg5fxFm",
+                        "filter-js-from-html__AC5MJZg"
+                    ],
+                    "RuntimeError": [
+                        "extract-elf__c2K9Kxr"
+                    ],
+                    "CancelledError": [
+                        "configure-git-webserver__vFkYDqv"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 0,
+        "cost_usd": null
+    }
+}

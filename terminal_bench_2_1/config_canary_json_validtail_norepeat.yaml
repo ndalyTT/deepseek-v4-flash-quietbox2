@@ -1,0 +1,48 @@
+job_name: tb21-dsv4-quietbox2-canary-json-validtail-norepeat-v10
+jobs_dir: /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs
+n_attempts: 1
+timeout_multiplier: 1.0
+n_concurrent_trials: 1
+quiet: false
+retry:
+  max_retries: 0
+environment:
+  type: docker
+  force_build: false
+  delete: true
+agents:
+  - name: terminus-2
+    model_name: openai/deepseek-ai/DeepSeek-V4-Flash-0731
+    kwargs:
+      api_base: http://127.0.0.1:8010/v1
+      parser_name: json
+      prompt_template_path: /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/agents/terminus_2/templates/terminus-deepseek-json-actionfirst.txt
+      max_turns: 30
+      suppress_max_turns_warning: true
+      max_consecutive_identical_commands: 3
+      reject_repeated_commands: true
+      temperature: 0.0
+      reasoning_effort: none
+      enable_summarize: false
+      store_all_messages: true
+      record_terminal_session: true
+      model_info:
+        max_tokens: 131072
+        max_input_tokens: 130048
+        max_output_tokens: 128
+        input_cost_per_token: 0.0
+        output_cost_per_token: 0.0
+      llm_kwargs:
+        max_tokens: 128
+        early_stop_balanced_json: true
+        deepseek_v4_encoding_file: /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731/encoding/encoding_dsv4.py
+        text_completion_prefill: '{"commands":[{"keystrokes":"'
+        timeout: 12000
+      llm_call_kwargs:
+        extra_body:
+          top_p: 1.0
+          top_k: 1
+datasets:
+  - name: terminal-bench/terminal-bench-2-1
+    ref: sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a
+    n_tasks: 1

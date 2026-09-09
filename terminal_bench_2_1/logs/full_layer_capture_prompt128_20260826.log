@@ -1,0 +1,110 @@
+Script started on 2026-08-26 16:40:34+00:00 [COMMAND="python_env/bin/python models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py --checkpoint /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731 --artifact-json models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/full_model/selective_bfp4_streamwise_grouped_split_layer_capture_prompt128_20260826.json --layers all --max-context 131072 --prompt-token-limit 128 --trace-replays 0 --deployment-mode quietbox2_selective_bfp4 --capture-layer-states models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/full_model/selective_bfp4_streamwise_grouped_split_layer_capture_prompt128_20260826.pt" <not executed on terminal>]
+[32m2026-08-26 16:40:36.828[0m | [34m[1mDEBUG   [0m | [36mttnn[0m:[36m<module>[0m:[36m78[0m - [34m[1mInitial ttnn.CONFIG:
+Config{cache_path=/home/ttuser/.cache/ttnn,model_cache_path=/home/ttuser/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,validate_program_args=false,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_graph_python_stack_traces=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}[0m
+[90m2026-08-26 16:40:37.284[0m | [32minfo    [m | [35m          Metal[0m | [37mDisabling two-erisc fabric mode with TT_METAL_DISABLE_FABRIC_TWO_ERISC[0m [90m(rtoptions.cpp:744)[0m
+[90m2026-08-26 16:40:37.284[0m | [32minfo    [m | [35m         Device[0m | [37mOpening user mode device driver[0m [90m(tt_cluster.cpp:227)[0m
+[90m2026-08-26 16:40:37.284[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor started.[0m [90m(cluster.cpp:389)[0m
+[90m2026-08-26 16:40:37.284[0m | [32minfo    [m | [35m            UMD[0m | [37mCreating TopologyDiscovery for architecture: blackhole[0m [90m(topology_discovery.cpp:96)[0m
+[90m2026-08-26 16:40:37.284[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting topology discovery.[0m [90m(topology_discovery.cpp:115)[0m
+[90m2026-08-26 16:40:37.296[0m | [32minfo    [m | [35m            UMD[0m | [37mEstablished firmware bundle version: 19.11.0[0m [90m(topology_discovery.cpp:575)[0m
+[90m2026-08-26 16:40:37.296[0m | [32minfo    [m | [35m            UMD[0m | [37mCompleted topology discovery.[0m [90m(topology_discovery.cpp:119)[0m
+[90m2026-08-26 16:40:37.379[0m | [32minfo    [m | [35m            UMD[0m | [37mOpening local chip ids/PCIe ids: {0, 1, 2, 3}/[0, 1, 2, 3] and remote chip ids {}[0m [90m(cluster.cpp:173)[0m
+[90m2026-08-26 16:40:37.379[0m | [32minfo    [m | [35m            UMD[0m | [37mIOMMU: enabled[0m [90m(cluster.cpp:147)[0m
+[90m2026-08-26 16:40:37.379[0m | [32minfo    [m | [35m            UMD[0m | [37mKMD version: 2.9.0[0m [90m(cluster.cpp:150)[0m
+[90m2026-08-26 16:40:37.379[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor completed.[0m [90m(cluster.cpp:648)[0m
+[90m2026-08-26 16:40:37.381[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster[0m [90m(cluster.cpp:1188)[0m
+[90m2026-08-26 16:40:37.639[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster completed.[0m [90m(cluster.cpp:1196)[0m
+[90m2026-08-26 16:40:38.674[0m | [32minfo    [m | [35m    Distributed[0m | [37mUsing auto discovery to generate mesh graph.[0m [90m(metal_env.cpp:424)[0m
+[90m2026-08-26 16:40:38.674[0m | [32minfo    [m | [35m    Distributed[0m | [37mConstructing control plane using auto-discovery (no mesh graph descriptor).[0m [90m(metal_env.cpp:486)[0m
+[90m2026-08-26 16:40:38.674[0m | [33m[1mwarning [m | [35m         Always[0m | [37mUnknown motherboard 'B850M-C' for chip_id=2 (bus_id=0x3) — falling back to bus_id as tray_id. Add this motherboard and its bus IDs to mobo_to_bus_ids in physical_system_discovery.cpp.[0m [90m(physical_system_discovery.cpp:119)[0m
+[90m2026-08-26 16:40:38.674[0m | [32minfo    [m | [35m         Fabric[0m | [37mLogical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3341)[0m
+[90m2026-08-26 16:40:38.674[0m | [32minfo    [m | [35m         Fabric[0m | [37mPhysical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3349)[0m
+[90m2026-08-26 16:40:38.718[0m | [32minfo    [m | [35m          Metal[0m | [37mInitializing Fabric[0m [90m(fabric_firmware_initializer.cpp:296)[0m
+[90m2026-08-26 16:40:38.737[0m | [32minfo    [m | [35m          Metal[0m | [37mFabric initialized on 4 devices[0m [90m(fabric_firmware_initializer.cpp:444)[0m
+[90m2026-08-26 16:40:38.737[0m | [32minfo    [m | [35m          Metal[0m | [37mFabric Initialized with config FabricConfig::FABRIC_1D_RING[0m [90m(fabric_firmware_initializer.cpp:313)[0m
+FULL_MODEL_RESIDENCY layers=43 build_seconds=1512.781 allocated_gib=30.909090 free_gib=0.672334
+[90m2026-08-26 17:05:52.869[0m | [33m[1mwarning [m | [35m             Op[0m | [37mThe following ttnn.all_gather args are deprecated and will be removed in September-2026: num_links, topology, chunks_per_sync, num_workers_per_link, num_buffers_per_channel, use_l1_small_for_semaphores.[0m [90m(all_gather.cpp:148)[0m
+[90m2026-08-26 17:05:56.884[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_FATAL: Out of Memory: Not enough space to allocate 67108864 B DRAM buffer across 8 banks, where each bank needs to store 8388608 B, but bank size is 4238786944 B (allocated: 4230247936 B, free: 8539008 B, largest free block: 4194304 B)[0m [90m(assert.hpp:104)[0m
+Traceback (most recent call last):
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py", line 344, in <module>
+    finally:
+^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py", line 185, in main
+    generator = Generator(model, allow_reduced_probe=model.reduced_probe)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tt/model.py", line 772, in prefill_forward
+    logits_by_slot[lane.slot] = self.terminal_logits(hidden, last_token_only=not return_all_logits)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tt/model.py", line 702, in terminal_logits
+    return self.lm_head.forward(hidden)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/common/modules/lm_head/lm_head_1d.py", line 126, in forward
+    self.load_device_weights()
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/common/modules/lm_head/lm_head_1d.py", line 113, in load_device_weights
+    self.output_weights = [w.get_device_weight() for w in self.config.output_weights]
+                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/common/modules/lazy_weight.py", line 139, in get_device_weight
+    self._value = _from_torch_and_dump(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/common/modules/lazy_weight.py", line 315, in _from_torch_and_dump
+    return ttnn.from_torch(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/decorators.py", line 728, in __call__
+    result = self.function(*function_args, **function_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/operations/core.py", line 370, in from_torch
+    return ttnn.Tensor(
+           ^^^^^^^^^^^^
+RuntimeError: TT_FATAL @ /home/ttuser/deepseekv4flash/tt-metal/tt_metal/impl/allocator/bank_manager.cpp:462: false
+info:
+Out of Memory: Not enough space to allocate 67108864 B DRAM buffer across 8 banks, where each bank needs to store 8388608 B, but bank size is 4238786944 B (allocated: 4230247936 B, free: 8539008 B, largest free block: 4194304 B)
+backtrace:
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(+0x9ba231) [0x77e0081ba231]
+ --- tt::tt_metal::BankManager::allocate_buffer(unsigned long, unsigned long, bool, tt::tt_metal::CoreRangeSet const&, std::optional<unsigned int>, ttsl::StrongType<unsigned int, tt::tt_metal::AllocatorIDTag>, std::vector<std::pair<unsigned long, unsigned long>, std::allocator<std::pair<unsigned long, unsigned long> > > const&)
+ --- tt::tt_metal::AllocatorImpl::allocate_buffer(tt::tt_metal::Buffer*)
+ --- tt::tt_metal::Buffer::allocate_impl()
+ --- tt::tt_metal::Buffer::create(tt::tt_metal::IDevice*, unsigned long, unsigned long, tt::tt_metal::BufferType, tt::tt_metal::BufferShardingArgs const&, std::optional<bool>, std::optional<ttsl::StrongType<unsigned char, tt::tt_metal::SubDeviceIdTag> >)
+ --- tt::tt_metal::distributed::MeshBuffer::create(std::variant<tt::tt_metal::distributed::ReplicatedBufferConfig, tt::tt_metal::distributed::ShardedBufferConfig> const&, tt::tt_metal::distributed::DeviceLocalBufferConfig const&, tt::tt_metal::distributed::MeshDevice*, std::optional<unsigned long>)
+ --- tt::tt_metal::tensor_impl::allocate_device_buffer(tt::tt_metal::distributed::MeshDevice*, tt::tt_metal::TensorSpec const&)
+ --- tt::tt_metal::allocate_mesh_tensor_on_device_with_topology(tt::tt_metal::distributed::MeshDevice&, tt::tt_metal::TensorSpec, tt::tt_metal::TensorTopology)
+ --- ttnn::create_device_tensor(tt::tt_metal::TensorSpec const&, tt::tt_metal::distributed::MeshDevice*, std::optional<tt::tt_metal::TensorTopology>)
+ --- ttnn::prim::TilizeDeviceOperation::create_output_tensors(ttnn::prim::TilizeParams const&, ttnn::prim::TilizeInputs const&)
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(_ZN4ttnn16device_operation6detail6launchITkNS0_22DeviceOperationConceptENS_4prim21TilizeDeviceOperationEEENT_21tensor_return_value_tERKNS5_22operation_attributes_tERKNS5_13tensor_args_tE+0x11d) [0x77e009a0ecfd]
+ --- ttnn::prim::tilize(ttnn::Tensor const&, std::optional<tt::tt_metal::MemoryConfig> const&, std::optional<tt::tt_metal::DataType> const&, bool, bool, bool, tt::tt_metal::Tile const&, std::optional<tt::tt_metal::CoreRangeSet> const&)
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(+0xbe0739) [0x77e0099e0739]
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(+0xb4c7cb) [0x77e00994c7cb]
+ --- ttnn::tilize(ttnn::Tensor const&, std::optional<tt::tt_metal::MemoryConfig> const&, std::optional<tt::tt_metal::DataType>, bool, bool, tt::tt_metal::Tile, std::optional<tt::tt_metal::CoreRangeSet> const&)
+ --- ttnn::to_layout(ttnn::Tensor const&, tt::tt_metal::Layout, std::optional<tt::tt_metal::DataType> const&, std::optional<tt::tt_metal::MemoryConfig> const&, std::optional<tt::tt_metal::CoreRangeSet> const&, float)
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(+0x1f4acd3) [0x77e00ad4acd3]
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(_ZN4ttnn34convert_python_tensor_to_tt_tensorERKN2tt8tt_metal5ShapeENS1_8DataTypeENS1_6LayoutERKSt8optionalINS1_4TileEERKNS1_12MemoryConfigENS_7PyDTypeERKSt8functionIFNS1_10HostBufferES5_EES7_IPNS1_11distributed10MeshDeviceEES7_IN4ttsl10StrongTypeIhNS_10QueueIdTagEEEEPKNS_11distributed12TensorToMeshES7_IfEbbb+0xe04) [0x77e00ad47b94]
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x83363b) [0x77e00be3363b]
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x83323d) [0x77e00be3323d]
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x366f44) [0x77e00b966f44]
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x36db6c) [0x77e00b96db6c]
+ --- python_env/bin/python(_PyEval_EvalFrameDefault+0x1c17) [0x18152d7]
+ --- python_env/bin/python() [0x1ab4762]
+ --- python_env/bin/python() [0x18a1ef2]
+ --- python_env/bin/python(_PyEval_EvalFrameDefault+0x1a8c) [0x181514c]
+ --- python_env/bin/python(PyEval_EvalCode+0xde) [0x189efa0]
+ --- python_env/bin/python() [0x18af2c9]
+ --- python_env/bin/python() [0x19f7ec5]
+ --- python_env/bin/python(_PyRun_SimpleFileObject+0x106) [0x19f7906]
+ --- python_env/bin/python(_PyRun_AnyFileObject+0x4a) [0x19f768a]
+ --- python_env/bin/python() [0x19f7610]
+ --- python_env/bin/python() [0x19f751d]
+ --- python_env/bin/python() [0x1ad74a3]
+ --- python_env/bin/python() [0x198135f]
+ --- python_env/bin/python() [0x198116c]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x77e09a42a1ca]
+ --- /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b) [0x77e09a42a28b]
+ --- python_env/bin/python(_start+0x29) [0x19aaa29]
+
+[90m2026-08-26 17:05:57.879[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT cache stats: 1058/1058 hits (100.0%) [1058 cached, 803 build-once dedup, 0 merged artifacts, 0 merged genfiles][0m [90m(build_cache_telemetry.cpp:207)[0m
+[90m2026-08-26 17:05:57.879[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT telemetry: 3 registered TelemetryTokens[0m [90m(build_cache_telemetry.cpp:230)[0m
+[90m2026-08-26 17:05:57.901[0m | [32minfo    [m | [35m         Device[0m | [37mClosing user mode device drivers[0m [90m(tt_cluster.cpp:547)[0m
+[90m2026-08-26 17:05:57.901[0m | [32minfo    [m | [35m            UMD[0m | [37mClosing devices in cluster[0m [90m(cluster.cpp:1201)[0m
+[90m2026-08-26 17:05:58.457[0m | [32minfo    [m | [35m            UMD[0m | [37mClosing devices in cluster completed.[0m [90m(cluster.cpp:1210)[0m
+[90m2026-08-26 17:05:58.457[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster destructor started.[0m [90m(cluster.cpp:916)[0m
+[90m2026-08-26 17:05:58.457[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster destructor completed.[0m [90m(cluster.cpp:919)[0m
+
+Script done on 2026-08-26 17:05:58+00:00 [COMMAND_EXIT_CODE="1"]

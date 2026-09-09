@@ -1,0 +1,57 @@
+01:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+	Subsystem: Tenstorrent Inc Blackhole
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 64 bytes
+	Interrupt: pin A routed to IRQ 102
+	IOMMU group: 14
+	Region 0: Memory at f800000000 (64-bit, prefetchable) [size=512M]
+	Region 2: Memory at f820000000 (64-bit, prefetchable) [size=1M]
+	Region 4: Memory at f000000000 (64-bit, prefetchable) [size=32G]
+	Capabilities: <access denied>
+	Kernel driver in use: tenstorrent
+	Kernel modules: tenstorrent
+
+02:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+	Subsystem: Tenstorrent Inc Blackhole
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 64 bytes
+	Interrupt: pin A routed to IRQ 104
+	IOMMU group: 15
+	Region 0: Memory at e800000000 (64-bit, prefetchable) [size=512M]
+	Region 2: Memory at e820000000 (64-bit, prefetchable) [size=1M]
+	Region 4: Memory at e000000000 (64-bit, prefetchable) [size=32G]
+	Capabilities: <access denied>
+	Kernel driver in use: tenstorrent
+	Kernel modules: tenstorrent
+
+03:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+	Subsystem: Tenstorrent Inc Blackhole
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 64 bytes
+	Interrupt: pin A routed to IRQ 106
+	IOMMU group: 16
+	Region 0: Memory at d800000000 (64-bit, prefetchable) [size=512M]
+	Region 2: Memory at d820000000 (64-bit, prefetchable) [size=1M]
+	Region 4: Memory at d000000000 (64-bit, prefetchable) [size=32G]
+	Capabilities: <access denied>
+	Kernel driver in use: tenstorrent
+	Kernel modules: tenstorrent
+
+04:00.0 Processing accelerators: Tenstorrent Inc Blackhole
+	Subsystem: Tenstorrent Inc Blackhole
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 64 bytes
+	Interrupt: pin A routed to IRQ 110
+	IOMMU group: 17
+	Region 0: Memory at c800000000 (64-bit, prefetchable) [size=512M]
+	Region 2: Memory at c820000000 (64-bit, prefetchable) [size=1M]
+	Region 4: Memory at c000000000 (64-bit, prefetchable) [size=32G]
+	Capabilities: <access denied>
+	Kernel driver in use: tenstorrent
+	Kernel modules: tenstorrent
+
+

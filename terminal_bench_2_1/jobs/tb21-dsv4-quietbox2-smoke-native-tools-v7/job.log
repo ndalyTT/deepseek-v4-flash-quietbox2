@@ -1,0 +1,43 @@
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-native-tools-v7/write-compressor__tEoBufQ/agent/trajectory.json
+Trial write-compressor__tEoBufQ failed: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Collecting main service artifacts
+Not retrying trial because the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-native-tools-v7/torch-tensor-parallelism__iTGuGhH/agent/trajectory.json
+Trial torch-tensor-parallelism__iTGuGhH failed: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Collecting main service artifacts
+Not retrying trial because the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-native-tools-v7/schemelike-metacircular-eval__pzzSFxh/agent/trajectory.json
+Trial schemelike-metacircular-eval__pzzSFxh failed: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Collecting main service artifacts
+Cleanup interrupted for schemelike-metacircular-eval__pzzSFxh, but agent environment stop is shielded and will complete
+Not retrying trial because the maximum number of retries has been reached

@@ -1,0 +1,46 @@
+{
+    "task": {
+        "name": "terminal-bench/schemelike-metacircular-eval",
+        "ref": "sha256:58130c2166c3115276dc8592f358e326ff2d81ea852e3d88636c82fd1dff57e6",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "schemelike-metacircular-eval__pzzSFxh",
+    "trials_dir": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-native-tools-v7",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "kwargs": {
+            "api_base": "http://127.0.0.1:8010/v1",
+            "parser_name": "json",
+            "max_turns": 30,
+            "suppress_max_turns_warning": true,
+            "max_consecutive_identical_commands": 3,
+            "temperature": 0.0,
+            "reasoning_effort": "none",
+            "enable_summarize": false,
+            "store_all_messages": true,
+            "record_terminal_session": true,
+            "model_info": {
+                "max_tokens": 131072,
+                "max_input_tokens": 130048,
+                "max_output_tokens": 128,
+                "input_cost_per_token": 0.0,
+                "output_cost_per_token": 0.0
+            },
+            "llm_kwargs": {
+                "max_tokens": 128,
+                "early_stop_balanced_json": true,
+                "deepseek_v4_encoding_file": "/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731/encoding/encoding_dsv4.py",
+                "deepseek_v4_native_terminal_tools": true,
+                "timeout": 12000
+            },
+            "llm_call_kwargs": {
+                "extra_body": {
+                    "top_p": 1.0,
+                    "top_k": 1
+                }
+            }
+        }
+    },
+    "job_id": "6050c9df-cb46-47cb-acfd-39eaff5ea0cb"
+}

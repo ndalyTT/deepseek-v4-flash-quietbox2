@@ -1,0 +1,49 @@
+{
+  "shard": "/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731-REAP/model-00010-of-00048.safetensors",
+  "tensor_prefix": "layers.8.ffn.experts.0.w1",
+  "source_weight_shape": [
+    2048,
+    4096
+  ],
+  "source_packed_bytes": 4456448,
+  "linear_batch": 16,
+  "seed": 19,
+  "formats": {
+    "bfp4_b": {
+      "packed_bytes": 4718592,
+      "bytes_per_weight": 0.5625,
+      "weight": {
+        "pcc": 0.9938881993293762,
+        "nmse": 0.012616517022252083,
+        "rmse": 0.002770185237750411,
+        "mean_absolute_error": 0.0009954473935067654,
+        "max_absolute_error": 0.015625
+      },
+      "linear_output": {
+        "pcc": 0.9938156008720398,
+        "nmse": 0.012710707262158394,
+        "rmse": 0.1793796718120575,
+        "mean_absolute_error": 0.1425858587026596,
+        "max_absolute_error": 0.7577833533287048
+      }
+    },
+    "bfp2_b": {
+      "packed_bytes": 2621440,
+      "bytes_per_weight": 0.3125,
+      "weight": {
+        "pcc": 0.8457962274551392,
+        "nmse": 0.2863617241382599,
+        "rmse": 0.013197648338973522,
+        "mean_absolute_error": 0.010169420391321182,
+        "max_absolute_error": 0.0625
+      },
+      "linear_output": {
+        "pcc": 0.8459168672561646,
+        "nmse": 0.2858620584011078,
+        "rmse": 0.8506808280944824,
+        "mean_absolute_error": 0.6769335269927979,
+        "max_absolute_error": 3.7531867027282715
+      }
+    }
+  }
+}

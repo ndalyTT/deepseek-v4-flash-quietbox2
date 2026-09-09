@@ -1,0 +1,9 @@
+{
+    "task": {
+        "path": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/dataset/tasks/query-optimize",
+        "source": "tasks"
+    },
+    "trial_name": "query-optimize__AdhBKsG",
+    "trials_dir": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-oracle-environment-smoke",
+    "job_id": "17172c3f-4f73-4d5e-b6cf-3a6e39943edf"
+}

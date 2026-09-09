@@ -1,0 +1,6 @@
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-native-tools-v7/torch-tensor-parallelism__iTGuGhH/agent/trajectory.json
+Trial torch-tensor-parallelism__iTGuGhH failed: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Collecting main service artifacts

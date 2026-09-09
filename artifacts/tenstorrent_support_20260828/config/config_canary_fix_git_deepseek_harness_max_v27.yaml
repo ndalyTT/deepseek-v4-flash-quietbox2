@@ -1,0 +1,43 @@
+job_name: tb21-dsv4-quietbox2-canary-fix-git-deepseek-harness-max-v27
+jobs_dir: /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs
+n_attempts: 1
+timeout_multiplier: 1.0
+n_concurrent_trials: 1
+quiet: false
+retry:
+  max_retries: 0
+environment:
+  type: docker
+  force_build: false
+  delete: true
+  mounts:
+    - type: bind
+      source: /home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_toolchain
+      target: /opt/deepseek-harness-toolchain
+      read_only: true
+    - type: bind
+      source: /home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_profile
+      target: /opt/deepseek-harness-profile
+      read_only: true
+    - type: bind
+      source: /home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_container_bridge.js
+      target: /opt/deepseek-harness-container-bridge.js
+      read_only: true
+    - type: bind
+      source: /home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_runtime
+      target: /opt/deepseek-relay-runtime
+      read_only: true
+agents:
+  - import_path: deepseek_harness_agent_unix:DeepSeekHarnessUnixEvalAgent
+    model_name: deepseek-official/deepseek-v4-flash
+    override_timeout_sec: 14400
+    override_setup_timeout_sec: 600
+    include_logs:
+      - deepseek-harness.txt
+      - deepseek-harness-config.json
+      - deepseek-relay-bridge.txt
+      - dsh-sessions/**
+datasets:
+  - path: /home/ttuser/deepseekv4flash/terminal_bench_2_1/dataset/tasks
+    task_names:
+      - fix-git

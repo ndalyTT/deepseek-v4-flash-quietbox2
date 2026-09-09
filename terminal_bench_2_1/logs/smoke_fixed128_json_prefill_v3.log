@@ -1,0 +1,2 @@
+warning: `VIRTUAL_ENV=/home/ttuser/.tenstorrent-venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+[92m22:32:55 - LiteLLM:WARNING[0m: utils.py:2730 - register_model: model=openai/deepseek-ai/DeepSeek-V4-Flash-0731 not in built-in cost map and no prefix/region variant matched; cache cost fields will default to 0. To track cache cost, add cache_creation_input_token_cost and cache_read_input_token_cost to model_info

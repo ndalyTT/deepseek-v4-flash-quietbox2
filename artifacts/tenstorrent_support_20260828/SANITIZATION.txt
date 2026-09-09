@@ -1,0 +1,18 @@
+Sanitization performed: 2026-08-28 UTC
+
+The assembled bundle was scanned case-insensitively for credential-like strings,
+including API-key names, access-token names, Authorization/Bearer values,
+password/secret assignments, HF/GitHub token names, and sk-* token forms.
+
+Result: no matches.
+
+Intentionally excluded:
+- model weights and tokenizer assets;
+- evaluation task data, trajectories, prompts, and model responses;
+- relay logs, relay socket contents, and bearer-token configuration;
+- process environments, shell history, credentials, and .env files;
+- caches, build trees, core dumps, and unrelated development artifacts;
+- full source trees and unrelated benchmark outputs.
+
+Included local paths, host name, board identifiers, PCI BDFs, repository commits,
+and runtime hashes are intentional because they are needed for diagnosis.

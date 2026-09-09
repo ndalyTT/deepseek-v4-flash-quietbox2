@@ -1,0 +1,1003 @@
+Script started on 2026-08-27 11:10:53+00:00 [COMMAND="env OPENAI_API_KEY=EMPTY uv run harbor run --config /home/ttuser/deepseekv4flash/terminal_bench_2_1/config_canary_openssl_native_action.yaml --yes" TERM="dumb" TTY="/dev/pts/6" COLUMNS="80" LINES="24"]
+warning: `VIRTUAL_ENV=/home/ttuser/.tenstorrent-venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/cli/jobs.p │
+│ y:1995 in start                                                              │
+│                                                                              │
+│   1992 │   # (when --upload is set) so everything stays on one event loop. S │
+│   1993 │   # the long comment in `HarborHubUploadPlugin.on_job_end` for why  │
+│   1994 │   try:                                                              │
+│ ❱ 1995 │   │   job, job_result = run_async(_run_job())                       │
+│   1996 │   except DATASET_RESOLUTION_ERRORS as exc:                          │
+│   1997 │   │   abort_dataset_resolution(console, exc, "No job was started.") │
+│   1998                                                                       │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │                         agent_env = None                                 │ │
+│ │                agent_exclude_logs = None                                 │ │
+│ │                 agent_import_path = None                                 │ │
+│ │                agent_include_logs = None                                 │ │
+│ │                      agent_kwargs = None                                 │ │
+│ │                        agent_name = None                                 │ │
+│ │    agent_setup_timeout_multiplier = None                                 │ │
+│ │          agent_timeout_multiplier = None                                 │ │
+│ │                 allow_agent_hosts = None                                 │ │
+│ │           allow_environment_hosts = None                                 │ │
+│ │                    artifact_paths = None                                 │ │
+│ │                       base_config = JobConfig(                           │ │
+│ │                                     │                                    │ │
+│ │                                     job_name='tb21-dsv4-quietbox2-canar… │ │
+│ │                                     │                                    │ │
+│ │                                     jobs_dir=PosixPath('/home/ttuser/de… │ │
+│ │                                     │   n_attempts=1,                    │ │
+│ │                                     │   install_only=False,              │ │
+│ │                                     │   timeout_multiplier=1.0,          │ │
+│ │                                     │   agent_timeout_multiplier=None,   │ │
+│ │                                     │                                    │ │
+│ │                                     verifier_timeout_multiplier=None,    │ │
+│ │                                     │                                    │ │
+│ │                                     agent_setup_timeout_multiplier=None, │ │
+│ │                                     │                                    │ │
+│ │                                     environment_build_timeout_multiplie… │ │
+│ │                                     │   debug=False,                     │ │
+│ │                                     │   n_concurrent_trials=1,           │ │
+│ │                                     │   quiet=False,                     │ │
+│ │                                     │   retry=RetryConfig(               │ │
+│ │                                     │   │   max_retries=0,               │ │
+│ │                                     │   │   include_exceptions=None,     │ │
+│ │                                     │   │   exclude_exceptions={         │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'AgentSafetyRefusalError',           │ │
+│ │                                     │   │   │   'ModelNotFoundError',    │ │
+│ │                                     │   │   │   'ApiUsageLimitError',    │ │
+│ │                                     │   │   │   'VerifierTimeoutError',  │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'AgentAuthenticationError',          │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'VerifierOutputParseError',          │ │
+│ │                                     │   │   │   'RewardFileEmptyError',  │ │
+│ │                                     │   │   │   'AgentTimeoutError',     │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'RewardFileNotFoundError'            │ │
+│ │                                     │   │   },                           │ │
+│ │                                     │   │   wait_multiplier=1.0,         │ │
+│ │                                     │   │   min_wait_sec=1.0,            │ │
+│ │                                     │   │   max_wait_sec=60.0            │ │
+│ │                                     │   ),                               │ │
+│ │                                     │   environment=EnvironmentConfig(   │ │
+│ │                                     │   │                                │ │
+│ │                                     type=<EnvironmentType.DOCKER:        │ │
+│ │                                     'docker'>,                           │ │
+│ │                                     │   │   import_path=None,            │ │
+│ │                                     │   │   force_build=False,           │ │
+│ │                                     │   │   delete=True,                 │ │
+│ │                                     │   │                                │ │
+│ │                                     cpu_enforcement_policy=<ResourceMod… │ │
+│ │                                     'auto'>,                             │ │
+│ │                                     │   │                                │ │
+│ │                                     memory_enforcement_policy=<Resource… │ │
+│ │                                     'auto'>,                             │ │
+│ │                                     │   │   override_cpus=None,          │ │
+│ │                                     │   │   override_memory_mb=None,     │ │
+│ │                                     │   │   override_storage_mb=None,    │ │
+│ │                                     │   │   override_gpus=None,          │ │
+│ │                                     │   │   override_tpu=None,           │ │
+│ │                                     │   │                                │ │
+│ │                                     suppress_override_warnings=False,    │ │
+│ │                                     │   │   mounts=None,                 │ │
+│ │                                     │   │   extra_docker_compose=[],     │ │
+│ │                                     │   │   env={},                      │ │
+│ │                                     │   │   kwargs={},                   │ │
+│ │                                     │   │   extra_allowed_hosts=[]       │ │
+│ │                                     │   ),                               │ │
+│ │                                     │   verifier=VerifierConfig(         │ │
+│ │                                     │   │   override_timeout_sec=None,   │ │
+│ │                                     │   │   max_timeout_sec=None,        │ │
+│ │                                     │   │   include_logs=[],             │ │
+│ │                                     │   │   exclude_logs=[],             │ │
+│ │                                     │   │   env={},                      │ │
+│ │                                     │   │   import_path=None,            │ │
+│ │                                     │   │   kwargs={},                   │ │
+│ │                                     │   │   disable=False                │ │
+│ │                                     │   ),                               │ │
+│ │                                     │   metrics=[],                      │ │
+│ │                                     │   agents=[                         │ │
+│ │                                     │   │   AgentConfig(                 │ │
+│ │                                     │   │   │   name='terminus-2',       │ │
+│ │                                     │   │   │   import_path=None,        │ │
+│ │                                     │   │   │                            │ │
+│ │                                     model_name='openai/deepseek-ai/Deep… │ │
+│ │                                     │   │   │   n_concurrent=None,       │ │
+│ │                                     │   │   │   concurrency_group=None,  │ │
+│ │                                     │   │   │   skills=[],               │ │
+│ │                                     │   │   │                            │ │
+│ │                                     override_timeout_sec=None,           │ │
+│ │                                     │   │   │                            │ │
+│ │                                     override_setup_timeout_sec=None,     │ │
+│ │                                     │   │   │   max_timeout_sec=None,    │ │
+│ │                                     │   │   │   resume_trajectory=False, │ │
+│ │                                     │   │   │   load_trajectory=None,    │ │
+│ │                                     │   │   │   extra_allowed_hosts=[],  │ │
+│ │                                     │   │   │   include_logs=[],         │ │
+│ │                                     │   │   │   exclude_logs=[],         │ │
+│ │                                     │   │   │   kwargs={                 │ │
+│ │                                     │   │   │   │   'api_base':          │ │
+│ │                                     'http://127.0.0.1:8010/v1',          │ │
+│ │                                     │   │   │   │   'parser_name':       │ │
+│ │                                     'json',                              │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'prompt_template_path':              │ │
+│ │                                     '/home/ttuser/deepseekv4flash/termi… │ │
+│ │                                     │   │   │   │   'max_turns': 15,     │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'suppress_max_turns_warning': True,  │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'max_consecutive_identical_commands… │ │
+│ │                                     3,                                   │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'reject_repeated_commands': True,    │ │
+│ │                                     │   │   │   │   'temperature': 0.0,  │ │
+│ │                                     │   │   │   │   'reasoning_effort':  │ │
+│ │                                     'none',                              │ │
+│ │                                     │   │   │   │   'enable_summarize':  │ │
+│ │                                     False,                               │ │
+│ │                                     │   │   │   │   ... +5               │ │
+│ │                                     │   │   │   },                       │ │
+│ │                                     │   │   │   env={},                  │ │
+│ │                                     │   │   │   mcp_servers=[]           │ │
+│ │                                     │   │   )                            │ │
+│ │                                     │   ],                               │ │
+│ │                                     │   user_agent=None,                 │ │
+│ │                                     │   datasets=[                       │ │
+│ │                                     │   │   DatasetConfig(               │ │
+│ │                                     │   │   │                            │ │
+│ │                                     path=PosixPath('/home/ttuser/deepse… │ │
+│ │                                     │   │   │   name=None,               │ │
+│ │                                     │   │   │   version=None,            │ │
+│ │                                     │   │   │   ref=None,                │ │
+│ │                                     │   │   │   registry_url=None,       │ │
+│ │                                     │   │   │   registry_path=None,      │ │
+│ │                                     │   │   │   repo=None,               │ │
+│ │                                     │   │   │   overwrite=False,         │ │
+│ │                                     │   │   │   download_dir=None,       │ │
+│ │                                     │   │   │   task_names=None,         │ │
+│ │                                     │   │   │   exclude_task_names=None, │ │
+│ │                                     │   │   │   n_tasks=None             │ │
+│ │                                     │   │   )                            │ │
+│ │                                     │   ],                               │ │
+│ │                                     │   tasks=[],                        │ │
+│ │                                     │   artifacts=[],                    │ │
+│ │                                     │   extra_instruction_paths=[],      │ │
+│ │                                     │   extra_instructions=[],           │ │
+│ │                                     │   source_jobs=[]                   │ │
+│ │                                     )                                    │ │
+│ │                       bridge_kind = None                                 │ │
+│ │                     bridge_kwargs = None                                 │ │
+│ │                bridge_prompt_path = None                                 │ │
+│ │                            config = JobConfig(                           │ │
+│ │                                     │                                    │ │
+│ │                                     job_name='tb21-dsv4-quietbox2-canar… │ │
+│ │                                     │                                    │ │
+│ │                                     jobs_dir=PosixPath('/home/ttuser/de… │ │
+│ │                                     │   n_attempts=1,                    │ │
+│ │                                     │   install_only=False,              │ │
+│ │                                     │   timeout_multiplier=1.0,          │ │
+│ │                                     │   agent_timeout_multiplier=None,   │ │
+│ │                                     │                                    │ │
+│ │                                     verifier_timeout_multiplier=None,    │ │
+│ │                                     │                                    │ │
+│ │                                     agent_setup_timeout_multiplier=None, │ │
+│ │                                     │                                    │ │
+│ │                                     environment_build_timeout_multiplie… │ │
+│ │                                     │   debug=False,                     │ │
+│ │                                     │   n_concurrent_trials=1,           │ │
+│ │                                     │   quiet=False,                     │ │
+│ │                                     │   retry=RetryConfig(               │ │
+│ │                                     │   │   max_retries=0,               │ │
+│ │                                     │   │   include_exceptions=None,     │ │
+│ │                                     │   │   exclude_exceptions={         │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'AgentSafetyRefusalError',           │ │
+│ │                                     │   │   │   'ModelNotFoundError',    │ │
+│ │                                     │   │   │   'ApiUsageLimitError',    │ │
+│ │                                     │   │   │   'VerifierTimeoutError',  │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'AgentAuthenticationError',          │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'VerifierOutputParseError',          │ │
+│ │                                     │   │   │   'RewardFileEmptyError',  │ │
+│ │                                     │   │   │   'AgentTimeoutError',     │ │
+│ │                                     │   │   │                            │ │
+│ │                                     'RewardFileNotFoundError'            │ │
+│ │                                     │   │   },                           │ │
+│ │                                     │   │   wait_multiplier=1.0,         │ │
+│ │                                     │   │   min_wait_sec=1.0,            │ │
+│ │                                     │   │   max_wait_sec=60.0            │ │
+│ │                                     │   ),                               │ │
+│ │                                     │   environment=EnvironmentConfig(   │ │
+│ │                                     │   │                                │ │
+│ │                                     type=<EnvironmentType.DOCKER:        │ │
+│ │                                     'docker'>,                           │ │
+│ │                                     │   │   import_path=None,            │ │
+│ │                                     │   │   force_build=False,           │ │
+│ │                                     │   │   delete=True,                 │ │
+│ │                                     │   │                                │ │
+│ │                                     cpu_enforcement_policy=<ResourceMod… │ │
+│ │                                     'auto'>,                             │ │
+│ │                                     │   │                                │ │
+│ │                                     memory_enforcement_policy=<Resource… │ │
+│ │                                     'auto'>,                             │ │
+│ │                                     │   │   override_cpus=None,          │ │
+│ │                                     │   │   override_memory_mb=None,     │ │
+│ │                                     │   │   override_storage_mb=None,    │ │
+│ │                                     │   │   override_gpus=None,          │ │
+│ │                                     │   │   override_tpu=None,           │ │
+│ │                                     │   │                                │ │
+│ │                                     suppress_override_warnings=False,    │ │
+│ │                                     │   │   mounts=None,                 │ │
+│ │                                     │   │   extra_docker_compose=[],     │ │
+│ │                                     │   │   env={},                      │ │
+│ │                                     │   │   kwargs={},                   │ │
+│ │                                     │   │   extra_allowed_hosts=[]       │ │
+│ │                                     │   ),                               │ │
+│ │                                     │   verifier=VerifierConfig(         │ │
+│ │                                     │   │   override_timeout_sec=None,   │ │
+│ │                                     │   │   max_timeout_sec=None,        │ │
+│ │                                     │   │   include_logs=[],             │ │
+│ │                                     │   │   exclude_logs=[],             │ │
+│ │                                     │   │   env={},                      │ │
+│ │                                     │   │   import_path=None,            │ │
+│ │                                     │   │   kwargs={},                   │ │
+│ │                                     │   │   disable=False                │ │
+│ │                                     │   ),                               │ │
+│ │                                     │   metrics=[],                      │ │
+│ │                                     │   agents=[                         │ │
+│ │                                     │   │   AgentConfig(                 │ │
+│ │                                     │   │   │   name='terminus-2',       │ │
+│ │                                     │   │   │   import_path=None,        │ │
+│ │                                     │   │   │                            │ │
+│ │                                     model_name='openai/deepseek-ai/Deep… │ │
+│ │                                     │   │   │   n_concurrent=None,       │ │
+│ │                                     │   │   │   concurrency_group=None,  │ │
+│ │                                     │   │   │   skills=[],               │ │
+│ │                                     │   │   │                            │ │
+│ │                                     override_timeout_sec=None,           │ │
+│ │                                     │   │   │                            │ │
+│ │                                     override_setup_timeout_sec=None,     │ │
+│ │                                     │   │   │   max_timeout_sec=None,    │ │
+│ │                                     │   │   │   resume_trajectory=False, │ │
+│ │                                     │   │   │   load_trajectory=None,    │ │
+│ │                                     │   │   │   extra_allowed_hosts=[],  │ │
+│ │                                     │   │   │   include_logs=[],         │ │
+│ │                                     │   │   │   exclude_logs=[],         │ │
+│ │                                     │   │   │   kwargs={                 │ │
+│ │                                     │   │   │   │   'api_base':          │ │
+│ │                                     'http://127.0.0.1:8010/v1',          │ │
+│ │                                     │   │   │   │   'parser_name':       │ │
+│ │                                     'json',                              │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'prompt_template_path':              │ │
+│ │                                     '/home/ttuser/deepseekv4flash/termi… │ │
+│ │                                     │   │   │   │   'max_turns': 15,     │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'suppress_max_turns_warning': True,  │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'max_consecutive_identical_commands… │ │
+│ │                                     3,                                   │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'reject_repeated_commands': True,    │ │
+│ │                                     │   │   │   │   'temperature': 0.0,  │ │
+│ │                                     │   │   │   │   'reasoning_effort':  │ │
+│ │                                     'none',                              │ │
+│ │                                     │   │   │   │   'enable_summarize':  │ │
+│ │                                     False,                               │ │
+│ │                                     │   │   │   │   ... +5               │ │
+│ │                                     │   │   │   },                       │ │
+│ │                                     │   │   │   env={},                  │ │
+│ │                                     │   │   │   mcp_servers=[]           │ │
+│ │                                     │   │   )                            │ │
+│ │                                     │   ],                               │ │
+│ │                                     │   user_agent=None,                 │ │
+│ │                                     │   datasets=[                       │ │
+│ │                                     │   │   DatasetConfig(               │ │
+│ │                                     │   │   │                            │ │
+│ │                                     path=PosixPath('/home/ttuser/deepse… │ │
+│ │                                     │   │   │   name=None,               │ │
+│ │                                     │   │   │   version=None,            │ │
+│ │                                     │   │   │   ref=None,                │ │
+│ │                                     │   │   │   registry_url=None,       │ │
+│ │                                     │   │   │   registry_path=None,      │ │
+│ │                                     │   │   │   repo=None,               │ │
+│ │                                     │   │   │   overwrite=False,         │ │
+│ │                                     │   │   │   download_dir=None,       │ │
+│ │                                     │   │   │   task_names=None,         │ │
+│ │                                     │   │   │   exclude_task_names=None, │ │
+│ │                                     │   │   │   n_tasks=None             │ │
+│ │                                     │   │   )                            │ │
+│ │                                     │   ],                               │ │
+│ │                                     │   tasks=[],                        │ │
+│ │                                     │   artifacts=[],                    │ │
+│ │                                     │   extra_instruction_paths=[],      │ │
+│ │                                     │   extra_instructions=[],           │ │
+│ │                                     │   source_jobs=[]                   │ │
+│ │                                     )                                    │ │
+│ │                       config_data = {                                    │ │
+│ │                                     │   'job_name':                      │ │
+│ │                                     'tb21-dsv4-quietbox2-canary-openssl… │ │
+│ │                                     │   'jobs_dir':                      │ │
+│ │                                     '/home/ttuser/deepseekv4flash/termi… │ │
+│ │                                     │   'n_attempts': 1,                 │ │
+│ │                                     │   'timeout_multiplier': 1.0,       │ │
+│ │                                     │   'n_concurrent_trials': 1,        │ │
+│ │                                     │   'quiet': False,                  │ │
+│ │                                     │   'retry': {'max_retries': 0},     │ │
+│ │                                     │   'environment': {                 │ │
+│ │                                     │   │   'type': 'docker',            │ │
+│ │                                     │   │   'force_build': False,        │ │
+│ │                                     │   │   'delete': True               │ │
+│ │                                     │   },                               │ │
+│ │                                     │   'agents': [                      │ │
+│ │                                     │   │   {                            │ │
+│ │                                     │   │   │   'name': 'terminus-2',    │ │
+│ │                                     │   │   │   'model_name':            │ │
+│ │                                     'openai/deepseek-ai/DeepSeek-V4-Fla… │ │
+│ │                                     │   │   │   'kwargs': {              │ │
+│ │                                     │   │   │   │   'api_base':          │ │
+│ │                                     'http://127.0.0.1:8010/v1',          │ │
+│ │                                     │   │   │   │   'parser_name':       │ │
+│ │                                     'json',                              │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'prompt_template_path':              │ │
+│ │                                     '/home/ttuser/deepseekv4flash/termi… │ │
+│ │                                     │   │   │   │   'max_turns': 15,     │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'suppress_max_turns_warning': True,  │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'max_consecutive_identical_commands… │ │
+│ │                                     3,                                   │ │
+│ │                                     │   │   │   │                        │ │
+│ │                                     'reject_repeated_commands': True,    │ │
+│ │                                     │   │   │   │   'temperature': 0.0,  │ │
+│ │                                     │   │   │   │   'reasoning_effort':  │ │
+│ │                                     'none',                              │ │
+│ │                                     │   │   │   │   'enable_summarize':  │ │
+│ │                                     False,                               │ │
+│ │                                     │   │   │   │   ... +5               │ │
+│ │                                     │   │   │   }                        │ │
+│ │                                     │   │   }                            │ │
+│ │                                     │   ],                               │ │
+│ │                                     │   'datasets': [                    │ │
+│ │                                     │   │   {                            │ │
+│ │                                     │   │   │   'path':                  │ │
+│ │                                     '/home/ttuser/deepseekv4flash/termi… │ │
+│ │                                     │   │   }                            │ │
+│ │                                     │   ]                                │ │
+│ │                                     }                                    │ │
+│ │                       config_path = '/home/ttuser/deepseekv4flash/termi… │ │
+│ │                              cpus = None                                 │ │
+│ │                   credential_mode = None                                 │ │
+│ │        dataset_exclude_task_names = None                                 │ │
+│ │              dataset_name_version = None                                 │ │
+│ │                 dataset_specified = False                                │ │
+│ │                dataset_task_names = None                                 │ │
+│ │                             debug = False                                │ │
+│ │              disable_verification = False                                │ │
+│ │                           dry_run = False                                │ │
+│ │                          env_file = None                                 │ │
+│ │                       environment = None                                 │ │
+│ │ environment_build_timeout_multipli… None                                 │ │
+│ │                                   =                                      │ │
+│ │                environment_delete = None                                 │ │
+│ │           environment_force_build = None                                 │ │
+│ │           environment_import_path = None                                 │ │
+│ │                environment_kwargs = None                                 │ │
+│ │            explicit_env_file_keys = set()                                │ │
+│ │                   export_episodes = 'all'                                │ │
+│ │       export_instruction_metadata = False                                │ │
+│ │                       export_push = False                                │ │
+│ │                       export_repo = None                                 │ │
+│ │                   export_sharegpt = False                                │ │
+│ │                     export_traces = False                                │ │
+│ │          export_verifier_metadata = False                                │ │
+│ │              extra_docker_compose = None                                 │ │
+│ │           extra_instruction_paths = None                                 │ │
+│ │                extra_instructions = None                                 │ │
+│ │                              init = False                                │ │
+│ │                      install_only = False                                │ │
+│ │                          job_name = None                                 │ │
+│ │                        job_plugin = None                                 │ │
+│ │                          jobs_dir = None                                 │ │
+│ │                            launch = False                                │ │
+│ │                   load_trajectory = None                                 │ │
+│ │                       max_retries = None                                 │ │
+│ │                        mcp_config = None                                 │ │
+│ │                            memory = None                                 │ │
+│ │                       model_names = None                                 │ │
+│ │                            mounts = None                                 │ │
+│ │                        n_attempts = None                                 │ │
+│ │               n_concurrent_agents = None                                 │ │
+│ │               n_concurrent_trials = None                                 │ │
+│ │                           n_tasks = None                                 │ │
+│ │                    one_off_secret = None                                 │ │
+│ │                               org = None                                 │ │
+│ │                     override_cpus = None                                 │ │
+│ │                     override_gpus = None                                 │ │
+│ │                override_memory_mb = None                                 │ │
+│ │               override_storage_mb = None                                 │ │
+│ │                      override_tpu = None                                 │ │
+│ │                        parsed_env = {}                                   │ │
+│ │                     parsed_kwargs = {}                                   │ │
+│ │                parsed_mcp_servers = []                                   │ │
+│ │                              path = None                                 │ │
+│ │                    plugin_configs = []                                   │ │
+│ │                     plugin_kwargs = None                                 │ │
+│ │                      print_config = False                                │ │
+│ │                            public = None                                 │ │
+│ │                             quiet = False                                │ │
+│ │               registry_credential = None                                 │ │
+│ │                     registry_path = None                                 │ │
+│ │                      registry_url = None                                 │ │
+│ │                              repo = None                                 │ │
+│ │                 resume_trajectory = None                                 │ │
+│ │          retry_exclude_exceptions = None                                 │ │
+│ │          retry_include_exceptions = None                                 │ │
+│ │                         share_org = None                                 │ │
+│ │                        share_user = None                                 │ │
+│ │                            skills = None                                 │ │
+│ │                     stored_secret = None                                 │ │
+│ │                task_git_commit_id = None                                 │ │
+│ │                      task_git_url = None                                 │ │
+│ │                          task_ref = None                                 │ │
+│ │                    task_specified = False                                │ │
+│ │                timeout_multiplier = None                                 │ │
+│ │                            upload = False                                │ │
+│ │                 user_agent_kwargs = None                                 │ │
+│ │                   user_agent_name = None                                 │ │
+│ │                        user_model = None                                 │ │
+│ │                 user_persona_path = None                                 │ │
+│ │         user_prompt_template_path = None                                 │ │
+│ │                          verifier = None                                 │ │
+│ │                      verifier_env = None                                 │ │
+│ │             verifier_exclude_logs = None                                 │ │
+│ │              verifier_import_path = None                                 │ │
+│ │             verifier_include_logs = None                                 │ │
+│ │                   verifier_kwargs = None                                 │ │
+│ │       verifier_timeout_multiplier = None                                 │ │
+│ │                               yes = True                                 │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/cli/utils. │
+│ py:108 in run_async                                                          │
+│                                                                              │
+│   105 │   """                                                                │
+│   106 │   if sys.platform == "win32":                                        │
+│   107 │   │   return asyncio.run(coro, loop_factory=asyncio.ProactorEventLoo │
+│ ❱ 108 │   return asyncio.run(coro)                                           │
+│   109                                                                        │
+│   110                                                                        │
+│   111 def parse_kwargs(kwargs_list: list[str] | None) -> dict[str, Any]:     │
+│                                                                              │
+│ ╭────────────────────────────── locals ───────────────────────────────╮      │
+│ │ coro = <coroutine object start.<locals>._run_job at 0x73d3f4b29f20> │      │
+│ ╰─────────────────────────────────────────────────────────────────────╯      │
+│                                                                              │
+│ /home/ttuser/.local/share/uv/python/cpython-3.13.15-linux-x86_64-gnu/lib/pyt │
+│ hon3.13/asyncio/runners.py:196 in run                                        │
+│                                                                              │
+│   193 │   │   │   "asyncio.run() cannot be called from a running event loop" │
+│   194 │                                                                      │
+│   195 │   with Runner(debug=debug, loop_factory=loop_factory) as runner:     │
+│ ❱ 196 │   │   return runner.run(main)                                        │
+│   197                                                                        │
+│   198                                                                        │
+│   199 def _cancel_all_tasks(loop):                                           │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │        debug = None                                                      │ │
+│ │ loop_factory = None                                                      │ │
+│ │         main = <coroutine object start.<locals>._run_job at              │ │
+│ │                0x73d3f4b29f20>                                           │ │
+│ │       runner = <asyncio.runners.Runner object at 0x73d3f4cb96a0>         │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /home/ttuser/.local/share/uv/python/cpython-3.13.15-linux-x86_64-gnu/lib/pyt │
+│ hon3.13/asyncio/runners.py:119 in run                                        │
+│                                                                              │
+│   116 │   │                                                                  │
+│   117 │   │   self._interrupt_count = 0                                      │
+│   118 │   │   try:                                                           │
+│ ❱ 119 │   │   │   return self._loop.run_until_complete(task)                 │
+│   120 │   │   except exceptions.CancelledError:                              │
+│   121 │   │   │   if self._interrupt_count > 0:                              │
+│   122 │   │   │   │   uncancel = getattr(task, "uncancel", None)             │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │        context = <_contextvars.Context object at 0x73d3f4a8db00>         │ │
+│ │           coro = <coroutine object start.<locals>._run_job at            │ │
+│ │                  0x73d3f4b29f20>                                         │ │
+│ │           self = <asyncio.runners.Runner object at 0x73d3f4cb96a0>       │ │
+│ │ sigint_handler = functools.partial(<bound method Runner._on_sigint of    │ │
+│ │                  <asyncio.runners.Runner object at 0x73d3f4cb96a0>>,     │ │
+│ │                  main_task=<Task finished name='Task-1'                  │ │
+│ │                  coro=<start.<locals>._run_job() done, defined at        │ │
+│ │                  /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor… │ │
+│ │                  exception=ValueError('Either datasets or tasks must be  │ │
+│ │                  provided.')>)                                           │ │
+│ │           task = <Task finished name='Task-1'                            │ │
+│ │                  coro=<start.<locals>._run_job() done, defined at        │ │
+│ │                  /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor… │ │
+│ │                  exception=ValueError('Either datasets or tasks must be  │ │
+│ │                  provided.')>                                            │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /home/ttuser/.local/share/uv/python/cpython-3.13.15-linux-x86_64-gnu/lib/pyt │
+│ hon3.13/asyncio/base_events.py:726 in run_until_complete                     │
+│                                                                              │
+│    723 │   │   if not future.done():                                         │
+│    724 │   │   │   raise RuntimeError('Event loop stopped before Future comp │
+│    725 │   │                                                                 │
+│ ❱  726 │   │   return future.result()                                        │
+│    727 │                                                                     │
+│    728 │   def stop(self):                                                   │
+│    729 │   │   """Stop running the event loop.                               │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │   future = <Task finished name='Task-1' coro=<start.<locals>._run_job()  │ │
+│ │            done, defined at                                              │ │
+│ │            /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/h… │ │
+│ │            exception=ValueError('Either datasets or tasks must be        │ │
+│ │            provided.')>                                                  │ │
+│ │ new_task = False                                                         │ │
+│ │     self = <_UnixSelectorEventLoop running=False closed=True             │ │
+│ │            debug=False>                                                  │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/cli/jobs.p │
+│ y:1920 in _run_job                                                           │
+│                                                                              │
+│   1917 │   │   │   if upload                                                 │
+│   1918 │   │   │   else False                                                │
+│   1919 │   │   )                                                             │
+│ ❱ 1920 │   │   job = await Job.create(config)                                │
+│   1921 │   │   _confirm_host_env_access(                                     │
+│   1922 │   │   │   job,                                                      │
+│   1923 │   │   │   console,                                                  │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │                  config = JobConfig(                                     │ │
+│ │                           │                                              │ │
+│ │                           job_name='tb21-dsv4-quietbox2-canary-openssl-… │ │
+│ │                           │                                              │ │
+│ │                           jobs_dir=PosixPath('/home/ttuser/deepseekv4fl… │ │
+│ │                           │   n_attempts=1,                              │ │
+│ │                           │   install_only=False,                        │ │
+│ │                           │   timeout_multiplier=1.0,                    │ │
+│ │                           │   agent_timeout_multiplier=None,             │ │
+│ │                           │   verifier_timeout_multiplier=None,          │ │
+│ │                           │   agent_setup_timeout_multiplier=None,       │ │
+│ │                           │   environment_build_timeout_multiplier=None, │ │
+│ │                           │   debug=False,                               │ │
+│ │                           │   n_concurrent_trials=1,                     │ │
+│ │                           │   quiet=False,                               │ │
+│ │                           │   retry=RetryConfig(                         │ │
+│ │                           │   │   max_retries=0,                         │ │
+│ │                           │   │   include_exceptions=None,               │ │
+│ │                           │   │   exclude_exceptions={                   │ │
+│ │                           │   │   │   'AgentSafetyRefusalError',         │ │
+│ │                           │   │   │   'ModelNotFoundError',              │ │
+│ │                           │   │   │   'ApiUsageLimitError',              │ │
+│ │                           │   │   │   'VerifierTimeoutError',            │ │
+│ │                           │   │   │   'AgentAuthenticationError',        │ │
+│ │                           │   │   │   'VerifierOutputParseError',        │ │
+│ │                           │   │   │   'RewardFileEmptyError',            │ │
+│ │                           │   │   │   'AgentTimeoutError',               │ │
+│ │                           │   │   │   'RewardFileNotFoundError'          │ │
+│ │                           │   │   },                                     │ │
+│ │                           │   │   wait_multiplier=1.0,                   │ │
+│ │                           │   │   min_wait_sec=1.0,                      │ │
+│ │                           │   │   max_wait_sec=60.0                      │ │
+│ │                           │   ),                                         │ │
+│ │                           │   environment=EnvironmentConfig(             │ │
+│ │                           │   │   type=<EnvironmentType.DOCKER:          │ │
+│ │                           'docker'>,                                     │ │
+│ │                           │   │   import_path=None,                      │ │
+│ │                           │   │   force_build=False,                     │ │
+│ │                           │   │   delete=True,                           │ │
+│ │                           │   │                                          │ │
+│ │                           cpu_enforcement_policy=<ResourceMode.AUTO:     │ │
+│ │                           'auto'>,                                       │ │
+│ │                           │   │                                          │ │
+│ │                           memory_enforcement_policy=<ResourceMode.AUTO:  │ │
+│ │                           'auto'>,                                       │ │
+│ │                           │   │   override_cpus=None,                    │ │
+│ │                           │   │   override_memory_mb=None,               │ │
+│ │                           │   │   override_storage_mb=None,              │ │
+│ │                           │   │   override_gpus=None,                    │ │
+│ │                           │   │   override_tpu=None,                     │ │
+│ │                           │   │   suppress_override_warnings=False,      │ │
+│ │                           │   │   mounts=None,                           │ │
+│ │                           │   │   extra_docker_compose=[],               │ │
+│ │                           │   │   env={},                                │ │
+│ │                           │   │   kwargs={},                             │ │
+│ │                           │   │   extra_allowed_hosts=[]                 │ │
+│ │                           │   ),                                         │ │
+│ │                           │   verifier=VerifierConfig(                   │ │
+│ │                           │   │   override_timeout_sec=None,             │ │
+│ │                           │   │   max_timeout_sec=None,                  │ │
+│ │                           │   │   include_logs=[],                       │ │
+│ │                           │   │   exclude_logs=[],                       │ │
+│ │                           │   │   env={},                                │ │
+│ │                           │   │   import_path=None,                      │ │
+│ │                           │   │   kwargs={},                             │ │
+│ │                           │   │   disable=False                          │ │
+│ │                           │   ),                                         │ │
+│ │                           │   metrics=[],                                │ │
+│ │                           │   agents=[                                   │ │
+│ │                           │   │   AgentConfig(                           │ │
+│ │                           │   │   │   name='terminus-2',                 │ │
+│ │                           │   │   │   import_path=None,                  │ │
+│ │                           │   │   │                                      │ │
+│ │                           model_name='openai/deepseek-ai/DeepSeek-V4-Fl… │ │
+│ │                           │   │   │   n_concurrent=None,                 │ │
+│ │                           │   │   │   concurrency_group=None,            │ │
+│ │                           │   │   │   skills=[],                         │ │
+│ │                           │   │   │   override_timeout_sec=None,         │ │
+│ │                           │   │   │   override_setup_timeout_sec=None,   │ │
+│ │                           │   │   │   max_timeout_sec=None,              │ │
+│ │                           │   │   │   resume_trajectory=False,           │ │
+│ │                           │   │   │   load_trajectory=None,              │ │
+│ │                           │   │   │   extra_allowed_hosts=[],            │ │
+│ │                           │   │   │   include_logs=[],                   │ │
+│ │                           │   │   │   exclude_logs=[],                   │ │
+│ │                           │   │   │   kwargs={                           │ │
+│ │                           │   │   │   │   'api_base':                    │ │
+│ │                           'http://127.0.0.1:8010/v1',                    │ │
+│ │                           │   │   │   │   'parser_name': 'json',         │ │
+│ │                           │   │   │   │   'prompt_template_path':        │ │
+│ │                           '/home/ttuser/deepseekv4flash/terminal_bench_… │ │
+│ │                           │   │   │   │   'max_turns': 15,               │ │
+│ │                           │   │   │   │   'suppress_max_turns_warning':  │ │
+│ │                           True,                                          │ │
+│ │                           │   │   │   │                                  │ │
+│ │                           'max_consecutive_identical_commands': 3,       │ │
+│ │                           │   │   │   │   'reject_repeated_commands':    │ │
+│ │                           True,                                          │ │
+│ │                           │   │   │   │   'temperature': 0.0,            │ │
+│ │                           │   │   │   │   'reasoning_effort': 'none',    │ │
+│ │                           │   │   │   │   'enable_summarize': False,     │ │
+│ │                           │   │   │   │   ... +5                         │ │
+│ │                           │   │   │   },                                 │ │
+│ │                           │   │   │   env={},                            │ │
+│ │                           │   │   │   mcp_servers=[]                     │ │
+│ │                           │   │   )                                      │ │
+│ │                           │   ],                                         │ │
+│ │                           │   user_agent=None,                           │ │
+│ │                           │   datasets=[                                 │ │
+│ │                           │   │   DatasetConfig(                         │ │
+│ │                           │   │   │                                      │ │
+│ │                           path=PosixPath('/home/ttuser/deepseekv4flash/… │ │
+│ │                           │   │   │   name=None,                         │ │
+│ │                           │   │   │   version=None,                      │ │
+│ │                           │   │   │   ref=None,                          │ │
+│ │                           │   │   │   registry_url=None,                 │ │
+│ │                           │   │   │   registry_path=None,                │ │
+│ │                           │   │   │   repo=None,                         │ │
+│ │                           │   │   │   overwrite=False,                   │ │
+│ │                           │   │   │   download_dir=None,                 │ │
+│ │                           │   │   │   task_names=None,                   │ │
+│ │                           │   │   │   exclude_task_names=None,           │ │
+│ │                           │   │   │   n_tasks=None                       │ │
+│ │                           │   │   )                                      │ │
+│ │                           │   ],                                         │ │
+│ │                           │   tasks=[],                                  │ │
+│ │                           │   artifacts=[],                              │ │
+│ │                           │   extra_instruction_paths=[],                │ │
+│ │                           │   extra_instructions=[],                     │ │
+│ │                           │   source_jobs=[]                             │ │
+│ │                           )                                              │ │
+│ │ confirm_non_member_orgs = False                                          │ │
+│ │  explicit_env_file_keys = set()                                          │ │
+│ │                     org = None                                           │ │
+│ │          plugin_configs = []                                             │ │
+│ │                  public = None                                           │ │
+│ │    requested_share_orgs = []                                             │ │
+│ │   requested_share_users = []                                             │ │
+│ │               share_org = None                                           │ │
+│ │              share_user = None                                           │ │
+│ │                  upload = False                                          │ │
+│ │                     yes = True                                           │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/job.py:146 │
+│ in create                                                                    │
+│                                                                              │
+│    143 │   │   │   ValueError: No datasets or tasks remain after resolution. │
+│    144 │   │   """                                                           │
+│    145 │   │   cls._resolve_agent_skills(config)                             │
+│ ❱  146 │   │   task_configs = await cls._resolve_task_configs(config)        │
+│    147 │   │   EnvironmentFactory.validate_resource_policies(config.environm │
+│    148 │   │   metrics = await cls._resolve_metrics(config, task_configs)    │
+│    149                                                                       │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │ config = JobConfig(                                                      │ │
+│ │          │                                                               │ │
+│ │          job_name='tb21-dsv4-quietbox2-canary-openssl-native-action-v14… │ │
+│ │          │                                                               │ │
+│ │          jobs_dir=PosixPath('/home/ttuser/deepseekv4flash/terminal_benc… │ │
+│ │          │   n_attempts=1,                                               │ │
+│ │          │   install_only=False,                                         │ │
+│ │          │   timeout_multiplier=1.0,                                     │ │
+│ │          │   agent_timeout_multiplier=None,                              │ │
+│ │          │   verifier_timeout_multiplier=None,                           │ │
+│ │          │   agent_setup_timeout_multiplier=None,                        │ │
+│ │          │   environment_build_timeout_multiplier=None,                  │ │
+│ │          │   debug=False,                                                │ │
+│ │          │   n_concurrent_trials=1,                                      │ │
+│ │          │   quiet=False,                                                │ │
+│ │          │   retry=RetryConfig(                                          │ │
+│ │          │   │   max_retries=0,                                          │ │
+│ │          │   │   include_exceptions=None,                                │ │
+│ │          │   │   exclude_exceptions={                                    │ │
+│ │          │   │   │   'AgentSafetyRefusalError',                          │ │
+│ │          │   │   │   'ModelNotFoundError',                               │ │
+│ │          │   │   │   'ApiUsageLimitError',                               │ │
+│ │          │   │   │   'VerifierTimeoutError',                             │ │
+│ │          │   │   │   'AgentAuthenticationError',                         │ │
+│ │          │   │   │   'VerifierOutputParseError',                         │ │
+│ │          │   │   │   'RewardFileEmptyError',                             │ │
+│ │          │   │   │   'AgentTimeoutError',                                │ │
+│ │          │   │   │   'RewardFileNotFoundError'                           │ │
+│ │          │   │   },                                                      │ │
+│ │          │   │   wait_multiplier=1.0,                                    │ │
+│ │          │   │   min_wait_sec=1.0,                                       │ │
+│ │          │   │   max_wait_sec=60.0                                       │ │
+│ │          │   ),                                                          │ │
+│ │          │   environment=EnvironmentConfig(                              │ │
+│ │          │   │   type=<EnvironmentType.DOCKER: 'docker'>,                │ │
+│ │          │   │   import_path=None,                                       │ │
+│ │          │   │   force_build=False,                                      │ │
+│ │          │   │   delete=True,                                            │ │
+│ │          │   │   cpu_enforcement_policy=<ResourceMode.AUTO: 'auto'>,     │ │
+│ │          │   │   memory_enforcement_policy=<ResourceMode.AUTO: 'auto'>,  │ │
+│ │          │   │   override_cpus=None,                                     │ │
+│ │          │   │   override_memory_mb=None,                                │ │
+│ │          │   │   override_storage_mb=None,                               │ │
+│ │          │   │   override_gpus=None,                                     │ │
+│ │          │   │   override_tpu=None,                                      │ │
+│ │          │   │   suppress_override_warnings=False,                       │ │
+│ │          │   │   mounts=None,                                            │ │
+│ │          │   │   extra_docker_compose=[],                                │ │
+│ │          │   │   env={},                                                 │ │
+│ │          │   │   kwargs={},                                              │ │
+│ │          │   │   extra_allowed_hosts=[]                                  │ │
+│ │          │   ),                                                          │ │
+│ │          │   verifier=VerifierConfig(                                    │ │
+│ │          │   │   override_timeout_sec=None,                              │ │
+│ │          │   │   max_timeout_sec=None,                                   │ │
+│ │          │   │   include_logs=[],                                        │ │
+│ │          │   │   exclude_logs=[],                                        │ │
+│ │          │   │   env={},                                                 │ │
+│ │          │   │   import_path=None,                                       │ │
+│ │          │   │   kwargs={},                                              │ │
+│ │          │   │   disable=False                                           │ │
+│ │          │   ),                                                          │ │
+│ │          │   metrics=[],                                                 │ │
+│ │          │   agents=[                                                    │ │
+│ │          │   │   AgentConfig(                                            │ │
+│ │          │   │   │   name='terminus-2',                                  │ │
+│ │          │   │   │   import_path=None,                                   │ │
+│ │          │   │   │                                                       │ │
+│ │          model_name='openai/deepseek-ai/DeepSeek-V4-Flash-0731',         │ │
+│ │          │   │   │   n_concurrent=None,                                  │ │
+│ │          │   │   │   concurrency_group=None,                             │ │
+│ │          │   │   │   skills=[],                                          │ │
+│ │          │   │   │   override_timeout_sec=None,                          │ │
+│ │          │   │   │   override_setup_timeout_sec=None,                    │ │
+│ │          │   │   │   max_timeout_sec=None,                               │ │
+│ │          │   │   │   resume_trajectory=False,                            │ │
+│ │          │   │   │   load_trajectory=None,                               │ │
+│ │          │   │   │   extra_allowed_hosts=[],                             │ │
+│ │          │   │   │   include_logs=[],                                    │ │
+│ │          │   │   │   exclude_logs=[],                                    │ │
+│ │          │   │   │   kwargs={                                            │ │
+│ │          │   │   │   │   'api_base': 'http://127.0.0.1:8010/v1',         │ │
+│ │          │   │   │   │   'parser_name': 'json',                          │ │
+│ │          │   │   │   │   'prompt_template_path':                         │ │
+│ │          '/home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/ha… │ │
+│ │          │   │   │   │   'max_turns': 15,                                │ │
+│ │          │   │   │   │   'suppress_max_turns_warning': True,             │ │
+│ │          │   │   │   │   'max_consecutive_identical_commands': 3,        │ │
+│ │          │   │   │   │   'reject_repeated_commands': True,               │ │
+│ │          │   │   │   │   'temperature': 0.0,                             │ │
+│ │          │   │   │   │   'reasoning_effort': 'none',                     │ │
+│ │          │   │   │   │   'enable_summarize': False,                      │ │
+│ │          │   │   │   │   ... +5                                          │ │
+│ │          │   │   │   },                                                  │ │
+│ │          │   │   │   env={},                                             │ │
+│ │          │   │   │   mcp_servers=[]                                      │ │
+│ │          │   │   )                                                       │ │
+│ │          │   ],                                                          │ │
+│ │          │   user_agent=None,                                            │ │
+│ │          │   datasets=[                                                  │ │
+│ │          │   │   DatasetConfig(                                          │ │
+│ │          │   │   │                                                       │ │
+│ │          path=PosixPath('/home/ttuser/deepseekv4flash/terminal_bench_2_… │ │
+│ │          │   │   │   name=None,                                          │ │
+│ │          │   │   │   version=None,                                       │ │
+│ │          │   │   │   ref=None,                                           │ │
+│ │          │   │   │   registry_url=None,                                  │ │
+│ │          │   │   │   registry_path=None,                                 │ │
+│ │          │   │   │   repo=None,                                          │ │
+│ │          │   │   │   overwrite=False,                                    │ │
+│ │          │   │   │   download_dir=None,                                  │ │
+│ │          │   │   │   task_names=None,                                    │ │
+│ │          │   │   │   exclude_task_names=None,                            │ │
+│ │          │   │   │   n_tasks=None                                        │ │
+│ │          │   │   )                                                       │ │
+│ │          │   ],                                                          │ │
+│ │          │   tasks=[],                                                   │ │
+│ │          │   artifacts=[],                                               │ │
+│ │          │   extra_instruction_paths=[],                                 │ │
+│ │          │   extra_instructions=[],                                      │ │
+│ │          │   source_jobs=[]                                              │ │
+│ │          )                                                               │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/job.py:397 │
+│ in _resolve_task_configs                                                     │
+│                                                                              │
+│    394 │   │   │   )                                                         │
+│    395 │   │                                                                 │
+│    396 │   │   if not task_configs:                                          │
+│ ❱  397 │   │   │   raise ValueError("Either datasets or tasks must be provid │
+│    398 │   │                                                                 │
+│    399 │   │   return task_configs                                           │
+│    400                                                                       │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │       config = JobConfig(                                                │ │
+│ │                │                                                         │ │
+│ │                job_name='tb21-dsv4-quietbox2-canary-openssl-native-acti… │ │
+│ │                │                                                         │ │
+│ │                jobs_dir=PosixPath('/home/ttuser/deepseekv4flash/termina… │ │
+│ │                │   n_attempts=1,                                         │ │
+│ │                │   install_only=False,                                   │ │
+│ │                │   timeout_multiplier=1.0,                               │ │
+│ │                │   agent_timeout_multiplier=None,                        │ │
+│ │                │   verifier_timeout_multiplier=None,                     │ │
+│ │                │   agent_setup_timeout_multiplier=None,                  │ │
+│ │                │   environment_build_timeout_multiplier=None,            │ │
+│ │                │   debug=False,                                          │ │
+│ │                │   n_concurrent_trials=1,                                │ │
+│ │                │   quiet=False,                                          │ │
+│ │                │   retry=RetryConfig(                                    │ │
+│ │                │   │   max_retries=0,                                    │ │
+│ │                │   │   include_exceptions=None,                          │ │
+│ │                │   │   exclude_exceptions={                              │ │
+│ │                │   │   │   'AgentSafetyRefusalError',                    │ │
+│ │                │   │   │   'ModelNotFoundError',                         │ │
+│ │                │   │   │   'ApiUsageLimitError',                         │ │
+│ │                │   │   │   'VerifierTimeoutError',                       │ │
+│ │                │   │   │   'AgentAuthenticationError',                   │ │
+│ │                │   │   │   'VerifierOutputParseError',                   │ │
+│ │                │   │   │   'RewardFileEmptyError',                       │ │
+│ │                │   │   │   'AgentTimeoutError',                          │ │
+│ │                │   │   │   'RewardFileNotFoundError'                     │ │
+│ │                │   │   },                                                │ │
+│ │                │   │   wait_multiplier=1.0,                              │ │
+│ │                │   │   min_wait_sec=1.0,                                 │ │
+│ │                │   │   max_wait_sec=60.0                                 │ │
+│ │                │   ),                                                    │ │
+│ │                │   environment=EnvironmentConfig(                        │ │
+│ │                │   │   type=<EnvironmentType.DOCKER: 'docker'>,          │ │
+│ │                │   │   import_path=None,                                 │ │
+│ │                │   │   force_build=False,                                │ │
+│ │                │   │   delete=True,                                      │ │
+│ │                │   │   cpu_enforcement_policy=<ResourceMode.AUTO:        │ │
+│ │                'auto'>,                                                  │ │
+│ │                │   │   memory_enforcement_policy=<ResourceMode.AUTO:     │ │
+│ │                'auto'>,                                                  │ │
+│ │                │   │   override_cpus=None,                               │ │
+│ │                │   │   override_memory_mb=None,                          │ │
+│ │                │   │   override_storage_mb=None,                         │ │
+│ │                │   │   override_gpus=None,                               │ │
+│ │                │   │   override_tpu=None,                                │ │
+│ │                │   │   suppress_override_warnings=False,                 │ │
+│ │                │   │   mounts=None,                                      │ │
+│ │                │   │   extra_docker_compose=[],                          │ │
+│ │                │   │   env={},                                           │ │
+│ │                │   │   kwargs={},                                        │ │
+│ │                │   │   extra_allowed_hosts=[]                            │ │
+│ │                │   ),                                                    │ │
+│ │                │   verifier=VerifierConfig(                              │ │
+│ │                │   │   override_timeout_sec=None,                        │ │
+│ │                │   │   max_timeout_sec=None,                             │ │
+│ │                │   │   include_logs=[],                                  │ │
+│ │                │   │   exclude_logs=[],                                  │ │
+│ │                │   │   env={},                                           │ │
+│ │                │   │   import_path=None,                                 │ │
+│ │                │   │   kwargs={},                                        │ │
+│ │                │   │   disable=False                                     │ │
+│ │                │   ),                                                    │ │
+│ │                │   metrics=[],                                           │ │
+│ │                │   agents=[                                              │ │
+│ │                │   │   AgentConfig(                                      │ │
+│ │                │   │   │   name='terminus-2',                            │ │
+│ │                │   │   │   import_path=None,                             │ │
+│ │                │   │   │                                                 │ │
+│ │                model_name='openai/deepseek-ai/DeepSeek-V4-Flash-0731',   │ │
+│ │                │   │   │   n_concurrent=None,                            │ │
+│ │                │   │   │   concurrency_group=None,                       │ │
+│ │                │   │   │   skills=[],                                    │ │
+│ │                │   │   │   override_timeout_sec=None,                    │ │
+│ │                │   │   │   override_setup_timeout_sec=None,              │ │
+│ │                │   │   │   max_timeout_sec=None,                         │ │
+│ │                │   │   │   resume_trajectory=False,                      │ │
+│ │                │   │   │   load_trajectory=None,                         │ │
+│ │                │   │   │   extra_allowed_hosts=[],                       │ │
+│ │                │   │   │   include_logs=[],                              │ │
+│ │                │   │   │   exclude_logs=[],                              │ │
+│ │                │   │   │   kwargs={                                      │ │
+│ │                │   │   │   │   'api_base': 'http://127.0.0.1:8010/v1',   │ │
+│ │                │   │   │   │   'parser_name': 'json',                    │ │
+│ │                │   │   │   │   'prompt_template_path':                   │ │
+│ │                '/home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/… │ │
+│ │                │   │   │   │   'max_turns': 15,                          │ │
+│ │                │   │   │   │   'suppress_max_turns_warning': True,       │ │
+│ │                │   │   │   │   'max_consecutive_identical_commands': 3,  │ │
+│ │                │   │   │   │   'reject_repeated_commands': True,         │ │
+│ │                │   │   │   │   'temperature': 0.0,                       │ │
+│ │                │   │   │   │   'reasoning_effort': 'none',               │ │
+│ │                │   │   │   │   'enable_summarize': False,                │ │
+│ │                │   │   │   │   ... +5                                    │ │
+│ │                │   │   │   },                                            │ │
+│ │                │   │   │   env={},                                       │ │
+│ │                │   │   │   mcp_servers=[]                                │ │
+│ │                │   │   )                                                 │ │
+│ │                │   ],                                                    │ │
+│ │                │   user_agent=None,                                      │ │
+│ │                │   datasets=[                                            │ │
+│ │                │   │   DatasetConfig(                                    │ │
+│ │                │   │   │                                                 │ │
+│ │                path=PosixPath('/home/ttuser/deepseekv4flash/terminal_be… │ │
+│ │                │   │   │   name=None,                                    │ │
+│ │                │   │   │   version=None,                                 │ │
+│ │                │   │   │   ref=None,                                     │ │
+│ │                │   │   │   registry_url=None,                            │ │
+│ │                │   │   │   registry_path=None,                           │ │
+│ │                │   │   │   repo=None,                                    │ │
+│ │                │   │   │   overwrite=False,                              │ │
+│ │                │   │   │   download_dir=None,                            │ │
+│ │                │   │   │   task_names=None,                              │ │
+│ │                │   │   │   exclude_task_names=None,                      │ │
+│ │                │   │   │   n_tasks=None                                  │ │
+│ │                │   │   )                                                 │ │
+│ │                │   ],                                                    │ │
+│ │                │   tasks=[],                                             │ │
+│ │                │   artifacts=[],                                         │ │
+│ │                │   extra_instruction_paths=[],                           │ │
+│ │                │   extra_instructions=[],                                │ │
+│ │                │   source_jobs=[]                                        │ │
+│ │                )                                                         │ │
+│ │      dataset = DatasetConfig(                                            │ │
+│ │                │                                                         │ │
+│ │                path=PosixPath('/home/ttuser/deepseekv4flash/terminal_be… │ │
+│ │                │   name=None,                                            │ │
+│ │                │   version=None,                                         │ │
+│ │                │   ref=None,                                             │ │
+│ │                │   registry_url=None,                                    │ │
+│ │                │   registry_path=None,                                   │ │
+│ │                │   repo=None,                                            │ │
+│ │                │   overwrite=False,                                      │ │
+│ │                │   download_dir=None,                                    │ │
+│ │                │   task_names=None,                                      │ │
+│ │                │   exclude_task_names=None,                              │ │
+│ │                │   n_tasks=None                                          │ │
+│ │                )                                                         │ │
+│ │ task_configs = []                                                        │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ValueError: Either datasets or tasks must be provided.
+
+Script done on 2026-08-27 11:10:54+00:00 [COMMAND_EXIT_CODE="1"]

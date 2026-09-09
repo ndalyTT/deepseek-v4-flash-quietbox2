@@ -1,0 +1,10 @@
+Skipping image OS validation for alexgshaw/query-optimize:20251031: docker inspect returned 1
+Collecting main service artifacts
+Skipping image OS validation for alexgshaw/video-processing:20251031: docker inspect returned 1
+Collecting main service artifacts
+Skipping image OS validation for alexgshaw/protein-assembly:20260403: docker inspect returned 1
+Collecting main service artifacts
+Skipping image OS validation for alexgshaw/mteb-retrieve:20260430: docker inspect returned 1
+Collecting main service artifacts
+Skipping image OS validation for alexgshaw/tune-mjcf:20251031: docker inspect returned 1
+Collecting main service artifacts

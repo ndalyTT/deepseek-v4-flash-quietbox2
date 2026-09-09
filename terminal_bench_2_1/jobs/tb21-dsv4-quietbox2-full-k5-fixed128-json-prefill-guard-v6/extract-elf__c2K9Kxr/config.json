@@ -1,0 +1,46 @@
+{
+    "task": {
+        "name": "terminal-bench/extract-elf",
+        "ref": "sha256:1ef31d566be4fe3459d5368621ae7ef7a31b23ef675737e473bbc43c8c7b3fce",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "extract-elf__c2K9Kxr",
+    "trials_dir": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "kwargs": {
+            "api_base": "http://127.0.0.1:8010/v1",
+            "parser_name": "json",
+            "max_turns": 10,
+            "suppress_max_turns_warning": true,
+            "max_consecutive_identical_commands": 3,
+            "temperature": 0.0,
+            "reasoning_effort": "none",
+            "enable_summarize": false,
+            "store_all_messages": true,
+            "record_terminal_session": true,
+            "model_info": {
+                "max_tokens": 131072,
+                "max_input_tokens": 130048,
+                "max_output_tokens": 128,
+                "input_cost_per_token": 0.0,
+                "output_cost_per_token": 0.0
+            },
+            "llm_kwargs": {
+                "max_tokens": 128,
+                "early_stop_balanced_json": true,
+                "deepseek_v4_encoding_file": "/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731/encoding/encoding_dsv4.py",
+                "text_completion_prefill": "{\"commands\":[{\"keystrokes\":\"",
+                "timeout": 12000
+            },
+            "llm_call_kwargs": {
+                "extra_body": {
+                    "top_p": 1.0,
+                    "top_k": 1
+                }
+            }
+        }
+    },
+    "job_id": "f046d3cf-9f0c-4113-88bd-952908d79871"
+}

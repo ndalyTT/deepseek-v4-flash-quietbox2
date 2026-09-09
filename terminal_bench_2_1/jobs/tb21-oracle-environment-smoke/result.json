@@ -1,0 +1,43 @@
+{
+    "id": "17172c3f-4f73-4d5e-b6cf-3a6e39943edf",
+    "started_at": "2026-08-25T14:09:46.409067",
+    "updated_at": "2026-08-25T14:18:26.803124",
+    "finished_at": "2026-08-25T14:18:26.803124",
+    "n_total_trials": 5,
+    "stats": {
+        "n_completed_trials": 5,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "oracle__tasks": {
+                "n_trials": 5,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "query-optimize__AdhBKsG",
+                            "video-processing__t5DfFRd",
+                            "protein-assembly__3ySQVt3",
+                            "mteb-retrieve__4xgGQTn",
+                            "tune-mjcf__bq44hZa"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

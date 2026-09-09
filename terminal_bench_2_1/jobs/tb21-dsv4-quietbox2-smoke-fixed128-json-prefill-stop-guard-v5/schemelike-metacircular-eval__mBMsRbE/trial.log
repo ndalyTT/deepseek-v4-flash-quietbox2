@@ -1,0 +1,9 @@
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-fixed128-json-prefill-stop-guard-v5/schemelike-metacircular-eval__mBMsRbE/agent/trajectory.json
+Trial schemelike-metacircular-eval__mBMsRbE cancelled
+Collecting main service artifacts
+Cleanup interrupted for schemelike-metacircular-eval__mBMsRbE, but agent environment stop is shielded and will complete

@@ -1,0 +1,68 @@
+Script started on 2026-08-27 12:11:56+00:00 [COMMAND="/home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python models/autoports/deepseek_ai_deepseek_v4_flash_0731/tools/run_quantized_reference_cpu.py --layers 43 --prompt-limit 0 --tokens 20 --max-seq-len 256 --threads 8 --bfp4-layers 42 41 34 27 32 29 2 36 35 --output models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/datatype_sweep/aime24_selective_bfp4_salience9_layer35_teacher_forced_cpu_20_20260827.json" <not executed on terminal>]
+loaded shard 1/45 model-00001-of-00048.safetensors: 1 parameters; host available=179.7 GiB
+loaded shard 2/45 model-00002-of-00048.safetensors: 1564 parameters; host available=179.4 GiB
+loaded shard 3/45 model-00003-of-00048.safetensors: 1564 parameters; host available=179.3 GiB
+loaded shard 4/45 model-00004-of-00048.safetensors: 1575 parameters; host available=179.1 GiB
+loaded shard 5/45 model-00005-of-00048.safetensors: 1568 parameters; host available=179.0 GiB
+loaded shard 6/45 model-00006-of-00048.safetensors: 1575 parameters; host available=178.6 GiB
+loaded shard 7/45 model-00007-of-00048.safetensors: 1568 parameters; host available=178.4 GiB
+loaded shard 8/45 model-00008-of-00048.safetensors: 1575 parameters; host available=178.2 GiB
+loaded shard 9/45 model-00009-of-00048.safetensors: 1568 parameters; host available=178.1 GiB
+loaded shard 10/45 model-00010-of-00048.safetensors: 1575 parameters; host available=177.9 GiB
+loaded shard 11/45 model-00011-of-00048.safetensors: 1568 parameters; host available=177.7 GiB
+loaded shard 12/45 model-00012-of-00048.safetensors: 1575 parameters; host available=177.6 GiB
+loaded shard 13/45 model-00013-of-00048.safetensors: 1568 parameters; host available=177.4 GiB
+loaded shard 14/45 model-00014-of-00048.safetensors: 1575 parameters; host available=177.3 GiB
+loaded shard 15/45 model-00015-of-00048.safetensors: 1568 parameters; host available=177.1 GiB
+loaded shard 16/45 model-00016-of-00048.safetensors: 1575 parameters; host available=177.0 GiB
+loaded shard 17/45 model-00017-of-00048.safetensors: 1568 parameters; host available=176.8 GiB
+loaded shard 18/45 model-00018-of-00048.safetensors: 1575 parameters; host available=176.5 GiB
+loaded shard 19/45 model-00019-of-00048.safetensors: 1568 parameters; host available=176.2 GiB
+loaded shard 20/45 model-00020-of-00048.safetensors: 1575 parameters; host available=176.0 GiB
+loaded shard 21/45 model-00021-of-00048.safetensors: 1568 parameters; host available=175.8 GiB
+loaded shard 22/45 model-00022-of-00048.safetensors: 1575 parameters; host available=175.5 GiB
+loaded shard 23/45 model-00023-of-00048.safetensors: 1568 parameters; host available=175.3 GiB
+loaded shard 24/45 model-00024-of-00048.safetensors: 1575 parameters; host available=175.1 GiB
+loaded shard 25/45 model-00025-of-00048.safetensors: 1568 parameters; host available=174.9 GiB
+loaded shard 26/45 model-00026-of-00048.safetensors: 1575 parameters; host available=174.6 GiB
+loaded shard 27/45 model-00027-of-00048.safetensors: 1568 parameters; host available=174.4 GiB
+loaded shard 28/45 model-00028-of-00048.safetensors: 1575 parameters; host available=174.2 GiB
+loaded shard 29/45 model-00029-of-00048.safetensors: 1568 parameters; host available=173.9 GiB
+loaded shard 30/45 model-00030-of-00048.safetensors: 1575 parameters; host available=173.7 GiB
+loaded shard 31/45 model-00031-of-00048.safetensors: 1568 parameters; host available=173.5 GiB
+loaded shard 32/45 model-00032-of-00048.safetensors: 1575 parameters; host available=173.3 GiB
+loaded shard 33/45 model-00033-of-00048.safetensors: 1568 parameters; host available=173.1 GiB
+loaded shard 34/45 model-00034-of-00048.safetensors: 1575 parameters; host available=172.8 GiB
+loaded shard 35/45 model-00035-of-00048.safetensors: 1568 parameters; host available=172.6 GiB
+loaded shard 36/45 model-00036-of-00048.safetensors: 1575 parameters; host available=172.3 GiB
+loaded shard 37/45 model-00037-of-00048.safetensors: 1568 parameters; host available=172.0 GiB
+loaded shard 38/45 model-00038-of-00048.safetensors: 1575 parameters; host available=171.8 GiB
+loaded shard 39/45 model-00039-of-00048.safetensors: 1568 parameters; host available=171.6 GiB
+loaded shard 40/45 model-00040-of-00048.safetensors: 1575 parameters; host available=171.4 GiB
+loaded shard 41/45 model-00041-of-00048.safetensors: 1568 parameters; host available=171.2 GiB
+loaded shard 42/45 model-00042-of-00048.safetensors: 1575 parameters; host available=171.1 GiB
+loaded shard 43/45 model-00043-of-00048.safetensors: 1568 parameters; host available=170.8 GiB
+loaded shard 44/45 model-00044-of-00048.safetensors: 1575 parameters; host available=170.7 GiB
+loaded shard 45/45 model-00045-of-00048.safetensors: 5 parameters; host available=168.7 GiB
+step=000 target=2581 top1=2581 rank=1 elapsed=2675.113s
+step=001 target=1309 top1=1309 rank=1 elapsed=21.262s
+step=002 target=3287 top1=3287 rank=1 elapsed=21.859s
+step=003 target=7704 top1=3295 rank=3 elapsed=21.614s
+step=004 target=16 top1=3295 rank=2 elapsed=21.335s
+step=005 target=21017 top1=21017 rank=1 elapsed=21.281s
+step=006 target=9487 top1=9487 rank=1 elapsed=21.293s
+step=007 target=16 top1=16 rank=1 elapsed=21.189s
+step=008 target=4480 top1=4480 rank=1 elapsed=21.289s
+step=009 target=734 top1=734 rank=1 elapsed=21.276s
+step=010 target=2591 top1=27438 rank=2 elapsed=21.216s
+step=011 target=434 top1=434 rank=1 elapsed=21.279s
+step=012 target=339 top1=339 rank=1 elapsed=21.463s
+step=013 target=16109 top1=34723 rank=3 elapsed=21.227s
+step=014 target=7469 top1=7469 rank=1 elapsed=21.361s
+step=015 target=334 top1=334 rank=1 elapsed=21.295s
+step=016 target=4789 top1=4789 rank=1 elapsed=21.323s
+step=017 target=7881 top1=28483 rank=2 elapsed=21.451s
+step=018 target=362 top1=362 rank=1 elapsed=21.289s
+step=019 target=260 top1=223 rank=2 elapsed=21.323s
+
+Script done on 2026-08-27 13:03:44+00:00 [COMMAND_EXIT_CODE="0"]

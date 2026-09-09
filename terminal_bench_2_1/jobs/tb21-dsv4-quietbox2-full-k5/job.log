@@ -1,0 +1,93 @@
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/write-compressor__BPLsHU7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat decomp.c\n'] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/write-compressor__BPLsHU7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat data.txt\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/write-compressor__BPLsHU7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["echo -n 'abc' | /app/decomp\n"] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/write-compressor__BPLsHU7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["printf 'hello\\0\\0\\0\\0\\0' | /app/decomp\n"] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/write-compressor__BPLsHU7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat decomp.c\n'] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/write-compressor__BPLsHU7/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/write-compressor__BPLsHU7/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/torch-tensor-parallelism__cPb3A7G/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/schemelike-metacircular-eval__8MAyAjy/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/kv-store-grpc__k29xNR2/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/kv-store-grpc__k29xNR2/agent/trajectory.json
+Trial kv-store-grpc__k29xNR2 cancelled
+Collecting main service artifacts

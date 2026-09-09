@@ -1,0 +1,5 @@
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke/write-compressor__xso8ddg/agent/trajectory.json
+Trial write-compressor__xso8ddg cancelled
+Collecting main service artifacts

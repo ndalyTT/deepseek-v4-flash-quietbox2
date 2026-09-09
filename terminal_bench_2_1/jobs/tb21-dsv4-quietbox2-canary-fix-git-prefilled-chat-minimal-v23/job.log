@@ -1,0 +1,54 @@
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130560, 'max_output_tokens': 512, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cd app && ls *...\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls *...\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['find . -name .git\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat Gemfile\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat _config.yml\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat _includes\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat _includes && ls _includes\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls _includes\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat about.md\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat contact.md\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat interests.md\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat publications.md\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat posters.md\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat _layouts\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-prefilled-chat-minimal-v23/fix-git__NkyeJAy/agent/trajectory.json
+Collecting main service artifacts

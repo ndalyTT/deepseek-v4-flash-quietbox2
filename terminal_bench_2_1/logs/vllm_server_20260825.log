@@ -1,0 +1,52 @@
+Script started on 2026-08-25 14:09:10+00:00 [COMMAND="./run_deepseek_v4_server.sh" TERM="dumb" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+INFO 08-25 14:09:10 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 08-25 14:09:10 [__init__.py:46] - tt -> vllm_tt_plugin.entrypoints:platform_plugin
+INFO 08-25 14:09:10 [__init__.py:58] Loading plugin tt
+[32m2026-08-25 14:09:11.676[0m | [34m[1mDEBUG   [0m | [36mttnn[0m:[36m<module>[0m:[36m78[0m - [34m[1mInitial ttnn.CONFIG:
+Config{cache_path=/home/ttuser/.cache/ttnn,model_cache_path=/home/ttuser/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,validate_program_args=false,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_graph_python_stack_traces=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}[0m
+INFO 08-25 14:09:11 [__init__.py:237] Platform plugin tt is activated
+INFO 08-25 14:09:14 [importing.py:53] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 08-25 14:09:14 [importing.py:88] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 08-25 14:09:14 [tt/platform.py:592] Registered TT model TTDeepseekV4ForCausalLM -> deepseek_v4_flash_adapter:DeepseekV4ForCausalLM (from EXTRA_MODELS_DIR/deepseek_v4_flash_0731)
+(APIServer pid=857890) INFO 08-25 14:09:14 [api_utils.py:339] 
+(APIServer pid=857890) INFO 08-25 14:09:14 [api_utils.py:339]        █     █     █▄   ▄█
+(APIServer pid=857890) INFO 08-25 14:09:14 [api_utils.py:339]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.25.1
+(APIServer pid=857890) INFO 08-25 14:09:14 [api_utils.py:339]   █▄█▀ █     █     █     █  model   /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731
+(APIServer pid=857890) INFO 08-25 14:09:14 [api_utils.py:339]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=857890) INFO 08-25 14:09:14 [api_utils.py:339] 
+(APIServer pid=857890) INFO 08-25 14:09:14 [api_utils.py:273] non-default args: {'model_tag': '/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', 'model': '/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', 'tokenizer': '/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', 'tokenizer_mode': 'deepseek_v4', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 131072, 'served_model_name': ['deepseek-ai/DeepSeek-V4-Flash-0731'], 'block_size': 128, 'max_num_batched_tokens': 131072, 'max_num_seqs': 1, 'additional_config': {'tt': {'sample_on_device_mode': 'all', 'trace_mode': 'all', 'enable_model_warmup': False, 'trace_region_size': 268435456, 'l1_small_size': 2048, 'fabric_config': 'FABRIC_1D_RING', 'fabric_reliability_mode': 'RELAXED_INIT'}}}
+(APIServer pid=857890) Traceback (most recent call last):
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/bin/vllm", line 12, in <module>
+(APIServer pid=857890)     sys.exit(main())
+(APIServer pid=857890)              ^^^^^^
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 95, in main
+(APIServer pid=857890)     args.dispatch_function(args)
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/cli/serve.py", line 148, in cmd
+(APIServer pid=857890)     uvloop.run(run_server(args))
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=857890)     return __asyncio.run(
+(APIServer pid=857890)            ^^^^^^^^^^^^^^
+(APIServer pid=857890)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=857890)     return runner.run(main)
+(APIServer pid=857890)            ^^^^^^^^^^^^^^^^
+(APIServer pid=857890)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=857890)     return self._loop.run_until_complete(task)
+(APIServer pid=857890)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=857890)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=857890)     return await main
+(APIServer pid=857890)            ^^^^^^^^^^
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 697, in run_server
+(APIServer pid=857890)     listen_address, sock = setup_server(args, reuse_port=False)
+(APIServer pid=857890)                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=857890)     return func(*args, **kwargs)
+(APIServer pid=857890)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 576, in setup_server
+(APIServer pid=857890)     sock = create_server_socket(sock_addr, reuse_port=reuse_port)
+(APIServer pid=857890)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=857890)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 525, in create_server_socket
+(APIServer pid=857890)     sock.bind(addr)
+(APIServer pid=857890) OSError: [Errno 98] Address already in use
+
+Script done on 2026-08-25 14:09:16+00:00 [COMMAND_EXIT_CODE="1"]

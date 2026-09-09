@@ -1,0 +1,32 @@
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['mkdir -p /app/ssl\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['umask 077 && openssl genrsa -out /app/ssl/server.key 2048\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl req -new -key /app/ssl/server.key -subj "/CN=dev-internal.company.local/O=DevOps Team" -days 365 -out /app/ssl/server.crt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl req -x509 -new -key /app/ssl/server.key -subj "/CN=dev-internal.company.local/O=DevOps Team" -days 365 -out /app/ssl/server.crt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/ssl/server.crt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/ssl/server.key /app/ssl/server.crt > /app/ssl/server.pem && chmod 600 /app/ssl/server.pem\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl x509 -in /app/ssl/server.crt -text -noout\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v18/openssl-selfsigned-cert__bprDdjC/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached

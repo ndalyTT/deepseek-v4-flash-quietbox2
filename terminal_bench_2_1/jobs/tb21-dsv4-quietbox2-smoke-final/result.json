@@ -1,0 +1,51 @@
+{
+    "id": "ef3fdf53-6cb1-4ad3-b9f1-a814526dd778",
+    "started_at": "2026-08-25T17:26:38.623934",
+    "updated_at": "2026-08-25T19:09:20.492908",
+    "finished_at": "2026-08-25T19:09:20.492908",
+    "n_total_trials": 5,
+    "stats": {
+        "n_completed_trials": 5,
+        "n_errored_trials": 5,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "terminus-2__deepseek-ai/DeepSeek-V4-Flash-0731__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 5,
+                "n_errors": 5,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "write-compressor__m4CdTW6",
+                            "torch-tensor-parallelism__TGSVVcV",
+                            "schemelike-metacircular-eval__paWdXTV",
+                            "kv-store-grpc__TsWw34X",
+                            "pypi-server__Qvs7kdm"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "write-compressor__m4CdTW6",
+                        "torch-tensor-parallelism__TGSVVcV",
+                        "schemelike-metacircular-eval__paWdXTV",
+                        "kv-store-grpc__TsWw34X",
+                        "pypi-server__Qvs7kdm"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 0,
+        "cost_usd": null
+    }
+}

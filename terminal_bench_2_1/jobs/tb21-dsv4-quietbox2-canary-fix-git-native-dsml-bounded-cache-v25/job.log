@@ -1,0 +1,48 @@
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130560, 'max_output_tokens': 512, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['git diff master\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git status\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git log --oneline --decorate --graph --all -20\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git status --porcelain\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git reflog --all --oneline -20\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git branch --all --verbose --no-decoration\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git branch --all --verbose\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git checkout d7d3e4b --detach\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git diff --no-index --ignore-submodules --binary --shortstat HEAD -- \n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-native-dsml-bounded-cache-v25/fix-git__YMsHW4C/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached

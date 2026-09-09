@@ -1,0 +1,6 @@
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-openssl-native-action-recommended-v16/openssl-selfsigned-cert__wQLiPWw/agent/trajectory.json
+Trial openssl-selfsigned-cert__wQLiPWw failed: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Collecting main service artifacts

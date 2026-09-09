@@ -1,0 +1,42 @@
+{
+    "task": {
+        "name": "terminal-bench/write-compressor",
+        "ref": "sha256:d9ddd9a8e925e2c566b37b2492cbf995afecefe58874e4043ef78d7f3c892c7e",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "write-compressor__m4CdTW6",
+    "trials_dir": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "kwargs": {
+            "api_base": "http://127.0.0.1:8010/v1",
+            "parser_name": "json",
+            "temperature": 1.0,
+            "reasoning_effort": "none",
+            "enable_summarize": true,
+            "proactive_summarization_threshold": 8000,
+            "store_all_messages": true,
+            "record_terminal_session": true,
+            "model_info": {
+                "max_tokens": 131072,
+                "max_input_tokens": 130048,
+                "max_output_tokens": 1024,
+                "input_cost_per_token": 0.0,
+                "output_cost_per_token": 0.0
+            },
+            "llm_kwargs": {
+                "max_tokens": 1024,
+                "early_stop_balanced_json": true,
+                "timeout": 12000
+            },
+            "llm_call_kwargs": {
+                "extra_body": {
+                    "top_p": 0.95,
+                    "top_k": 32
+                }
+            }
+        }
+    },
+    "job_id": "ef3fdf53-6cb1-4ad3-b9f1-a814526dd778"
+}

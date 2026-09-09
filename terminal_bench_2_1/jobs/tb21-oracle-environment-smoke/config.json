@@ -1,0 +1,11 @@
+{
+    "job_name": "tb21-oracle-environment-smoke",
+    "jobs_dir": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs",
+    "n_concurrent_trials": 1,
+    "datasets": [
+        {
+            "path": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/dataset/tasks",
+            "n_tasks": 5
+        }
+    ]
+}

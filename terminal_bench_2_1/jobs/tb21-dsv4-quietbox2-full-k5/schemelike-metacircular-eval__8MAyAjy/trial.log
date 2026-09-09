@@ -1,0 +1,3 @@
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5/schemelike-metacircular-eval__8MAyAjy/agent/trajectory.json
+Collecting main service artifacts

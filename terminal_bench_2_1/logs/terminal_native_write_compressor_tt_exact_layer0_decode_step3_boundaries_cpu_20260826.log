@@ -1,0 +1,10 @@
+Script started on 2026-08-26 21:50:13+00:00 [COMMAND="python_env/bin/python models/autoports/deepseek_ai_deepseek_v4_flash_0731/tools/run_quantized_reference_cpu.py --checkpoint /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731 --teacher-reference models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/datatype_sweep/terminal_native_write_compressor_tt_exact_selective_bfp4_salience8_decode_step3_states_cpu_20260826.json --terminal-task-file /home/ttuser/deepseekv4flash/terminal_bench_2_1/dataset/tasks/write-compressor/instruction.md --output models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/datatype_sweep/terminal_native_write_compressor_tt_exact_layer0_decode_step3_boundaries_cpu_20260826.json --layers 1 --prompt-limit 0 --tokens 4 --max-seq-len 512 --threads 8 --emulate-tt-bfp4 --emulate-tt-hc --capture-decode-step 3 --capture-decode-layer-boundaries models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/datatype_sweep/terminal_native_write_compressor_tt_exact_layer0_decode_step3_boundaries_cpu_20260826.pt" <not executed on terminal>]
+loaded shard 1/3 model-00001-of-00048.safetensors: 1 parameters; host available=191.5 GiB
+loaded shard 2/3 model-00002-of-00048.safetensors: 1564 parameters; host available=191.3 GiB
+loaded shard 3/3 model-00045-of-00048.safetensors: 5 parameters; host available=189.4 GiB
+step=000 target=43 top1=83484 rank=None elapsed=28.061s
+step=001 target=1309 top1=78827 rank=None elapsed=0.775s
+step=002 target=304 top1=18639 rank=None elapsed=0.758s
+step=003 target=9487 top1=47877 rank=None elapsed=0.765s
+
+Script done on 2026-08-26 21:50:49+00:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,43 @@
+{
+    "id": "0926dae3-eed0-4b00-b3a8-96d04174e959",
+    "started_at": "2026-08-27T14:02:23.251220",
+    "updated_at": "2026-08-27T14:17:42.813757",
+    "finished_at": "2026-08-27T14:17:42.813757",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 1,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "terminus-2__deepseek-ai/DeepSeek-V4-Flash-0731__tasks": {
+                "n_trials": 1,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "openssl-selfsigned-cert__bprDdjC"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "openssl-selfsigned-cert__bprDdjC"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 0,
+        "cost_usd": null
+    }
+}

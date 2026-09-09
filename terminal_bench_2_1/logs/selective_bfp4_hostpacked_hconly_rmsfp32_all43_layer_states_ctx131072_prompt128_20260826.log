@@ -1,0 +1,94 @@
+Script started on 2026-08-26 18:38:08+00:00 [COMMAND="/home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py --checkpoint /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731 --artifact-json models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/full_model/selective_bfp4_hostpacked_hconly_rmsfp32_all43_layer_states_ctx131072_prompt128_20260826.json --layers all --max-context 131072 --prompt-token-limit 128 --trace-replays 0 --deployment-mode quietbox2_selective_bfp4 --capture-layer-states models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/full_model/selective_bfp4_hostpacked_hconly_rmsfp32_all43_layer_states_ctx131072_prompt128_20260826.pt" <not executed on terminal>]
+[32m2026-08-26 18:38:10.830[0m | [34m[1mDEBUG   [0m | [36mttnn[0m:[36m<module>[0m:[36m78[0m - [34m[1mInitial ttnn.CONFIG:
+Config{cache_path=/home/ttuser/.cache/ttnn,model_cache_path=/home/ttuser/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,validate_program_args=false,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_graph_python_stack_traces=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}[0m
+[90m2026-08-26 18:38:11.269[0m | [32minfo    [m | [35m          Metal[0m | [37mDisabling two-erisc fabric mode with TT_METAL_DISABLE_FABRIC_TWO_ERISC[0m [90m(rtoptions.cpp:744)[0m
+[90m2026-08-26 18:38:11.269[0m | [32minfo    [m | [35m         Device[0m | [37mOpening user mode device driver[0m [90m(tt_cluster.cpp:227)[0m
+[90m2026-08-26 18:38:11.269[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor started.[0m [90m(cluster.cpp:389)[0m
+[90m2026-08-26 18:38:11.269[0m | [32minfo    [m | [35m            UMD[0m | [37mCreating TopologyDiscovery for architecture: blackhole[0m [90m(topology_discovery.cpp:96)[0m
+[90m2026-08-26 18:38:11.269[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting topology discovery.[0m [90m(topology_discovery.cpp:115)[0m
+[90m2026-08-26 18:38:11.280[0m | [32minfo    [m | [35m            UMD[0m | [37mEstablished firmware bundle version: 19.11.0[0m [90m(topology_discovery.cpp:575)[0m
+[90m2026-08-26 18:38:11.281[0m | [32minfo    [m | [35m            UMD[0m | [37mCompleted topology discovery.[0m [90m(topology_discovery.cpp:119)[0m
+[90m2026-08-26 18:38:11.366[0m | [32minfo    [m | [35m            UMD[0m | [37mOpening local chip ids/PCIe ids: {0, 1, 2, 3}/[0, 1, 2, 3] and remote chip ids {}[0m [90m(cluster.cpp:173)[0m
+[90m2026-08-26 18:38:11.366[0m | [32minfo    [m | [35m            UMD[0m | [37mIOMMU: enabled[0m [90m(cluster.cpp:147)[0m
+[90m2026-08-26 18:38:11.366[0m | [32minfo    [m | [35m            UMD[0m | [37mKMD version: 2.9.0[0m [90m(cluster.cpp:150)[0m
+[90m2026-08-26 18:38:11.366[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor completed.[0m [90m(cluster.cpp:648)[0m
+[90m2026-08-26 18:38:11.367[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster[0m [90m(cluster.cpp:1188)[0m
+[90m2026-08-26 18:38:11.573[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster completed.[0m [90m(cluster.cpp:1196)[0m
+[90m2026-08-26 18:38:12.290[0m | [32minfo    [m | [35m    Distributed[0m | [37mUsing auto discovery to generate mesh graph.[0m [90m(metal_env.cpp:424)[0m
+[90m2026-08-26 18:38:12.290[0m | [32minfo    [m | [35m    Distributed[0m | [37mConstructing control plane using auto-discovery (no mesh graph descriptor).[0m [90m(metal_env.cpp:486)[0m
+[90m2026-08-26 18:38:12.290[0m | [33m[1mwarning [m | [35m         Always[0m | [37mUnknown motherboard 'B850M-C' for chip_id=2 (bus_id=0x3) — falling back to bus_id as tray_id. Add this motherboard and its bus IDs to mobo_to_bus_ids in physical_system_discovery.cpp.[0m [90m(physical_system_discovery.cpp:119)[0m
+[90m2026-08-26 18:38:12.290[0m | [32minfo    [m | [35m         Fabric[0m | [37mLogical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3341)[0m
+[90m2026-08-26 18:38:12.290[0m | [32minfo    [m | [35m         Fabric[0m | [37mPhysical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3349)[0m
+[90m2026-08-26 18:38:12.333[0m | [32minfo    [m | [35m          Metal[0m | [37mInitializing Fabric[0m [90m(fabric_firmware_initializer.cpp:296)[0m
+[90m2026-08-26 18:38:12.354[0m | [32minfo    [m | [35m          Metal[0m | [37mFabric initialized on 4 devices[0m [90m(fabric_firmware_initializer.cpp:444)[0m
+[90m2026-08-26 18:38:12.354[0m | [32minfo    [m | [35m          Metal[0m | [37mFabric Initialized with config FabricConfig::FABRIC_1D_RING[0m [90m(fabric_firmware_initializer.cpp:313)[0m
+FULL_MODEL_RESIDENCY layers=43 build_seconds=1413.060 allocated_gib=30.934191 free_gib=0.647233
+[90m2026-08-26 19:01:46.148[0m | [33m[1mwarning [m | [35m             Op[0m | [37mThe following ttnn.all_gather args are deprecated and will be removed in September-2026: num_links, topology, chunks_per_sync, num_workers_per_link, num_buffers_per_channel, use_l1_small_for_semaphores.[0m [90m(all_gather.cpp:148)[0m
+[90m2026-08-26 19:01:46.542[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_FATAL: Slice start[3] (1536) must be less than input tensor shape[3] (1536)[0m [90m(assert.hpp:104)[0m
+Traceback (most recent call last):
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py", line 460, in <module>
+    main()
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py", line 261, in main
+    logits = model.prefill_forward(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tt/model.py", line 806, in prefill_forward
+    hidden = self._decoder_lane(layer, lane.slot).prefill_forward(hidden, plan)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tt/optimized_decoder.py", line 1926, in prefill_forward
+    attention = self._attention_prefill(attention_input, plan)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tt/multichip_decoder.py", line 1640, in _attention_prefill
+    qr, q, kv, rope = self._project_q_kv(x, plan.position_ids)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tt/multichip_decoder.py", line 1456, in _project_q_kv
+    key: self._packed_projection(packed, projection)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tt/fused_decoder.py", line 411, in _packed_projection
+    return ttnn.slice(
+           ^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/decorators.py", line 728, in __call__
+    result = self.function(*function_args, **function_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: TT_FATAL @ /home/ttuser/deepseekv4flash/tt-metal/ttnn/cpp/ttnn/operations/data_movement/slice/device/slice_device_operation.cpp:121: args.slice_start[i] < tensor_args.input.padded_shape()[i]
+info:
+Slice start[3] (1536) must be less than input tensor shape[3] (1536)
+backtrace:
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(+0x97dd93) [0x7435e0f7dd93]
+ --- ttnn::prim::SliceDeviceOperation::validate_on_program_cache_miss(ttnn::prim::SliceParams const&, ttnn::prim::SliceInputs const&)
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(_ZN4ttnn16device_operation6detail30create_and_cache_mesh_workloadITkNS0_22DeviceOperationConceptENS0_26MeshDeviceOperationAdapterINS_4prim20SliceDeviceOperationEEEEEvRKNT_22operation_attributes_tERKNS7_13tensor_args_tERNS7_21tensor_return_value_tEPN2tt8tt_metal11distributed10MeshDeviceERNSH_13program_cache6detail12ProgramCacheERKNSM_15ProgramCacheKeyE+0x29) [0x7435e1241839]
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(_ZN4ttnn16device_operation6detail29launch_operation_with_adapterITkNS0_36DeviceOperationWithMeshDeviceAdapterENS0_26MeshDeviceOperationAdapterINS_4prim20SliceDeviceOperationEEEEEvRKNT_22operation_attributes_tERKNS7_13tensor_args_tERNS7_21tensor_return_value_tEPN2tt8tt_metal11distributed10MeshDeviceE+0x219) [0x7435e123f7d9]
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/ttnn/_ttnncpp.so(_ZN4ttnn16device_operation6detail6launchITkNS0_22DeviceOperationConceptENS_4prim20SliceDeviceOperationEEENT_21tensor_return_value_tERKNS5_22operation_attributes_tERKNS5_13tensor_args_tE+0x31f) [0x7435e123e12f]
+ --- ttnn::prim::slice(ttnn::Tensor const&, tt::tt_metal::Shape const&, tt::tt_metal::Shape const&, tt::tt_metal::Shape const&, tt::tt_metal::MemoryConfig const&, bool, std::optional<ttnn::Tensor>, std::optional<ttnn::Tensor>, std::optional<unsigned int> const&, std::optional<unsigned int> const&, std::optional<tt::tt_metal::CoreRangeSet> const&, std::optional<ttnn::Tensor> const&)
+ --- ttnn::Tensor ttnn::slice<int>(ttnn::Tensor const&, std::span<int const, 18446744073709551615ul>, std::span<int const, 18446744073709551615ul>, std::span<int const, 18446744073709551615ul>, std::optional<tt::tt_metal::MemoryConfig> const&, std::optional<ttnn::Tensor> const&, std::optional<float> const&, std::optional<tt::tt_metal::CoreRangeSet> const&)
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x78ee81) [0x7435e358ee81]
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x794aab) [0x7435e3594aab]
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x366f44) [0x7435e3166f44]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(_PyObject_Call_Prepend+0xa0) [0x18a1fb4]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x18a1ef2]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(_PyEval_EvalFrameDefault+0xa992) [0x181e052]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(_PyObject_Call_Prepend+0xa0) [0x18a1fb4]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x18a1ef2]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(_PyEval_EvalFrameDefault+0x1a8c) [0x181514c]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(PyEval_EvalCode+0xde) [0x189efa0]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x18af2c9]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x19f7ec5]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(_PyRun_SimpleFileObject+0x106) [0x19f7906]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(_PyRun_AnyFileObject+0x4a) [0x19f768a]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x19f7610]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x19f751d]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x1ad74a3]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x198135f]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python() [0x198116c]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x74367162a1ca]
+ --- /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b) [0x74367162a28b]
+ --- /home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python(_start+0x29) [0x19aaa29]
+
+[90m2026-08-26 19:01:47.429[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT cache stats: 731/731 hits (100.0%) [731 cached, 537 build-once dedup, 0 merged artifacts, 0 merged genfiles][0m [90m(build_cache_telemetry.cpp:207)[0m
+[90m2026-08-26 19:01:47.429[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT telemetry: 3 registered TelemetryTokens[0m [90m(build_cache_telemetry.cpp:230)[0m
+[90m2026-08-26 19:01:47.447[0m | [32minfo    [m | [35m         Device[0m | [37mClosing user mode device drivers[0m [90m(tt_cluster.cpp:547)[0m
+[90m2026-08-26 19:01:47.447[0m | [32minfo    [m | [35m            UMD[0m | [37mClosing devices in cluster[0m [90m(cluster.cpp:1201)[0m
+[90m2026-08-26 19:01:48.072[0m | [32minfo    [m | [35m            UMD[0m | [37mClosing devices in cluster completed.[0m [90m(cluster.cpp:1210)[0m
+[90m2026-08-26 19:01:48.072[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster destructor started.[0m [90m(cluster.cpp:916)[0m
+[90m2026-08-26 19:01:48.072[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster destructor completed.[0m [90m(cluster.cpp:919)[0m
+
+Script done on 2026-08-26 19:01:48+00:00 [COMMAND_EXIT_CODE="1"]

@@ -1,0 +1,3 @@
+Script started on 2026-08-27 14:36:06+00:00 [COMMAND="/home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python3 probe_sampling_policy.py --probe native --task-file dataset/tasks/openssl-selfsigned-cert/instruction.md --policy low_sample --first-only --action-token" <not executed on terminal>]
+
+Script done on 2026-08-27 14:36:07+00:00 [COMMAND_EXIT_CODE="0"]

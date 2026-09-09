@@ -1,0 +1,4 @@
+Script started on 2026-08-27 15:23:23+00:00 [COMMAND="/home/ttuser/deepseekv4flash/tt-metal/python_env/bin/python3 probe_sampling_policy.py --probe native --task-file dataset/tasks/fix-git/instruction.md --policy recommended --first-only --action-token --native-prefill" <not executed on terminal>]
+{"policy": {"name": "recommended", "temperature": 1.0, "top_p": 0.95}, "turn": "first", "elapsed_seconds": 14.108, "finish_reason": "stop", "text": "git status", "token_ids": [30139, 6317, 1718, 128825, 41523, 1018], "usage": {"prompt_tokens": 391, "total_tokens": 397, "completion_tokens": 6, "prompt_tokens_details": null}}
+
+Script done on 2026-08-27 15:23:38+00:00 [COMMAND_EXIT_CODE="0"]

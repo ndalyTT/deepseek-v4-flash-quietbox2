@@ -1,0 +1,9 @@
+Credential-pattern scan result: no matches.
+
+Patterns checked included bearer authorization headers, API-key assignments,
+AWS access/secret keys, private-key headers, and password assignments.
+
+Board identifiers, PCI addresses, hostname, kernel version, and local source
+paths were intentionally retained because they are relevant to Tenstorrent
+support diagnosis. Treat this archive as private support material rather than
+posting it publicly.

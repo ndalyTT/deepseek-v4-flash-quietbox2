@@ -1,0 +1,3 @@
+Skipping image OS validation for alexgshaw/extract-elf:20251031: docker inspect returned 1
+Trial extract-elf__c2K9Kxr failed: Failed to start tmux session. Error: None
+Collecting main service artifacts

@@ -1,0 +1,114 @@
+Script started on 2026-08-26 17:16:17+00:00 [COMMAND="python_env/bin/python models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py --checkpoint /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731 --artifact-json models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/full_model/selective_bfp4_layer0_hifi2_capture_prompt128_20260826.json --layers 0 --max-context 128 --prompt-token-limit 128 --trace-replays 0 --deployment-mode quietbox2_selective_bfp4 --allow-quantized-reduced-probe --moe-compute-profile hifi2 --capture-layer-states models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/full_model/selective_bfp4_layer0_hifi2_capture_prompt128_20260826.pt" <not executed on terminal>]
+[32m2026-08-26 17:16:20.282[0m | [34m[1mDEBUG   [0m | [36mttnn[0m:[36m<module>[0m:[36m78[0m - [34m[1mInitial ttnn.CONFIG:
+Config{cache_path=/home/ttuser/.cache/ttnn,model_cache_path=/home/ttuser/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,validate_program_args=false,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_graph_python_stack_traces=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}[0m
+[90m2026-08-26 17:16:20.736[0m | [32minfo    [m | [35m          Metal[0m | [37mDisabling two-erisc fabric mode with TT_METAL_DISABLE_FABRIC_TWO_ERISC[0m [90m(rtoptions.cpp:744)[0m
+[90m2026-08-26 17:16:20.736[0m | [32minfo    [m | [35m         Device[0m | [37mOpening user mode device driver[0m [90m(tt_cluster.cpp:227)[0m
+[90m2026-08-26 17:16:20.736[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor started.[0m [90m(cluster.cpp:389)[0m
+[90m2026-08-26 17:16:20.736[0m | [32minfo    [m | [35m            UMD[0m | [37mCreating TopologyDiscovery for architecture: blackhole[0m [90m(topology_discovery.cpp:96)[0m
+[90m2026-08-26 17:16:20.736[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting topology discovery.[0m [90m(topology_discovery.cpp:115)[0m
+[90m2026-08-26 17:16:20.747[0m | [32minfo    [m | [35m            UMD[0m | [37mEstablished firmware bundle version: 19.11.0[0m [90m(topology_discovery.cpp:575)[0m
+[90m2026-08-26 17:16:20.747[0m | [32minfo    [m | [35m            UMD[0m | [37mCompleted topology discovery.[0m [90m(topology_discovery.cpp:119)[0m
+[90m2026-08-26 17:16:20.831[0m | [32minfo    [m | [35m            UMD[0m | [37mOpening local chip ids/PCIe ids: {0, 1, 2, 3}/[0, 1, 2, 3] and remote chip ids {}[0m [90m(cluster.cpp:173)[0m
+[90m2026-08-26 17:16:20.831[0m | [32minfo    [m | [35m            UMD[0m | [37mIOMMU: enabled[0m [90m(cluster.cpp:147)[0m
+[90m2026-08-26 17:16:20.831[0m | [32minfo    [m | [35m            UMD[0m | [37mKMD version: 2.9.0[0m [90m(cluster.cpp:150)[0m
+[90m2026-08-26 17:16:20.831[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor completed.[0m [90m(cluster.cpp:648)[0m
+[90m2026-08-26 17:16:20.833[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster[0m [90m(cluster.cpp:1188)[0m
+[90m2026-08-26 17:16:21.042[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster completed.[0m [90m(cluster.cpp:1196)[0m
+[90m2026-08-26 17:16:21.768[0m | [32minfo    [m | [35m    Distributed[0m | [37mUsing auto discovery to generate mesh graph.[0m [90m(metal_env.cpp:424)[0m
+[90m2026-08-26 17:16:21.768[0m | [32minfo    [m | [35m    Distributed[0m | [37mConstructing control plane using auto-discovery (no mesh graph descriptor).[0m [90m(metal_env.cpp:486)[0m
+[90m2026-08-26 17:16:21.768[0m | [33m[1mwarning [m | [35m         Always[0m | [37mUnknown motherboard 'B850M-C' for chip_id=2 (bus_id=0x3) — falling back to bus_id as tray_id. Add this motherboard and its bus IDs to mobo_to_bus_ids in physical_system_discovery.cpp.[0m [90m(physical_system_discovery.cpp:119)[0m
+[90m2026-08-26 17:16:21.769[0m | [32minfo    [m | [35m         Fabric[0m | [37mLogical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3341)[0m
+[90m2026-08-26 17:16:21.769[0m | [32minfo    [m | [35m         Fabric[0m | [37mPhysical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3349)[0m
+[90m2026-08-26 17:16:31.786[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 29-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcd6d23, Heartbeat end: 0xabcd6d23, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-26 17:16:31.786[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 28-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcdcba0, Heartbeat end: 0xabcdcba0, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-26 17:16:31.786[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 24-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcdf912, Heartbeat end: 0xabcdf912, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-26 17:16:31.786[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 22-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcdc3e5, Heartbeat end: 0xabcdc3e5, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-26 17:16:31.786[0m | [31m[1merror   [m | [35m          Metal[0m | [37mTimeout detected[0m [90m(metal_context.cpp:776)[0m
+[90m2026-08-26 17:16:31.786[0m | [32minfo    [m | [35m          Metal[0m | [37mSerializing Inspector RPC data[0m [90m(metal_context.cpp:779)[0m
+[90m2026-08-26 17:16:31.787[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_THROW: Device 0: Timeout (10000 ms) waiting for physical cores to finish: 29-25, 28-25, 24-25, 22-25.[0m [90m(assert.hpp:104)[0m
+[90m2026-08-26 17:16:31.788[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_THROW: Device 0 init: failed to initialize FW! Try resetting the board.[0m [90m(assert.hpp:104)[0m
+Traceback (most recent call last):
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py", line 359, in <module>
+    main()
+  File "/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/tests/run_full_model_probe.py", line 131, in main
+    mesh = ttnn.open_mesh_device(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/distributed/distributed.py", line 671, in open_mesh_device
+    return ttnn._ttnn.multi_device.open_mesh_device(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: TT_THROW @ /home/ttuser/deepseekv4flash/tt-metal/tt_metal/impl/device/firmware/risc_firmware_initializer.cpp:1530: tt::exception
+info:
+Device 0 init: failed to initialize FW! Try resetting the board.
+backtrace:
+ --- void tt::assert::detail::tt_throw<tt::tt_metal::TensorMemoryLayout>(char const*, int, char const*, char const*, fmt::v11::fstring<tt::tt_metal::TensorMemoryLayout const&>::t, tt::tt_metal::TensorMemoryLayout const&)
+ --- tt::tt_metal::RiscFirmwareInitializer::initialize_and_launch_firmware(int)
+ --- tt::tt_metal::RiscFirmwareInitializer::run_launch_phase(std::set<int, std::less<int>, std::allocator<int> > const&)
+ --- tt::tt_metal::MetalContext::initialize(tt::tt_metal::DispatchCoreConfig const&, unsigned char, std::vector<unsigned int, std::allocator<unsigned int> > const&, unsigned long, bool)
+ --- tt::tt_metal::MetalContext::initialize_device_manager(std::vector<int, std::allocator<int> > const&, unsigned char, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long, bool, bool)
+ --- tt::tt_metal::experimental::CreateDevices(ttsl::StrongType<int, tt::tt_metal::ContextIdTag>, std::vector<int, std::allocator<int> > const&, unsigned char, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::vector<unsigned int, std::allocator<unsigned int> > const&, unsigned long, bool, bool)
+ --- tt::tt_metal::distributed::MeshDeviceImpl::ScopedDevices::ScopedDevices(std::vector<tt::tt_metal::distributed::MaybeRemote<int>, std::allocator<tt::tt_metal::distributed::MaybeRemote<int> > > const&, std::vector<tt::tt_metal::distributed::MaybeRemote<int>, std::allocator<tt::tt_metal::distributed::MaybeRemote<int> > > const&, unsigned long, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, ttsl::StrongType<int, tt::tt_metal::ContextIdTag>)
+ --- tt::tt_metal::distributed::MeshDeviceImpl::create(ttsl::StrongType<int, tt::tt_metal::ContextIdTag>, tt::tt_metal::distributed::MeshDeviceConfig const&, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long)
+ --- tt::tt_metal::distributed::MeshDevice::create(tt::tt_metal::distributed::MeshDeviceConfig const&, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long)
+ --- ttnn::distributed::open_mesh_device(unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::optional<tt::tt_metal::distributed::MeshShape> const&, std::optional<tt::tt_metal::distributed::MeshCoordinate> const&, std::vector<int, std::allocator<int> > const&, unsigned long)
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x88d075) [0x7ea930c8d075]
+ --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x366f44) [0x7ea930766f44]
+ --- python_env/bin/python(_PyEval_EvalFrameDefault+0x1c17) [0x18152d7]
+ --- python_env/bin/python(PyEval_EvalCode+0xde) [0x189efa0]
+ --- python_env/bin/python() [0x18af2c9]
+ --- python_env/bin/python() [0x19f7ec5]
+ --- python_env/bin/python(_PyRun_SimpleFileObject+0x106) [0x19f7906]
+ --- python_env/bin/python(_PyRun_AnyFileObject+0x4a) [0x19f768a]
+ --- python_env/bin/python() [0x19f7610]
+ --- python_env/bin/python() [0x19f751d]
+ --- python_env/bin/python() [0x1ad74a3]
+ --- python_env/bin/python() [0x198135f]
+ --- python_env/bin/python() [0x198116c]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x7ea9bec2a1ca]
+ --- /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b) [0x7ea9bec2a28b]
+ --- python_env/bin/python(_start+0x29) [0x19aaa29]
+
+[90m2026-08-26 17:16:32.573[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT cache stats: 10/10 hits (100.0%) [10 cached, 3 build-once dedup, 0 merged artifacts, 0 merged genfiles][0m [90m(build_cache_telemetry.cpp:207)[0m
+[90m2026-08-26 17:16:32.573[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT telemetry: 2 registered TelemetryTokens[0m [90m(build_cache_telemetry.cpp:230)[0m
+[90m2026-08-26 17:16:52.575[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 29-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcd6d23, Heartbeat end: 0xabcd6d23, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-26 17:16:52.575[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_THROW: Device 0: Timed out while waiting for active ethernet core 29-25 to become active again. Try resetting the board. Minimum tt-firmware version is 18.10.0[0m [90m(assert.hpp:104)[0m
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  TT_THROW @ /home/ttuser/deepseekv4flash/tt-metal/tt_metal/llrt/llrt.cpp:594: tt::exception
+info:
+Device 0: Timed out while waiting for active ethernet core 29-25 to become active again. Try resetting the board. Minimum tt-firmware version is 18.10.0
+backtrace:
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(+0xc77f28) [0x7ea92d277f28]
+ --- tt::llrt::internal_::return_to_base_firmware_and_wait_for_heartbeat(int, tt::xy_pair const&, int)
+ --- tt::tt_metal::RiscFirmwareInitializer::assert_active_ethernet_cores_to_reset(int)
+ --- tt::tt_metal::RiscFirmwareInitializer::teardown(std::unordered_set<tt::tt_metal::InitializerKey, std::hash<tt::tt_metal::InitializerKey>, std::equal_to<tt::tt_metal::InitializerKey>, std::allocator<tt::tt_metal::InitializerKey> >&)
+ --- tt::tt_metal::MetalContext::teardown()
+ --- tt::tt_metal::MetalContext::~MetalContext()
+ --- tt::tt_metal::MetalContext::destroy_instance(bool, ttsl::StrongType<int, tt::tt_metal::ContextIdTag>)
+ --- tt::tt_metal::MetalContext::destroy_all_instances(bool)
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x47a76) [0x7ea9bec47a76]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x47bbe) [0x7ea9bec47bbe]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x2a1d1) [0x7ea9bec2a1d1]
+ --- /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b) [0x7ea9bec2a28b]
+ --- python_env/bin/python(_start+0x29) [0x19aaa29]
+
+[tt-quietbox:2099834] *** Process received signal ***
+[tt-quietbox:2099834] Signal: Aborted (6)
+[tt-quietbox:2099834] Signal code:  (-6)
+[tt-quietbox:2099834] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7ea9bec45330]
+[tt-quietbox:2099834] [ 1] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x7ea9bec9ec0c]
+[tt-quietbox:2099834] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x7ea9bec4527e]
+[tt-quietbox:2099834] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x7ea9bec288ff]
+[tt-quietbox:2099834] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xac2b5)[0x7ea9a6eac2b5]
+[tt-quietbox:2099834] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xc31ea)[0x7ea9a6ec31ea]
+[tt-quietbox:2099834] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(_ZSt10unexpectedv+0x0)[0x7ea9a6eabcac]
+[tt-quietbox:2099834] [ 7] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(+0x6c714e)[0x7ea92ccc714e]
+[tt-quietbox:2099834] [ 8] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(+0xb89771)[0x7ea92d189771]
+[tt-quietbox:2099834] [ 9] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt8tt_metal12MetalContext16destroy_instanceEbN4ttsl10StrongTypeIiNS0_12ContextIdTagEEE+0x90)[0x7ea92d188d60]
+[tt-quietbox:2099834] [10] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt8tt_metal12MetalContext21destroy_all_instancesEb+0xf)[0x7ea92d188e3f]
+[tt-quietbox:2099834] [11] /lib/x86_64-linux-gnu/libc.so.6(+0x47a76)[0x7ea9bec47a76]
+[tt-quietbox:2099834] [12] /lib/x86_64-linux-gnu/libc.so.6(+0x47bbe)[0x7ea9bec47bbe]
+[tt-quietbox:2099834] [13] /lib/x86_64-linux-gnu/libc.so.6(+0x2a1d1)[0x7ea9bec2a1d1]
+[tt-quietbox:2099834] [14] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7ea9bec2a28b]
+[tt-quietbox:2099834] [15] python_env/bin/python(_start+0x29)[0x19aaa29]
+[tt-quietbox:2099834] *** End of error message ***
+
+Script done on 2026-08-26 17:16:53+00:00 [COMMAND_EXIT_CODE="134"]

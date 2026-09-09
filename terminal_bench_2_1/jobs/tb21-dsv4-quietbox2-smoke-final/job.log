@@ -1,0 +1,186 @@
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat decomp.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat decomp.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat data.txt\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat decomp.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat decomp.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["echo 'test' | /app/decomp\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["printf 'test' > test.txt\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test.txt | /app/decomp\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/write-compressor__m4CdTW6/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/torch-tensor-parallelism__TGSVVcV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat > parallel_linear.py <<EOF\nimport torch\nimport torch.nn\nfrom torch.distributed import get_world_size, get_rank\n\nclass ColumnParallelLinear(torch.nn.Module):\n    def __init__(self, in_features, out_features, bias, master_weight):\n        self.in_features = in_features\n        self.out_features = out_features\n        self.bias = bias\n        self.master_weight = master_weight\n        # Split the weight matrix by columns (output dimension)\n        # Each rank gets a slice of the output columns\n        self.set_weight_partition()\n\nclass RowParallelLinear(torch.nn.Module):\n    def __init__(self, in_features, out_features, bias, master_weight):\n        self.in_features = in_features\n        self.out_features = out_features\n        self.bias = bias\n        self.master_weight = master_weight\n        # Split the weight matrix by rows (input dimension)\n        # Each rank gets a slice of the input rows\n        self.set_weight_partition()\n\nEOF\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/torch-tensor-parallelism__TGSVVcV/agent/trajectory.json
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/torch-tensor-parallelism__TGSVVcV/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la test\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat interp.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat README.md\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['cat test/calculator.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test/01-factorial.scm\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['ls -la ..\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['find .. -name README.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat ../usr/lib/python3/dist-packages/share/doc/asciinema/README.md\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['cat test/02-fibonacci.scm\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['cat test/03-list-operations.scm\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat interp.py\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Sending keys: ['cat test/04-higher-order.scm\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat test/README.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test/05-simple-io.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test/06-interactive-io.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat test/05-simple-io.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test/06-interactive-io.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test/08-progn-sequencing.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat interp.py\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat test/09-mutual-recursion.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test/10-advanced-features.scm\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat test/README.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat interp.py\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/schemelike-metacircular-eval__paWdXTV/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cd /app\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['pip install grpcio==1.73.0 grpcio-tools==1.73.0\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat > kv-store.proto <<EOF\nservice KVStore {\n  rpc GetVal(GetValRequest) returns (GetValResponse) {}\n  rpc SetVal(SetValRequest) returns (SetValResponse) {}\n}\nmessage GetValRequest {\n  required string key = 1;\n}\nmessage GetValResponse {\n  required int32 val = 1;\n}\nmessage SetValRequest {\n  required string key = 1;\n  required int32 val = 2;\n}\nmessage SetValResponse {\n  required int32 val = 1;\n}\nEOF\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['protoc --python_out=. --pyi_out=. kv-store.proto\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['python3 -c "import sys; sys.path.insert(0, \'/usr/local/bin\'); import grpcio_tools; from grpcio_tools import protoc; protoc(protobuf=\'kv-store.proto\', python_out=\'.\', pyi_out=\'.\')"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['python3 -c "import sys; sys.path.insert(0, \'/usr/local/bin\'); import grpcio_tools"\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/kv-store-grpc__TsWw34X/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 1024, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['mkdir vectorops\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cd vectorops\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["cat > __init.py <<EOF\nversion = '0.1'\n\nfrom vectorops import dotproduct\n\n\ndef dotproduct(a, b):\n    return sum(x*y for x,y in zip(a,b))\nEOF\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["cat > setup.py <<EOF\nfrom setuptools import setup, find_packages\nsetup(\n    name='vectorops',\n    version='0.1.0',\n    packages=find_packages(),\n)\nEOF\n"] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 setup.py build\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['python3 -m http.server 8080\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la dist\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: [''] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: [''] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: [''] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la dist\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-smoke-final/pypi-server__Qvs7kdm/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached

@@ -1,0 +1,25 @@
+vllm-tt-plugin
+==============
+## main...origin/main
+
+
+deepseek-harness
+================
+## master...origin/master
+
+
+harbor
+======
+## main...origin/main
+ M src/harbor/agents/terminus_2/templates/terminus-json-plain.txt
+ M src/harbor/agents/terminus_2/terminus_2.py
+ M src/harbor/agents/terminus_2/terminus_json_plain_parser.py
+ M src/harbor/llms/lite_llm.py
+ M tests/unit/agents/terminus_2/test_terminus_2_temperature.py
+ M tests/unit/agents/terminus_2/test_terminus_json_plain_parser.py
+ M tests/unit/llms/test_lite_llm.py
+?? src/harbor/agents/terminus_2/templates/terminus-deepseek-json-actionfirst.txt
+?? src/harbor/agents/terminus_2/templates/terminus-deepseek-native-brief-thinking.txt
+?? src/harbor/agents/terminus_2/templates/terminus-deepseek-native-minimal.txt
+?? src/harbor/agents/terminus_2/templates/terminus-deepseek-native.txt
+

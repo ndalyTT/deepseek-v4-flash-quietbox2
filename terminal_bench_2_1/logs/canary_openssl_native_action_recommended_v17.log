@@ -1,0 +1,34 @@
+Script started on 2026-08-27 14:01:10+00:00 [COMMAND="uv run harbor run -c ../config_canary_openssl_native_action_recommended_sampling.yaml" <not executed on terminal>]
+warning: `VIRTUAL_ENV=/home/ttuser/.tenstorrent-venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+[92m14:01:11 - LiteLLM:WARNING[0m: utils.py:2730 - register_model: model=openai/deepseek-ai/DeepSeek-V4-Flash-0731 not in built-in cost map and no prefix/region variant matched; cache cost fields will default to 0. To track cache cost, add cache_creation_input_token_cost and cache_read_input_token_cost to model_info
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Unknown Error in LLM interaction: litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+  1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:16 0:00:00
+
+tasks • terminus-2 • deepseek-ai/DeepSeek-V4-Flash-0731
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      0 │          1 │ 0.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ Exception           ┃ Count ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ AuthenticationError │     1 │
+└─────────────────────┴───────┘
+
+Job Info
+Total runtime: 16s
+Results written to 
+/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-
+openssl-native-action-recommended-v17/result.json
+Inspect results by running `harbor view 
+/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs`
+Share results by running `harbor upload 
+/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-
+openssl-native-action-recommended-v17`
+
+
+Script done on 2026-08-27 14:01:27+00:00 [COMMAND_EXIT_CODE="0"]

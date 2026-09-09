@@ -1,0 +1,61 @@
+Aug 28 15:26:03 tt-quietbox kernel: acpi PNP0A08:00: _OSC: OS now controls [PCIeHotplug SHPCHotplug PME AER PCIeCapability LTR DPC]
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:01.1: [1022:14db] type 01 class 0x060400 PCIe Root Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:01.3: [1022:14db] type 01 class 0x060400 PCIe Root Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:01.4: [1022:14db] type 01 class 0x060400 PCIe Root Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:01.5: [1022:14db] type 01 class 0x060400 PCIe Root Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:02.1: [1022:14db] type 01 class 0x060400 PCIe Root Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:08.1: [1022:14dd] type 01 class 0x060400 PCIe Root Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:08.3: [1022:14dd] type 01 class 0x060400 PCIe Root Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:01:00.0: [1e52:b140] type 00 class 0x120000 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:01:00.0: 63.012 Gb/s available PCIe bandwidth, limited by 16.0 GT/s PCIe x4 link at 0000:00:01.1 (capable of 126.024 Gb/s with 16.0 GT/s PCIe x8 link)
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:02:00.0: [1e52:b140] type 00 class 0x120000 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:02:00.0: 63.012 Gb/s available PCIe bandwidth, limited by 16.0 GT/s PCIe x4 link at 0000:00:01.3 (capable of 126.024 Gb/s with 16.0 GT/s PCIe x8 link)
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:03:00.0: [1e52:b140] type 00 class 0x120000 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:03:00.0: 63.012 Gb/s available PCIe bandwidth, limited by 16.0 GT/s PCIe x4 link at 0000:00:01.4 (capable of 126.024 Gb/s with 16.0 GT/s PCIe x8 link)
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:04:00.0: [1e52:b140] type 00 class 0x120000 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:04:00.0: 63.012 Gb/s available PCIe bandwidth, limited by 16.0 GT/s PCIe x4 link at 0000:00:01.5 (capable of 126.024 Gb/s with 16.0 GT/s PCIe x8 link)
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:05:00.0: [1022:43f4] type 01 class 0x060400 PCIe Switch Upstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:00.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:01.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:02.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:03.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:04.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:05.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:06.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:08.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:0c.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:06:0d.0: [1022:43f5] type 01 class 0x060400 PCIe Switch Downstream Port
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:09:00.0: [10ec:b851] type 00 class 0x028000 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:0a:00.0: [10ec:8168] type 00 class 0x020000 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:0e:00.0: [15b7:504a] type 00 class 0x010802 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:0f:00.0: [1022:43fc] type 00 class 0x0c0330 PCIe Legacy Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:10:00.0: [1022:43f6] type 00 class 0x010601 PCIe Legacy Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:11:00.0: [1002:13c0] type 00 class 0x030000 PCIe Legacy Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:11:00.1: [1002:1640] type 00 class 0x040300 PCIe Legacy Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:11:00.2: [1022:1649] type 00 class 0x108000 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:11:00.3: [1022:15b6] type 00 class 0x0c0330 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:11:00.4: [1022:15b7] type 00 class 0x0c0330 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:11:00.6: [1022:15e3] type 00 class 0x040300 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:12:00.0: [1022:15b8] type 00 class 0x0c0330 PCIe Endpoint
+Aug 28 15:26:03 tt-quietbox kernel: pci 0000:00:00.2: AMD-Vi: IOMMU performance counters supported
+Aug 28 15:26:03 tt-quietbox kernel: perf/amd_iommu: Detected AMD IOMMU #0 (2 banks, 4 counters/bank).
+Aug 28 15:26:03 tt-quietbox kernel: pcieport 0000:00:01.1: PME: Signaling with IRQ 29
+Aug 28 15:26:03 tt-quietbox kernel: pcieport 0000:00:01.3: PME: Signaling with IRQ 30
+Aug 28 15:26:03 tt-quietbox kernel: pcieport 0000:00:01.4: PME: Signaling with IRQ 31
+Aug 28 15:26:03 tt-quietbox kernel: pcieport 0000:00:01.5: PME: Signaling with IRQ 32
+Aug 28 15:26:03 tt-quietbox kernel: pcieport 0000:00:02.1: PME: Signaling with IRQ 33
+Aug 28 15:26:03 tt-quietbox kernel: pcieport 0000:00:08.1: PME: Signaling with IRQ 34
+Aug 28 15:26:03 tt-quietbox kernel: pcieport 0000:00:08.3: PME: Signaling with IRQ 35
+Aug 28 15:26:03 tt-quietbox systemd[1]: Starting tenstorrent-hugepages.service - Script that configures hugepages for Tenstorrent ASICs...
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent: loading out-of-tree module taints kernel.
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent: module verification failed: signature and/or required key missing - tainting kernel
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent: Loading Tenstorrent AI driver module v2.9.0
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:01:00.0: Found a Tenstorrent Blackhole device
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:01:00.0: enabling device (0000 -> 0002)
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:02:00.0: Found a Tenstorrent Blackhole device
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:02:00.0: enabling device (0000 -> 0002)
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:03:00.0: Found a Tenstorrent Blackhole device
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:03:00.0: enabling device (0000 -> 0002)
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:04:00.0: Found a Tenstorrent Blackhole device
+Aug 28 15:26:03 tt-quietbox kernel: tenstorrent 0000:04:00.0: enabling device (0000 -> 0002)
+

@@ -1,0 +1,16 @@
+Command: tt-flash verify
+Exit status: 1
+
+Traceback (most recent call last):
+  File "/home/ttuser/.tenstorrent-venv/bin/tt-flash", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/ttuser/.tenstorrent-venv/lib/python3.12/site-packages/tt_flash/main.py", line 230, in main
+    parser, args = parse_args()
+                   ^^^^^^^^^^^^
+  File "/home/ttuser/.tenstorrent-venv/lib/python3.12/site-packages/tt_flash/main.py", line 195, in parse_args
+    if args.fwbundle is None and args.fw_tar is None and args.download is None:
+                                                        ^^^^^^^^^^^^^
+AttributeError: 'Namespace' object has no attribute 'download'
+
+No verification or flash operation began.

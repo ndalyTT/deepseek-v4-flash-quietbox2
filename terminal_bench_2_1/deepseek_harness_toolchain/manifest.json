@@ -1,0 +1,17 @@
+{
+  "producedBy": "maka-eval/prepare-deepseek-harness-toolchain",
+  "fingerprint": "sha256:9a7c0851d0a4f1f985971bbd2f0eb0455ca22ed6b9d2081b2eba9b9574d49833",
+  "spec": {
+    "platform": "linux/amd64",
+    "node": {
+      "version": "22.23.2",
+      "image": "node:22-bookworm",
+      "imageDigest": "sha256:0557ac14e0d45d02ed563067b82856ca5e7aa3437fa28d98d4350ea9c3d9494a"
+    },
+    "deepseekHarness": {
+      "package": "@deepseek-ai/dsh",
+      "version": "0.1.0-rc.6",
+      "entrypoint": "lib/dsh/node_modules/@deepseek-ai/dsh/lib/bin.js"
+    }
+  }
+}

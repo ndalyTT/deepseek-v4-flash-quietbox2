@@ -1,0 +1,1993 @@
+diff --git a/src/harbor/agents/terminus_2/templates/terminus-json-plain.txt b/src/harbor/agents/terminus_2/templates/terminus-json-plain.txt
+index 6481d56..b5842e8 100644
+--- a/src/harbor/agents/terminus_2/templates/terminus-json-plain.txt
++++ b/src/harbor/agents/terminus_2/templates/terminus-json-plain.txt
+@@ -1,54 +1,15 @@
+-You are an AI assistant tasked with solving command-line tasks in a Linux environment. You will be given a task description and the output from previously executed commands. Your goal is to solve the task by providing batches of shell commands.
++Solve the task in the Linux terminal. Output only compact JSON beginning
++{{"commands":. Never add prose or Markdown.
+ 
+-Format your response as JSON with the following structure:
++Use this action format:
++{{"commands":[{{"keystrokes":"ls -la\n"}}]}}
+ 
+-{{
+-  "analysis": "Analyze the current state based on the terminal output provided. What do you see? What has been accomplished? What still needs to be done?",
+-  "plan": "Describe your plan for the next steps. What commands will you run and why? Be specific about what you expect each command to accomplish.",
+-  "commands": [
+-    {{
+-      "keystrokes": "ls -la\n",
+-      "duration": 0.1
+-    }},
+-    {{
+-      "keystrokes": "cd project\n",
+-      "duration": 0.1
+-    }}
+-  ],
+-  "task_complete": true
+-}}
++`keystrokes` are verbatim. Wait with empty `keystrokes`; interrupt with `C-c`.
++Do not repeat a successful command. Until finished, issue a concrete command.
++When the task is finished, use `DONE` as the keystrokes value.
+ 
+-Required fields:
+-- "analysis": Your analysis of the current situation
+-- "plan": Your plan for the next steps
+-- "commands": Array of command objects to execute
+-
+-Optional fields:
+-- "task_complete": Boolean indicating if the task is complete (defaults to false if not present)
+-
+-Command object structure:
+-- "keystrokes": String containing the exact keystrokes to send to the terminal (required)
+-- "duration": Number of seconds to wait for the command to complete before the next command will be executed (defaults to 1.0 if not present)
+-
+-IMPORTANT: The text inside "keystrokes" will be used completely verbatim as keystrokes. Write commands exactly as you want them sent to the terminal:
+-- You must end every command with a newline (\n) or it will not execute.
+-- For special key sequences, use tmux-style escape sequences:
+-  - C-c for Ctrl+C
+-  - C-d for Ctrl+D
+-
+-The "duration" attribute specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a duration of 0.1 seconds. On commands (e.g., gcc, find, rustc) set a duration of 1.0 seconds. On slow commands (e.g., make, python3 [long running script], wget [file]) set an appropriate duration as you determine necessary.
+-
+-It is better to set a smaller duration than a longer duration. It is always possible to wait again if the prior output has not finished, by running {{"keystrokes": "", "duration": 10.0}} on subsequent requests to wait longer. Never wait longer than 60 seconds; prefer to poll to see intermediate result status.
+-
+-Important notes:
+-- Each command's keystrokes are sent exactly as written to the terminal
+-- Do not include extra whitespace before or after the keystrokes unless it's part of the intended command
+-- Extra text before or after the JSON will generate warnings but be tolerated
+-- The JSON must be valid - use proper escaping for quotes and special characters within strings
+-- Commands array can be empty if you want to wait without taking action
+-
+-Task Description:
++Task:
+ {instruction}
+ 
+-Current terminal state:
++Terminal:
+ {terminal_state}
+diff --git a/src/harbor/agents/terminus_2/terminus_2.py b/src/harbor/agents/terminus_2/terminus_2.py
+index 5ed78f5..3757f01 100644
+--- a/src/harbor/agents/terminus_2/terminus_2.py
++++ b/src/harbor/agents/terminus_2/terminus_2.py
+@@ -160,6 +160,7 @@ class Terminus2(BaseAgent):
+         model_name: str | None = None,
+         max_turns: int | None = None,
+         parser_name: str = "json",
++        prompt_template_path: str | None = None,
+         api_base: str | None = None,
+         temperature: float | None = None,
+         reasoning_effort: Literal[
+@@ -179,6 +180,8 @@ class Terminus2(BaseAgent):
+         record_terminal_session: bool = True,
+         interleaved_thinking: bool = False,
+         suppress_max_turns_warning: bool = False,
++        max_consecutive_identical_commands: int | None = None,
++        reject_repeated_commands: bool = False,
+         use_responses_api: bool = False,
+         llm_backend: LLMBackend | str = LLMBackend.LITELLM,
+         llm_kwargs: dict[str, Any] | None = None,
+@@ -231,6 +234,12 @@ class Terminus2(BaseAgent):
+                 and send to litellm in next round's conversation (default: False)
+             suppress_max_turns_warning: Whether to suppress the warning about artificially
+                 limiting max_turns (default: False)
++            max_consecutive_identical_commands: End a run after this many identical
++                non-empty command batches in a row. Duplicate batches after the first
++                are not executed and receive corrective feedback. Disabled by default.
++            reject_repeated_commands: Do not execute a non-empty command batch more
++                than once in a run. Previously executed commands are included in the
++                corrective feedback. Disabled by default.
+             llm_backend: LLM backend to use. Use LLMBackend.LITELLM or "litellm".
+                 (default: LLMBackend.LITELLM)
+             llm_kwargs: Additional kwargs to pass to the LLM constructor.
+@@ -267,7 +276,14 @@ class Terminus2(BaseAgent):
+             use_responses_api=use_responses_api,
+         )
+         self._parser = self._get_parser()
+-        self._prompt_template = self._get_prompt_template_path().read_text()
++        prompt_path = (
++            Path(prompt_template_path)
++            if prompt_template_path is not None
++            else self._get_prompt_template_path()
++        )
++        if not prompt_path.is_file():
++            raise ValueError(f"Prompt template does not exist: {prompt_path}")
++        self._prompt_template = prompt_path.read_text()
+         self._timeout_template = self._get_timeout_template_path().read_text()
+         self._temperature = temperature
+ 
+@@ -301,6 +317,13 @@ class Terminus2(BaseAgent):
+             self._max_episodes = final_max_episodes
+         else:
+             self._max_episodes = 1000000
++        if (
++            max_consecutive_identical_commands is not None
++            and max_consecutive_identical_commands < 2
++        ):
++            raise ValueError("max_consecutive_identical_commands must be at least 2")
++        self._max_consecutive_identical_commands = max_consecutive_identical_commands
++        self._reject_repeated_commands = reject_repeated_commands
+         self._chat: Chat | None = None
+         self._context: AgentContext | None = None
+         self._pending_completion = False
+@@ -1091,6 +1114,10 @@ so ask everything you need to know."""
+             truncated_response = getattr(
+                 e, "truncated_response", "[TRUNCATED RESPONSE NOT AVAILABLE]"
+             )
++            self.logger.debug(
++                "Truncated response preview: %r",
++                truncated_response[:2000],
++            )
+ 
+             # Try to salvage a valid response from the truncated output
+             # Only available for XML parser
+@@ -1108,7 +1135,7 @@ so ask everything you need to know."""
+                     "Using truncated version."
+                 )
+ 
+-                return salvaged_response
++                return LLMResponse(content=salvaged_response)
+ 
+             # If we get here, we couldn't salvage a valid response
+             # Try to parse the truncated response to get warnings
+@@ -1252,6 +1279,11 @@ so ask everything you need to know."""
+         # Step 1: system message (includes task instruction)
+         # Steps 2+: agent episodes (starting from episode 0)
+ 
++        last_command_signature: tuple[str, ...] | None = None
++        consecutive_identical_commands = 0
++        executed_command_signatures: list[tuple[str, ...]] = []
++        seen_command_signatures: set[tuple[str, ...]] = set()
++
+         for episode in range(self._max_episodes):
+             self._n_episodes = episode + 1
+             if not await self._session.is_session_alive():
+@@ -1397,10 +1429,55 @@ so ask everything you need to know."""
+                 )
+                 continue
+ 
+-            timeout_occurred, terminal_output = await self._execute_commands(
+-                commands,
+-                self._session,
++            command_signature = (
++                tuple(command.keystrokes for command in commands) if commands else None
++            )
++            is_duplicate_command = (
++                command_signature is not None
++                and command_signature == last_command_signature
+             )
++            is_repeated_command = (
++                command_signature is not None
++                and command_signature in seen_command_signatures
++            )
++            if command_signature is None:
++                consecutive_identical_commands = 0
++                last_command_signature = None
++            elif is_duplicate_command:
++                consecutive_identical_commands += 1
++            else:
++                consecutive_identical_commands = 1
++                last_command_signature = command_signature
++
++            duplicate_guard_active = (
++                (
++                    self._max_consecutive_identical_commands is not None
++                    and is_duplicate_command
++                )
++                or (self._reject_repeated_commands and is_repeated_command)
++            )
++            if duplicate_guard_active:
++                timeout_occurred = False
++                if self._reject_repeated_commands and is_repeated_command:
++                    terminal_output = (
++                        "Previously executed command was not run again. Its terminal "
++                        "output remains in the conversation. Choose a new command that "
++                        "creates, modifies, or tests the solution, or use DONE if the "
++                        "task is complete."
++                    )
++                else:
++                    terminal_output = (
++                        "Exact duplicate command was not executed. Choose a different "
++                        "next command, or use DONE if the task is complete."
++                    )
++            else:
++                timeout_occurred, terminal_output = await self._execute_commands(
++                    commands,
++                    self._session,
++                )
++                if command_signature is not None:
++                    seen_command_signatures.add(command_signature)
++                    executed_command_signatures.append(command_signature)
+ 
+             # Capture the pending completion state before potentially modifying it
+             was_pending_completion = self._pending_completion
+@@ -1424,6 +1501,17 @@ so ask everything you need to know."""
+                 else:
+                     observation = self._limit_output_length(terminal_output)
+ 
++            if self._reject_repeated_commands and executed_command_signatures:
++                command_list = "\n".join(
++                    f"- {command!r}"
++                    for signature in executed_command_signatures[-20:]
++                    for command in signature
++                )
++                observation = (
++                    f"{observation}\n\nCommands already executed and forbidden from "
++                    f"repetition:\n{command_list}"
++                )
++
+             # Record the step in trajectory
+             cache_tokens_used = chat.total_cache_tokens - tokens_before_cache
+             step_cost = chat.total_cost - cost_before
+@@ -1529,6 +1617,17 @@ so ask everything you need to know."""
+             # Dump trajectory after every episode to ensure we persist even if program terminates
+             self._dump_trajectory()
+ 
++            if (
++                self._max_consecutive_identical_commands is not None
++                and consecutive_identical_commands
++                >= self._max_consecutive_identical_commands
++            ):
++                self.logger.warning(
++                    "Ending run after %d identical command batches.",
++                    consecutive_identical_commands,
++                )
++                return
++
+             if is_task_complete:
+                 if was_pending_completion:
+                     # Task is confirmed complete (this is the second time task_complete was True), return
+diff --git a/src/harbor/agents/terminus_2/terminus_json_plain_parser.py b/src/harbor/agents/terminus_2/terminus_json_plain_parser.py
+index 83f272a..e38cd5c 100644
+--- a/src/harbor/agents/terminus_2/terminus_json_plain_parser.py
++++ b/src/harbor/agents/terminus_2/terminus_json_plain_parser.py
+@@ -24,7 +24,7 @@ class TerminusJSONPlainParser:
+     """Parser for terminus JSON plain response format."""
+ 
+     def __init__(self):
+-        self.required_fields = ["analysis", "plan", "commands"]
++        self.required_fields = ["commands"]
+ 
+     def parse_response(self, response: str) -> ParseResult:
+         """
+@@ -211,6 +211,29 @@ class TerminusJSONPlainParser:
+ 
+         return response[json_start:json_end], warnings
+ 
++    def salvage_truncated_response(
++        self, truncated_response: str
++    ) -> tuple[str | None, bool]:
++        """Recover the first complete, valid action from a length-truncated reply.
++
++        A provider may report ``finish_reason=length`` after the model already
++        emitted a complete Terminus JSON object and then continued with trailing
++        text.  Keep that action instead of discarding it and asking the model to
++        regenerate.  The boolean mirrors the XML parser's salvage contract;
++        JSON extraction deliberately accepts only the first balanced object.
++        """
++
++        json_content, _ = self._extract_json_content(truncated_response)
++        if not json_content:
++            return None, False
++        try:
++            result = self.parse_response(json_content)
++        except Exception:
++            return None, False
++        if result.error:
++            return None, False
++        return json_content, False
++
+     def _validate_json_structure(
+         self, data: dict[str, Any], json_content: str, warnings: list[str]
+     ) -> str:
+@@ -357,13 +380,12 @@ class TerminusJSONPlainParser:
+     def _check_field_order(
+         self, data: dict[str, Any], response: str, warnings: list[str]
+     ) -> None:
+-        """Check if fields appear in the correct order: analysis, plan, commands."""
+-        # Expected order for required fields
+-        expected_order = ["analysis", "plan", "commands"]
++        """Accept action-first output and the historical reasoning-first order."""
++        known_fields = ["commands", "analysis", "plan"]
+ 
+         # Find positions of each field in the original response
+         positions = {}
+-        for field in expected_order:
++        for field in known_fields:
+             # Look for the field name in quotes
+             pattern = f'"({field})"\\s*:'
+             match = re.search(pattern, response)
+@@ -376,7 +398,7 @@ class TerminusJSONPlainParser:
+ 
+         # Get fields that are present, in the order they appear
+         present_fields = []
+-        for field in expected_order:
++        for field in known_fields:
+             if field in positions:
+                 present_fields.append((field, positions[field]))
+ 
+@@ -385,13 +407,12 @@ class TerminusJSONPlainParser:
+             field for field, pos in sorted(present_fields, key=lambda x: x[1])
+         ]
+ 
+-        # Get expected order for present fields only
+-        expected_present = [f for f in expected_order if f in positions]
++        action_first = [f for f in ("commands", "analysis", "plan") if f in positions]
++        historical = [f for f in ("analysis", "plan", "commands") if f in positions]
+ 
+-        # Compare orders
+-        if actual_order != expected_present:
++        if actual_order not in (action_first, historical):
+             actual_str = " → ".join(actual_order)
+-            expected_str = " → ".join(expected_present)
++            expected_str = " → ".join(action_first)
+             warnings.append(
+                 f"Fields appear in wrong order. Found: {actual_str}, "
+                 f"expected: {expected_str}"
+diff --git a/src/harbor/llms/lite_llm.py b/src/harbor/llms/lite_llm.py
+index d790e5d..32c860a 100644
+--- a/src/harbor/llms/lite_llm.py
++++ b/src/harbor/llms/lite_llm.py
+@@ -1,5 +1,8 @@
+ import hashlib
++import inspect
+ import json
++import runpy
++from collections.abc import Callable
+ from pathlib import Path
+ from typing import Any, NoReturn, override
+ 
+@@ -58,6 +61,343 @@ Here is the prompt:
+ """
+ 
+ 
++def _first_complete_json_object(response: str) -> str | None:
++    """Return the first balanced, valid JSON object in a partial response."""
++
++    start = None
++    depth = 0
++    in_string = False
++    escape_next = False
++
++    for index, char in enumerate(response):
++        if start is None:
++            if char != "{":
++                continue
++            start = index
++            depth = 1
++            in_string = False
++            escape_next = False
++            continue
++
++        if escape_next:
++            escape_next = False
++            continue
++        if in_string and char == "\\":
++            escape_next = True
++            continue
++        if char == '"':
++            in_string = not in_string
++            continue
++        if in_string:
++            continue
++        if char == "{":
++            depth += 1
++        elif char == "}":
++            depth -= 1
++            if depth == 0:
++                candidate = response[start : index + 1]
++                try:
++                    value = json.loads(candidate)
++                except json.JSONDecodeError:
++                    start = None
++                    continue
++                if isinstance(value, dict):
++                    return candidate
++                start = None
++
++    return None
++
++
++_KEYSTROKES_PREFILL = '{"commands":[{"keystrokes":"'
++_TASK_COMPLETE_SENTINEL = "DONE"
++_DSML_TOKEN = "｜DSML｜"
++_NATIVE_PARAMETER_END = f"</{_DSML_TOKEN}parameter>"
++_NATIVE_KEYSTROKES_PREFILL = (
++    f"<{_DSML_TOKEN}tool_calls>\n"
++    f'<{_DSML_TOKEN}invoke name="bash_command">\n'
++    f'<{_DSML_TOKEN}parameter name="keystrokes" string="true">'
++)
++_NATIVE_BASH_TOOL = {
++    "type": "function",
++    "function": {
++        "name": "bash_command",
++        "description": "Send exact keystrokes to the Linux terminal.",
++        "parameters": {
++            "type": "object",
++            "properties": {"keystrokes": {"type": "string"}},
++            "required": ["keystrokes"],
++        },
++    },
++}
++_NATIVE_COMPLETE_TOOL = {
++    "type": "function",
++    "function": {
++        "name": "mark_task_complete",
++        "description": "Mark the terminal task complete only after verifying the result.",
++        "parameters": {"type": "object", "properties": {}},
++    },
++}
++_NATIVE_TERMINAL_SYSTEM_MESSAGE = {
++    "role": "system",
++    "content": (
++        "Solve the task in the Linux terminal. Call bash_command for exactly one "
++        "concrete action at a time. Do not repeat a successful command. Call "
++        "mark_task_complete only after the requested result is implemented and "
++        "verified."
++    ),
++    "tools": [_NATIVE_BASH_TOOL, _NATIVE_COMPLETE_TOOL],
++}
++
++
++def _normalized_keystrokes_action(keystrokes: str) -> str:
++    if keystrokes.strip().upper() == _TASK_COMPLETE_SENTINEL:
++        return '{"commands":[],"task_complete":true}'
++
++    control_keys = {"C-c", "C-d", "C-z"}
++    if keystrokes and not keystrokes.endswith("\n") and keystrokes not in control_keys:
++        keystrokes += "\n"
++    return json.dumps(
++        {"commands": [{"keystrokes": keystrokes, "duration": 1.0}]},
++        separators=(",", ":"),
++    )
++
++
++def _native_prefilled_keystrokes_action(
++    response: str,
++    prefix: str,
++    *,
++    stopped: bool = False,
++) -> str | None:
++    """Normalize the command value from an official DSML parameter prefill."""
++
++    if prefix != _NATIVE_KEYSTROKES_PREFILL or not response.startswith(prefix):
++        return None
++    suffix = response[len(prefix) :]
++    value_end = suffix.find(_NATIVE_PARAMETER_END)
++    if value_end >= 0:
++        keystrokes = suffix[:value_end]
++    elif stopped:
++        keystrokes = suffix
++    else:
++        return None
++    if not keystrokes.strip():
++        return None
++    return _normalized_keystrokes_action(keystrokes)
++
++
++def _first_native_terminal_action(response: str) -> str | None:
++    """Normalize the first complete DeepSeek DSML terminal tool invocation."""
++
++    invoke = f"<{_DSML_TOKEN}invoke name=\""
++    begin = response.find(invoke)
++    while begin >= 0:
++        name_begin = begin + len(invoke)
++        name_end = response.find('">', name_begin)
++        if name_end < 0:
++            return None
++        name = response[name_begin:name_end]
++        invoke_end = f"</{_DSML_TOKEN}invoke>"
++        end = response.find(invoke_end, name_end)
++        if end < 0:
++            return None
++        block = response[name_end + 2 : end]
++
++        if name == "mark_task_complete":
++            return '{"commands":[],"task_complete":true}'
++        if name == "bash_command":
++            parameter = (
++                f'<{_DSML_TOKEN}parameter name="keystrokes" string="true">'
++            )
++            value_begin = block.find(parameter)
++            if value_begin >= 0:
++                value_begin += len(parameter)
++                value_end = block.find(f"</{_DSML_TOKEN}parameter>", value_begin)
++                if value_end >= 0:
++                    return _normalized_keystrokes_action(
++                        block[value_begin:value_end]
++                    )
++
++        begin = response.find(invoke, end + len(invoke_end))
++    return None
++
++
++def _first_json_terminal_action(response: str) -> str | None:
++    """Normalize a valid Terminus action if the model follows the JSON prompt."""
++
++    json_content = _first_complete_json_object(response)
++    if json_content is None:
++        return None
++    try:
++        action = json.loads(json_content)
++    except json.JSONDecodeError:
++        return None
++    if action.get("task_complete"):
++        return '{"commands":[],"task_complete":true}'
++    commands = action.get("commands")
++    if not isinstance(commands, list) or not commands:
++        return None
++    command = commands[0]
++    if isinstance(command, str):
++        return _normalized_keystrokes_action(command)
++    if isinstance(command, dict) and isinstance(command.get("keystrokes"), str):
++        return _normalized_keystrokes_action(command["keystrokes"])
++    return None
++
++
++def _native_terminal_messages(messages: list[dict[str, Any]]) -> list[dict[str, Any]]:
++    """Convert normalized Terminus turns back to DeepSeek-native tool history."""
++
++    converted: list[dict[str, Any]] = [dict(_NATIVE_TERMINAL_SYSTEM_MESSAGE)]
++    pending_tool_call_id: str | None = None
++    call_index = 0
++    for message in messages:
++        role = message.get("role")
++        content = message.get("content") or ""
++        if role == "assistant":
++            json_content = _first_complete_json_object(content)
++            if json_content is None:
++                converted.append({"role": "assistant", "content": content})
++                pending_tool_call_id = None
++                continue
++            try:
++                action = json.loads(json_content)
++            except json.JSONDecodeError:
++                converted.append({"role": "assistant", "content": content})
++                pending_tool_call_id = None
++                continue
++
++            call_index += 1
++            pending_tool_call_id = f"terminal_call_{call_index}"
++            if action.get("task_complete"):
++                function = {"name": "mark_task_complete", "arguments": "{}"}
++            else:
++                commands = action.get("commands")
++                if not isinstance(commands, list) or not commands:
++                    converted.append({"role": "assistant", "content": content})
++                    pending_tool_call_id = None
++                    continue
++                command = commands[0]
++                if not isinstance(command, dict) or not isinstance(
++                    command.get("keystrokes"), str
++                ):
++                    converted.append({"role": "assistant", "content": content})
++                    pending_tool_call_id = None
++                    continue
++                function = {
++                    "name": "bash_command",
++                    "arguments": json.dumps(
++                        {"keystrokes": command["keystrokes"]},
++                        ensure_ascii=False,
++                    ),
++                }
++            converted.append(
++                {
++                    "role": "assistant",
++                    "content": "",
++                    "tool_calls": [
++                        {
++                            "id": pending_tool_call_id,
++                            "type": "function",
++                            "function": function,
++                        }
++                    ],
++                }
++            )
++        elif role == "user" and pending_tool_call_id is not None:
++            converted.append(
++                {
++                    "role": "tool",
++                    "tool_call_id": pending_tool_call_id,
++                    "content": content,
++                }
++            )
++            pending_tool_call_id = None
++        else:
++            converted.append(dict(message))
++            pending_tool_call_id = None
++    return converted
++
++
++def _first_prefilled_keystrokes_action(
++    response: str,
++    prefix: str,
++) -> str | None:
++    """Build a valid action as soon as a prefixed keystrokes string closes.
++
++    The aggressively quantized DeepSeek V4 model reliably produces the command
++    string but can loop while producing the surrounding action fields.  Capture
++    the first string and supply that mechanical envelope locally.
++    """
++
++    if prefix != _KEYSTROKES_PREFILL or not response.startswith(prefix):
++        return None
++
++    suffix = response[len(prefix) :]
++    escape_next = False
++    for index, char in enumerate(suffix):
++        if escape_next:
++            escape_next = False
++            continue
++        if char == "\\":
++            escape_next = True
++            continue
++        if char != '"':
++            continue
++
++        try:
++            keystrokes = json.loads('"' + suffix[: index + 1])
++        except json.JSONDecodeError:
++            return None
++        if not isinstance(keystrokes, str):
++            return None
++
++        return _normalized_keystrokes_action(keystrokes)
++
++    return None
++
++
++def _stopped_prefilled_keystrokes_action(
++    response: str,
++    prefix: str,
++) -> str | None:
++    """Close an action when the server omits a matched JSON-envelope stop."""
++
++    if prefix != _KEYSTROKES_PREFILL or not response.startswith(prefix):
++        return None
++    suffix = response[len(prefix) :]
++    try:
++        keystrokes = json.loads('"' + suffix + '"')
++    except json.JSONDecodeError:
++        return None
++    if not isinstance(keystrokes, str):
++        return None
++    return _normalized_keystrokes_action(keystrokes)
++
++
++def _length_limited_prefilled_keystrokes_action(
++    response: str,
++    prefix: str,
++) -> str | None:
++    """Salvage only the first line from a valid, unterminated command string."""
++
++    if prefix != _KEYSTROKES_PREFILL or not response.startswith(prefix):
++        return None
++    suffix = response[len(prefix) :]
++    raw_first_line = suffix.split("\\n", 1)[0].splitlines()[0] if suffix else ""
++    if not raw_first_line:
++        return None
++    try:
++        keystrokes = json.loads('"' + raw_first_line + '"')
++    except json.JSONDecodeError:
++        return None
++    if not isinstance(keystrokes, str):
++        return None
++    first_line = keystrokes.strip()
++    if not first_line or "<<" in first_line or len(first_line) > 512:
++        return None
++    return _normalized_keystrokes_action(first_line)
++
++
+ class LiteLLM(BaseLLM):
+     def __init__(
+         self,
+@@ -70,6 +410,13 @@ class LiteLLM(BaseLLM):
+         reasoning_effort: str | None = None,
+         model_info: dict[str, Any] | None = None,
+         use_responses_api: bool = False,
++        early_stop_balanced_json: bool = False,
++        deepseek_v4_encoding_file: str | None = None,
++        text_completion_prefill: str | None = None,
++        deepseek_v4_native_terminal_tools: bool = False,
++        deepseek_v4_action_task: bool = False,
++        deepseek_v4_thinking_mode: str = "chat",
++        deepseek_v4_native_keystrokes_prefill: bool = False,
+         **kwargs,
+     ):
+         super().__init__()
+@@ -120,6 +467,97 @@ class LiteLLM(BaseLLM):
+         self._collect_rollout_details = collect_rollout_details
+         self._max_thinking_tokens = max_thinking_tokens
+         self._reasoning_effort = reasoning_effort
++        self._early_stop_balanced_json = early_stop_balanced_json
++        self._text_completion_prefill = text_completion_prefill
++        self._deepseek_v4_native_terminal_tools = (
++            deepseek_v4_native_terminal_tools
++        )
++        self._deepseek_v4_action_task = deepseek_v4_action_task
++        self._deepseek_v4_thinking_mode = deepseek_v4_thinking_mode
++        self._deepseek_v4_native_keystrokes_prefill = (
++            deepseek_v4_native_keystrokes_prefill
++        )
++        self._text_completion_encoder: Callable[..., str] | None = None
++
++        if deepseek_v4_thinking_mode not in {"chat", "thinking"}:
++            raise ValueError(
++                "deepseek_v4_thinking_mode must be either 'chat' or 'thinking'"
++            )
++        if (
++            deepseek_v4_thinking_mode != "chat"
++            and deepseek_v4_encoding_file is None
++        ):
++            raise ValueError(
++                "deepseek_v4_thinking_mode requires deepseek_v4_encoding_file"
++            )
++
++        if (
++            text_completion_prefill is not None
++            and deepseek_v4_native_terminal_tools
++        ):
++            raise ValueError(
++                "text_completion_prefill and "
++                "deepseek_v4_native_terminal_tools are mutually exclusive"
++            )
++        if (
++            deepseek_v4_native_keystrokes_prefill
++            and not deepseek_v4_native_terminal_tools
++        ):
++            raise ValueError(
++                "deepseek_v4_native_keystrokes_prefill requires "
++                "deepseek_v4_native_terminal_tools"
++            )
++        if deepseek_v4_action_task and not deepseek_v4_native_terminal_tools:
++            raise ValueError(
++                "deepseek_v4_action_task requires "
++                "deepseek_v4_native_terminal_tools"
++            )
++        if deepseek_v4_encoding_file is None and (
++            text_completion_prefill is not None
++            or deepseek_v4_native_terminal_tools
++        ):
++            raise ValueError(
++                "DeepSeek text-completion modes require "
++                "deepseek_v4_encoding_file"
++            )
++        if deepseek_v4_encoding_file is not None and (
++            text_completion_prefill is None
++            and not deepseek_v4_native_terminal_tools
++        ):
++            raise ValueError(
++                "deepseek_v4_encoding_file must be configured together with "
++                "text_completion_prefill or deepseek_v4_native_terminal_tools"
++            )
++        if deepseek_v4_encoding_file is not None:
++            encoding_path = Path(deepseek_v4_encoding_file)
++            if not encoding_path.is_file():
++                raise ValueError(
++                    f"DeepSeek V4 encoding file does not exist: {encoding_path}"
++                )
++            encoding_namespace = runpy.run_path(str(encoding_path))
++            encoder = encoding_namespace.get("encode_messages")
++            if not callable(encoder):
++                raise ValueError(
++                    f"DeepSeek V4 encoding file has no encode_messages: {encoding_path}"
++                )
++            if deepseek_v4_action_task:
++                merge_tool_messages = encoding_namespace.get("merge_tool_messages")
++                if callable(merge_tool_messages):
++                    original_merge_tool_messages = merge_tool_messages
++
++                    def merge_tool_messages_with_task(
++                        messages: list[dict[str, Any]],
++                    ) -> list[dict[str, Any]]:
++                        task = messages[-1].get("task") if messages else None
++                        merged = original_merge_tool_messages(messages)
++                        if task is not None and merged:
++                            merged[-1] = {**merged[-1], "task": task}
++                        return merged
++
++                    encoder.__globals__["merge_tool_messages"] = (
++                        merge_tool_messages_with_task
++                    )
++            self._text_completion_encoder = encoder
+ 
+         if self._supported_params is not None:
+             self._supports_response_format = "response_format" in self._supported_params
+@@ -285,6 +723,11 @@ class LiteLLM(BaseLLM):
+                 prompt, message_history, response_format, logging_path, **kwargs
+             )
+ 
++        if self._text_completion_encoder is not None:
++            return await self._call_prefilled_text_completion(
++                prompt, message_history, response_format, logging_path, **kwargs
++            )
++
+         if response_format is not None and not self._supports_response_format:
+             if isinstance(response_format, dict):
+                 schema = json.dumps(response_format, indent=2)
+@@ -307,6 +750,8 @@ class LiteLLM(BaseLLM):
+                 "response_format": response_format,
+                 "reasoning_effort": self._reasoning_effort,
+             }
++            if self._early_stop_balanced_json:
++                completion_kwargs["stream"] = True
+             if self._temperature is not None:
+                 completion_kwargs["temperature"] = self._temperature
+ 
+@@ -406,7 +851,9 @@ class LiteLLM(BaseLLM):
+             self._handle_litellm_error(e)
+ 
+         if isinstance(response, CustomStreamWrapper):
+-            raise NotImplementedError("Streaming is not supported for T bench yet")
++            if not self._early_stop_balanced_json:
++                raise NotImplementedError("Streaming is not supported for T bench yet")
++            return await self._consume_balanced_json_stream(response)
+ 
+         # Extract usage information
+         usage_info = self._extract_usage_info(response)
+@@ -449,6 +896,229 @@ class LiteLLM(BaseLLM):
+             extra=extra,
+         )
+ 
++    async def _call_prefilled_text_completion(
++        self,
++        prompt: str,
++        message_history: list[dict[str, Any] | Message],
++        response_format: dict[str, Any] | type[BaseModel] | None,
++        logging_path: Path | None,
++        **kwargs,
++    ) -> LLMResponse:
++        """Use the official DeepSeek encoder and force a JSON action prefix."""
++
++        if response_format is not None:
++            raise ValueError(
++                "response_format is not supported with text_completion_prefill"
++            )
++        if self._text_completion_encoder is None:
++            raise RuntimeError("DeepSeek text completion is not fully configured")
++
++        messages: list[dict[str, Any]] = []
++        for message in message_history + [{"role": "user", "content": prompt}]:
++            if isinstance(message, dict):
++                messages.append(dict(message))
++            elif hasattr(message, "model_dump"):
++                messages.append(message.model_dump(exclude_none=True))
++            else:
++                messages.append(dict(message))
++
++        if self._deepseek_v4_native_terminal_tools:
++            messages = _native_terminal_messages(messages)
++        if self._deepseek_v4_action_task:
++            if not messages:
++                raise ValueError(
++                    "DeepSeek V4 action task requires at least one message"
++                )
++            messages[-1] = {**messages[-1], "task": "action"}
++        encoder_kwargs: dict[str, Any] = {
++            "thinking_mode": self._deepseek_v4_thinking_mode,
++        }
++        if self._deepseek_v4_thinking_mode == "thinking":
++            reasoning_effort = self._reasoning_effort
++            if reasoning_effort in {None, "none"}:
++                reasoning_effort = None
++            encoder_kwargs["reasoning_effort"] = reasoning_effort
++        encoded_prompt = self._text_completion_encoder(messages, **encoder_kwargs)
++        prefix = self._text_completion_prefill or ""
++        if self._deepseek_v4_native_keystrokes_prefill:
++            prefix = _NATIVE_KEYSTROKES_PREFILL
++        completion_kwargs = {
++            **self._build_base_kwargs(logging_path),
++            "prompt": encoded_prompt + prefix,
++        }
++        if self._deepseek_v4_native_keystrokes_prefill:
++            completion_kwargs.setdefault("stop", [_NATIVE_PARAMETER_END])
++        elif self._deepseek_v4_native_terminal_tools:
++            completion_kwargs.setdefault(
++                "stop",
++                ["<｜end▁of▁sentence｜>"],
++            )
++        else:
++            completion_kwargs.setdefault("stop", ['","duration', '"}]}'])
++        if self._early_stop_balanced_json:
++            completion_kwargs["stream"] = True
++        if self._temperature is not None:
++            completion_kwargs["temperature"] = self._temperature
++
++        if "extra_body" in completion_kwargs and "extra_body" in kwargs:
++            existing_extra_body = completion_kwargs["extra_body"]
++            new_extra_body = kwargs.pop("extra_body")
++            completion_kwargs["extra_body"] = {
++                **existing_extra_body,
++                **new_extra_body,
++            }
++        elif "extra_body" in kwargs:
++            kwargs["extra_body"] = {**kwargs["extra_body"]}
++        completion_kwargs.update(kwargs)
++
++        if self._session_id is not None:
++            completion_kwargs.setdefault("extra_body", {})["session_id"] = (
++                self._session_id
++            )
++            completion_kwargs.setdefault("extra_headers", {})["X-Session-ID"] = (
++                self._session_id
++            )
++
++        try:
++            response = await litellm.atext_completion(**completion_kwargs)
++        except Exception as e:
++            self._handle_litellm_error(e)
++
++        if self._early_stop_balanced_json:
++            return await self._consume_balanced_json_stream(
++                response,
++                initial_content=prefix,
++            )
++
++        choice = response["choices"][0]
++        content = prefix + (choice.get("text") or "")
++        if self._deepseek_v4_native_terminal_tools:
++            normalized = _native_prefilled_keystrokes_action(
++                content,
++                prefix,
++                stopped=choice.get("finish_reason") == "stop",
++            )
++            normalized = (
++                normalized
++                or _first_native_terminal_action(content)
++                or _first_json_terminal_action(content)
++            )
++            if normalized is not None:
++                content = normalized
++        if choice.get("finish_reason") == "length":
++            raise OutputLengthExceededError(
++                f"Model {self._model_name} hit max_tokens limit. "
++                "Response was truncated. Consider increasing max_tokens if possible.",
++                truncated_response=content,
++            )
++        return LLMResponse(
++            content=content,
++            model_name=response.get("model"),
++            usage=self._extract_usage_info(response),
++        )
++
++    async def _consume_balanced_json_stream(
++        self,
++        response: Any,
++        initial_content: str = "",
++    ) -> LLMResponse:
++        """Close a streamed request as soon as its first JSON object is complete."""
++
++        content_parts: list[str] = [initial_content] if initial_content else []
++        reasoning_parts: list[str] = []
++        model_name = None
++        finish_reason = None
++
++        try:
++            async for chunk in response:
++                model_name = chunk.get("model") or model_name
++                choices = chunk.get("choices") or []
++                if not choices:
++                    continue
++                choice = choices[0]
++                finish_reason = choice.get("finish_reason") or finish_reason
++                delta = choice.get("delta") or {}
++                content_piece = (
++                    delta.get("content")
++                    or delta.get("text")
++                    or choice.get("text")
++                    or ""
++                )
++                reasoning_piece = (
++                    delta.get("reasoning_content") or delta.get("reasoning") or ""
++                )
++                content_parts.append(content_piece)
++                reasoning_parts.append(reasoning_piece)
++
++                content = "".join(content_parts)
++                if self._deepseek_v4_native_terminal_tools:
++                    complete_json = _native_prefilled_keystrokes_action(
++                        content,
++                        initial_content,
++                    )
++                    complete_json = (
++                        complete_json
++                        or _first_native_terminal_action(content)
++                        or _first_json_terminal_action(content)
++                    )
++                else:
++                    complete_json = _first_prefilled_keystrokes_action(
++                        content,
++                        initial_content,
++                    ) or _first_complete_json_object(content)
++                if complete_json is None and finish_reason == "stop":
++                    if self._deepseek_v4_native_terminal_tools:
++                        complete_json = _native_prefilled_keystrokes_action(
++                            content,
++                            initial_content,
++                            stopped=True,
++                        )
++                    else:
++                        complete_json = _stopped_prefilled_keystrokes_action(
++                            content,
++                            initial_content,
++                        )
++                if (
++                    complete_json is None
++                    and finish_reason == "length"
++                    and not self._deepseek_v4_native_terminal_tools
++                ):
++                    complete_json = _length_limited_prefilled_keystrokes_action(
++                        content,
++                        initial_content,
++                    )
++                if complete_json is not None:
++                    self._logger.debug(
++                        "Closing streamed response after first complete JSON object."
++                    )
++                    return LLMResponse(
++                        content=complete_json,
++                        reasoning_content="".join(reasoning_parts) or None,
++                        model_name=model_name,
++                    )
++        finally:
++            close = getattr(response, "aclose", None)
++            if close is None:
++                inner_stream = getattr(response, "completion_stream", None)
++                close = getattr(inner_stream, "aclose", None)
++            if close is not None:
++                close_result = close()
++                if inspect.isawaitable(close_result):
++                    await close_result
++
++        content = "".join(content_parts)
++        if finish_reason == "length":
++            raise OutputLengthExceededError(
++                f"Model {self._model_name} hit max_tokens limit. "
++                "Response was truncated. Consider increasing max_tokens if possible.",
++                truncated_response=content,
++            )
++        return LLMResponse(
++            content=content,
++            reasoning_content="".join(reasoning_parts) or None,
++            model_name=model_name,
++        )
++
+     def _extract_token_ids(self, response) -> tuple[list[int] | None, list[int] | None]:
+         """Extract token IDs from a response.
+ 
+diff --git a/tests/unit/agents/terminus_2/test_terminus_2_temperature.py b/tests/unit/agents/terminus_2/test_terminus_2_temperature.py
+index 5524b46..b9700ec 100644
+--- a/tests/unit/agents/terminus_2/test_terminus_2_temperature.py
++++ b/tests/unit/agents/terminus_2/test_terminus_2_temperature.py
+@@ -1,3 +1,5 @@
++import pytest
++
+ from harbor.agents.terminus_2.terminus_2 import Terminus2
+ from harbor.llms.base import LLMBackend
+ from harbor.llms.litellm_config import configure_litellm_debug
+@@ -18,6 +20,29 @@ def test_terminus_2_temperature_defaults_to_none(temp_dir, monkeypatch):
+     assert agent._temperature is None
+ 
+ 
++def test_terminus_2_validates_duplicate_command_guard(temp_dir, monkeypatch):
++    monkeypatch.setattr(Terminus2, "_init_llm", lambda self, **kwargs: object())
++
++    agent = Terminus2(
++        logs_dir=temp_dir,
++        model_name="fake/model",
++        max_consecutive_identical_commands=3,
++        reject_repeated_commands=True,
++    )
++    assert agent._max_consecutive_identical_commands == 3
++    assert agent._reject_repeated_commands is True
++
++    default_agent = Terminus2(logs_dir=temp_dir, model_name="fake/model")
++    assert default_agent._reject_repeated_commands is False
++
++    with pytest.raises(ValueError, match="at least 2"):
++        Terminus2(
++            logs_dir=temp_dir,
++            model_name="fake/model",
++            max_consecutive_identical_commands=1,
++        )
++
++
+ def test_terminus_2_omits_default_temperature_for_litellm(monkeypatch):
+     captured_kwargs = {}
+ 
+diff --git a/tests/unit/agents/terminus_2/test_terminus_json_plain_parser.py b/tests/unit/agents/terminus_2/test_terminus_json_plain_parser.py
+index 19d0de0..ffb106e 100644
+--- a/tests/unit/agents/terminus_2/test_terminus_json_plain_parser.py
++++ b/tests/unit/agents/terminus_2/test_terminus_json_plain_parser.py
+@@ -1,6 +1,11 @@
++import logging
++from types import SimpleNamespace
++
++from harbor.agents.terminus_2.terminus_2 import Terminus2
+ from harbor.agents.terminus_2.terminus_json_plain_parser import (
+     TerminusJSONPlainParser,
+ )
++from harbor.llms.base import LLMResponse, OutputLengthExceededError
+ 
+ 
+ class TestTrailingNewlineValidation:
+@@ -77,3 +82,78 @@ class TestTrailingNewlineValidation:
+         )
+         result = self.parser.parse_response(response)
+         assert "should end with newline" not in result.warning
++
++
++class TestTruncatedResponseSalvage:
++    def setup_method(self):
++        self.parser = TerminusJSONPlainParser()
++
++    def test_salvages_first_complete_action_before_trailing_text(self):
++        response = (
++            '{"analysis":"inspect","plan":"list files","commands":'
++            '[{"keystrokes":"ls\\n","duration":0.1}]}'
++            " repeated commentary cut off at the token limit"
++        )
++
++        salvaged, has_multiple_blocks = self.parser.salvage_truncated_response(response)
++
++        assert salvaged is not None
++        assert self.parser.parse_response(salvaged).error == ""
++        assert has_multiple_blocks is False
++
++    def test_does_not_salvage_incomplete_json(self):
++        salvaged, has_multiple_blocks = self.parser.salvage_truncated_response(
++            '{"analysis":"inspect","plan":"list files","commands":['
++        )
++
++        assert salvaged is None
++        assert has_multiple_blocks is False
++
++    async def test_query_returns_salvaged_action_as_llm_response(self):
++        valid_action = (
++            '{"analysis":"inspect","plan":"list files","commands":'
++            '[{"keystrokes":"ls\\n","duration":0.1}]}'
++        )
++
++        class LengthLimitedChat:
++            async def chat(self, *_args, **_kwargs):
++                raise OutputLengthExceededError(
++                    "length limit", truncated_response=valid_action + " trailing"
++                )
++
++        agent = object.__new__(Terminus2)
++        agent.logger = logging.getLogger(__name__)
++        agent._parser = self.parser
++        agent._llm_call_kwargs = {}
++        agent._llm = SimpleNamespace(get_model_output_limit=lambda: 1024)
++        agent._api_request_times = []
++
++        response = await agent._query_llm(LengthLimitedChat(), "prompt")
++
++        assert isinstance(response, LLMResponse)
++        assert response.content == valid_action
++
++
++class TestMinimalActionFirstResponse:
++    def test_commands_only_is_a_complete_parseable_action(self):
++        parser = TerminusJSONPlainParser()
++
++        result = parser.parse_response(
++            '{"commands":[{"keystrokes":"ls\\n","duration":0.1}]}'
++        )
++
++        assert result.error == ""
++        assert result.warning == ""
++        assert result.analysis == ""
++        assert result.plan == ""
++        assert result.commands[0].keystrokes == "ls\n"
++
++    def test_action_first_optional_reasoning_has_no_order_warning(self):
++        parser = TerminusJSONPlainParser()
++
++        result = parser.parse_response(
++            '{"commands":[],"task_complete":true,"analysis":"done","plan":"stop"}'
++        )
++
++        assert result.error == ""
++        assert "wrong order" not in result.warning
+diff --git a/tests/unit/llms/test_lite_llm.py b/tests/unit/llms/test_lite_llm.py
+index 03266fb..b9f47a7 100644
+--- a/tests/unit/llms/test_lite_llm.py
++++ b/tests/unit/llms/test_lite_llm.py
+@@ -4,7 +4,699 @@ import pytest
+ from litellm.exceptions import BadRequestError as LiteLLMBadRequestError
+ 
+ from harbor.llms.base import ContextLengthExceededError, OutputLengthExceededError
+-from harbor.llms.lite_llm import LiteLLM
++from harbor.llms.lite_llm import (
++    LiteLLM,
++    _first_complete_json_object,
++    _first_json_terminal_action,
++    _first_native_terminal_action,
++    _first_prefilled_keystrokes_action,
++    _length_limited_prefilled_keystrokes_action,
++    _native_terminal_messages,
++    _stopped_prefilled_keystrokes_action,
++)
++
++
++def test_first_complete_json_object_ignores_braces_in_strings():
++    response = 'thinking {"analysis":"literal } brace","commands":[]} trailing'
++
++    assert _first_complete_json_object(response) == (
++        '{"analysis":"literal } brace","commands":[]}'
++    )
++
++
++def test_prefilled_keystrokes_action_closes_before_corrupt_envelope():
++    prefix = '{"commands":[{"keystrokes":"'
++    response = prefix + 'pwd","duration":"","duration":20'
++
++    assert _first_prefilled_keystrokes_action(response, prefix) == (
++        '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    )
++
++
++def test_prefilled_keystrokes_action_recognizes_task_complete():
++    prefix = '{"commands":[{"keystrokes":"'
++
++    assert (
++        _first_prefilled_keystrokes_action(prefix + 'DONE"}', prefix)
++        == '{"commands":[],"task_complete":true}'
++    )
++
++
++def test_stopped_prefilled_keystrokes_action_restores_omitted_envelope():
++    prefix = '{"commands":[{"keystrokes":"'
++
++    assert _stopped_prefilled_keystrokes_action(prefix + "pwd", prefix) == (
++        '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    )
++
++
++def test_length_limited_prefilled_action_salvages_only_first_line():
++    prefix = '{"commands":[{"keystrokes":"'
++    response = prefix + "ls -a = ls\\nls\\nls\\n"
++
++    assert _length_limited_prefilled_keystrokes_action(response, prefix) == (
++        '{"commands":[{"keystrokes":"ls -a = ls\\n","duration":1.0}]}'
++    )
++
++
++def test_length_limited_prefilled_action_ignores_dangling_trailing_escape():
++    prefix = '{"commands":[{"keystrokes":"'
++    response = prefix + "ls\\nrepeated\\"
++
++    assert _length_limited_prefilled_keystrokes_action(response, prefix) == (
++        '{"commands":[{"keystrokes":"ls\\n","duration":1.0}]}'
++    )
++
++
++def test_native_terminal_action_normalizes_first_dsml_bash_call():
++    response = (
++        "Inspect first.\n"
++        '<｜DSML｜invoke name="bash_command">\n'
++        '<｜DSML｜parameter name="keystrokes" string="true">'
++        "ls -la\n"
++        "</｜DSML｜parameter>\n"
++        "</｜DSML｜invoke>"
++        '<｜DSML｜invoke name="bash_command">'
++        '<｜DSML｜parameter name="keystrokes" string="true">pwd'
++        "</｜DSML｜parameter></｜DSML｜invoke>"
++    )
++
++    assert _first_native_terminal_action(response) == (
++        '{"commands":[{"keystrokes":"ls -la\\n","duration":1.0}]}'
++    )
++
++
++def test_native_terminal_action_normalizes_completion_tool():
++    response = (
++        '<｜DSML｜invoke name="mark_task_complete">\n'
++        "</｜DSML｜invoke>"
++    )
++
++    assert _first_native_terminal_action(response) == (
++        '{"commands":[],"task_complete":true}'
++    )
++
++
++def test_json_terminal_action_accepts_object_and_string_commands():
++    assert _first_json_terminal_action(
++        'reasoning {"commands":[{"keystrokes":"pwd"}]} trailing'
++    ) == '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    assert _first_json_terminal_action(
++        '{"commands":["ls -la"]}'
++    ) == '{"commands":[{"keystrokes":"ls -la\\n","duration":1.0}]}'
++
++
++def test_native_terminal_messages_convert_action_and_observation():
++    converted = _native_terminal_messages(
++        [
++            {"role": "user", "content": "task"},
++            {
++                "role": "assistant",
++                "content": '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}',
++            },
++            {"role": "user", "content": "/app"},
++        ]
++    )
++
++    assert converted[0]["role"] == "system"
++    assert converted[0]["tools"][0]["function"]["name"] == "bash_command"
++    assert converted[1] == {"role": "user", "content": "task"}
++    assert converted[2]["role"] == "assistant"
++    assert converted[2]["tool_calls"][0]["function"] == {
++        "name": "bash_command",
++        "arguments": '{"keystrokes": "pwd\\n"}',
++    }
++    assert converted[3] == {
++        "role": "tool",
++        "tool_call_id": "terminal_call_1",
++        "content": "/app",
++    }
++
++
++class _FakeStream:
++    def __init__(self, chunks):
++        self._chunks = chunks
++        self.consumed = 0
++        self.closed = False
++
++    def __aiter__(self):
++        return self
++
++    async def __anext__(self):
++        if self.consumed == len(self._chunks):
++            raise StopAsyncIteration
++        chunk = self._chunks[self.consumed]
++        self.consumed += 1
++        return chunk
++
++    async def aclose(self):
++        self.closed = True
++
++
++class _FakeTextCompletionStreamWrapper:
++    """Match LiteLLM's text wrapper, which only closes through its inner stream."""
++
++    def __init__(self, completion_stream):
++        self.completion_stream = completion_stream
++
++    def __aiter__(self):
++        return self
++
++    async def __anext__(self):
++        return await self.completion_stream.__anext__()
++
++
++@pytest.mark.asyncio
++async def test_balanced_json_stream_closes_before_trailing_chunks():
++    stream = _FakeStream(
++        [
++            {"model": "fake", "choices": [{"delta": {"reasoning": "think"}}]},
++            {"model": "fake", "choices": [{"delta": {"content": '{"analysis":"ok",'}}]},
++            {
++                "model": "fake",
++                "choices": [{"delta": {"content": '"plan":"p","commands":[]}'}}],
++            },
++            {"model": "fake", "choices": [{"delta": {"content": " repeated"}}]},
++        ]
++    )
++    llm = LiteLLM(model_name="fake/model", early_stop_balanced_json=True)
++
++    result = await llm._consume_balanced_json_stream(stream)  # ty: ignore[invalid-argument-type]
++
++    assert result.content == '{"analysis":"ok","plan":"p","commands":[]}'
++    assert result.reasoning_content == "think"
++    assert stream.consumed == 3
++    assert stream.closed
++
++
++@pytest.mark.asyncio
++async def test_balanced_json_stream_supports_text_completion_prefill():
++    prefix = '{"commands":[{"keystrokes":"'
++    stream = _FakeStream(
++        [
++            {
++                "model": "fake",
++                "choices": [{"text": 'cat data.txt\\n","duration":0.1}'}],
++            },
++            {"model": "fake", "choices": [{"text": "]}"}]},
++            {"model": "fake", "choices": [{"text": " trailing"}]},
++        ]
++    )
++    llm = LiteLLM(model_name="fake/model", early_stop_balanced_json=True)
++
++    result = await llm._consume_balanced_json_stream(
++        stream,  # ty: ignore[invalid-argument-type]
++        initial_content=prefix,
++    )
++
++    assert result.content == (
++        '{"commands":[{"keystrokes":"cat data.txt\\n","duration":1.0}]}'
++    )
++    assert stream.consumed == 1
++    assert stream.closed
++
++
++def test_text_completion_prefill_options_must_be_configured_together(tmp_path):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text("def encode_messages(messages, thinking_mode): pass\n")
++
++    with pytest.raises(ValueError, match="configured together"):
++        LiteLLM(
++            model_name="fake/model",
++            deepseek_v4_encoding_file=str(encoding_file),
++        )
++
++
++@pytest.mark.asyncio
++async def test_text_completion_prefill_uses_official_encoder_and_text_endpoint(
++    monkeypatch, tmp_path
++):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def encode_messages(messages, thinking_mode):\n"
++        "    assert thinking_mode == 'chat'\n"
++        "    return 'ENCODED:' + messages[-1]['content']\n"
++    )
++    captured_kwargs = {}
++    prefix = '{"commands":[{"keystrokes":"'
++
++    async def fake_text_completion(**kwargs):
++        captured_kwargs.update(kwargs)
++        return _FakeTextCompletionStreamWrapper(
++            _FakeStream(
++                [
++                    {
++                        "model": "fake",
++                        "choices": [
++                            {"text": 'pwd\\n","duration":0.1}]}'},
++                        ],
++                    }
++                ]
++            )
++        )
++
++    monkeypatch.setattr("litellm.atext_completion", fake_text_completion)
++    llm = LiteLLM(
++        model_name="openai/fake",
++        api_base="http://localhost:8010/v1",
++        temperature=0,
++        max_tokens=1024,
++        extra_body={"top_k": 1},
++        early_stop_balanced_json=True,
++        deepseek_v4_encoding_file=str(encoding_file),
++        text_completion_prefill=prefix,
++    )
++
++    result = await llm.call(prompt="do it", message_history=[])
++
++    assert result.content == '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    assert captured_kwargs["prompt"] == "ENCODED:do it" + prefix
++    assert captured_kwargs["stream"] is True
++    assert captured_kwargs["stop"] == ['","duration', '"}]}']
++    assert captured_kwargs["temperature"] == 0
++    assert captured_kwargs["extra_body"] == {"top_k": 1}
++
++
++@pytest.mark.asyncio
++async def test_native_terminal_tools_use_official_encoder_and_close_first_call(
++    monkeypatch, tmp_path
++):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def encode_messages(messages, thinking_mode):\n"
++        "    assert thinking_mode == 'chat'\n"
++        "    assert messages[0]['role'] == 'system'\n"
++        "    assert messages[0]['tools'][0]['function']['name'] == 'bash_command'\n"
++        "    assert messages[-1]['role'] == 'tool'\n"
++        "    assert messages[-1]['task'] == 'action'\n"
++        "    return 'NATIVE-ENCODED'\n"
++    )
++    captured_kwargs = {}
++
++    async def fake_text_completion(**kwargs):
++        captured_kwargs.update(kwargs)
++        return _FakeTextCompletionStreamWrapper(
++            _FakeStream(
++                [
++                    {
++                        "model": "fake",
++                        "choices": [
++                            {
++                                "text": (
++                                    "Inspect next.\n"
++                                    '<｜DSML｜invoke name="bash_command">\n'
++                                    '<｜DSML｜parameter name="keystrokes" '
++                                    'string="true">cat deps\n'
++                                    "</｜DSML｜parameter>\n"
++                                    "</｜DSML｜invoke>"
++                                )
++                            }
++                        ],
++                    },
++                    {"model": "fake", "choices": [{"text": " trailing"}]},
++                ]
++            )
++        )
++
++    monkeypatch.setattr("litellm.atext_completion", fake_text_completion)
++    llm = LiteLLM(
++        model_name="openai/fake",
++        api_base="http://localhost:8010/v1",
++        temperature=0,
++        max_tokens=128,
++        early_stop_balanced_json=True,
++        deepseek_v4_encoding_file=str(encoding_file),
++        deepseek_v4_native_terminal_tools=True,
++        deepseek_v4_action_task=True,
++    )
++    history = [
++        {"role": "user", "content": "task"},
++        {
++            "role": "assistant",
++            "content": '{"commands":[{"keystrokes":"ls -la\\n"}]}',
++        },
++    ]
++
++    result = await llm.call(prompt="terminal output", message_history=history)
++
++    assert result.content == (
++        '{"commands":[{"keystrokes":"cat deps\\n","duration":1.0}]}'
++    )
++    assert captured_kwargs["prompt"] == "NATIVE-ENCODED"
++    assert captured_kwargs["stream"] is True
++    assert captured_kwargs["stop"] == ["<｜end▁of▁sentence｜>"]
++
++
++@pytest.mark.asyncio
++async def test_native_terminal_tools_support_official_action_task(
++    monkeypatch, tmp_path
++):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def encode_messages(messages, thinking_mode):\n"
++        "    assert thinking_mode == 'chat'\n"
++        "    assert messages[-1]['role'] == 'user'\n"
++        "    assert messages[-1]['task'] == 'action'\n"
++        "    return 'ACTION-ENCODED'\n"
++    )
++    captured_kwargs = {}
++
++    async def fake_text_completion(**kwargs):
++        captured_kwargs.update(kwargs)
++        return _FakeTextCompletionStreamWrapper(
++            _FakeStream(
++                [
++                    {
++                        "model": "fake",
++                        "choices": [
++                            {
++                                "text": (
++                                    '<｜DSML｜invoke name="bash_command">\n'
++                                    '<｜DSML｜parameter name="keystrokes" '
++                                    'string="true">pwd\n'
++                                    "</｜DSML｜parameter>\n"
++                                    "</｜DSML｜invoke>"
++                                )
++                            }
++                        ],
++                    }
++                ]
++            )
++        )
++
++    monkeypatch.setattr("litellm.atext_completion", fake_text_completion)
++    llm = LiteLLM(
++        model_name="openai/fake",
++        api_base="http://localhost:8010/v1",
++        temperature=0,
++        max_tokens=256,
++        early_stop_balanced_json=True,
++        deepseek_v4_encoding_file=str(encoding_file),
++        deepseek_v4_native_terminal_tools=True,
++        deepseek_v4_action_task=True,
++    )
++
++    result = await llm.call(prompt="do it", message_history=[])
++
++    assert result.content == (
++        '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    )
++    assert captured_kwargs["prompt"] == "ACTION-ENCODED"
++
++
++@pytest.mark.asyncio
++async def test_native_terminal_tools_support_keystrokes_prefill(
++    monkeypatch, tmp_path
++):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def encode_messages(messages, thinking_mode):\n"
++        "    assert thinking_mode == 'chat'\n"
++        "    assert messages[-1]['task'] == 'action'\n"
++        "    return 'NATIVE-PREFILL-ENCODED'\n"
++    )
++    captured_kwargs = {}
++
++    async def fake_text_completion(**kwargs):
++        captured_kwargs.update(kwargs)
++        return _FakeTextCompletionStreamWrapper(
++            _FakeStream(
++                [
++                    {
++                        "model": "fake",
++                        "choices": [
++                            {
++                                "text": "git reflog",
++                                "finish_reason": "stop",
++                            }
++                        ],
++                    }
++                ]
++            )
++        )
++
++    monkeypatch.setattr("litellm.atext_completion", fake_text_completion)
++    llm = LiteLLM(
++        model_name="openai/fake",
++        max_tokens=512,
++        early_stop_balanced_json=True,
++        deepseek_v4_encoding_file=str(encoding_file),
++        deepseek_v4_native_terminal_tools=True,
++        deepseek_v4_action_task=True,
++        deepseek_v4_native_keystrokes_prefill=True,
++    )
++
++    result = await llm.call(prompt="recover changes", message_history=[])
++
++    assert result.content == (
++        '{"commands":[{"keystrokes":"git reflog\\n","duration":1.0}]}'
++    )
++    assert captured_kwargs["prompt"].startswith("NATIVE-PREFILL-ENCODED")
++    assert captured_kwargs["prompt"].endswith(
++        '<｜DSML｜parameter name="keystrokes" string="true">'
++    )
++    assert captured_kwargs["stop"] == ["</｜DSML｜parameter>"]
++
++
++def test_native_keystrokes_prefill_requires_native_tools(tmp_path):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def encode_messages(messages, thinking_mode): return 'encoded'\n"
++    )
++
++    with pytest.raises(ValueError, match="requires"):
++        LiteLLM(
++            model_name="openai/fake",
++            deepseek_v4_encoding_file=str(encoding_file),
++            text_completion_prefill='{"commands":',
++            deepseek_v4_native_keystrokes_prefill=True,
++        )
++
++
++@pytest.mark.asyncio
++async def test_native_terminal_tools_support_official_thinking_mode(
++    monkeypatch, tmp_path
++):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def encode_messages(messages, thinking_mode, reasoning_effort=None):\n"
++        "    assert thinking_mode == 'thinking'\n"
++        "    assert reasoning_effort == 'max'\n"
++        "    assert messages[-1]['task'] == 'action'\n"
++        "    return 'THINKING-ACTION-ENCODED'\n"
++    )
++    captured_kwargs = {}
++
++    async def fake_text_completion(**kwargs):
++        captured_kwargs.update(kwargs)
++        return _FakeTextCompletionStreamWrapper(
++            _FakeStream(
++                [
++                    {
++                        "model": "fake",
++                        "choices": [
++                            {
++                                "text": (
++                                    '<｜DSML｜invoke name="bash_command">\n'
++                                    '<｜DSML｜parameter name="keystrokes" '
++                                    'string="true">pwd\n'
++                                    "</｜DSML｜parameter>\n"
++                                    "</｜DSML｜invoke>"
++                                )
++                            }
++                        ],
++                    }
++                ]
++            )
++        )
++
++    monkeypatch.setattr("litellm.atext_completion", fake_text_completion)
++    llm = LiteLLM(
++        model_name="openai/fake",
++        reasoning_effort="max",
++        max_tokens=512,
++        early_stop_balanced_json=True,
++        deepseek_v4_encoding_file=str(encoding_file),
++        deepseek_v4_native_terminal_tools=True,
++        deepseek_v4_action_task=True,
++        deepseek_v4_thinking_mode="thinking",
++    )
++
++    result = await llm.call(prompt="do it", message_history=[])
++
++    assert result.content == (
++        '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    )
++    assert captured_kwargs["prompt"] == "THINKING-ACTION-ENCODED"
++
++
++def test_deepseek_thinking_mode_requires_official_encoder():
++    with pytest.raises(ValueError, match="requires deepseek_v4_encoding_file"):
++        LiteLLM(
++            model_name="openai/fake",
++            deepseek_v4_thinking_mode="thinking",
++        )
++
++
++def test_deepseek_thinking_mode_rejects_unknown_value():
++    with pytest.raises(ValueError, match="either 'chat' or 'thinking'"):
++        LiteLLM(
++            model_name="openai/fake",
++            deepseek_v4_thinking_mode="maximum",
++        )
++
++
++def test_action_task_requires_native_terminal_tools(tmp_path):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def encode_messages(messages, thinking_mode): return 'encoded'\n"
++    )
++
++    with pytest.raises(ValueError, match="requires"):
++        LiteLLM(
++            model_name="openai/fake",
++            deepseek_v4_encoding_file=str(encoding_file),
++            text_completion_prefill='{"commands":',
++            deepseek_v4_action_task=True,
++        )
++
++
++@pytest.mark.asyncio
++async def test_action_task_survives_official_style_tool_merge(
++    monkeypatch, tmp_path
++):
++    encoding_file = tmp_path / "encoding.py"
++    encoding_file.write_text(
++        "def merge_tool_messages(messages):\n"
++        "    assert messages[-1]['role'] == 'tool'\n"
++        "    return [{'role': 'user', 'content': 'tool result'}]\n"
++        "\n"
++        "def encode_messages(messages, thinking_mode):\n"
++        "    merged = merge_tool_messages(messages)\n"
++        "    assert merged[-1]['task'] == 'action'\n"
++        "    return 'MERGED-ACTION-ENCODED'\n"
++    )
++    captured_kwargs = {}
++
++    async def fake_text_completion(**kwargs):
++        captured_kwargs.update(kwargs)
++        return _FakeTextCompletionStreamWrapper(
++            _FakeStream(
++                [
++                    {
++                        "model": "fake",
++                        "choices": [
++                            {
++                                "text": (
++                                    '<｜DSML｜invoke name="bash_command">\n'
++                                    '<｜DSML｜parameter name="keystrokes" '
++                                    'string="true">pwd\n'
++                                    "</｜DSML｜parameter>\n"
++                                    "</｜DSML｜invoke>"
++                                )
++                            }
++                        ],
++                    }
++                ]
++            )
++        )
++
++    monkeypatch.setattr("litellm.atext_completion", fake_text_completion)
++    llm = LiteLLM(
++        model_name="openai/fake",
++        api_base="http://localhost:8010/v1",
++        temperature=0,
++        max_tokens=256,
++        early_stop_balanced_json=True,
++        deepseek_v4_encoding_file=str(encoding_file),
++        deepseek_v4_native_terminal_tools=True,
++        deepseek_v4_action_task=True,
++    )
++    history = [
++        {"role": "user", "content": "task"},
++        {
++            "role": "assistant",
++            "content": '{"commands":[{"keystrokes":"ls -la\\n"}]}',
++        },
++    ]
++
++    result = await llm.call(prompt="terminal output", message_history=history)
++
++    assert result.content == (
++        '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    )
++    assert captured_kwargs["prompt"] == "MERGED-ACTION-ENCODED"
++
++
++@pytest.mark.asyncio
++async def test_balanced_json_stream_preserves_length_error():
++    stream = _FakeStream(
++        [
++            {
++                "model": "fake",
++                "choices": [
++                    {
++                        "delta": {"content": '{"analysis":"unfinished"'},
++                        "finish_reason": "length",
++                    }
++                ],
++            }
++        ]
++    )
++    llm = LiteLLM(model_name="fake/model", early_stop_balanced_json=True)
++
++    with pytest.raises(OutputLengthExceededError, match="max_tokens"):
++        await llm._consume_balanced_json_stream(stream)  # ty: ignore[invalid-argument-type]
++
++    assert stream.closed
++
++
++@pytest.mark.asyncio
++async def test_balanced_json_stream_closes_on_server_stop_sequence():
++    prefix = '{"commands":[{"keystrokes":"'
++    stream = _FakeStream(
++        [
++            {"model": "fake", "choices": [{"text": "pwd"}]},
++            {
++                "model": "fake",
++                "choices": [{"text": "", "finish_reason": "stop"}],
++            },
++        ]
++    )
++    llm = LiteLLM(model_name="fake/model", early_stop_balanced_json=True)
++
++    result = await llm._consume_balanced_json_stream(
++        stream,  # ty: ignore[invalid-argument-type]
++        initial_content=prefix,
++    )
++
++    assert result.content == '{"commands":[{"keystrokes":"pwd\\n","duration":1.0}]}'
++    assert stream.consumed == 2
++    assert stream.closed
++
++
++@pytest.mark.asyncio
++async def test_balanced_json_stream_salvages_first_line_at_length_limit():
++    prefix = '{"commands":[{"keystrokes":"'
++    stream = _FakeStream(
++        [
++            {
++                "model": "fake",
++                "choices": [{"text": "ls -a = ls\\nls\\n", "finish_reason": "length"}],
++            }
++        ]
++    )
++    llm = LiteLLM(model_name="fake/model", early_stop_balanced_json=True)
++
++    result = await llm._consume_balanced_json_stream(
++        stream,  # ty: ignore[invalid-argument-type]
++        initial_content=prefix,
++    )
++
++    assert result.content == (
++        '{"commands":[{"keystrokes":"ls -a = ls\\n","duration":1.0}]}'
++    )
++    assert stream.closed
+ 
+ 
+ @pytest.mark.asyncio
+diff --git a/src/harbor/agents/terminus_2/templates/terminus-deepseek-json-actionfirst.txt b/src/harbor/agents/terminus_2/templates/terminus-deepseek-json-actionfirst.txt
+new file mode 100644
+index 0000000..d2a6682
+--- /dev/null
++++ b/src/harbor/agents/terminus_2/templates/terminus-deepseek-json-actionfirst.txt
+@@ -0,0 +1,18 @@
++Solve the task in the Linux terminal. Output only compact JSON beginning
++{{"commands":. Never add prose or Markdown.
++
++Use exactly one action per response:
++{{"commands":[{{"keystrokes":"ls -la\n"}}]}}
++
++`keystrokes` are verbatim. Wait with empty `keystrokes`; interrupt with `C-c`.
++Terminal outputs remain available in the conversation. Inspect each source file at
++most once. Never issue a command that you issued earlier. After inspecting the
++inputs, your next action must create, modify, build, or test the solution. Until
++finished, issue one concrete command. When the task is finished, use `DONE` as the
++keystrokes value.
++
++Task:
++{instruction}
++
++Terminal:
++{terminal_state}
+diff --git a/src/harbor/agents/terminus_2/templates/terminus-deepseek-native-brief-thinking.txt b/src/harbor/agents/terminus_2/templates/terminus-deepseek-native-brief-thinking.txt
+new file mode 100644
+index 0000000..46624e2
+--- /dev/null
++++ b/src/harbor/agents/terminus_2/templates/terminus-deepseek-native-brief-thinking.txt
+@@ -0,0 +1,9 @@
++Reason for at most 64 tokens, then call exactly one native terminal tool. Do not
++plan the full task before acting. Choose a high-impact safe action and emit the
++tool call within the 512-token output limit.
++
++Task:
++{instruction}
++
++Terminal:
++{terminal_state}
+diff --git a/src/harbor/agents/terminus_2/templates/terminus-deepseek-native-minimal.txt b/src/harbor/agents/terminus_2/templates/terminus-deepseek-native-minimal.txt
+new file mode 100644
+index 0000000..6b2aad8
+--- /dev/null
++++ b/src/harbor/agents/terminus_2/templates/terminus-deepseek-native-minimal.txt
+@@ -0,0 +1,4 @@
++{instruction}
++
++Terminal:
++{terminal_state}
+diff --git a/src/harbor/agents/terminus_2/templates/terminus-deepseek-native.txt b/src/harbor/agents/terminus_2/templates/terminus-deepseek-native.txt
+new file mode 100644
+index 0000000..3d23962
+--- /dev/null
++++ b/src/harbor/agents/terminus_2/templates/terminus-deepseek-native.txt
+@@ -0,0 +1,21 @@
++Solve the task in the Linux terminal using the native tools described in the
++system message. Act immediately and call bash_command for one concrete atomic
++action at a time; one action may combine directly dependent shell steps. Read
++each tool result before choosing the next action. Emit the tool call immediately
++without narrating, restating the task, or printing internal reasoning. Treat
++every command string as
++one-shot: never submit the same command twice, whether it succeeded or failed.
++If output reports an error, identify and correct its root cause in the next
++action instead of running unrelated diagnostics. Shell-quote paths and argument
++values whenever whitespace or special characters may occur. Prioritize creating
++the requested artifacts and verifying them within the available time. Do not
++spend an action printing a file you just created unless its creation reported an
++error; move to the next unmet requirement and reserve inspection for diagnosis
++or final verification. Call mark_task_complete only after implementing and
++verifying the task.
++
++Task:
++{instruction}
++
++Terminal:
++{terminal_state}

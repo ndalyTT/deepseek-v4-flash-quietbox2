@@ -1,0 +1,13 @@
+Skipping image OS validation for alexgshaw/write-compressor:20251031: docker inspect returned 1
+Collecting main service artifacts
+Skipping image OS validation for alexgshaw/torch-tensor-parallelism:20251031: docker inspect returned 1
+Collecting main service artifacts
+Trial torch-tensor-parallelism__EjfbPKZ failed: Verifier execution timed out after 900.0 seconds
+Exception VerifierTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Skipping image OS validation for alexgshaw/schemelike-metacircular-eval:20251031: docker inspect returned 1
+Collecting main service artifacts
+Skipping image OS validation for alexgshaw/kv-store-grpc:20251031: docker inspect returned 1
+Collecting main service artifacts
+Skipping image OS validation for alexgshaw/pypi-server:20251031: docker inspect returned 1
+Collecting main service artifacts

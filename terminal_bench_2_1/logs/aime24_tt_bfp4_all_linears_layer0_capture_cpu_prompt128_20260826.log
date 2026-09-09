@@ -1,0 +1,7 @@
+Script started on 2026-08-26 17:27:59+00:00 [COMMAND="python_env/bin/python models/autoports/deepseek_ai_deepseek_v4_flash_0731/tools/run_quantized_reference_cpu.py --checkpoint /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731 --free-run --emulate-tt-bfp4 --capture-layer-states models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/datatype_sweep/aime24_tt_bfp4_all_linears_layer0_capture_cpu_prompt128.pt --output models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/datatype_sweep/aime24_tt_bfp4_all_linears_layer0_capture_cpu_prompt128.json --layers 1 --prompt-limit 128 --tokens 1 --max-seq-len 256 --threads 8 --bfp4-layers 0" <not executed on terminal>]
+loaded shard 1/3 model-00001-of-00048.safetensors: 1 parameters; host available=195.7 GiB
+loaded shard 2/3 model-00002-of-00048.safetensors: 1564 parameters; host available=195.7 GiB
+loaded shard 3/3 model-00045-of-00048.safetensors: 5 parameters; host available=194.0 GiB
+step=000 target=123795 top1=123795 rank=1 elapsed=20.479s
+
+Script done on 2026-08-26 17:28:24+00:00 [COMMAND_EXIT_CODE="0"]

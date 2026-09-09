@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.sock
+terminal_bench_2_1/deepseek_harness_runtime/*
+!terminal_bench_2_1/deepseek_harness_runtime/.gitkeep
+# never commit model weights, virtualenvs, or toolchain binaries
+model_assets/
+hf_cache/
+*.safetensors
+.venv/
+node_modules/
+terminal_bench_2_1/deepseek_harness_toolchain/bin/
+terminal_bench_2_1/deepseek_harness_toolchain/lib/
+# large session-log exports are published as a GitHub Release asset instead
+artifacts/session_logs/
+artifacts/session-logs-*

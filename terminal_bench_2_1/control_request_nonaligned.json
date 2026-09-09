@@ -1,0 +1,17 @@
+{
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a precise assistant. Follow the final instruction and return only the requested compact JSON object."
+    },
+    {
+      "role": "user",
+      "content": "Read these irrelevant labeled records before answering. Record 01 is amber. Record 02 is blue. Record 03 is cedar. Record 04 is delta. Record 05 is ember. Record 06 is frost. Record 07 is green. Record 08 is harbor. Record 09 is ivory. Record 10 is juniper. Record 11 is kite. Record 12 is linen. Record 13 is maple. Record 14 is navy. Record 15 is ochre. Record 16 is pearl. Record 17 is quartz. Record 18 is river. Record 19 is silver. Record 20 is teal. Record 21 is umber. Record 22 is violet. Record 23 is willow. Record 24 is xenia. Record 25 is yellow. Record 26 is zinc. Record 27 is acorn. Record 28 is birch. Record 29 is coral. Record 30 is dune. Ignore every record value. Return exactly {\"answer\":42}."
+    }
+  ],
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "seed": 0,
+  "max_tokens": 128
+}

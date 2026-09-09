@@ -1,0 +1,49 @@
+{
+    "task": {
+        "name": "terminal-bench/write-compressor",
+        "ref": "sha256:d9ddd9a8e925e2c566b37b2492cbf995afecefe58874e4043ef78d7f3c892c7e",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "write-compressor__7wqLnVb",
+    "trials_dir": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-native-action-validtail-norepeat-v11",
+    "agent": {
+        "name": "terminus-2",
+        "model_name": "openai/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "kwargs": {
+            "api_base": "http://127.0.0.1:8010/v1",
+            "parser_name": "json",
+            "prompt_template_path": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/harbor/src/harbor/agents/terminus_2/templates/terminus-deepseek-native.txt",
+            "max_turns": 30,
+            "suppress_max_turns_warning": true,
+            "max_consecutive_identical_commands": 3,
+            "reject_repeated_commands": true,
+            "temperature": 0.0,
+            "reasoning_effort": "none",
+            "enable_summarize": false,
+            "store_all_messages": true,
+            "record_terminal_session": true,
+            "model_info": {
+                "max_tokens": 131072,
+                "max_input_tokens": 130048,
+                "max_output_tokens": 256,
+                "input_cost_per_token": 0.0,
+                "output_cost_per_token": 0.0
+            },
+            "llm_kwargs": {
+                "max_tokens": 256,
+                "early_stop_balanced_json": true,
+                "deepseek_v4_encoding_file": "/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731/encoding/encoding_dsv4.py",
+                "deepseek_v4_native_terminal_tools": true,
+                "deepseek_v4_action_task": true,
+                "timeout": 12000
+            },
+            "llm_call_kwargs": {
+                "extra_body": {
+                    "top_p": 1.0,
+                    "top_k": 1
+                }
+            }
+        }
+    },
+    "job_id": "db033cea-2d54-4db9-8bad-8b61123d4472"
+}

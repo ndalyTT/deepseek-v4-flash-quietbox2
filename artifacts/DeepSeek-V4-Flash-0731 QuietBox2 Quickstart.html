@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek-V4-Flash-0731 QuietBox2 Quickstart</title>
+<style>
+:root{color-scheme:light dark;--ground:#f1f4f5;--surface:#fff;--surface2:#e5eaec;--ink:#0e1719;--muted:#4b5a5e;--faint:#718287;--border:#d4dee1;--accent:#0b6273;--ok:#256b46;--okbg:#e6f1ea;--warn:#8a5410;--warnbg:#faf1de;--term:#0e181c;--termink:#dde8ea;--termdim:#8aa0a6;--mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;--sans:Inter,"Segoe UI",Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--ground:#0a1113;--surface:#111a1d;--surface2:#182428;--ink:#e6eef0;--muted:#a3b3b7;--faint:#74868b;--border:#26373c;--accent:#63c7d8;--ok:#72c195;--okbg:#0d2419;--warn:#e2bb74;--warnbg:#241c0d}}
+*{box-sizing:border-box}body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.62 var(--sans)}.wrap{max-width:920px;margin:auto;padding:52px 28px 80px}a{color:var(--accent)}code{font:0.84em var(--mono);background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:.08em .34em;overflow-wrap:anywhere}.flag{display:inline-flex;gap:8px;align-items:center;font:700 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--warn);background:var(--warnbg);border:1px solid color-mix(in srgb,var(--warn) 35%,transparent);padding:6px 11px;border-radius:3px}.flag i{width:7px;height:7px;border-radius:50%;background:currentColor}.eyebrow{margin:18px 0 12px;color:var(--accent);font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.2rem,6vw,3.45rem);line-height:1.03;letter-spacing:-.035em;margin:0}h1 span{display:block;color:var(--muted);font-size:1.12rem;line-height:1.45;font-weight:400;letter-spacing:0;max-width:62ch;margin-top:12px}.lede{max-width:70ch;color:var(--muted);font-size:1.03rem}.spec{display:grid;grid-template-columns:repeat(3,1fr);margin:30px 0 0;border:1px solid var(--border);background:var(--surface);border-radius:5px;overflow:hidden}.spec div{padding:14px 16px;border-left:1px solid var(--border);border-top:1px solid var(--border)}.spec div:nth-child(3n+1){border-left:0}.spec div:nth-child(-n+3){border-top:0}.spec dt{font:10px var(--mono);color:var(--faint);letter-spacing:.14em;text-transform:uppercase}.spec dd{margin:5px 0 0;font-weight:650}.spec small{display:block;color:var(--muted);font-weight:400}.callout{margin:22px 0;padding:15px 17px;background:var(--surface2);border:1px solid var(--border);border-radius:5px;color:var(--muted)}.callout strong{color:var(--ink)}hr{border:0;border-top:1px solid var(--border);margin:50px 0 0}.kicker{font:700 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:38px 0 6px}h2{font-size:1.75rem;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}h3{font-size:1.05rem;margin:0 0 7px}.lanes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}.lane,.step{background:var(--surface);border:1px solid var(--border);border-radius:5px}.lane{padding:17px}.lane p{color:var(--muted);margin:.4rem 0 0}.steps{display:grid;gap:26px;margin-top:24px}.step{display:grid;grid-template-columns:50px 1fr;padding:18px}.num{font:700 1.25rem var(--mono);color:var(--accent)}.step p,.step li{color:var(--muted)}pre{margin:12px 0 0;background:var(--term);color:var(--termink);border:1px solid #24393f;border-radius:5px;padding:15px 17px;overflow:auto;font:12.5px/1.62 var(--mono);white-space:pre}.comment{color:var(--termdim)}.ok{color:#7fce9c}.scroller{overflow:auto;border:1px solid var(--border);background:var(--surface);border-radius:5px}table{border-collapse:collapse;width:100%;font-size:.83rem}th,td{padding:9px 11px;border-bottom:1px solid var(--border);white-space:nowrap}th{font:700 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:var(--surface2);text-align:left}td.n,th.n{text-align:right;font-family:var(--mono)}tbody tr:last-child td{border-bottom:0}.foot{font-size:.88rem;color:var(--muted)}footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--border);font:12px/1.7 var(--mono);color:var(--faint)}
+@media(max-width:700px){.wrap{padding:30px 18px 60px}.spec{grid-template-columns:1fr 1fr}.spec div:nth-child(3n+1){border-left:1px solid var(--border)}.spec div:nth-child(2n+1){border-left:0}.spec div:nth-child(-n+3){border-top:1px solid var(--border)}.spec div:nth-child(-n+2){border-top:0}.lanes{grid-template-columns:1fr}.step{grid-template-columns:38px 1fr}}
+</style>
+</head>
+<body><main class="wrap">
+<span class="flag"><i></i>Runtime qualified · server recovery required</span>
+<p class="eyebrow">QuietBox2 / p300c ×4 · tt-metal <code>deepseek-v4-flash-0731-quietbox2</code> @ <code>5114991f9f</code></p>
+<h1>DeepSeek-V4-Flash-0731 QuietBox2 Quickstart
+<span>Build the exact-architecture mixed-BFP2/BFP4 TTNN deployment and serve the official Hugging Face checkpoint through the Tenstorrent vLLM plugin.</span></h1>
+<p class="lede">This recipe is intentionally narrow: one request at a time, a complete <code>(4,1)</code> Blackhole mesh, and a 131,072-token deployment context. Pin the checkpoint and repository revisions below. The branch is local until its owner explicitly authorizes GitHub publication.</p>
+
+<dl class="spec">
+<div><dt>Model</dt><dd>DeepSeek V4 Flash<small>43 layers · 256 experts retained</small></dd></div>
+<div><dt>Hardware</dt><dd>QuietBox2 · 4× p300c<small>33,910,295,552 usable B/device</small></dd></div>
+<div><dt>Mesh</dt><dd>(4,1) ring<small>internal TP4 · vLLM DP1</small></dd></div>
+<div><dt>Context</dt><dd>131,072 tokens<small>130,560 input + 512 output</small></dd></div>
+<div><dt>Quantization</dt><dd>Selective BFP2/BFP4<small>8 routed gate/up layers at BFP4</small></dd></div>
+<div><dt>API</dt><dd>vLLM 0.25.1<small>OpenAI-compatible HTTP</small></dd></div>
+</dl>
+
+<div class="callout"><strong>Why quantization is mandatory.</strong> The preserved stock policy requires at least 57,998,069,952 bytes/device, exceeding measured usable DRAM by 24,087,774,400 bytes/device. The selected policy's weights and full cache are resident at 33,389,479,936 bytes/device and leave 520,815,616 bytes/device free. Streaming prefill additionally bounds context-shaped TTNN programs in 8192-token epochs; the resulting policy passed the complete 65536- and 130560-token warmups and measured requests. Routed gate/up is BFP4 only in layers 2, 27, 29, 32, 34, 36, 41, and 42; the other 35 layers use BFP2. Routed down and shared experts use BFP4.</div>
+
+<hr><p class="kicker">Choose a path</p><h2>Two ways to run it</h2>
+<div class="lanes">
+<article class="lane"><h3>OpenAI-compatible server</h3><p>Use for applications and interactive requests. Startup includes a roughly 24-minute one-time checkpoint-to-device construction on this host; a new prompt shape may compile on first use.</p></article>
+<article class="lane"><h3>Offline qualification</h3><p>Use the supplied smoke or benchmark driver to reproduce the exact batch-one runtime contract and the eight requested latency rows.</p></article>
+</div>
+
+<hr><p class="kicker">Walkthrough</p><h2>From clean checkout to first response</h2>
+<div class="steps">
+<section class="step"><div class="num">01</div><div><h3>Check the box</h3><p>Use a QuietBox2 exposing exactly four Blackhole p300c devices. Avoid running another Metal workload at the same time.</p><pre>tt-smi -s
+<span class="comment"># Expect UMD logical IDs 0, 1, 2, and 3, all Blackhole p300c.</span></pre></div></section>
+
+<section class="step"><div class="num">02</div><div><h3>Get the qualified tt-metal branch</h3><p>The URL below becomes the handoff path after publication is authorized. Before that, use the local checkout supplied with this report.</p><pre>git clone --branch deepseek-v4-flash-0731-quietbox2 \
+  https://github.com/ndalyTT/tt-metal.git
+cd tt-metal
+git rev-parse HEAD
+<span class="comment"># Qualified local code commit: 5114991f9f</span></pre></div></section>
+
+<section class="step"><div class="num">03</div><div><h3>Create the environment and build TTNN</h3><p>The BFLOAT2_B datatype support is compiled into <code>_ttnn.so</code>; a stock tt-metal binary cannot load this deployment.</p><pre>./create_venv.sh
+source python_env/bin/activate
+./build_metal.sh --release --enable-ccache
+cp build_Release/ttnn/_ttnn.so ttnn/ttnn/_ttnn.so
+PYTHONPATH=build_Release python -c \
+  'import ttnn; print(ttnn.bfloat2_b)'
+<span class="ok"># Expected: DataType::BFLOAT2_B</span></pre></div></section>
+
+<section class="step"><div class="num">04</div><div><h3>Install the vLLM TT plugin into this environment</h3><p>Pin the plugin revision used for qualification. The DeepSeek adapter itself remains in tt-metal and is found through <code>EXTRA_MODELS_DIR</code>.</p><pre>git clone https://github.com/tenstorrent/vllm-tt-plugin.git \
+  ../vllm-tt-plugin
+git -C ../vllm-tt-plugin checkout \
+  e3fc84941bf7a1d0df32aae2c50d539259c925f0
+cd ../vllm-tt-plugin
+source ../tt-metal/python_env/bin/activate
+source docs/install-vllm-tt.sh
+cd ../tt-metal
+python_env/bin/python -c \
+  'import vllm; print(vllm.__version__)'
+<span class="ok"># Expected: 0.25.1</span></pre></div></section>
+
+<section class="step"><div class="num">05</div><div><h3>Download the pinned official checkpoint</h3><p>Allow at least 170 GB for the 48 safetensor shards and metadata. The source is <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731">deepseek-ai/DeepSeek-V4-Flash-0731</a>. Public download worked without a token during this bring-up; set <code>HF_TOKEN</code> only if your environment is rate-limited.</p><pre>mkdir -p ../model_assets/DeepSeek-V4-Flash-0731
+python_env/bin/hf download \
+  deepseek-ai/DeepSeek-V4-Flash-0731 \
+  --revision 7872f01b1d1fe23eabc4c98b48bffcef5a386062 \
+  --local-dir ../model_assets/DeepSeek-V4-Flash-0731
+ls ../model_assets/DeepSeek-V4-Flash-0731/model-*.safetensors | wc -l
+<span class="ok"># Expected: 48</span></pre></div></section>
+
+<section class="step"><div class="num">06</div><div><h3>Set the qualified runtime contract</h3><pre>export TT_METAL_ROOT="$(pwd)"
+export DEEPSEEK_MODEL="$(realpath ../model_assets/DeepSeek-V4-Flash-0731)"
+export MESH_DEVICE='(4,1)'
+export TT_METAL_DISABLE_FABRIC_TWO_ERISC=1
+export PYTHONPATH="$TT_METAL_ROOT/build_Release"
+export EXTRA_MODELS_DIR="$TT_METAL_ROOT/models/autoports/deepseek_ai_deepseek_v4_flash_0731/vllm_models"
+export VLLM_PLUGINS=tt,tt_model_registry
+export DEEPSEEK_V4_FLASH_HF_MODEL="$DEEPSEEK_MODEL"
+unset TT_MESH_GRAPH_DESC_PATH</pre><p>Do not change mesh, DP, batch size, context, prefix caching, or sampling mode without requalification.</p></div></section>
+
+<section class="step"><div class="num">07</div><div><h3>Run the offline smoke first</h3><pre>python_env/bin/python \
+  models/autoports/deepseek_ai_deepseek_v4_flash_0731/tools/run_vllm_smoke.py \
+  --checkpoint "$DEEPSEEK_MODEL" \
+  --artifact-json /tmp/deepseek-v4-vllm-smoke.json \
+  --prompt Hello --max-tokens 2
+python_env/bin/python -m json.tool /tmp/deepseek-v4-vllm-smoke.json</pre><p>Pass criteria: <code>status: passed</code>, two output token IDs, and populated vLLM plus derived timing fields.</p></div></section>
+
+<section class="step"><div class="num">08</div><div><h3>Start the OpenAI-compatible server</h3><pre>tt-smi -r 0 1 2 3
+python_env/bin/vllm serve "$DEEPSEEK_MODEL" \
+  --host 127.0.0.1 \
+  --port 8010 \
+  --served-model-name deepseek-ai/DeepSeek-V4-Flash-0731 \
+  --tokenizer "$DEEPSEEK_MODEL" \
+  --tokenizer-mode deepseek_v4 \
+  --reasoning-parser deepseek_v4 \
+  --trust-remote-code \
+  --dtype bfloat16 \
+  --max-model-len 131072 \
+  --max-num-seqs 1 \
+  --max-num-batched-tokens 131072 \
+  --block-size 128 \
+  --additional-config '{"tt":{"sample_on_device_mode":"all","trace_mode":"all","enable_model_warmup":false,"trace_region_size":268435456,"l1_small_size":2048,"fabric_config":"FABRIC_1D_RING","fabric_reliability_mode":"RELAXED_INIT"}}'</pre><p>Keep this terminal open. The server is ready only after vLLM reports application startup complete. The qualified run used this contract, but the final post-reboot lifecycle check on this particular host reproduced a device-0 ERISC heartbeat failure before weight loading even after bounded reset/list and a successful standalone 4×1 mesh smoke. Do not loop resets indefinitely; if the same cores fail, preserve the log and escalate firmware/board recovery.</p></div></section>
+
+<section class="step"><div class="num">09</div><div><h3>Verify from a second terminal</h3><pre>curl -sS http://127.0.0.1:8010/v1/chat/completions \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model":"deepseek-ai/DeepSeek-V4-Flash-0731",
+    "messages":[{"role":"user","content":"Write one sentence about Blackhole processors."}],
+    "max_tokens":32,
+    "temperature":0,
+    "top_k":1,
+    "reasoning_effort":"none"
+  }'</pre></div></section>
+
+<section class="step"><div class="num">10</div><div><h3>Reproduce the latency sweep</h3><p>Keep the server from step 08 running and execute this client from a second terminal. Never start the offline loader while the server owns the cards.</p><pre>python_env/bin/python \
+  models/autoports/deepseek_ai_deepseek_v4_flash_0731/tools/run_vllm_server_benchmark.py \
+  --api-base http://127.0.0.1:8010/v1 \
+  --model deepseek-ai/DeepSeek-V4-Flash-0731 \
+  --artifact-json /tmp/deepseek-v4-isl-sweep.json \
+  --isls 128,1024,4096,8192,16384,32768,65536,130560 \
+  --osl 512 \
+  --warmup-output-tokens 2</pre><p>The driver sends exact token-ID prompts, runs one excluded compile warmup per ISL, and atomically checkpoints every completed row. It uses deterministic on-device sampling (<code>temperature=0, top_p=1, top_k=1, seed=0</code>) and enforces exact OSL with <code>ignore_eos</code>; do not add host-only <code>min_tokens</code>. Pass <code>--resume</code> after an interruption; do not reset or restart the healthy server.</p></div></section>
+
+<section class="step"><div class="num">11</div><div><h3>Inspect the Terminal-Bench 2.1 status</h3><p>The final prepared path uses pinned <code>@deepseek-ai/dsh@0.1.0-rc.6</code>, max reasoning, a 49,152-token per-call ceiling, the official <code>bash</code> and <code>str_replace_editor</code> tools, and a constrained Unix-socket relay to loopback vLLM. The deployment sweep's OSL 512 requirement does not cap agent reasoning.</p><pre>cd /home/ttuser/deepseekv4flash
+sed -n '1,220p' \
+  artifacts/RESUME_AFTER_HOST_REBOOT_20260827.md
+sha256sum \
+  terminal_bench_2_1/logs/vllm_server_deepseek_harness_max_v27_20260827_post_reboot.log
+
+<span class="comment"># Expected preserved failure-log SHA-256</span>
+<span class="ok">0687321da09edb320876bf07843216cf9d35217adf52a7cc7c6a0272b600e804</span></pre><p>The request-identical v27 <code>fix-git</code> canary is <strong>not scored</strong>: after the owner-authorized physical reboot, vLLM again froze the same device-0 ERISC cores during mesh initialization, before weights loaded, so neither the relay nor canary was started. The last completed <strong>0.000</strong> score belongs only to the superseded Terminus/native-DSML path; it must not be presented as the official-Harness result. The full 89 × 5 run remains gated on a scored v27 canary after hardware recovery.</p></div></section>
+</div>
+
+<hr><p class="kicker">Measured envelope</p><h2>Batch-one performance</h2>
+<p class="foot"><strong>Final selected-policy resident-server measurement.</strong> Batch and concurrency are one, prefix caching is off, OSL is 512 for every row, and each measured request follows one excluded two-token warmup at the same ISL. The driver uses exact token-ID prompts and streamed client arrival times. All eight rows passed with the bounded 8192-token program-cache epochs enabled.</p>
+<div class="scroller"><table><thead><tr><th class="n">ISL</th><th class="n">TTFT ms</th><th class="n">TPOT ms</th><th class="n">E2EL ms</th><th class="n">t/s/u</th><th class="n">TTFT % E2EL</th></tr></thead><tbody>
+<tr><td class="n">128</td><td class="n">2,590.36</td><td class="n">150.384</td><td class="n">79,436.60</td><td class="n">6.6496</td><td class="n">3.2609%</td></tr>
+<tr><td class="n">1,024</td><td class="n">22,301.18</td><td class="n">150.363</td><td class="n">99,136.88</td><td class="n">6.6506</td><td class="n">22.4953%</td></tr>
+<tr><td class="n">4,096</td><td class="n">90,193.70</td><td class="n">150.314</td><td class="n">167,004.04</td><td class="n">6.6528</td><td class="n">54.0069%</td></tr>
+<tr><td class="n">8,192</td><td class="n">180,921.14</td><td class="n">150.322</td><td class="n">257,735.78</td><td class="n">6.6524</td><td class="n">70.1964%</td></tr>
+<tr><td class="n">16,384</td><td class="n">364,159.40</td><td class="n">150.360</td><td class="n">440,993.59</td><td class="n">6.6507</td><td class="n">82.5770%</td></tr>
+<tr><td class="n">32,768</td><td class="n">727,058.97</td><td class="n">150.324</td><td class="n">803,874.47</td><td class="n">6.6523</td><td class="n">90.4443%</td></tr>
+<tr><td class="n">65,536</td><td class="n">1,543,989.33</td><td class="n">150.667</td><td class="n">1,620,979.99</td><td class="n">6.6372</td><td class="n">95.2504%</td></tr>
+<tr><td class="n">130,560</td><td class="n">3,160,809.93</td><td class="n">150.898</td><td class="n">3,237,918.75</td><td class="n">6.6270</td><td class="n">97.6186%</td></tr>
+</tbody></table></div>
+
+<hr><p class="kicker">Operating limits</p><h2>What is and is not qualified</h2>
+<ul>
+<li>Qualified now: exact 43-layer/256-expert architecture, batch one, concurrency one, greedy TT on-device sampling, 4×1 mesh, and all requested ISLs through 130,560 with OSL 512. The 131,072-token allocation and runtime contracts both passed.</li>
+<li>Not qualified: batch greater than one, prefix caching, chunked prefill, host sampling, async decode, speculative decoding, LoRA, data parallelism, or the model card's 1,048,576-token maximum.</li>
+<li>Do not send <code>response_format</code> or other structured-output constraints. vLLM routes those requests to host sampling, which this on-device-only adapter does not support.</li>
+<li>The official-Harness Terminal-Bench path is prepared but not scored. It uses max reasoning and a 49,152-token ceiling; OSL 512 applies only to the deployment performance matrix. Its v27 canary is blocked by a repeated pre-weight-load ERISC initialization failure.</li>
+<li>The final post-reboot server attempt failed on device-0 cores <code>29-25</code>, <code>28-25</code>, <code>24-25</code>, and <code>22-25</code> even though list/reset/list and a standalone 4×1 mesh smoke passed. Treat this as current infrastructure recovery work, not a model correctness regression.</li>
+<li>The first request at a new ISL may compile. Performance rows use one excluded warmup at that same ISL.</li>
+<li>vLLM 0.25.1 may print a shutdown-only <code>torch.accelerator.empty_cache()</code> traceback on this non-CUDA platform after a successful request. Qualification requires the benchmark wrapper to exit zero and the artifact to say <code>status: passed</code>.</li>
+<li>Stop the server with Ctrl-C. If a process dies while owning devices, verify no Metal process remains, then reset exactly IDs 0–3 with <code>tt-smi -r 0 1 2 3</code>.</li>
+</ul>
+
+<footer>Checkpoint: deepseek-ai/DeepSeek-V4-Flash-0731 @ 7872f01b1d1fe23eabc4c98b48bffcef5a386062<br>tt-metal base commit: 5114991f9f · plugin: e3fc84941bf7a1d0df32aae2c50d539259c925f0<br>Final required performance sweep: 8/8 passed. Official-Harness Terminal-Bench: not scored; blocked before model load by persistent TT firmware initialization failure. Superseded Terminus/DSML score: 0.000.<br>Updated 2026-08-27 UTC · no GitHub or Hugging Face publication was performed.</footer>
+</main></body></html>

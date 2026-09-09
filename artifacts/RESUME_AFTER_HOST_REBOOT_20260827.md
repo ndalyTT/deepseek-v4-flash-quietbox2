@@ -1,0 +1,497 @@
+# DeepSeek V4 Flash QuietBox2 restart handoff
+
+**This is the authoritative resume anchor.** On the next session, read this
+file first and continue from **Post-reboot outcome**. Do not repeat the hardware
+checklist until operator-level firmware/board recovery is available, and do not
+redo the completed model bring-up, quantization research, performance sweep, or
+DeepSeek Harness parity work.
+
+Prepared: 2026-08-27 UTC, immediately before an owner-authorized QuietBox2
+host reboot. The reboot is infrastructure recovery for repeated TT ERISC
+firmware initialization failures. All work is local and durable on disk.
+
+## Post-reboot outcome (2026-08-27 23:29 UTC)
+
+The physical reboot did **not** clear the server-startup fault. The bounded
+recovery contract was followed exactly once and all intermediate checks passed:
+
+- no stale vLLM, EngineCore, Harbor, relay, or benchmark process existed;
+- `timeout 60 tt-smi -ls --local` showed devices 0-3, all Blackhole p300c;
+- `timeout 180 tt-smi -r` exited zero;
+- the post-reset bounded listing again showed all four devices;
+- the required `(4,1)` TTNN mesh opened, closed, and printed
+  `MESH_SMOKE_OK` with firmware bundle 19.11.0.
+
+The prepared v27 vLLM launch then failed before weight loading or model code.
+Device 0 virtual cores `29-25`, `28-25`, `24-25`, and `22-25` again had
+unchanged ERISC heartbeats and timed out after 10 seconds. Teardown also timed
+out returning active Ethernet core `29-25` to base firmware. The server and
+EngineCore exited; the relay and v27 canary were not started, and no v27 job
+directory or score exists.
+
+Post-reboot failure log:
+
+`terminal_bench_2_1/logs/vllm_server_deepseek_harness_max_v27_20260827_post_reboot.log`
+
+SHA-256:
+`0687321da09edb320876bf07843216cf9d35217adf52a7cc7c6a0272b600e804`
+
+This is a persistent TT infrastructure/firmware lifecycle failure, not a
+model, quantization, vLLM parser, relay, or Harness result. Do not loop further
+resets or relaunches on this state. The request-identical official-Harness
+Terminal-Bench score remains **not measured**. The completed 0.000 score still
+belongs only to the superseded Terminus/native-DSML path. Resume v27 only after
+operator-level firmware/board recovery, then require a scored one-task canary
+before the full 89 x 5 evaluation.
+
+## Host-only closeout after the failed launch
+
+- The Quickstart and Autoport Report now distinguish the unscored
+  official-Harness path from the superseded 0.000 Terminus/DSML result.
+- The host-only full-model/multichip/vLLM suite passed 64/64 with two known
+  import deprecation warnings and known nanobind process-exit diagnostics.
+- Harness shell, Node, and Python syntax; both YAML compositions; balanced HTML;
+  `git diff --check` in tt-metal and Harbor; and the performance checksum pass.
+- The qualified eight-row performance JSON still matches SHA-256
+  `599915a3ef7cd9ee19b21e34c391455112470769a3b1af3f48d36163f958f249`.
+- Refreshed Codex exports contain 20,675 items in the original four-thread tree
+  and 114 items in this post-reboot continuation.
+- The final shareable package is
+  `artifacts/session-logs-final-post-reboot-20260827T2337Z.tar.gz`.
+  Its companion checksum manifest is
+  `artifacts/FINAL_POST_REBOOT_CHECKSUMS_20260827.txt`.
+- No GitHub or Hugging Face write was performed.
+
+## Binding owner instructions and decisions
+
+1. Run local commands without asking for routine approval.
+2. Do not push or upload anything to GitHub or Hugging Face without new,
+   explicit permission. No push or upload has occurred.
+3. Preserve the fresh `tt-metal` checkout based on current main. It is not the
+   old Nemotron checkout and must not be replaced with it.
+4. Preserve all dirty tracked and untracked files. They contain the bring-up,
+   tests, evidence, and generated artifacts.
+5. The 512-token OSL requirement applies to the eight-point deployment
+   performance sweep only. It must not cap Terminal-Bench agent reasoning.
+6. The selected next action is the one-task `fix-git` canary through the
+   official DeepSeek Harness request/tool protocol at max reasoning. Do not
+   restart a broad Terminal-Bench run until this gate is scored and inspected.
+7. TT hardware-facing commands and model requests must remain serialized.
+8. While work is active, report current activity and changes at least every 15
+   minutes, and also report immediately when a meaningful event occurs.
+
+## Exact pause boundary
+
+- No vLLM, EngineCore, Harbor, DeepSeek Harness relay, Terminal-Bench, or
+  model-benchmark process is running.
+- The v27 `fix-git` canary has **not** started and has no job directory.
+- Two consecutive vLLM launches failed before weight loading or model code.
+  Both failures occurred while opening TT device 0 and initializing firmware.
+- Before each failure, stale-process checks were clean. The bounded TT
+  list/reset/list recovery and a four-device 4x1 mesh open/close smoke passed.
+  Despite that, the next vLLM open reproduced the same static ERISC heartbeat
+  failure. A physical host reboot is therefore the correct next recovery step
+  under `tt-metal/.agents/skills/tt-device-usage/SKILL.md`.
+- The owner explicitly authorized preparing this handoff and rebooting the
+  host. If this file is being read after reconnect, begin with health checks;
+  do not assume a successful reboot proves TT mesh health.
+- Nothing has been pushed to or forked on GitHub, and nothing has been pushed
+  to Hugging Face.
+
+## Repositories, revisions, and local model
+
+| Item | Local path / revision |
+|---|---|
+| Workspace | `/home/ttuser/deepseekv4flash` |
+| Fresh-main tt-metal copy | `/home/ttuser/deepseekv4flash/tt-metal` |
+| tt-metal branch | `deepseek-v4-flash-0731-quietbox2` |
+| tt-metal HEAD | `5114991f9f7c59d21a1c9420ca9b6ee910678dc6` |
+| vLLM TT plugin | `/home/ttuser/deepseekv4flash/vllm-tt-plugin` |
+| Plugin HEAD | `e3fc84941bf7a1d0df32aae2c50d539259c925f0` |
+| Official DeepSeek Harness clone | `/home/ttuser/deepseekv4flash/deepseek-harness` @ `cd5ef8148158c3a752a658978873241fdf8e2bbc` |
+| Apache Maka parity source | `/home/ttuser/deepseekv4flash/maka` @ `ff226aff2f3082e54300dea0ee9e410898ae2c0f` |
+| Official model URL | `https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731` |
+| Local checkpoint | `/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731` |
+| Checkpoint revision | `7872f01b1d1fe23eabc4c98b48bffcef5a386062` |
+
+The tt-metal worktree is intentionally very dirty. The standalone plugin is
+unchanged. Do not clean, reset, stash, rebase, or check out over the tt-metal
+worktree. Local commits are allowed if useful, but remote publication remains
+forbidden without permission.
+
+## Fit conclusion and deployed quantization
+
+The stock checkpoint does not fit this QuietBox2 at the required context:
+
+- measured usable DRAM per device: **33,910,295,552 bytes**;
+- stock lower bound per device: **57,998,069,952 bytes**;
+- stock deficit per device: **24,087,774,400 bytes**.
+
+The selected production policy fits while preserving the exact architecture,
+all 43 transformer layers, and all 256 routed experts:
+
+- routed expert gate/up is TT `BFP4_B` in layers
+  `{2, 27, 29, 32, 34, 36, 41, 42}`;
+- routed expert gate/up is TT `BFP2_B` in the other 35 layers;
+- routed down projections and shared experts are TT `BFP4_B`;
+- dense/control tensors retain the qualified formats;
+- paged caches use BFP8;
+- tensor parallel mesh is 4x1, batch size is 1, and maximum context is
+  131,072 with vLLM block size 128.
+
+Measured final-policy residency per device:
+
+- allocated: **33,389,479,936 bytes**;
+- free: **520,815,616 bytes**;
+- largest contiguous free block: **439,356,416 bytes**.
+
+One more whole gate/up layer fits in raw capacity, but every shortlisted
+single-layer upgrade regressed the matched 20-token AIME teacher-forced check,
+so the eight-layer BFP4 set is the quality-selected policy. The deployed
+policy scored 85% top-1 and 100% top-5 in that matched check. Direct local TT
+packing was selected over HF low-bit derivatives because the deployed kernels
+consume Tenstorrent block-float layouts, it preserves all experts/layers, and
+it was directly measured on the target. No derived weights were uploaded.
+
+## Completed model correctness and performance qualification
+
+The padding-induced Terminal-Bench corruption was fixed before the final
+performance run. A 415-token prompt had been padded to four fixed 128-token
+blocks; the old code persisted 97 synthetic padding rows into the five-page
+local KV ring and evicted 96 real rows. The final implementation keeps fixed
+compute/collective shapes but passes `valid_seq_len`, so padding cannot mutate
+live KV, raw compressor, or CSA boundary state.
+
+Post-fix evidence includes:
+
+- focused host suite: 62 passed, 2 warnings;
+- layer-0 post-prefill cache versus source: bit exact;
+- layer-0 local KV bank CPU-versus-TT PCC: 0.99972856;
+- layer-0 attention-head PCC: 0.99948394;
+- full 43-layer eager discriminator output sequence:
+  `[1309, 304, 9487]` after teacher inputs `[43, 1309, 304]`;
+- full CPU-versus-TT layer-state comparison: minimum PCC 0.937118 with no
+  layer below 0.90;
+- real vLLM serving and the complete bounded-cache performance matrix passed.
+
+Final required OSL-512 artifact:
+
+`/home/ttuser/deepseekv4flash/tt-metal/models/autoports/deepseek_ai_deepseek_v4_flash_0731/doc/vllm/vllm_server_benchmark_selective_bfp4_salience8_validtail_bounded_cache_required_sweep_osl512_20260827.json`
+
+SHA-256:
+`599915a3ef7cd9ee19b21e34c391455112470769a3b1af3f48d36163f958f249`
+
+| ISL | TTFT ms | TPOT ms | E2EL ms | t/s/u | TTFT % E2EL |
+|---:|---:|---:|---:|---:|---:|
+| 128 | 2,590.36 | 150.3839 | 79,436.60 | 6.64965 | 3.2609 |
+| 1,024 | 22,301.18 | 150.3633 | 99,136.88 | 6.65056 | 22.4953 |
+| 4,096 | 90,193.70 | 150.3137 | 167,004.04 | 6.65276 | 54.0069 |
+| 8,192 | 180,921.14 | 150.3221 | 257,735.78 | 6.65238 | 70.1964 |
+| 16,384 | 364,159.40 | 150.3603 | 440,993.59 | 6.65069 | 82.5770 |
+| 32,768 | 727,058.97 | 150.3237 | 803,874.47 | 6.65231 | 90.4443 |
+| 65,536 | 1,543,989.33 | 150.6665 | 1,620,979.99 | 6.63717 | 95.2504 |
+| 130,560 | 3,160,809.93 | 150.8978 | 3,237,918.75 | 6.62700 | 97.6186 |
+
+All eight rows passed. The largest row reached the exact 131,072-token total
+context and the bounded program cache returned to a stable post-clear level.
+
+## Why the old Terminal-Bench score was zero
+
+The last completed score is **0.000**, but it belongs to the superseded local
+Terminus/DSML path, not the new official Harness path.
+
+The padding/KV bug explained early semantic loops and was fixed. After the
+fix, v25 ran on a healthy server without Docker, API, parser, or verifier
+errors. On `fix-git`, the model found the correct lost commit `c499730` in the
+reflog, but then checked out the already-current `d7d3e4b`, repeated rejected
+actions, and timed out after 15 actions. That failure isolated remaining
+decision quality and harness/request parity rather than model execution.
+
+Research then showed that the official model card reports Terminal Bench 2.1
+**82.7** using DeepSeek's own Code Agent/Harness conditions. The prior local
+path differed materially: custom DSML actions, Terminus 2 orchestration,
+reasoning disabled, and a diagnostic 512-token output cap. The owner clarified
+that OSL 512 was never intended to cap the agent. The recommended and accepted
+next experiment is therefore a request-identical official DeepSeek Harness
+canary with max reasoning and a 49,152-token per-call cap.
+
+Do not report 0.000 as the final capability of the new path. Call it the last
+completed superseded-path result until v27 is scored.
+
+## Official DeepSeek Harness path now prepared
+
+Pinned runtime:
+
+- `@deepseek-ai/dsh@0.1.0-rc.6`;
+- local toolchain:
+  `/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_toolchain`;
+- runtime fingerprint:
+  `sha256:9a7c0851d0a4f1f985971bbd2f0eb0455ca22ed6b9d2081b2eba9b9574d49833`;
+- local Node 22:
+  `/home/ttuser/deepseekv4flash/local_tools/node22/node`;
+- profile provenance:
+  `/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_profile/NOTICE.md`.
+
+The profile is derived from Apache Maka's reviewed request-identical arm,
+which traces its model-visible composition to DeepSeek Harness commit
+`47f943859bef60e4160492346772ded9b24f765a`. Effective model-facing settings:
+
+- thinking enabled;
+- `reasoning_effort=max`;
+- `max_tokens=49152`;
+- context window 131,072;
+- temperature 1.0 and top-p 0.95;
+- automatic tool choice when tools are supplied;
+- system persona: `You are a helpful software engineer assistant.`;
+- exactly two official minimal tools: lowercase `bash` and
+  `str_replace_editor`;
+- Bash timeout 3,900,000 ms;
+- DSH session logs under `/logs/agent/dsh-sessions`.
+
+Harness rc.6 does not emit `top_p` or `tool_choice`, so the constrained local
+relay adds `top_p=0.95`, `temperature=1.0` if omitted, and
+`tool_choice=auto` when tools are present. The relay logs request metadata and
+timings only—never prompts or completions.
+
+Network path:
+
+```text
+Harbor fix-git container
+  -> official DSH process
+  -> container bridge on 127.0.0.1:8011
+  -> read-only bind-mounted Unix-domain socket
+  -> constrained host relay
+  -> vLLM on host 127.0.0.1:8010
+  -> 4x1 QuietBox2 TT mesh
+```
+
+Direct Docker host-gateway routing was rejected because the host firewall
+blocked it. Docker host networking was not used because it gives the task a
+broader host surface than needed. The Unix-socket route has already passed an
+actual `fix-git` image preflight and an end-to-end mock request.
+
+Validated request metadata in that preflight:
+
+- streaming and `stream_options.include_usage=true`;
+- thinking enabled and reasoning effort max;
+- max tokens 49,152;
+- temperature 1.0, top-p 0.95, tool choice auto;
+- tools exactly `bash` and `str_replace_editor`;
+- roles exactly system then user;
+- exact official persona;
+- DSH completed the mock response with output `done`.
+
+Python compile/Ruff, Node syntax, DSH `--dump-config`, Docker mounts/setup, and
+Harbor `--print-config` validation passed. This protocol path needs no more
+host-only design work before the live canary.
+
+Authoritative files:
+
+| Purpose | Path |
+|---|---|
+| vLLM launcher with V4 tokenizer/reasoning/tool parsers | `terminal_bench_2_1/run_deepseek_v4_harness_server.sh` |
+| DSH profile | `terminal_bench_2_1/deepseek_harness_profile/cordis.patch.yml` |
+| Harbor adapter | `terminal_bench_2_1/deepseek_harness_agent_unix.py` |
+| Container bridge | `terminal_bench_2_1/deepseek_harness_container_bridge.js` |
+| Constrained relay logic | `terminal_bench_2_1/deepseek_harness_unix_relay.py` |
+| Ready/chmod/graceful relay runner | `terminal_bench_2_1/deepseek_harness_unix_relay_v2.py` |
+| Relay launcher | `terminal_bench_2_1/run_deepseek_harness_unix_relay.sh` |
+| Canary launcher | `terminal_bench_2_1/run_deepseek_harness_canary_v27.sh` |
+| Final canary config | `terminal_bench_2_1/config_canary_fix_git_deepseek_harness_max_v27.yaml` |
+| Socket runtime directory | `terminal_bench_2_1/deepseek_harness_runtime` |
+
+The v2 relay and both shell launchers were syntax-checked. A live local relay
+startup/shutdown smoke printed `READY` and exited cleanly. The canary wrapper
+fails closed unless vLLM health and the Unix socket are both present.
+
+Do not use v26, `deepseek_harness_host_gateway.yaml`, or the older scratch
+relay/adapter files. v27 plus the `*_unix*` files above are authoritative.
+
+## Current TT infrastructure failure evidence
+
+First launch log:
+
+`terminal_bench_2_1/logs/vllm_server_deepseek_harness_max_v27_20260827.log`
+
+Retry log:
+
+`terminal_bench_2_1/logs/vllm_server_deepseek_harness_max_v27_20260827_retry1.log`
+
+On the retry, firmware bundle 19.11.0 was discovered and all four local chip
+IDs opened. Device 0 virtual cores `29-25`, `28-25`, `24-25`, and `22-25`
+then reported unchanged ERISC heartbeats and timed out after 10 seconds:
+
+```text
+Device 0: Timeout (10000 ms) waiting for physical cores to finish:
+29-25, 28-25, 24-25, 22-25.
+Device 0 init: failed to initialize FW! Try resetting the board.
+```
+
+The first attempt showed the same core family and also timed out returning
+active Ethernet core `29-25` to base firmware. Both failures occurred inside
+`ttnn.open_mesh_device` before model allocation or inference. This is not a
+quantization, model-quality, vLLM parser, or Harness failure.
+
+## Post-reboot execution checklist
+
+### 1. Re-establish the exact workspace and verify no stale process
+
+```bash
+cd /home/ttuser/deepseekv4flash
+pgrep -af 'vllm|EngineCore|harbor|deepseek_harness|terminal_bench|run_deepseek'
+```
+
+No process from this run should appear. Do not kill unrelated system Docker or
+TT Studio services.
+
+### 2. Run the bounded TT recovery contract serially
+
+```bash
+cd /home/ttuser/deepseekv4flash/tt-metal
+timeout 60 tt-smi -ls --local
+timeout 180 tt-smi -r
+timeout 60 tt-smi -ls --local
+env PYTHONPATH=build_Release TT_METAL_DISABLE_FABRIC_TWO_ERISC=1 \
+  python_env/bin/python -c 'import ttnn; mesh=ttnn.open_mesh_device(ttnn.MeshShape(4, 1), trace_region_size=0); ttnn.close_mesh_device(mesh); print("MESH_SMOKE_OK")'
+```
+
+Require devices 0-3 and `MESH_SMOKE_OK`. Do not run these commands in
+parallel. If listing is incomplete, repeat the bounded reset sequence once.
+If the post-reboot mesh or the next server launch reproduces the exact same
+ERISC failure, preserve the log and report that physical reboot recovery also
+failed; do not loop through resets indefinitely.
+
+### 3. Start the official-Harness vLLM server
+
+Run in a persistent terminal/exec session and record its session identifier:
+
+```bash
+script -q -f \
+  -c /home/ttuser/deepseekv4flash/terminal_bench_2_1/run_deepseek_v4_harness_server.sh \
+  /home/ttuser/deepseekv4flash/terminal_bench_2_1/logs/vllm_server_deepseek_harness_max_v27_20260827_post_reboot.log
+```
+
+Normal model load is about 24-26 minutes. Send the 15-minute status update
+during loading. Do not reset cards, run `tt-smi`, or launch another TT workload
+while the server owns the devices. Check readiness only through loopback HTTP
+and the server log:
+
+```bash
+curl -fsS http://127.0.0.1:8010/health
+curl -fsS http://127.0.0.1:8010/v1/models
+```
+
+Require model id `deepseek-ai/DeepSeek-V4-Flash-0731` and max model length
+131,072.
+
+### 4. Start the constrained Unix-socket relay
+
+In a second persistent terminal/exec session:
+
+```bash
+script -q -f \
+  -c /home/ttuser/deepseekv4flash/terminal_bench_2_1/run_deepseek_harness_unix_relay.sh \
+  /home/ttuser/deepseekv4flash/terminal_bench_2_1/logs/deepseek_harness_relay_max_v27_20260827_post_reboot_console.log
+```
+
+Require the console line beginning with `READY socket=`. The metadata log is:
+
+`terminal_bench_2_1/logs/deepseek_harness_relay_max_v27_20260827.jsonl`
+
+Do not expose vLLM or the relay on a non-loopback TCP interface and do not use
+Docker host networking.
+
+### 5. Run only the v27 `fix-git` canary
+
+In a third persistent terminal/exec session:
+
+```bash
+script -q -f \
+  -c /home/ttuser/deepseekv4flash/terminal_bench_2_1/run_deepseek_harness_canary_v27.sh \
+  /home/ttuser/deepseekv4flash/terminal_bench_2_1/logs/tb21_fix_git_deepseek_harness_max_v27_20260827_post_reboot_console.log
+```
+
+The Harbor job name is
+`tb21-dsv4-quietbox2-canary-fix-git-deepseek-harness-max-v27`; it uses one
+attempt, no retry, concurrency one, a 14,400-second agent timeout, and the
+single `fix-git` task. Do not send another model request concurrently.
+
+The 49,152-token cap is a ceiling, not a required generation length. At the
+measured 6.63 tokens/s, a pathological full-length response could take about
+2.1 hours, but normal tool turns should stop much sooner. Keep the 15-minute
+updates going even when no new relay request completes.
+
+Useful read-only progress checks:
+
+```bash
+tail -F /home/ttuser/deepseekv4flash/terminal_bench_2_1/logs/tb21_fix_git_deepseek_harness_max_v27_20260827_post_reboot_console.log
+tail -F /home/ttuser/deepseekv4flash/terminal_bench_2_1/logs/deepseek_harness_relay_max_v27_20260827.jsonl
+tail -F /home/ttuser/deepseekv4flash/terminal_bench_2_1/logs/vllm_server_deepseek_harness_max_v27_20260827_post_reboot.log
+find /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-canary-fix-git-deepseek-harness-max-v27 -name result.json -o -name trajectory.json
+```
+
+### 6. Inspect the result before expanding the evaluation
+
+On completion, record:
+
+- reward and verifier result;
+- every relay request's status, first-byte time, elapsed time, and injected
+  defaults;
+- DSH output and `dsh-sessions/**` logs copied by Harbor;
+- whether tool calls parsed and executed;
+- the final repository state inside the trial;
+- any server, bridge, agent, timeout, Docker, or verifier error.
+
+If reward is nonzero, preserve the canary as the request-parity gate and then
+prepare the full Terminal-Bench 2.1 config from v27. Keep concurrency one
+because the server is batch one. Do not silently restore a 512 output cap.
+
+If reward is zero, distinguish incorrect model decisions from protocol,
+parser, timeout, or verifier failure using the DSH session ledger and relay
+metadata. Do not fall back to the superseded Terminus/DSML path merely because
+one official-Harness canary fails.
+
+When the canary and evidence collection are finished, stop the relay cleanly,
+then stop vLLM cleanly, confirm no process from this run remains, and only then
+run bounded reset/list recovery if another TT lifecycle is needed.
+
+## Required artifacts and what remains
+
+1. Quickstart exists at
+   `/home/ttuser/deepseekv4flash/artifacts/DeepSeek-V4-Flash-0731 QuietBox2 Quickstart.html`.
+   It still describes the superseded zero-score Terminal-Bench path and must be
+   updated after the official-Harness result is known.
+2. Bring-up report exists at
+   `/home/ttuser/deepseekv4flash/artifacts/DeepSeek-V4-Flash-0731 QuietBox2 Autoport Report.html`.
+   It likewise needs the v27 canary/full-evaluation result and final wording.
+3. Session logs were refreshed from the local Codex state/history databases at
+   this checkpoint. The root thread export contains 20,343 items and is under
+   `artifacts/session_logs/codex-current-task/`. A verified shareable snapshot
+   is `artifacts/session-logs-pre-reboot-20260827T2315Z.tar.gz`; its checksum is
+   stored beside this handoff in
+   `artifacts/RESUME_AFTER_HOST_REBOOT_20260827_CHECKSUMS.txt`.
+
+The session-log archive is a point-in-time snapshot. Refresh it again after
+the canary and final documentation so the final shared archive contains the
+post-reboot work too.
+
+Remaining high-level work:
+
+1. Reboot recovery and live v27 `fix-git` canary.
+2. Analyze and report the canary result.
+3. If the canary gate passes, run the requested full Terminal-Bench 2.1
+   evaluation through the same official Harness path and report its score.
+4. Update both HTML artifacts with the official-Harness evidence and honest
+   final status.
+5. Rerun proportionate local tests and `git diff --check`.
+6. Refresh, package, verify, and checksum the final session-log export.
+7. Do not create/push the requested GitHub fork or upload anything until the
+   owner explicitly reverses the current no-push instruction.
+
+## First status message after restart
+
+Report that the local handoff, dirty worktree, model assets, official Harness
+toolchain, v27 adapter/config, performance evidence, and session-log archive
+survived. Then state the outcome of process check, four-device listing,
+reset/list, and `MESH_SMOKE_OK` before starting the 24-26 minute vLLM load.
+

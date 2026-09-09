@@ -1,0 +1,334 @@
+Script started on 2026-08-27 22:46:21+00:00 [COMMAND="/home/ttuser/deepseekv4flash/terminal_bench_2_1/run_deepseek_v4_harness_server.sh" TERM="dumb" TTY="/dev/pts/3" COLUMNS="80" LINES="24"]
+INFO 08-27 22:46:22 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 08-27 22:46:22 [__init__.py:46] - tt -> vllm_tt_plugin.entrypoints:platform_plugin
+INFO 08-27 22:46:22 [__init__.py:58] Loading plugin tt
+[32m2026-08-27 22:46:22.996[0m | [34m[1mDEBUG   [0m | [36mttnn[0m:[36m<module>[0m:[36m78[0m - [34m[1mInitial ttnn.CONFIG:
+Config{cache_path=/home/ttuser/.cache/ttnn,model_cache_path=/home/ttuser/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,validate_program_args=false,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_graph_python_stack_traces=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}[0m
+INFO 08-27 22:46:23 [__init__.py:237] Platform plugin tt is activated
+INFO 08-27 22:46:25 [importing.py:53] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 08-27 22:46:25 [importing.py:88] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 08-27 22:46:26 [tt/platform.py:592] Registered TT model TTDeepseekV4ForCausalLM -> deepseek_v4_flash_adapter:DeepseekV4ForCausalLM (from EXTRA_MODELS_DIR/deepseek_v4_flash_0731)
+(APIServer pid=3098241) INFO 08-27 22:46:26 [api_utils.py:339] 
+(APIServer pid=3098241) INFO 08-27 22:46:26 [api_utils.py:339]        █     █     █▄   ▄█
+(APIServer pid=3098241) INFO 08-27 22:46:26 [api_utils.py:339]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.25.1
+(APIServer pid=3098241) INFO 08-27 22:46:26 [api_utils.py:339]   █▄█▀ █     █     █     █  model   /home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731
+(APIServer pid=3098241) INFO 08-27 22:46:26 [api_utils.py:339]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=3098241) INFO 08-27 22:46:26 [api_utils.py:339] 
+(APIServer pid=3098241) INFO 08-27 22:46:26 [api_utils.py:273] non-default args: {'model_tag': '/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', 'enable_auto_tool_choice': True, 'tool_call_parser': 'deepseek_v4', 'host': '127.0.0.1', 'port': 8010, 'model': '/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', 'tokenizer': '/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', 'tokenizer_mode': 'deepseek_v4', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 131072, 'served_model_name': ['deepseek-ai/DeepSeek-V4-Flash-0731'], 'reasoning_parser': 'deepseek_v4', 'block_size': 128, 'max_num_batched_tokens': 131072, 'max_num_seqs': 1, 'additional_config': {'tt': {'sample_on_device_mode': 'all', 'trace_mode': 'all', 'enable_model_warmup': False, 'trace_region_size': 268435456, 'l1_small_size': 2048, 'fabric_config': 'FABRIC_1D_RING', 'fabric_reliability_mode': 'RELAXED_INIT'}}}
+(APIServer pid=3098241) INFO 08-27 22:46:26 [config.py:742] Detected quantization_config.scale_fmt=ue8m0; enabling UE8M0 for DeepGEMM.
+(APIServer pid=3098241) INFO 08-27 22:46:26 [model.py:619] Resolved architecture: DeepseekV4ForCausalLM
+(APIServer pid=3098241) INFO 08-27 22:46:26 [model.py:1776] Using max model len 131072
+(APIServer pid=3098241) INFO 08-27 22:46:26 [scheduler.py:252] Chunked prefill is enabled with max_num_batched_tokens=131072.
+(APIServer pid=3098241) INFO 08-27 22:46:26 [vllm.py:1042] Asynchronous scheduling is enabled.
+(APIServer pid=3098241) INFO 08-27 22:46:26 [vllm.py:1128] Auto-enabling VLLM_USE_BREAKABLE_CUDAGRAPH=1. Set VLLM_USE_BREAKABLE_CUDAGRAPH=0 to opt out.
+(APIServer pid=3098241) WARNING 08-27 22:46:26 [vllm.py:1134] VLLM_USE_BREAKABLE_CUDAGRAPH is set, disabling vLLM's torch.compile pipeline. Equivalent to -cc.mode=none.
+(APIServer pid=3098241) WARNING 08-27 22:46:26 [vllm.py:1144] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(APIServer pid=3098241) INFO 08-27 22:46:26 [kernel.py:292] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(APIServer pid=3098241) INFO 08-27 22:46:26 [tt/platform.py:82] Chunked prefill is not supported for `model_type=deepseek_v4`; disabling it.
+(APIServer pid=3098241) INFO 08-27 22:46:26 [tt/platform.py:592] Registered TT model TTDeepseekV4ForCausalLM -> deepseek_v4_flash_adapter:DeepseekV4ForCausalLM (from EXTRA_MODELS_DIR/deepseek_v4_flash_0731)
+(APIServer pid=3098241) WARNING 08-27 22:46:26 [tt/platform.py:1043] Async scheduling was requested, but TT model DeepseekV4ForCausalLM (deepseek_v4_flash_adapter) does not declare support (`model_capabilities['supports_async_decode']`). Disabling async scheduling.
+(APIServer pid=3098241) WARNING 08-27 22:46:26 [tt/platform.py:1135] Prefix caching is not supported in TT backend for deepseek_v4_flash_adapter, disabling it
+(APIServer pid=3098241) INFO 08-27 22:46:26 [tt/platform.py:1152] Automatic prefix caching is disabled
+(APIServer pid=3098241) INFO 08-27 22:46:26 [compilation.py:312] Enabled custom fusions: norm_quant, act_quant
+INFO 08-27 22:46:27 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 08-27 22:46:27 [__init__.py:46] - tt -> vllm_tt_plugin.entrypoints:platform_plugin
+INFO 08-27 22:46:27 [__init__.py:58] Loading plugin tt
+[32m2026-08-27 22:46:28.198[0m | [34m[1mDEBUG   [0m | [36mttnn[0m:[36m<module>[0m:[36m78[0m - [34m[1mInitial ttnn.CONFIG:
+Config{cache_path=/home/ttuser/.cache/ttnn,model_cache_path=/home/ttuser/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,validate_program_args=false,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_graph_python_stack_traces=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}[0m
+INFO 08-27 22:46:28 [__init__.py:237] Platform plugin tt is activated
+INFO 08-27 22:46:30 [importing.py:53] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 08-27 22:46:30 [importing.py:88] Triton not installed or not compatible; certain GPU-related functions will not be available.
+(EngineCore pid=3098384) INFO 08-27 22:46:30 [tt/platform.py:592] Registered TT model TTDeepseekV4ForCausalLM -> deepseek_v4_flash_adapter:DeepseekV4ForCausalLM (from EXTRA_MODELS_DIR/deepseek_v4_flash_0731)
+(EngineCore pid=3098384) INFO 08-27 22:46:31 [core.py:114] Initializing a V1 LLM engine (v0.25.1) with config: model='/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', speculative_config=None, tokenizer='/home/ttuser/deepseekv4flash/model_assets/DeepSeek-V4-Flash-0731', skip_tokenizer_init=False, tokenizer_mode=deepseek_v4, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=deepseek_v4_fp8, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=None, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=True, disable_additional_properties=False, reasoning_parser='deepseek_v4', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=deepseek-ai/DeepSeek-V4-Flash-0731, enable_prefix_caching=False, enable_chunked_prefill=False, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'eager', 'custom_ops': ['+quant_fp8', 'all', '+quant_fp8'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': [131072], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': None, 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, moe_backend='auto', linear_backend='auto')
+(EngineCore pid=3098384) INFO 08-27 22:46:31 [tt/platform.py:592] Registered TT model TTDeepseekV4ForCausalLM -> deepseek_v4_flash_adapter:DeepseekV4ForCausalLM (from EXTRA_MODELS_DIR/deepseek_v4_flash_0731)
+(EngineCore pid=3098384) INFO 08-27 22:46:31 [tt/platform.py:592] Registered TT model TTDeepseekV4ForCausalLM -> deepseek_v4_flash_adapter:DeepseekV4ForCausalLM (from EXTRA_MODELS_DIR/deepseek_v4_flash_0731)
+(EngineCore pid=3098384) INFO 08-27 22:46:31 [tt/platform.py:1152] Automatic prefix caching is disabled
+(EngineCore pid=3098384) INFO 08-27 22:46:31 [tt/worker.py:227] TT worker standard-DP binding: data_parallel_index=0 data_parallel_rank_local=0 TT_VISIBLE_DEVICES=None MESH_DEVICE=(4,1)
+[90m2026-08-27 22:46:31.044[0m | [32minfo    [m | [35m          Metal[0m | [37mDisabling two-erisc fabric mode with TT_METAL_DISABLE_FABRIC_TWO_ERISC[0m [90m(rtoptions.cpp:744)[0m
+[90m2026-08-27 22:46:31.044[0m | [32minfo    [m | [35m         Device[0m | [37mOpening user mode device driver[0m [90m(tt_cluster.cpp:227)[0m
+[90m2026-08-27 22:46:31.044[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor started.[0m [90m(cluster.cpp:389)[0m
+[90m2026-08-27 22:46:31.044[0m | [32minfo    [m | [35m            UMD[0m | [37mCreating TopologyDiscovery for architecture: blackhole[0m [90m(topology_discovery.cpp:96)[0m
+[90m2026-08-27 22:46:31.044[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting topology discovery.[0m [90m(topology_discovery.cpp:115)[0m
+[90m2026-08-27 22:46:31.055[0m | [32minfo    [m | [35m            UMD[0m | [37mEstablished firmware bundle version: 19.11.0[0m [90m(topology_discovery.cpp:575)[0m
+[90m2026-08-27 22:46:31.056[0m | [32minfo    [m | [35m            UMD[0m | [37mCompleted topology discovery.[0m [90m(topology_discovery.cpp:119)[0m
+[90m2026-08-27 22:46:31.134[0m | [32minfo    [m | [35m            UMD[0m | [37mOpening local chip ids/PCIe ids: {0, 1, 2, 3}/[0, 1, 2, 3] and remote chip ids {}[0m [90m(cluster.cpp:173)[0m
+[90m2026-08-27 22:46:31.134[0m | [32minfo    [m | [35m            UMD[0m | [37mIOMMU: enabled[0m [90m(cluster.cpp:147)[0m
+[90m2026-08-27 22:46:31.134[0m | [32minfo    [m | [35m            UMD[0m | [37mKMD version: 2.9.0[0m [90m(cluster.cpp:150)[0m
+[90m2026-08-27 22:46:31.134[0m | [32minfo    [m | [35m            UMD[0m | [37mCluster constructor completed.[0m [90m(cluster.cpp:648)[0m
+[90m2026-08-27 22:46:31.135[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster[0m [90m(cluster.cpp:1188)[0m
+[90m2026-08-27 22:46:31.304[0m | [32minfo    [m | [35m            UMD[0m | [37mStarting devices in cluster completed.[0m [90m(cluster.cpp:1196)[0m
+(EngineCore pid=3098384) INFO 08-27 22:46:32 [tt/worker.py:717] Attempting to open mesh device with grid shape (4, 1)
+(EngineCore pid=3098384) INFO 08-27 22:46:32 [tt/worker.py:651] Setting fabric config: FabricConfig.FABRIC_1D_RING, reliability mode: FabricReliabilityMode.RELAXED_INIT
+[90m2026-08-27 22:46:32.018[0m | [32minfo    [m | [35m    Distributed[0m | [37mUsing auto discovery to generate mesh graph.[0m [90m(metal_env.cpp:424)[0m
+[90m2026-08-27 22:46:32.018[0m | [32minfo    [m | [35m    Distributed[0m | [37mConstructing control plane using auto-discovery (no mesh graph descriptor).[0m [90m(metal_env.cpp:486)[0m
+[90m2026-08-27 22:46:32.018[0m | [33m[1mwarning [m | [35m         Always[0m | [37mUnknown motherboard 'B850M-C' for chip_id=2 (bus_id=0x3) — falling back to bus_id as tray_id. Add this motherboard and its bus IDs to mobo_to_bus_ids in physical_system_discovery.cpp.[0m [90m(physical_system_discovery.cpp:119)[0m
+[90m2026-08-27 22:46:32.018[0m | [32minfo    [m | [35m         Fabric[0m | [37mLogical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3341)[0m
+[90m2026-08-27 22:46:32.018[0m | [32minfo    [m | [35m         Fabric[0m | [37mPhysical multi-mesh adjacency: intermesh degree histogram {0:1}; intra-mesh degree histograms mesh0 {2:4}[0m [90m(topology_mapper_utils.cpp:3349)[0m
+[90m2026-08-27 22:46:42.036[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 29-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcdc686, Heartbeat end: 0xabcdc686, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-27 22:46:42.036[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 28-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcd06a8, Heartbeat end: 0xabcd06a8, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-27 22:46:42.036[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 24-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcd413a, Heartbeat end: 0xabcd413a, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-27 22:46:42.036[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 22-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcd0ad1, Heartbeat end: 0xabcd0ad1, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-27 22:46:42.036[0m | [31m[1merror   [m | [35m          Metal[0m | [37mTimeout detected[0m [90m(metal_context.cpp:776)[0m
+[90m2026-08-27 22:46:42.036[0m | [32minfo    [m | [35m          Metal[0m | [37mSerializing Inspector RPC data[0m [90m(metal_context.cpp:779)[0m
+[90m2026-08-27 22:46:42.036[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_THROW: Device 0: Timeout (10000 ms) waiting for physical cores to finish: 29-25, 28-25, 24-25, 22-25.[0m [90m(assert.hpp:104)[0m
+[90m2026-08-27 22:46:42.037[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_THROW: Device 0 init: failed to initialize FW! Try resetting the board.[0m [90m(assert.hpp:104)[0m
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231] EngineCore failed to start.
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231] Traceback (most recent call last):
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1200, in run_engine_core
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     return func(*args, **kwargs)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 966, in __init__
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     super().__init__(
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 123, in __init__
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     return func(*args, **kwargs)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     self._init_executor()
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     self.driver_worker.init_device()
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 331, in init_device
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     self.worker.init_device()  # type: ignore
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/vllm-tt-plugin/src/vllm_tt_plugin/worker.py", line 236, in init_device
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     self.mesh_device = open_mesh_device(
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]                        ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/vllm-tt-plugin/src/vllm_tt_plugin/worker.py", line 725, in open_mesh_device
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     mesh_device = ttnn.open_mesh_device(
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]                   ^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]   File "/home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/distributed/distributed.py", line 671, in open_mesh_device
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]     return ttnn._ttnn.multi_device.open_mesh_device(
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231] RuntimeError: TT_THROW @ /home/ttuser/deepseekv4flash/tt-metal/tt_metal/impl/device/firmware/risc_firmware_initializer.cpp:1530: tt::exception
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231] info:
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231] Device 0 init: failed to initialize FW! Try resetting the board.
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231] backtrace:
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- void tt::assert::detail::tt_throw<tt::tt_metal::TensorMemoryLayout>(char const*, int, char const*, char const*, fmt::v11::fstring<tt::tt_metal::TensorMemoryLayout const&>::t, tt::tt_metal::TensorMemoryLayout const&)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::RiscFirmwareInitializer::initialize_and_launch_firmware(int)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::RiscFirmwareInitializer::run_launch_phase(std::set<int, std::less<int>, std::allocator<int> > const&)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::MetalContext::initialize(tt::tt_metal::DispatchCoreConfig const&, unsigned char, std::vector<unsigned int, std::allocator<unsigned int> > const&, unsigned long, bool)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::MetalContext::initialize_device_manager(std::vector<int, std::allocator<int> > const&, unsigned char, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long, bool, bool)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::experimental::CreateDevices(ttsl::StrongType<int, tt::tt_metal::ContextIdTag>, std::vector<int, std::allocator<int> > const&, unsigned char, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::vector<unsigned int, std::allocator<unsigned int> > const&, unsigned long, bool, bool)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::distributed::MeshDeviceImpl::ScopedDevices::ScopedDevices(std::vector<tt::tt_metal::distributed::MaybeRemote<int>, std::allocator<tt::tt_metal::distributed::MaybeRemote<int> > > const&, std::vector<tt::tt_metal::distributed::MaybeRemote<int>, std::allocator<tt::tt_metal::distributed::MaybeRemote<int> > > const&, unsigned long, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, ttsl::StrongType<int, tt::tt_metal::ContextIdTag>)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::distributed::MeshDeviceImpl::create(ttsl::StrongType<int, tt::tt_metal::ContextIdTag>, tt::tt_metal::distributed::MeshDeviceConfig const&, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- tt::tt_metal::distributed::MeshDevice::create(tt::tt_metal::distributed::MeshDeviceConfig const&, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- ttnn::distributed::open_mesh_device(unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::optional<tt::tt_metal::distributed::MeshShape> const&, std::optional<tt::tt_metal::distributed::MeshCoordinate> const&, std::vector<int, std::allocator<int> > const&, unsigned long)
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x88d075) [0x7b060d08d075]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x366f44) [0x7b060cb66f44]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore(_PyEval_EvalFrameDefault+0x1c17) [0x18152d7]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x1808ee6]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x18025ad]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore(_PyEval_EvalFrameDefault+0x1a1b) [0x18150db]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x1808ff5]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x18025ad]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore(_PyEval_EvalFrameDefault+0xa992) [0x181e052]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore(PyEval_EvalCode+0xde) [0x189efa0]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x18af2c9]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore(PyRun_SimpleStringFlags+0xe0) [0x1946c30]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x1ad7555]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x198135f]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore() [0x198116c]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x7b065142a1ca]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b) [0x7b065142a28b]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231]  --- VLLM::EngineCore(_start+0x29) [0x19aaa29]
+(EngineCore pid=3098384) ERROR 08-27 22:46:42 [core.py:1231] 
+(EngineCore pid=3098384) Process EngineCore:
+(EngineCore pid=3098384) Traceback (most recent call last):
+(EngineCore pid=3098384)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=3098384)     self.run()
+(EngineCore pid=3098384)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=3098384)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1235, in run_engine_core
+(EngineCore pid=3098384)     raise e
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1200, in run_engine_core
+(EngineCore pid=3098384)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3098384)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3098384)     return func(*args, **kwargs)
+(EngineCore pid=3098384)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 966, in __init__
+(EngineCore pid=3098384)     super().__init__(
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 123, in __init__
+(EngineCore pid=3098384)     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=3098384)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3098384)     return func(*args, **kwargs)
+(EngineCore pid=3098384)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=3098384)     self._init_executor()
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=3098384)     self.driver_worker.init_device()
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 331, in init_device
+(EngineCore pid=3098384)     self.worker.init_device()  # type: ignore
+(EngineCore pid=3098384)     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/vllm-tt-plugin/src/vllm_tt_plugin/worker.py", line 236, in init_device
+(EngineCore pid=3098384)     self.mesh_device = open_mesh_device(
+(EngineCore pid=3098384)                        ^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/vllm-tt-plugin/src/vllm_tt_plugin/worker.py", line 725, in open_mesh_device
+(EngineCore pid=3098384)     mesh_device = ttnn.open_mesh_device(
+(EngineCore pid=3098384)                   ^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384)   File "/home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/distributed/distributed.py", line 671, in open_mesh_device
+(EngineCore pid=3098384)     return ttnn._ttnn.multi_device.open_mesh_device(
+(EngineCore pid=3098384)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3098384) RuntimeError: TT_THROW @ /home/ttuser/deepseekv4flash/tt-metal/tt_metal/impl/device/firmware/risc_firmware_initializer.cpp:1530: tt::exception
+(EngineCore pid=3098384) info:
+(EngineCore pid=3098384) Device 0 init: failed to initialize FW! Try resetting the board.
+(EngineCore pid=3098384) backtrace:
+(EngineCore pid=3098384)  --- void tt::assert::detail::tt_throw<tt::tt_metal::TensorMemoryLayout>(char const*, int, char const*, char const*, fmt::v11::fstring<tt::tt_metal::TensorMemoryLayout const&>::t, tt::tt_metal::TensorMemoryLayout const&)
+(EngineCore pid=3098384)  --- tt::tt_metal::RiscFirmwareInitializer::initialize_and_launch_firmware(int)
+(EngineCore pid=3098384)  --- tt::tt_metal::RiscFirmwareInitializer::run_launch_phase(std::set<int, std::less<int>, std::allocator<int> > const&)
+(EngineCore pid=3098384)  --- tt::tt_metal::MetalContext::initialize(tt::tt_metal::DispatchCoreConfig const&, unsigned char, std::vector<unsigned int, std::allocator<unsigned int> > const&, unsigned long, bool)
+(EngineCore pid=3098384)  --- tt::tt_metal::MetalContext::initialize_device_manager(std::vector<int, std::allocator<int> > const&, unsigned char, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long, bool, bool)
+(EngineCore pid=3098384)  --- tt::tt_metal::experimental::CreateDevices(ttsl::StrongType<int, tt::tt_metal::ContextIdTag>, std::vector<int, std::allocator<int> > const&, unsigned char, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::vector<unsigned int, std::allocator<unsigned int> > const&, unsigned long, bool, bool)
+(EngineCore pid=3098384)  --- tt::tt_metal::distributed::MeshDeviceImpl::ScopedDevices::ScopedDevices(std::vector<tt::tt_metal::distributed::MaybeRemote<int>, std::allocator<tt::tt_metal::distributed::MaybeRemote<int> > > const&, std::vector<tt::tt_metal::distributed::MaybeRemote<int>, std::allocator<tt::tt_metal::distributed::MaybeRemote<int> > > const&, unsigned long, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, ttsl::StrongType<int, tt::tt_metal::ContextIdTag>)
+(EngineCore pid=3098384)  --- tt::tt_metal::distributed::MeshDeviceImpl::create(ttsl::StrongType<int, tt::tt_metal::ContextIdTag>, tt::tt_metal::distributed::MeshDeviceConfig const&, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long)
+(EngineCore pid=3098384)  --- tt::tt_metal::distributed::MeshDevice::create(tt::tt_metal::distributed::MeshDeviceConfig const&, unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::span<unsigned int const, 18446744073709551615ul>, unsigned long)
+(EngineCore pid=3098384)  --- ttnn::distributed::open_mesh_device(unsigned long, unsigned long, unsigned long, tt::tt_metal::DispatchCoreConfig const&, std::optional<tt::tt_metal::distributed::MeshShape> const&, std::optional<tt::tt_metal::distributed::MeshCoordinate> const&, std::vector<int, std::allocator<int> > const&, unsigned long)
+(EngineCore pid=3098384)  --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x88d075) [0x7b060d08d075]
+(EngineCore pid=3098384)  --- /home/ttuser/deepseekv4flash/tt-metal/ttnn/ttnn/_ttnn.so(+0x366f44) [0x7b060cb66f44]
+(EngineCore pid=3098384)  --- VLLM::EngineCore(_PyEval_EvalFrameDefault+0x1c17) [0x18152d7]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x1808ee6]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x18025ad]
+(EngineCore pid=3098384)  --- VLLM::EngineCore(_PyEval_EvalFrameDefault+0x1a1b) [0x18150db]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x1808ff5]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x18025ad]
+(EngineCore pid=3098384)  --- VLLM::EngineCore(_PyEval_EvalFrameDefault+0xa992) [0x181e052]
+(EngineCore pid=3098384)  --- VLLM::EngineCore(PyEval_EvalCode+0xde) [0x189efa0]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x18af2c9]
+(EngineCore pid=3098384)  --- VLLM::EngineCore(PyRun_SimpleStringFlags+0xe0) [0x1946c30]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x1ad7555]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x198135f]
+(EngineCore pid=3098384)  --- VLLM::EngineCore() [0x198116c]
+(EngineCore pid=3098384)  --- /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x7b065142a1ca]
+(EngineCore pid=3098384)  --- /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b) [0x7b065142a28b]
+(EngineCore pid=3098384)  --- VLLM::EngineCore(_start+0x29) [0x19aaa29]
+(EngineCore pid=3098384) 
+[90m2026-08-27 22:46:43.362[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT cache stats: 10/10 hits (100.0%) [10 cached, 3 build-once dedup, 0 merged artifacts, 0 merged genfiles][0m [90m(build_cache_telemetry.cpp:207)[0m
+[90m2026-08-27 22:46:43.362[0m | [32minfo    [m | [35m   BuildKernels[0m | [37mJIT telemetry: 2 registered TelemetryTokens[0m [90m(build_cache_telemetry.cpp:230)[0m
+[90m2026-08-27 22:47:03.363[0m | [1m[41mcritical[m | [35m          Metal[0m | [37mDevice 0: Virtual core 29-25, Port status: 0x1, Retrain count: 0x0, Rx link up: 0x1, Train status: 0x2, PCS status: 0x1, SerDes reset status: 0x1, Postcode: 0xc0dea000, ERISC0 reset PC: 0x3560, ERISC1 reset PC: 0x9330, RISC soft reset: 0x47000, Heartbeat start: 0xabcdc686, Heartbeat end: 0xabcdc686, Heartbeat changed: false[0m [90m(llrt.cpp:347)[0m
+[90m2026-08-27 22:47:03.363[0m | [1m[41mcritical[m | [35m         Always[0m | [37mTT_THROW: Device 0: Timed out while waiting for active ethernet core 29-25 to become active again. Try resetting the board. Minimum tt-firmware version is 18.10.0[0m [90m(assert.hpp:104)[0m
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  TT_THROW @ /home/ttuser/deepseekv4flash/tt-metal/tt_metal/llrt/llrt.cpp:594: tt::exception
+info:
+Device 0: Timed out while waiting for active ethernet core 29-25 to become active again. Try resetting the board. Minimum tt-firmware version is 18.10.0
+backtrace:
+ --- /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(+0xc77f28) [0x7b0609677f28]
+ --- tt::llrt::internal_::return_to_base_firmware_and_wait_for_heartbeat(int, tt::xy_pair const&, int)
+ --- tt::tt_metal::RiscFirmwareInitializer::assert_active_ethernet_cores_to_reset(int)
+ --- tt::tt_metal::RiscFirmwareInitializer::teardown(std::unordered_set<tt::tt_metal::InitializerKey, std::hash<tt::tt_metal::InitializerKey>, std::equal_to<tt::tt_metal::InitializerKey>, std::allocator<tt::tt_metal::InitializerKey> >&)
+ --- tt::tt_metal::MetalContext::teardown()
+ --- tt::tt_metal::MetalContext::~MetalContext()
+ --- tt::tt_metal::MetalContext::destroy_instance(bool, ttsl::StrongType<int, tt::tt_metal::ContextIdTag>)
+ --- tt::tt_metal::MetalContext::destroy_all_instances(bool)
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x47a76) [0x7b0651447a76]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x47bbe) [0x7b0651447bbe]
+ --- VLLM::EngineCore() [0x197ed5e]
+ --- VLLM::EngineCore() [0x1c5fb62]
+ --- VLLM::EngineCore() [0x19f7c70]
+ --- VLLM::EngineCore() [0x1bd2076]
+ --- VLLM::EngineCore() [0x1ad7555]
+ --- VLLM::EngineCore() [0x198135f]
+ --- VLLM::EngineCore() [0x198116c]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x7b065142a1ca]
+ --- /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b) [0x7b065142a28b]
+ --- VLLM::EngineCore(_start+0x29) [0x19aaa29]
+
+[tt-quietbox:3098384] *** Process received signal ***
+[tt-quietbox:3098384] Signal: Aborted (6)
+[tt-quietbox:3098384] Signal code:  (-6)
+[tt-quietbox:3098384] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7b0651445330]
+[tt-quietbox:3098384] [ 1] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x7b065149ec0c]
+[tt-quietbox:3098384] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x7b065144527e]
+[tt-quietbox:3098384] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x7b06514288ff]
+[tt-quietbox:3098384] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xac2b5)[0x7b06396ac2b5]
+[tt-quietbox:3098384] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xc31ea)[0x7b06396c31ea]
+[tt-quietbox:3098384] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(_ZSt10unexpectedv+0x0)[0x7b06396abcac]
+[tt-quietbox:3098384] [ 7] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(+0x6c714e)[0x7b06090c714e]
+[tt-quietbox:3098384] [ 8] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(+0xb89771)[0x7b0609589771]
+[tt-quietbox:3098384] [ 9] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt8tt_metal12MetalContext16destroy_instanceEbN4ttsl10StrongTypeIiNS0_12ContextIdTagEEE+0x90)[0x7b0609588d60]
+[tt-quietbox:3098384] [10] /home/ttuser/deepseekv4flash/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt8tt_metal12MetalContext21destroy_all_instancesEb+0xf)[0x7b0609588e3f]
+[tt-quietbox:3098384] [11] /lib/x86_64-linux-gnu/libc.so.6(+0x47a76)[0x7b0651447a76]
+[tt-quietbox:3098384] [12] /lib/x86_64-linux-gnu/libc.so.6(+0x47bbe)[0x7b0651447bbe]
+[tt-quietbox:3098384] [13] VLLM::EngineCore[0x197ed5e]
+[tt-quietbox:3098384] [14] VLLM::EngineCore[0x1c5fb62]
+[tt-quietbox:3098384] [15] VLLM::EngineCore[0x19f7c70]
+[tt-quietbox:3098384] [16] VLLM::EngineCore[0x1bd2076]
+[tt-quietbox:3098384] [17] VLLM::EngineCore[0x1ad7555]
+[tt-quietbox:3098384] [18] VLLM::EngineCore[0x198135f]
+[tt-quietbox:3098384] [19] VLLM::EngineCore[0x198116c]
+[tt-quietbox:3098384] [20] /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7b065142a1ca]
+[tt-quietbox:3098384] [21] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7b065142a28b]
+[tt-quietbox:3098384] [22] VLLM::EngineCore(_start+0x29)[0x19aaa29]
+[tt-quietbox:3098384] *** End of error message ***
+(APIServer pid=3098241) Traceback (most recent call last):
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/bin/vllm", line 12, in <module>
+(APIServer pid=3098241)     sys.exit(main())
+(APIServer pid=3098241)              ^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 95, in main
+(APIServer pid=3098241)     args.dispatch_function(args)
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/cli/serve.py", line 148, in cmd
+(APIServer pid=3098241)     uvloop.run(run_server(args))
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=3098241)     return __asyncio.run(
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=3098241)     return runner.run(main)
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=3098241)     return self._loop.run_until_complete(task)
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=3098241)     return await main
+(APIServer pid=3098241)            ^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 698, in run_server
+(APIServer pid=3098241)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 712, in run_server_worker
+(APIServer pid=3098241)     async with build_async_engine_client(
+(APIServer pid=3098241)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=3098241)     return await anext(self.gen)
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 100, in build_async_engine_client
+(APIServer pid=3098241)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=3098241)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=3098241)     return await anext(self.gen)
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 136, in build_async_engine_client_from_engine_args
+(APIServer pid=3098241)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=3098241)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 217, in from_vllm_config
+(APIServer pid=3098241)     return cls(
+(APIServer pid=3098241)            ^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 146, in __init__
+(APIServer pid=3098241)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(APIServer pid=3098241)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3098241)     return func(*args, **kwargs)
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 132, in make_async_mp_client
+(APIServer pid=3098241)     return AsyncMPClient(*client_args)
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3098241)     return func(*args, **kwargs)
+(APIServer pid=3098241)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 963, in __init__
+(APIServer pid=3098241)     super().__init__(
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 573, in __init__
+(APIServer pid=3098241)     with launch_core_engines(
+(APIServer pid=3098241)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3098241)   File "/home/ttuser/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3098241)     next(self.gen)
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1213, in launch_core_engines
+(APIServer pid=3098241)     wait_for_engine_startup(
+(APIServer pid=3098241)   File "/home/ttuser/deepseekv4flash/tt-metal/python_env/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1272, in wait_for_engine_startup
+(APIServer pid=3098241)     raise RuntimeError(
+(APIServer pid=3098241) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+Script done on 2026-08-27 22:47:05+00:00 [COMMAND_EXIT_CODE="1"]

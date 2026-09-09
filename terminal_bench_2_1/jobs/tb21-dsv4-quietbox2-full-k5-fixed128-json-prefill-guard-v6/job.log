@@ -1,0 +1,1007 @@
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat data.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/write-compressor__8kan7tC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/write-compressor__8kan7tC/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/write-compressor__8kan7tC/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/write-compressor__8kan7tC/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/parallel_linear.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/parallel_linear.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/parallel_linear.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/parallel_linear.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app:</think>\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/parallel_linear.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-tensor-parallelism__WUg5Gfc/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat interp.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat test/calculator.scm\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat interp.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/schemelike-metacircular-eval__L3RhAR4/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/kv-store-grpc__TxXCTt7/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pypi-server__SSA67V5/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pypi-server__SSA67V5/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pypi-server__SSA67V5/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pypi-server__SSA67V5/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/dna-assembly:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/dna-assembly__K4e6CHB/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat sequences.fasta\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/dna-assembly__K4e6CHB/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/dna-assembly__K4e6CHB/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/dna-assembly__K4e6CHB/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/dna-assembly__K4e6CHB/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/torch-pipeline-parallelism:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home;</think>\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-pipeline-parallelism__nBhAbDQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home; response\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-pipeline-parallelism__nBhAbDQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-pipeline-parallelism__nBhAbDQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-pipeline-parallelism__nBhAbDQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-pipeline-parallelism__nBhAbDQ/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/torch-pipeline-parallelism__nBhAbDQ/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/qemu-alpine-ssh:20251031: docker inspect returned 1
+Both tmux and asciinema are already installed
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/qemu-alpine-ssh__kjLG92x/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@root@\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/qemu-alpine-ssh__kjLG92x/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat alpine.iso\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/qemu-alpine-ssh__kjLG92x/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/qemu-alpine-ssh__kjLG92x/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/qemu-alpine-ssh__kjLG92x/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/qemu-alpine-ssh__kjLG92x/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/openssl-selfsigned-cert:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['mkdir -p /app/ssl\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl genrsa -out /app/ssl/server.key 2048\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['chmod -a = 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['chmod 600 /app/ssl/server.key\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl req\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl req -x509 -new -newkey rsa:2048 -days 365 -subj /C=US/ST=WA/L=Seattle/O=DevOps Team/CN=dev-internal.company.local -out /app/ssl/server.crt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['openssl req -x509 -new -newkey rsa:2048 -days 365 -subj /C=US/ST=WA/L=Seattle/O=DevOps Team/CN=dev-internal.company.local -out /app/ssl/server.crt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/openssl-selfsigned-cert__2JhERn4/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/regex-chess:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-chess__aN7xePQ/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/log-summary-date-ranges:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls logs\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /binomials. The following is a \n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /binomials\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /binomials. The binomial theorem\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /binomials. The following is a binomial theorem\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/log-summary-date-ranges__F7Fujzm/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/model-extraction-relu-logits:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat forward.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['python\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['import numpy as np.random import numpy as np.random.randn</p> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span> <span\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['import numpy as np\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/model-extraction-relu-logits__aGJvKCQ/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/path-tracing:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat image.ppm\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat image.png\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat orig\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat image.png\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat orig\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat image.png\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/path-tracing__GR3FjE6/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/regex-log:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/regex.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/</p>{\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/regex-log__Y4b6c4Z/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/caffe-cifar-10:20260403: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/caffe-cifar-10__fVPpNzN/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/mteb-leaderboard:20260430: docker inspect returned 1
+Both tmux and asciinema are already installed
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-leaderboard__W3w4ZZe/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/result.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-leaderboard__W3w4ZZe/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -0.5.5.5.5.5.6.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.5.\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-leaderboard__W3w4ZZe/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-leaderboard__W3w4ZZe/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-leaderboard__W3w4ZZe/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-leaderboard__W3w4ZZe/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-leaderboard__W3w4ZZe/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/llm-inference-batching-scheduler:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/task_file/scripts/cost_model.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/task_file/scripts/baseline_packer.py\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/task_file/input_data/requests_bucket_1.jsonl\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/task_file/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/task_file_scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/task_file/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/task_file_scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts/scripts\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/llm-inference-batching-scheduler__Lg5fxFm/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/pytorch-model-recovery:20260430: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pytorch-model-recovery__euaYL4f/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/weights.pt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pytorch-model-recovery__euaYL4f/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pytorch-model-recovery__euaYL4f/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pytorch-model-recovery__euaYL4f/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/pytorch-model-recovery__euaYL4f/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/circuit-fibsqrt:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home;cat /cat >> cat >> cat >> D\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/gates.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/sim.c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/gates.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/sim.c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/gates.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/sim.c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/gates.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/sim.c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/gates.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/circuit-fibsqrt__e3wkMva/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/merge-diff-arc-agi-task:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['mkdir /app/repo\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cd /home/app\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cd /app/repo\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git init\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['git\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/merge-diff-arc-agi-task__J7Ln6bj/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/build-pov-ray:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/build-pov-ray__XdqB3rF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/build-pov-ray__XdqB3rF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/build-pov-ray__XdqB3rF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/build-pov-ray__XdqB3rF/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/build-pov-ray__XdqB3rF/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/cobol-modernization:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/cobol-modernization__i5RM6J5/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/cobol-modernization__i5RM6J5/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/cobol-modernization__i5RM6J5/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/cobol-modernization__i5RM6J5/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/cobol-modernization__i5RM6J5/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/cobol-modernization__i5RM6J5/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/cobol-modernization__i5RM6J5/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/mcmc-sampling-stan:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mcmc-sampling-stan__brYGT7Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat data.csv\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mcmc-sampling-stan__brYGT7Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mcmc-sampling-stan__brYGT7Z/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mcmc-sampling-stan__brYGT7Z/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mcmc-sampling-stan__brYGT7Z/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/gpt2-codegolf:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -l\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat gpt2-124M.ckpt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat gpt2-ckpt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat vocab.bpe\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -l\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat gpt2-124M.ckpt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/gpt2-codegolf__nQEFbiF/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/filter-js-from-html:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Output length exceeded: Model openai/deepseek-ai/DeepSeek-V4-Flash-0731 hit max_tokens limit. Response was truncated. Consider increasing max_tokens if possible.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/filter-js-from-html__AC5MJZg/agent/trajectory.json
+Collecting main service artifacts
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/sam-cell-seg:20251031: docker inspect returned 1
+Both tmux and asciinema are already installed
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home / 2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home /home / 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home /home /home / 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home /home /home /home / 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home /home /home /home /home / 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/sam-cell-seg__rLNHiz3/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Both tmux and asciinema are already installed
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-retrieve__zRXPdEz/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-retrieve__zRXPdEz/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /data.txt\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-retrieve__zRXPdEz/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-retrieve__zRXPdEz/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-retrieve__zRXPdEz/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-retrieve__zRXPdEz/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/mteb-retrieve__zRXPdEz/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/adaptive-rejection-sampler:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/ars.rs\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app:</think>\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /app/ars.rs\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/adaptive-rejection-sampler__CM8gfoF/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/vulnerable-secret:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['file vulnerable\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['./vulnerable\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/vulnerable-secret__vEoAbWn/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/extract-elf:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Tool installation exceeded its 240s budget; proceeding without guaranteed tmux/asciinema (session recording may be unavailable).
+Trial extract-elf__c2K9Kxr failed: Failed to start tmux session. Error: None
+Collecting main service artifacts
+Not retrying trial because the maximum number of retries has been reached
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/nginx-request-logging:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['apt-get update\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['apt-get install nginx\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['Y\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['mkdir -p /var/www/html\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["echo 'Welcome to the\n"] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["benchmark webserver' > /var/www/html/index.html\n"] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["echo 'echo 'echo \n"] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ["echo 'Page not found - Please\n"] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['check your URL\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/nginx-request-logging__5P39y5n/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/make-doom-for-mips:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['cat /home / 0.00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls /home\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -ls -\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Ending run after 3 identical command batches.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/make-doom-for-mips__aFMkp3w/agent/trajectory.json
+Collecting main service artifacts
+Registered custom model 'openai/deepseek-ai/DeepSeek-V4-Flash-0731' with info: {'max_tokens': 131072, 'max_input_tokens': 130048, 'max_output_tokens': 128, 'input_cost_per_token': 0.0, 'output_cost_per_token': 0.0}
+Skipping image OS validation for alexgshaw/configure-git-webserver:20251031: docker inspect returned 1
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls -la\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Closing streamed response after first complete JSON object.
+Sending keys: ['ls\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Trajectory dumped to /home/ttuser/deepseekv4flash/terminal_bench_2_1/jobs/tb21-dsv4-quietbox2-full-k5-fixed128-json-prefill-guard-v6/configure-git-webserver__vFkYDqv/agent/trajectory.json
+Trial configure-git-webserver__vFkYDqv cancelled
+Collecting main service artifacts

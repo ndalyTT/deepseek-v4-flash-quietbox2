@@ -1,0 +1,18 @@
+Pause archive
+  file: /home/ttuser/deepseekv4flash/artifacts/session-logs-pause-20260824T022907Z.tar.gz
+  bytes: 189348336
+  sha256: cc2c3fc97e6ceb0a038f6419273b4de0f91b8968659573f6cf646c30624da796
+  gzip_integrity: passed
+  members: 33
+
+Resume handoff included in archive
+  file: /home/ttuser/deepseekv4flash/artifacts/PAUSED_RESUME_20260824.md
+  bytes: 11331
+  sha256: eeb1f79374a6327c38991e106c83dce5df853ba1504cadfa22b2fd6622e1ea7b
+
+Refreshed Codex thread-tree manifest included in archive
+  file: /home/ttuser/deepseekv4flash/artifacts/session_logs/codex-current-task/manifest.json
+  sha256: 215f821388935ca5712fa09217a7aaa7d9cbcf10113546783712eebea39ff635
+  root_thread_items: 11025
+  child_threads: 3
+
