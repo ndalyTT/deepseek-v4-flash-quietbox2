@@ -1,0 +1,6 @@
+Script started on 2026-09-17 21:07:49+00:00 [COMMAND="/home/ttuser/deepseekv4flash/terminal_bench_2_1/run_deepseek_harness_unix_relay.sh" <not executed on terminal>]
+READY socket=/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_runtime/vllm_relay.sock upstream=http://127.0.0.1:8010
+
+Script done on 2026-09-17 21:10:52+00:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-17 21:11:17+00:00 [COMMAND="/home/ttuser/deepseekv4flash/terminal_bench_2_1/run_deepseek_harness_unix_relay.sh" <not executed on terminal>]
+READY socket=/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_runtime/vllm_relay.sock upstream=http://127.0.0.1:8010 upstream_model=deepseek-ai/DeepSeek-V4-Flash-0731

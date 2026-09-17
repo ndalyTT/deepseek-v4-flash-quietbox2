@@ -1,0 +1,43 @@
+{
+    "id": "59601fac-e523-4a00-a5ff-803b0fb5a3b9",
+    "started_at": "2026-09-17T21:08:26.286725",
+    "updated_at": "2026-09-17T21:08:43.597946",
+    "finished_at": "2026-09-17T21:08:43.597946",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 1,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "deepseek-harness-unix-eval__deepseek-v4-flash__tasks": {
+                "n_trials": 1,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "fix-git__WhGGrpL"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "NonZeroAgentExitCodeError": [
+                        "fix-git__WhGGrpL"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

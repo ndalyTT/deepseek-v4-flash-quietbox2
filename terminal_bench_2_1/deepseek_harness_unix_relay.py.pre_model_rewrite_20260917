@@ -68,17 +68,9 @@ async def relay(request: web.Request) -> web.StreamResponse:
     if payload.get("tools") and "tool_choice" not in payload:
         payload["tool_choice"] = "auto"
         injected["tool_choice"] = "auto"
-    requested_model = payload.get("model")
-    upstream_model = request.app.get("upstream_model")
-    if upstream_model and requested_model != upstream_model:
-        # vLLM serves the Hugging Face id; DeepSeek Harness asks for its own
-        # provider model id. Rewrite only the routing field, record both.
-        payload["model"] = upstream_model
-        injected["model"] = {"from": requested_model, "to": upstream_model}
 
     summary = {
-        "model": requested_model,
-        "upstream_model": payload.get("model"),
+        "model": payload.get("model"),
         "message_count": len(payload.get("messages") or []),
         "tool_count": len(payload.get("tools") or []),
         "stream": payload.get("stream"),
@@ -141,15 +133,12 @@ async def close_session(app: web.Application) -> None:
     await app["session"].close()
 
 
-def create_app(
-    upstream: str, log_path: Path, upstream_model: str | None = None
-) -> web.Application:
+def create_app(upstream: str, log_path: Path) -> web.Application:
     if not upstream.startswith("http://127.0.0.1:"):
         raise ValueError("relay upstream must be a loopback HTTP endpoint")
     app = web.Application(client_max_size=16 * 1024 * 1024)
     app["upstream"] = upstream
     app["log_path"] = log_path
-    app["upstream_model"] = upstream_model
     app.on_startup.append(open_session)
     app.on_cleanup.append(close_session)
     app.router.add_route("*", "/{tail:.*}", relay)
@@ -161,11 +150,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--socket", type=Path, required=True)
     parser.add_argument("--upstream", default="http://127.0.0.1:8010")
     parser.add_argument("--log", type=Path, required=True)
-    parser.add_argument(
-        "--upstream-model",
-        default=None,
-        help="served model id to substitute for the Harness model id",
-    )
     return parser.parse_args()
 
 
@@ -177,7 +161,7 @@ def main() -> None:
             raise RuntimeError(f"refusing to replace non-socket path: {args.socket}")
         args.socket.unlink()
     web.run_app(
-        create_app(args.upstream, args.log, args.upstream_model),
+        create_app(args.upstream, args.log),
         path=str(args.socket),
         access_log=None,
         print=None,

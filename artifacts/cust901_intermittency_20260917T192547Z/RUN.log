@@ -9,3 +9,4 @@
 82:2026-09-17 19:26:35.661 | critical |          Always | TT_THROW: Device 0: Timed out while waiting for active ethernet core 29-25 to become active again. Try resetting the board. Minimum tt-firmware version is 18.10.0 (assert.hpp:104)
 84:  what():  TT_THROW @ /home/ttuser/deepseekv4flash/tt-metal/tt_metal/llrt/llrt.cpp:594: tt::exception
 [2026-09-17T19:26:42Z] artifacts: /home/ttuser/deepseekv4flash/artifacts/cust901_intermittency_20260917T192547Z (exit 3)
+[2026-09-17T20:35:28Z] owner said continue: one bounded tt-smi -r

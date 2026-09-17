@@ -1,0 +1,1 @@
+DSH_RELAY_BRIDGE_READY port=8011 socket=/opt/deepseek-relay-runtime/vllm_relay.sock

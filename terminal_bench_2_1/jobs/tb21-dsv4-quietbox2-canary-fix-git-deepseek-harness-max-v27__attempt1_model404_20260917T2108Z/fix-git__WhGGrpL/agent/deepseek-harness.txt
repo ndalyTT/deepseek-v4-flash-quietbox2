@@ -1,0 +1,2 @@
+
+dsh: HTTP_404: The model `deepseek-v4-flash` does not exist.

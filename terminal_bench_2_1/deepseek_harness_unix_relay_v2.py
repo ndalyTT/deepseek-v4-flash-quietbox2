@@ -26,12 +26,18 @@ async def run() -> None:
             raise RuntimeError(f"refusing to replace non-socket path: {args.socket}")
         args.socket.unlink()
 
-    runner = web.AppRunner(create_app(args.upstream, args.log), access_log=None)
+    runner = web.AppRunner(
+        create_app(args.upstream, args.log, args.upstream_model), access_log=None
+    )
     await runner.setup()
     site = web.UnixSite(runner, str(args.socket))
     await site.start()
     os.chmod(args.socket, 0o666)
-    print(f"READY socket={args.socket} upstream={args.upstream}", flush=True)
+    print(
+        f"READY socket={args.socket} upstream={args.upstream} "
+        f"upstream_model={args.upstream_model}",
+        flush=True,
+    )
 
     stopped = asyncio.Event()
     loop = asyncio.get_running_loop()

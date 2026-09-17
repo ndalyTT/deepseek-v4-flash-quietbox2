@@ -10,4 +10,5 @@ exec "$TB_ROOT/harbor/.venv/bin/python" \
   "$TB_ROOT/deepseek_harness_unix_relay_v2.py" \
   --socket "$SOCKET_PATH" \
   --upstream http://127.0.0.1:8010 \
-  --log "$LOG_PATH"
+  --log "$LOG_PATH" \
+  --upstream-model deepseek-ai/DeepSeek-V4-Flash-0731

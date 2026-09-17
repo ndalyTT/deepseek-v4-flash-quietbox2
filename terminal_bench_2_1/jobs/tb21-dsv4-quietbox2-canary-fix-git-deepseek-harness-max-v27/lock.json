@@ -1,0 +1,100 @@
+{
+    "schema_version": 3,
+    "created_at": "2026-09-17T21:11:45.168022Z",
+    "harbor": {
+        "version": "0.22.0",
+        "git_commit_hash": "6ecebe4ae9910ee0b28a2e6e8fa30934c0b41dfa",
+        "is_editable": true
+    },
+    "n_concurrent_trials": 1,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "VerifierTimeoutError",
+            "AgentTimeoutError",
+            "AgentSafetyRefusalError",
+            "ModelNotFoundError",
+            "RewardFileEmptyError",
+            "AgentAuthenticationError",
+            "RewardFileNotFoundError",
+            "ApiUsageLimitError",
+            "VerifierOutputParseError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "schema_version": 2,
+            "task": {
+                "name": "fix-git",
+                "type": "local",
+                "digest": "sha256:16948b980df9d96de616a205f5acca1c5d395de83ff4f8ffabcafacb93226f2e",
+                "source": "tasks",
+                "path": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/dataset/tasks/fix-git"
+            },
+            "install_only": false,
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "deepseek_harness_agent_unix:DeepSeekHarnessUnixEvalAgent",
+                "model_name": "deepseek-official/deepseek-v4-flash",
+                "skills": [],
+                "override_timeout_sec": 14400.0,
+                "override_setup_timeout_sec": 600.0,
+                "resume_trajectory": false,
+                "extra_allowed_hosts": [],
+                "include_logs": [
+                    "deepseek-harness.txt",
+                    "deepseek-harness-config.json",
+                    "deepseek-relay-bridge.txt",
+                    "dsh-sessions/**"
+                ],
+                "kwargs": {},
+                "mcp_servers": []
+            },
+            "bridge_inputs": {},
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "cpu_enforcement_policy": "auto",
+                "memory_enforcement_policy": "auto",
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_toolchain",
+                        "target": "/opt/deepseek-harness-toolchain",
+                        "read_only": true
+                    },
+                    {
+                        "type": "bind",
+                        "source": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_profile",
+                        "target": "/opt/deepseek-harness-profile",
+                        "read_only": true
+                    },
+                    {
+                        "type": "bind",
+                        "source": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_container_bridge.js",
+                        "target": "/opt/deepseek-harness-container-bridge.js",
+                        "read_only": true
+                    },
+                    {
+                        "type": "bind",
+                        "source": "/home/ttuser/deepseekv4flash/terminal_bench_2_1/deepseek_harness_runtime",
+                        "target": "/opt/deepseek-relay-runtime",
+                        "read_only": true
+                    }
+                ],
+                "extra_docker_compose": [],
+                "kwargs": {},
+                "extra_allowed_hosts": []
+            },
+            "verifier": {
+                "disable": false,
+                "environment_mode": "shared"
+            }
+        }
+    ]
+}
