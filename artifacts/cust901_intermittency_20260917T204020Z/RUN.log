@@ -7,3 +7,4 @@
 68:[90m2026-09-17 20:40:32.722[0m | [32minfo    [m | [35m          Metal[0m | [37mFabric initialized on 4 devices[0m [90m(fabric_firmware_initializer.cpp:444)[0m
 123:[0;36m(APIServer pid=1933304)[0;0m [32mINFO[0m:     Application startup complete.
 [2026-09-17T21:04:37Z] artifacts: /home/ttuser/deepseekv4flash/artifacts/cust901_intermittency_20260917T204020Z (exit 0)
+[2026-09-17T23:56:59Z] closeout: relay SIGTERM, vLLM APIServer SIGTERM after canary evidence collected

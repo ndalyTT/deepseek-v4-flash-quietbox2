@@ -3,3 +3,6 @@ Command outputs captured
 Running command: DSH_HOME=/installed-agent/dsh-home /opt/deepseek-harness-toolchain/bin/node /opt/deepseek-harness-toolchain/lib/dsh/node_modules/@deepseek-ai/dsh/lib/bin.js --profile quietbox2-eval --dump-config >/logs/agent/deepseek-harness-config.json
 Command outputs captured
 Running command: kill -0 $(cat /installed-agent/deepseek-relay-bridge.pid) && dsh_task="$DSH_TASK"; unset DSH_TASK; /opt/deepseek-harness-toolchain/bin/node /opt/deepseek-harness-toolchain/lib/dsh/node_modules/@deepseek-ai/dsh/lib/bin.js --profile quietbox2-eval -- "$dsh_task" </dev/null 2>&1 | tee /logs/agent/deepseek-harness.txt
+Command failed
+Collecting main service artifacts
+Not retrying trial because the maximum number of retries has been reached

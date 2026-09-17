@@ -1,17 +1,40 @@
 {
     "id": "e79d8bbf-183c-4914-a7a9-eda751226c6d",
     "started_at": "2026-09-17T21:11:45.164114",
-    "updated_at": "2026-09-17T21:11:45.197138Z",
-    "finished_at": null,
+    "updated_at": "2026-09-17T23:55:26.597116",
+    "finished_at": "2026-09-17T23:55:26.597116",
     "n_total_trials": 1,
     "stats": {
-        "n_completed_trials": 0,
-        "n_errored_trials": 0,
-        "n_running_trials": 1,
+        "n_completed_trials": 1,
+        "n_errored_trials": 1,
+        "n_running_trials": 0,
         "n_pending_trials": 0,
         "n_cancelled_trials": 0,
         "n_retries": 0,
-        "evals": {},
+        "evals": {
+            "deepseek-harness-unix-eval__deepseek-v4-flash__tasks": {
+                "n_trials": 1,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "fix-git__NcnBpwE"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "NonZeroAgentExitCodeError": [
+                        "fix-git__NcnBpwE"
+                    ]
+                }
+            }
+        },
         "n_input_tokens": null,
         "n_cache_tokens": null,
         "n_output_tokens": null,
