@@ -37,7 +37,7 @@ required: `0xSero/DeepSeek-V4-Flash-0731-REAP` (K160 expert-pruned) and
 | System | QuietBox 2, ASRock B850M-C, Ubuntu 24.04.4 LTS, kernel 7.0.0-30-generic, 249 GB RAM |
 | Accelerators | 4x Blackhole P300C (two dual-chip boards), PCIe Gen4 x4 each |
 | Mesh used | `MeshShape(4,1)`, tensor parallel 4, `FABRIC_1D_RING`, `RELAXED_INIT`, `TT_METAL_DISABLE_FABRIC_TWO_ERISC=1` |
-| Firmware bundle | 19.11.0.0 (Blackhole Ethernet firmware 1.11.0) |
+| Firmware bundle | **19.13.1.0** since 2026-09-09 21:14 UTC (accepted as baseline by the owner on 2026-09-17; see `artifacts/STATUS_20260917.md`). All Aug 21-31 evidence, including the failures in CUST-901, was on 19.11.0.0 (Blackhole Ethernet firmware 1.11.0). |
 | TT-KMD | 2.9.0 |
 | tt-smi / tt-flash / tt-umd / pyluwen | 5.3.0 / 3.10.0 / 0.9.5 / 0.8.5 (management venv, Python 3.12.3) |
 | Hugepages | none configured (`HugePages_Total: 0`); the stack ran without them |
