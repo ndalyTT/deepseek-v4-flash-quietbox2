@@ -21,6 +21,14 @@ If you are an agent, read `AGENTS.md` first.
 
 ## Status in one paragraph
 
+> **Update 2026-09-17:** see `artifacts/STATUS_20260917.md`. Firmware moved to
+> 19.13.1.0 on 2026-09-09 (unplanned, via a tt-installer test run), a
+> fabric-enabled vLLM for another model has run on all four devices since
+> 2026-09-16 without the device-0 ERISC failure, and support (CUST-901) asked
+> on 2026-09-15 for a repeated-smoke-then-vLLM run, scripted in
+> `terminal_bench_2_1/run_cust901_intermittency_check.sh` and not yet executed.
+> The paragraph below is the 2026-09-09 snapshot.
+
 The full 43-layer, 256-expert model is resident and serves through the
 Tenstorrent vLLM plugin at tensor parallel 4, batch 1, context 131,072. The
 stock checkpoint cannot fit (about 58 GB needed per device against 33.9 GB

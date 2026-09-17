@@ -1,0 +1,340 @@
+[2026-09-09 21:13:43]    __                  __                             __
+[2026-09-09 21:13:43]   / /____  ____  _____/ /_____  _____________  ____  / /_
+[2026-09-09 21:13:43]  / __/ _ \/ __ \/ ___/ __/ __ \/ ___/ ___/ _ \/ __ \/ __/
+[2026-09-09 21:13:43] / /_/  __/ / / (__  ) /_/ /_/ / /  / /  /  __/ / / / /_
+[2026-09-09 21:13:43] \__/\___/_/ /_/____/\__/\____/_/  /_/   \___/_/ /_/\__/
+[2026-09-09 21:13:43] 
+[2026-09-09 21:13:43] [INFO] Welcome to tenstorrent!
+[2026-09-09 21:13:43] [INFO] This is tt-installer version 3.6.0
+[2026-09-09 21:13:43] [INFO] Log is at /tmp/tenstorrent_install_UtPn2T/install.log
+[2026-09-09 21:13:43] [INFO] This script will install drivers and tooling and properly configure your tenstorrent hardware.
+[2026-09-09 21:13:43] [INFO] Starting installation
+[2026-09-09 21:13:43] [WARNING] Running in non-interactive mode
+[2026-09-09 21:13:43] [WARNING] tt-inference-server installation will be skipped
+[2026-09-09 21:13:43] [WARNING] tt-studio installation will be skipped
+[2026-09-09 21:13:43] [INFO] uv will be used instead of pip for package installation
+[2026-09-09 21:13:43] [INFO] Checking for sudo permissions... (may request password)
+[2026-09-09 21:13:43] [INFO] Installing base packages
+[2026-09-09 21:13:43] Hit:3 http://mirror.pit.teraswitch.com/ubuntu noble InRelease
+[2026-09-09 21:13:43] Get:4 http://mirror.pit.teraswitch.com/ubuntu noble-updates InRelease [126 kB]
+[2026-09-09 21:13:43] Hit:5 https://cli.github.com/packages stable InRelease
+[2026-09-09 21:13:43] Get:6 https://packages.microsoft.com/repos/code stable InRelease [3,590 B]
+[2026-09-09 21:13:43] Get:7 https://packages.microsoft.com/repos/code stable/main amd64 Packages [30.1 kB]
+[2026-09-09 21:13:43] Get:8 https://ppa.tenstorrent.com/ubuntu noble InRelease [6,861 B]
+[2026-09-09 21:13:43] Hit:9 https://download.docker.com/linux/ubuntu noble InRelease
+[2026-09-09 21:13:43] Hit:10 http://mirror.pit.teraswitch.com/ubuntu noble-backports InRelease
+[2026-09-09 21:13:43] Err:8 https://ppa.tenstorrent.com/ubuntu noble InRelease
+[2026-09-09 21:13:43]   The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 3A44817BAF0FE074
+[2026-09-09 21:13:43] Get:11 http://mirror.pit.teraswitch.com/ubuntu noble-updates/main amd64 Packages [1,260 kB]
+[2026-09-09 21:13:43] Get:12 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+[2026-09-09 21:13:43] Hit:1 https://apt.llvm.org/noble llvm-toolchain-noble-17 InRelease
+[2026-09-09 21:13:43] Hit:2 https://apt.llvm.org/noble llvm-toolchain-noble-20 InRelease
+[2026-09-09 21:13:43] Get:13 http://mirror.pit.teraswitch.com/ubuntu noble-updates/universe amd64 Packages [1,690 kB]
+[2026-09-09 21:13:43] Get:14 https://pkgs.tailscale.com/stable/ubuntu noble InRelease
+[2026-09-09 21:13:43] Hit:15 https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu noble InRelease
+[2026-09-09 21:13:43] Get:17 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,005 kB]
+[2026-09-09 21:13:44] Get:18 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,206 kB]
+[2026-09-09 21:13:44] Hit:16 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.33/deb  InRelease
+[2026-09-09 21:13:45] Fetched 5,460 kB in 1s (5,113 kB/s)
+[2026-09-09 21:13:45] Reading package lists...
+[2026-09-09 21:13:45] W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://ppa.tenstorrent.com/ubuntu noble InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 3A44817BAF0FE074
+[2026-09-09 21:13:45] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-17/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:13:45] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-20/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:13:45] W: Failed to fetch https://ppa.tenstorrent.com/ubuntu/dists/noble/InRelease  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 3A44817BAF0FE074
+[2026-09-09 21:13:45] W: Some index files failed to download. They have been ignored, or old ones used instead.
+[2026-09-09 21:13:45] Reading package lists...
+[2026-09-09 21:13:45] Building dependency tree...
+[2026-09-09 21:13:45] Reading state information...
+[2026-09-09 21:13:45] git is already the newest version (1:2.43.0-1ubuntu7.3).
+[2026-09-09 21:13:45] python3-pip is already the newest version (24.0+dfsg-1ubuntu1.3).
+[2026-09-09 21:13:45] dkms is already the newest version (3.0.11-1ubuntu13).
+[2026-09-09 21:13:45] pipx is already the newest version (1.4.3-1).
+[2026-09-09 21:13:45] jq is already the newest version (1.7.1-3ubuntu0.24.04.2).
+[2026-09-09 21:13:45] protobuf-compiler is already the newest version (3.21.12-8.2ubuntu0.3).
+[2026-09-09 21:13:45] The following packages were automatically installed and are no longer required:
+[2026-09-09 21:13:45]   accountsservice-ubuntu-schemas bamfdaemon gnome-bluetooth indicator-applet
+[2026-09-09 21:13:45]   indicator-application indicator-appmenu indicator-bluetooth indicator-common
+[2026-09-09 21:13:45]   indicator-datetime indicator-keyboard indicator-messages indicator-power
+[2026-09-09 21:13:45]   indicator-printers indicator-session indicator-sound jayatana
+[2026-09-09 21:13:45]   libaccounts-glib0 libbamf3-2t64 libfcitx-config4 libfcitx-gclient1
+[2026-09-09 21:13:45]   libfcitx-utils0 libgit2-1.7 libgnome-panel3 libhttp-parser2.9 libido3-0.1-0
+[2026-09-09 21:13:45]   libindicator3-7 liblightdm-gobject-1-0 libmessaging-menu0 libssh2-1t64
+[2026-09-09 21:13:45]   libstd-rust-1.75 libstd-rust-dev libunity-gtk2-parser0 libunity-gtk3-parser0
+[2026-09-09 21:13:45]   libunity-settings-daemon1 ubuntu-touch-sounds unity-greeter
+[2026-09-09 21:13:45]   unity-gtk-module-common unity-gtk2-module unity-gtk3-module
+[2026-09-09 21:13:45]   unity-settings-daemon unity-settings-daemon-schemas
+[2026-09-09 21:13:45] Use 'sudo apt autoremove' to remove them.
+[2026-09-09 21:13:45] The following packages will be REMOVED:
+[2026-09-09 21:13:45]   cargo rustc
+[2026-09-09 21:13:45] The following NEW packages will be installed:
+[2026-09-09 21:13:45]   rustup
+[2026-09-09 21:13:45] 0 upgraded, 1 newly installed, 2 to remove and 47 not upgraded.
+[2026-09-09 21:13:45] Need to get 2,336 kB of archives.
+[2026-09-09 21:13:45] After this operation, 24.9 MB disk space will be freed.
+[2026-09-09 21:13:45] Get:1 http://mirror.pit.teraswitch.com/ubuntu noble-updates/universe amd64 rustup amd64 1.26.0-5ubuntu0.1 [2,336 kB]
+[2026-09-09 21:13:46] Fetched 2,336 kB in 0s (12.2 MB/s)
+[2026-09-09 21:13:46] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 280686 files and directories currently installed.)
+[2026-09-09 21:13:46] Removing cargo (1.75.0+dfsg0ubuntu1-0ubuntu7.4) ...
+[2026-09-09 21:13:46] Removing rustc (1.75.0+dfsg0ubuntu1-0ubuntu7.4) ...
+[2026-09-09 21:13:46] Selecting previously unselected package rustup.
+[2026-09-09 21:13:46] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 280607 files and directories currently installed.)
+[2026-09-09 21:13:46] Preparing to unpack .../rustup_1.26.0-5ubuntu0.1_amd64.deb ...
+[2026-09-09 21:13:46] Unpacking rustup (1.26.0-5ubuntu0.1) ...
+[2026-09-09 21:13:46] Setting up rustup (1.26.0-5ubuntu0.1) ...
+[2026-09-09 21:13:46] Processing triggers for man-db (2.12.0-4build2) ...
+[2026-09-09 21:13:47] [INFO] Non-interactive mode, using Metalium container installation preference: on
+[2026-09-09 21:13:47] [INFO] Non-interactive mode, using Metalium Models installation preference: off
+[2026-09-09 21:13:47] [INFO] Non-interactive mode, using Forge container installation preference: off
+[2026-09-09 21:13:47] [INFO] Non-interactive mode, using tt-inference-server installation preference: off
+[2026-09-09 21:13:47] [INFO] Non-interactive mode, using tt-studio installation preference: off
+[2026-09-09 21:13:47] [INFO] Non-interactive mode, using Python installation method: new-venv
+[2026-09-09 21:13:47] [INFO] Using uv instead of pip for package installation
+[2026-09-09 21:13:47] [INFO] Setting up new Python virtual environment
+[2026-09-09 21:13:47] Using CPython 3.12.13 interpreter at: /home/ttuser/.local/bin/python3.12
+[2026-09-09 21:13:47] Creating virtual environment with seed packages at: /tmp/pytest-of-ttuser/pytest-0/test_update_refreshes_a_stale_0/home/.tenstorrent-venv
+[2026-09-09 21:13:47]  + pip==26.2.1
+[2026-09-09 21:13:47] Activate with: source /tmp/pytest-of-ttuser/pytest-0/test_update_refreshes_a_stale_0/home/.tenstorrent-venv/bin/activate
+[2026-09-09 21:13:48] [INFO] Installing TT repositories to your distribution package manager
+[2026-09-09 21:13:48] Hit:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+[2026-09-09 21:13:48] Hit:3 https://cli.github.com/packages stable InRelease
+[2026-09-09 21:13:48] Hit:5 https://packages.microsoft.com/repos/code stable InRelease
+[2026-09-09 21:13:48] Hit:6 http://mirror.pit.teraswitch.com/ubuntu noble InRelease
+[2026-09-09 21:13:48] Hit:7 https://download.docker.com/linux/ubuntu noble InRelease
+[2026-09-09 21:13:48] Hit:8 http://mirror.pit.teraswitch.com/ubuntu noble-updates InRelease
+[2026-09-09 21:13:48] Hit:1 https://apt.llvm.org/noble llvm-toolchain-noble-17 InRelease
+[2026-09-09 21:13:48] Get:9 https://pkgs.tailscale.com/stable/ubuntu noble InRelease
+[2026-09-09 21:13:48] Hit:4 https://apt.llvm.org/noble llvm-toolchain-noble-20 InRelease
+[2026-09-09 21:13:48] Hit:10 http://mirror.pit.teraswitch.com/ubuntu noble-backports InRelease
+[2026-09-09 21:13:48] Get:12 https://ppa.tenstorrent.com/ubuntu noble InRelease [6,861 B]
+[2026-09-09 21:13:48] Get:13 https://ppa.tenstorrent.com/ubuntu noble/main all Packages [32.4 kB]
+[2026-09-09 21:13:48] Hit:11 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.33/deb  InRelease
+[2026-09-09 21:13:48] Get:14 https://ppa.tenstorrent.com/ubuntu noble/main amd64 Packages [102 kB]
+[2026-09-09 21:13:48] Hit:15 https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu noble InRelease
+[2026-09-09 21:13:49] Fetched 141 kB in 0s (365 kB/s)
+[2026-09-09 21:13:49] Reading package lists...
+[2026-09-09 21:13:49] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-17/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:13:49] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-20/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:13:49] [WARNING] A container runtime is already installed; skipping container runtime installation to avoid reinstalling it or creating package conflicts.
+[2026-09-09 21:13:49] Installing system packages: sfpi=7.67.0 tenstorrent-dkms=2.10.0 tenstorrent-tools=1.4.1
+[2026-09-09 21:13:49] Reading package lists...
+[2026-09-09 21:13:49] Building dependency tree...
+[2026-09-09 21:13:49] Reading state information...
+[2026-09-09 21:13:50] tenstorrent-tools is already the newest version (1.4.1).
+[2026-09-09 21:13:50] The following packages were automatically installed and are no longer required:
+[2026-09-09 21:13:50]   accountsservice-ubuntu-schemas bamfdaemon gnome-bluetooth indicator-applet
+[2026-09-09 21:13:50]   indicator-application indicator-appmenu indicator-bluetooth indicator-common
+[2026-09-09 21:13:50]   indicator-datetime indicator-keyboard indicator-messages indicator-power
+[2026-09-09 21:13:50]   indicator-printers indicator-session indicator-sound jayatana
+[2026-09-09 21:13:50]   libaccounts-glib0 libbamf3-2t64 libfcitx-config4 libfcitx-gclient1
+[2026-09-09 21:13:50]   libfcitx-utils0 libgit2-1.7 libgnome-panel3 libhttp-parser2.9 libido3-0.1-0
+[2026-09-09 21:13:50]   libindicator3-7 liblightdm-gobject-1-0 libmessaging-menu0 libssh2-1t64
+[2026-09-09 21:13:50]   libstd-rust-1.75 libstd-rust-dev libunity-gtk2-parser0 libunity-gtk3-parser0
+[2026-09-09 21:13:50]   libunity-settings-daemon1 ubuntu-touch-sounds unity-greeter
+[2026-09-09 21:13:50]   unity-gtk-module-common unity-gtk2-module unity-gtk3-module
+[2026-09-09 21:13:50]   unity-settings-daemon unity-settings-daemon-schemas
+[2026-09-09 21:13:50] Use 'sudo apt autoremove' to remove them.
+[2026-09-09 21:13:50] The following packages will be upgraded:
+[2026-09-09 21:13:50]   sfpi tenstorrent-dkms
+[2026-09-09 21:13:50] 2 upgraded, 0 newly installed, 0 to remove and 45 not upgraded.
+[2026-09-09 21:13:50] Need to get 135 MB of archives.
+[2026-09-09 21:13:50] After this operation, 67.6 kB of additional disk space will be used.
+[2026-09-09 21:13:50] Get:1 https://ppa.tenstorrent.com/ubuntu noble/main amd64 sfpi amd64 7.67.0 [135 MB]
+[2026-09-09 21:13:51] Get:2 https://ppa.tenstorrent.com/ubuntu noble/main amd64 tenstorrent-dkms all 2.10.0 [60.0 kB]
+[2026-09-09 21:13:51] Fetched 135 MB in 2s (81.6 MB/s)
+[2026-09-09 21:13:51] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 280631 files and directories currently installed.)
+[2026-09-09 21:13:51] Preparing to unpack .../archives/sfpi_7.67.0_amd64.deb ...
+[2026-09-09 21:13:51] Unpacking sfpi (7.67.0) over (7.60.0) ...
+[2026-09-09 21:13:53] Preparing to unpack .../tenstorrent-dkms_2.10.0_all.deb ...
+[2026-09-09 21:13:53] Module tenstorrent-2.9.0 for kernel 7.0.0-30-generic (x86_64).
+[2026-09-09 21:13:53] Before uninstall, this module version was ACTIVE on this kernel.
+[2026-09-09 21:13:53] 
+[2026-09-09 21:13:53] tenstorrent.ko.zst:
+[2026-09-09 21:13:53]  - Uninstallation
+[2026-09-09 21:13:53]    - Deleting from: /lib/modules/7.0.0-30-generic/updates/dkms/
+[2026-09-09 21:13:53]  - Original module
+[2026-09-09 21:13:53]    - No original module was found for this module on this kernel.
+[2026-09-09 21:13:53]    - Use the dkms install command to reinstall any previous module version.
+[2026-09-09 21:13:54] depmod...
+[2026-09-09 21:13:54] Module tenstorrent-2.9.0 for kernel 7.0.0-31-generic (x86_64).
+[2026-09-09 21:13:54] Before uninstall, this module version was ACTIVE on this kernel.
+[2026-09-09 21:13:54] 
+[2026-09-09 21:13:54] tenstorrent.ko.zst:
+[2026-09-09 21:13:54]  - Uninstallation
+[2026-09-09 21:13:54]    - Deleting from: /lib/modules/7.0.0-31-generic/updates/dkms/
+[2026-09-09 21:13:54]  - Original module
+[2026-09-09 21:13:54]    - No original module was found for this module on this kernel.
+[2026-09-09 21:13:54]    - Use the dkms install command to reinstall any previous module version.
+[2026-09-09 21:13:55] depmod...
+[2026-09-09 21:13:55] Deleting module tenstorrent-2.9.0 completely from the DKMS tree.
+[2026-09-09 21:13:55] Unpacking tenstorrent-dkms (2.10.0) over (2.9.0) ...
+[2026-09-09 21:13:55] Setting up tenstorrent-dkms (2.10.0) ...
+[2026-09-09 21:13:55] Loading new tenstorrent-2.10.0 DKMS files...
+[2026-09-09 21:13:55] Building for 6.17.0-35-generic, 7.0.0-28-generic, 7.0.0-29-generic, 7.0.0-30-generic and 7.0.0-31-generic
+[2026-09-09 21:13:55] Building initial module for 6.17.0-35-generic
+[2026-09-09 21:13:57] Done.
+[2026-09-09 21:13:57] 
+[2026-09-09 21:13:57] tenstorrent.ko.zst:
+[2026-09-09 21:13:57] Running module version sanity check.
+[2026-09-09 21:13:57]  - Original module
+[2026-09-09 21:13:57]    - No original module exists within this kernel
+[2026-09-09 21:13:57]  - Installation
+[2026-09-09 21:13:57]    - Installing to /lib/modules/6.17.0-35-generic/updates/dkms/
+[2026-09-09 21:13:57] 
+[2026-09-09 21:13:57] Running the post_install script:
+[2026-09-09 21:13:57] depmod...
+[2026-09-09 21:13:57] Module build for kernel 7.0.0-28-generic was skipped since the
+[2026-09-09 21:13:57] kernel headers for this kernel do not seem to be installed.
+[2026-09-09 21:13:57] Module build for kernel 7.0.0-29-generic was skipped since the
+[2026-09-09 21:13:57] kernel headers for this kernel do not seem to be installed.
+[2026-09-09 21:13:57] Building initial module for 7.0.0-30-generic
+[2026-09-09 21:13:58] Done.
+[2026-09-09 21:13:58] 
+[2026-09-09 21:13:58] tenstorrent.ko.zst:
+[2026-09-09 21:13:58] Running module version sanity check.
+[2026-09-09 21:13:58]  - Original module
+[2026-09-09 21:13:58]    - No original module exists within this kernel
+[2026-09-09 21:13:58]  - Installation
+[2026-09-09 21:13:58]    - Installing to /lib/modules/7.0.0-30-generic/updates/dkms/
+[2026-09-09 21:13:58] 
+[2026-09-09 21:13:58] Running the post_install script:
+[2026-09-09 21:13:59] depmod...
+[2026-09-09 21:13:59] Building initial module for 7.0.0-31-generic
+[2026-09-09 21:14:00] Done.
+[2026-09-09 21:14:00] 
+[2026-09-09 21:14:00] tenstorrent.ko.zst:
+[2026-09-09 21:14:00] Running module version sanity check.
+[2026-09-09 21:14:00]  - Original module
+[2026-09-09 21:14:00]    - No original module exists within this kernel
+[2026-09-09 21:14:00]  - Installation
+[2026-09-09 21:14:00]    - Installing to /lib/modules/7.0.0-31-generic/updates/dkms/
+[2026-09-09 21:14:00] 
+[2026-09-09 21:14:00] Running the post_install script:
+[2026-09-09 21:14:01] depmod...
+[2026-09-09 21:14:01] Setting up sfpi (7.67.0) ...
+[2026-09-09 21:14:01] Installing Python packages: tt-flash==3.10.0 tt-smi==6.1.0
+[2026-09-09 21:14:01] Using Python 3.12.13 environment at: /tmp/pytest-of-ttuser/pytest-0/test_update_refreshes_a_stale_0/home/.tenstorrent-venv
+[2026-09-09 21:14:01] Resolved 43 packages in 225ms
+[2026-09-09 21:14:01] Downloading pydantic-core (2.0MiB)
+[2026-09-09 21:14:01] Downloading virtualenv (5.1MiB)
+[2026-09-09 21:14:01] Downloading pygments (1.2MiB)
+[2026-09-09 21:14:01] Downloading tt-umd (2.3MiB)
+[2026-09-09 21:14:01]  Downloaded pygments
+[2026-09-09 21:14:01]  Downloaded pydantic-core
+[2026-09-09 21:14:01]  Downloaded tt-umd
+[2026-09-09 21:14:02]  Downloaded virtualenv
+[2026-09-09 21:14:02] Prepared 43 packages in 201ms
+[2026-09-09 21:14:02] Installed 43 packages in 3ms
+[2026-09-09 21:14:02]  + annotated-types==0.8.0
+[2026-09-09 21:14:02]  + anyio==4.15.1
+[2026-09-09 21:14:02]  + certifi==2026.7.22
+[2026-09-09 21:14:02]  + cfgv==3.5.0
+[2026-09-09 21:14:02]  + charset-normalizer==3.5.1
+[2026-09-09 21:14:02]  + distlib==0.4.3
+[2026-09-09 21:14:02]  + distro==1.9.0
+[2026-09-09 21:14:02]  + elastic-transport==9.4.2
+[2026-09-09 21:14:02]  + elasticsearch==9.5.1
+[2026-09-09 21:14:02]  + filelock==3.32.6
+[2026-09-09 21:14:02]  + identify==2.6.19
+[2026-09-09 21:14:02]  + idna==3.19
+[2026-09-09 21:14:02]  + linkify-it-py==2.2.0
+[2026-09-09 21:14:02]  + markdown-it-py==4.2.0
+[2026-09-09 21:14:02]  + mdit-py-plugins==0.6.1
+[2026-09-09 21:14:02]  + mdurl==0.1.2
+[2026-09-09 21:14:02]  + nodeenv==1.10.0
+[2026-09-09 21:14:02]  + platformdirs==4.11.8
+[2026-09-09 21:14:02]  + pre-commit==4.6.2
+[2026-09-09 21:14:02]  + psutil==7.2.2
+[2026-09-09 21:14:02]  + pydantic==2.13.5
+[2026-09-09 21:14:02]  + pydantic-core==2.46.5
+[2026-09-09 21:14:02]  + pygments==2.21.0
+[2026-09-09 21:14:02]  + pyluwen==0.8.5
+[2026-09-09 21:14:02]  + python-dateutil==2.9.0.post0
+[2026-09-09 21:14:02]  + python-discovery==1.6.0
+[2026-09-09 21:14:02]  + pyyaml==6.0.2
+[2026-09-09 21:14:02]  + requests==2.34.2
+[2026-09-09 21:14:02]  + rich==15.0.0
+[2026-09-09 21:14:02]  + six==1.17.0
+[2026-09-09 21:14:02]  + sniffio==1.3.1
+[2026-09-09 21:14:02]  + tabulate==0.9.0
+[2026-09-09 21:14:02]  + textual==8.2.8
+[2026-09-09 21:14:02]  + tomli==2.4.1
+[2026-09-09 21:14:02]  + tqdm==4.70.0
+[2026-09-09 21:14:02]  + tt-flash==3.10.0
+[2026-09-09 21:14:02]  + tt-smi==6.1.0
+[2026-09-09 21:14:02]  + tt-tools-common==1.6.0
+[2026-09-09 21:14:02]  + tt-umd==0.9.8
+[2026-09-09 21:14:02]  + typing-extensions==4.16.0
+[2026-09-09 21:14:02]  + typing-inspection==0.4.4
+[2026-09-09 21:14:02]  + urllib3==2.7.0
+[2026-09-09 21:14:02]  + virtualenv==21.7.9
+[2026-09-09 21:14:02] [INFO] Updating firmware
+[2026-09-09 21:14:02] Stage: SETUP
+[2026-09-09 21:14:02] Stage: DETECT
+[2026-09-09 21:14:02] 	Detected Chips: 4
+[2026-09-09 21:14:02] Stage: FLASH
+[2026-09-09 21:14:02] 	Sub Stage: VERIFY
+[2026-09-09 21:14:02] 		Verifying fw-package can be flashed
+[2026-09-09 21:14:02] 		Verifying fw-package can be flashed: complete
+[2026-09-09 21:14:02] 		Flashing devices, this might take a minute...
+[2026-09-09 21:14:47] 		Verifying Blackhole[0] can be flashed... SUCCESS
+[2026-09-09 21:14:47] 	Stage: FLASH
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 1: Blackhole[0]
+[2026-09-09 21:14:47] 			ROM version is: (19, 11, 0, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:14:47] 			FW bundle version > ROM version. ROM is being updated.
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 2: Blackhole[0] {P300C-1_left}
+[2026-09-09 21:14:47] 			Writing new firmware... SUCCESS
+[2026-09-09 21:14:47] 			Firmware verification... SUCCESS
+[2026-09-09 21:14:47] 		Verifying Blackhole[1] can be flashed... SUCCESS
+[2026-09-09 21:14:47] 	Stage: FLASH
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 1: Blackhole[1]
+[2026-09-09 21:14:47] 			ROM version is: (19, 11, 0, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:14:47] 			FW bundle version > ROM version. ROM is being updated.
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 2: Blackhole[1] {P300C-1_right}
+[2026-09-09 21:14:47] 			Writing new firmware... SUCCESS
+[2026-09-09 21:14:47] 			Firmware verification... SUCCESS
+[2026-09-09 21:14:47] 		Verifying Blackhole[2] can be flashed... SUCCESS
+[2026-09-09 21:14:47] 	Stage: FLASH
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 1: Blackhole[2]
+[2026-09-09 21:14:47] 			ROM version is: (19, 11, 0, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:14:47] 			FW bundle version > ROM version. ROM is being updated.
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 2: Blackhole[2] {P300C-1_left}
+[2026-09-09 21:14:47] 			Writing new firmware... SUCCESS
+[2026-09-09 21:14:47] 			Firmware verification... SUCCESS
+[2026-09-09 21:14:47] 		Verifying Blackhole[3] can be flashed... SUCCESS
+[2026-09-09 21:14:47] 	Stage: FLASH
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 1: Blackhole[3]
+[2026-09-09 21:14:47] 			ROM version is: (19, 11, 0, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:14:47] 			FW bundle version > ROM version. ROM is being updated.
+[2026-09-09 21:14:47] 		Sub Stage FLASH Step 2: Blackhole[3] {P300C-1_right}
+[2026-09-09 21:14:47] 			Writing new firmware... SUCCESS
+[2026-09-09 21:14:47] 			Firmware verification... SUCCESS
+[2026-09-09 21:14:47] Stage: RESET
+[2026-09-09 21:14:47]  Starting reset on devices at PCI indices: 0, 1, 2, 3 
+[2026-09-09 21:14:47]  Waiting for 20 seconds for potential hotplug removal. 
+[2026-09-09 21:14:47]  Waiting for devices to reappear on pci bus... 
+[2026-09-09 21:14:47]  Reset successfully completed for device at PCI index 0. 
+[2026-09-09 21:14:47]  Waiting for devices to reappear on pci bus... 
+[2026-09-09 21:14:47]  Reset successfully completed for device at PCI index 1. 
+[2026-09-09 21:14:47]  Waiting for devices to reappear on pci bus... 
+[2026-09-09 21:14:47]  Reset successfully completed for device at PCI index 2. 
+[2026-09-09 21:14:47]  Waiting for devices to reappear on pci bus... 
+[2026-09-09 21:14:47]  Reset successfully completed for device at PCI index 3. 
+[2026-09-09 21:14:47]  Finishing reset on devices at PCI indices: 0, 1, 2, 3 
+[2026-09-09 21:14:47] FLASH SUCCESS
+[2026-09-09 21:14:47] [INFO] Installing Metalium via container
+[2026-09-09 21:14:47] [INFO] Creating wrapper script...
+[2026-09-09 21:14:47] [WARNING] /tmp/pytest-of-ttuser/pytest-0/test_update_refreshes_a_stale_0/home/.local/bin is not in your PATH.
+[2026-09-09 21:14:47] [WARNING] A restart may fix this, or you may need to update your shell RC
+[2026-09-09 21:14:47] [INFO] Skipping tt-metalium image pull (--no-pull-container-images); the tt-metalium wrapper will pull it on first run
+[2026-09-09 21:14:47] [INFO] Metalium installation completed
+[2026-09-09 21:14:47] [WARNING] You'll need to run "source /tmp/pytest-of-ttuser/pytest-0/test_update_refreshes_a_stale_0/home/.tenstorrent-venv/bin/activate" to use tenstorrent's Python tools.
+[2026-09-09 21:14:47] [WARNING] Skipping Forge container installation
+[2026-09-09 21:14:47] [INFO] Please reboot your system to complete the setup.
+[2026-09-09 21:14:47] [INFO] After rebooting, try running 'tt-smi' to see the status of your hardware.
+[2026-09-09 21:14:47] [INFO] Use 'tt-metalium' to access the Metalium programming environment
+[2026-09-09 21:14:47] [INFO] Usage examples:
+[2026-09-09 21:14:47] [INFO]   tt-metalium                   # Start an interactive shell
+[2026-09-09 21:14:47] [INFO]   tt-metalium [command]         # Run a specific command
+[2026-09-09 21:14:47] [INFO]   tt-metalium python script.py  # Run a Python script
+[2026-09-09 21:14:47] [INFO] ✅ Installation completed successfully.
+[2026-09-09 21:14:47] [INFO] Installation log saved to: /tmp/tenstorrent_install_UtPn2T/install.log

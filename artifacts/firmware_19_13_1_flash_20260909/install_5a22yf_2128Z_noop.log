@@ -1,0 +1,213 @@
+[2026-09-09 21:28:41]    __                  __                             __
+[2026-09-09 21:28:41]   / /____  ____  _____/ /_____  _____________  ____  / /_
+[2026-09-09 21:28:41]  / __/ _ \/ __ \/ ___/ __/ __ \/ ___/ ___/ _ \/ __ \/ __/
+[2026-09-09 21:28:41] / /_/  __/ / / (__  ) /_/ /_/ / /  / /  /  __/ / / / /_
+[2026-09-09 21:28:41] \__/\___/_/ /_/____/\__/\____/_/  /_/   \___/_/ /_/\__/
+[2026-09-09 21:28:41] 
+[2026-09-09 21:28:41] [INFO] Welcome to tenstorrent!
+[2026-09-09 21:28:41] [INFO] This is tt-installer version 3.6.0
+[2026-09-09 21:28:41] [INFO] Log is at /tmp/tenstorrent_install_5a22yf/install.log
+[2026-09-09 21:28:41] [INFO] This script will install drivers and tooling and properly configure your tenstorrent hardware.
+[2026-09-09 21:28:41] [INFO] Starting installation
+[2026-09-09 21:28:41] [WARNING] Running in non-interactive mode
+[2026-09-09 21:28:41] [WARNING] tt-inference-server installation will be skipped
+[2026-09-09 21:28:41] [WARNING] tt-studio installation will be skipped
+[2026-09-09 21:28:41] [INFO] uv will be used instead of pip for package installation
+[2026-09-09 21:28:41] [INFO] Checking for sudo permissions... (may request password)
+[2026-09-09 21:28:41] [INFO] Installing base packages
+[2026-09-09 21:28:41] Hit:1 https://cli.github.com/packages stable InRelease
+[2026-09-09 21:28:41] Hit:4 http://mirror.pit.teraswitch.com/ubuntu noble InRelease
+[2026-09-09 21:28:41] Hit:5 http://mirror.pit.teraswitch.com/ubuntu noble-updates InRelease
+[2026-09-09 21:28:41] Hit:6 http://mirror.pit.teraswitch.com/ubuntu noble-backports InRelease
+[2026-09-09 21:28:41] Hit:7 https://download.docker.com/linux/ubuntu noble InRelease
+[2026-09-09 21:28:41] Hit:2 https://apt.llvm.org/noble llvm-toolchain-noble-17 InRelease
+[2026-09-09 21:28:41] Get:8 https://pkgs.tailscale.com/stable/ubuntu noble InRelease
+[2026-09-09 21:28:41] Hit:3 https://apt.llvm.org/noble llvm-toolchain-noble-20 InRelease
+[2026-09-09 21:28:41] Hit:10 https://packages.microsoft.com/repos/code stable InRelease
+[2026-09-09 21:28:41] Get:11 https://ppa.tenstorrent.com/ubuntu noble InRelease [6,861 B]
+[2026-09-09 21:28:41] Hit:9 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.33/deb  InRelease
+[2026-09-09 21:28:41] Hit:12 http://security.ubuntu.com/ubuntu noble-security InRelease
+[2026-09-09 21:28:41] Hit:13 https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu noble InRelease
+[2026-09-09 21:28:42] Fetched 13.5 kB in 0s (29.2 kB/s)
+[2026-09-09 21:28:42] Reading package lists...
+[2026-09-09 21:28:42] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-17/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:28:42] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-20/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:28:42] Reading package lists...
+[2026-09-09 21:28:42] Building dependency tree...
+[2026-09-09 21:28:42] Reading state information...
+[2026-09-09 21:28:42] git is already the newest version (1:2.43.0-1ubuntu7.3).
+[2026-09-09 21:28:42] python3-pip is already the newest version (24.0+dfsg-1ubuntu1.3).
+[2026-09-09 21:28:42] dkms is already the newest version (3.0.11-1ubuntu13).
+[2026-09-09 21:28:42] rustup is already the newest version (1.26.0-5ubuntu0.1).
+[2026-09-09 21:28:42] pipx is already the newest version (1.4.3-1).
+[2026-09-09 21:28:42] jq is already the newest version (1.7.1-3ubuntu0.24.04.2).
+[2026-09-09 21:28:42] protobuf-compiler is already the newest version (3.21.12-8.2ubuntu0.3).
+[2026-09-09 21:28:42] The following packages were automatically installed and are no longer required:
+[2026-09-09 21:28:42]   accountsservice-ubuntu-schemas bamfdaemon gnome-bluetooth indicator-applet
+[2026-09-09 21:28:42]   indicator-application indicator-appmenu indicator-bluetooth indicator-common
+[2026-09-09 21:28:42]   indicator-datetime indicator-keyboard indicator-messages indicator-power
+[2026-09-09 21:28:42]   indicator-printers indicator-session indicator-sound jayatana
+[2026-09-09 21:28:42]   libaccounts-glib0 libbamf3-2t64 libfcitx-config4 libfcitx-gclient1
+[2026-09-09 21:28:42]   libfcitx-utils0 libgit2-1.7 libgnome-panel3 libhttp-parser2.9 libido3-0.1-0
+[2026-09-09 21:28:42]   libindicator3-7 liblightdm-gobject-1-0 libmessaging-menu0 libssh2-1t64
+[2026-09-09 21:28:42]   libstd-rust-1.75 libstd-rust-dev libunity-gtk2-parser0 libunity-gtk3-parser0
+[2026-09-09 21:28:42]   libunity-settings-daemon1 ubuntu-touch-sounds unity-greeter
+[2026-09-09 21:28:42]   unity-gtk-module-common unity-gtk2-module unity-gtk3-module
+[2026-09-09 21:28:42]   unity-settings-daemon unity-settings-daemon-schemas
+[2026-09-09 21:28:42] Use 'sudo apt autoremove' to remove them.
+[2026-09-09 21:28:42] 0 upgraded, 0 newly installed, 0 to remove and 47 not upgraded.
+[2026-09-09 21:28:42] [INFO] Non-interactive mode, using Metalium container installation preference: on
+[2026-09-09 21:28:42] [INFO] Non-interactive mode, using Metalium Models installation preference: off
+[2026-09-09 21:28:42] [INFO] Non-interactive mode, using Forge container installation preference: off
+[2026-09-09 21:28:42] [INFO] Non-interactive mode, using tt-inference-server installation preference: off
+[2026-09-09 21:28:42] [INFO] Non-interactive mode, using tt-studio installation preference: off
+[2026-09-09 21:28:42] [INFO] Non-interactive mode, using Python installation method: new-venv
+[2026-09-09 21:28:42] [INFO] Using uv instead of pip for package installation
+[2026-09-09 21:28:42] [INFO] Setting up new Python virtual environment
+[2026-09-09 21:28:42] Using CPython 3.12.13 interpreter at: /home/ttuser/.local/bin/python3.12
+[2026-09-09 21:28:42] Creating virtual environment with seed packages at: /tmp/pytest-of-ttuser/pytest-4/test_update_refreshes_a_stale_0/home/.tenstorrent-venv
+[2026-09-09 21:28:42]  + pip==26.2.1
+[2026-09-09 21:28:42] Activate with: source /tmp/pytest-of-ttuser/pytest-4/test_update_refreshes_a_stale_0/home/.tenstorrent-venv/bin/activate
+[2026-09-09 21:28:42] [INFO] Installing TT repositories to your distribution package manager
+[2026-09-09 21:28:43] Hit:3 https://cli.github.com/packages stable InRelease
+[2026-09-09 21:28:43] Get:4 https://pkgs.tailscale.com/stable/ubuntu noble InRelease
+[2026-09-09 21:28:43] Hit:5 https://packages.microsoft.com/repos/code stable InRelease
+[2026-09-09 21:28:43] Hit:6 http://mirror.pit.teraswitch.com/ubuntu noble InRelease
+[2026-09-09 21:28:43] Hit:1 https://apt.llvm.org/noble llvm-toolchain-noble-17 InRelease
+[2026-09-09 21:28:43] Hit:2 https://apt.llvm.org/noble llvm-toolchain-noble-20 InRelease
+[2026-09-09 21:28:43] Hit:7 http://mirror.pit.teraswitch.com/ubuntu noble-updates InRelease
+[2026-09-09 21:28:43] Hit:8 http://mirror.pit.teraswitch.com/ubuntu noble-backports InRelease
+[2026-09-09 21:28:43] Get:10 https://ppa.tenstorrent.com/ubuntu noble InRelease [6,861 B]
+[2026-09-09 21:28:43] Hit:9 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.33/deb  InRelease
+[2026-09-09 21:28:43] Hit:11 http://security.ubuntu.com/ubuntu noble-security InRelease
+[2026-09-09 21:28:43] Hit:12 https://download.docker.com/linux/ubuntu noble InRelease
+[2026-09-09 21:28:43] Hit:13 https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu noble InRelease
+[2026-09-09 21:28:43] Fetched 13.5 kB in 0s (35.7 kB/s)
+[2026-09-09 21:28:43] Reading package lists...
+[2026-09-09 21:28:43] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-17/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:28:43] W: http://apt.llvm.org/noble/dists/llvm-toolchain-noble-20/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[2026-09-09 21:28:43] [WARNING] A container runtime is already installed; skipping container runtime installation to avoid reinstalling it or creating package conflicts.
+[2026-09-09 21:28:43] Installing system packages: sfpi=7.67.0 tenstorrent-dkms=2.10.0 tenstorrent-tools=1.4.1
+[2026-09-09 21:28:43] Reading package lists...
+[2026-09-09 21:28:43] Building dependency tree...
+[2026-09-09 21:28:43] Reading state information...
+[2026-09-09 21:28:44] sfpi is already the newest version (7.67.0).
+[2026-09-09 21:28:44] tenstorrent-dkms is already the newest version (2.10.0).
+[2026-09-09 21:28:44] tenstorrent-tools is already the newest version (1.4.1).
+[2026-09-09 21:28:44] The following packages were automatically installed and are no longer required:
+[2026-09-09 21:28:44]   accountsservice-ubuntu-schemas bamfdaemon gnome-bluetooth indicator-applet
+[2026-09-09 21:28:44]   indicator-application indicator-appmenu indicator-bluetooth indicator-common
+[2026-09-09 21:28:44]   indicator-datetime indicator-keyboard indicator-messages indicator-power
+[2026-09-09 21:28:44]   indicator-printers indicator-session indicator-sound jayatana
+[2026-09-09 21:28:44]   libaccounts-glib0 libbamf3-2t64 libfcitx-config4 libfcitx-gclient1
+[2026-09-09 21:28:44]   libfcitx-utils0 libgit2-1.7 libgnome-panel3 libhttp-parser2.9 libido3-0.1-0
+[2026-09-09 21:28:44]   libindicator3-7 liblightdm-gobject-1-0 libmessaging-menu0 libssh2-1t64
+[2026-09-09 21:28:44]   libstd-rust-1.75 libstd-rust-dev libunity-gtk2-parser0 libunity-gtk3-parser0
+[2026-09-09 21:28:44]   libunity-settings-daemon1 ubuntu-touch-sounds unity-greeter
+[2026-09-09 21:28:44]   unity-gtk-module-common unity-gtk2-module unity-gtk3-module
+[2026-09-09 21:28:44]   unity-settings-daemon unity-settings-daemon-schemas
+[2026-09-09 21:28:44] Use 'sudo apt autoremove' to remove them.
+[2026-09-09 21:28:44] 0 upgraded, 0 newly installed, 0 to remove and 45 not upgraded.
+[2026-09-09 21:28:44] Installing Python packages: tt-flash==3.10.0 tt-smi==6.1.0
+[2026-09-09 21:28:44] Using Python 3.12.13 environment at: /tmp/pytest-of-ttuser/pytest-4/test_update_refreshes_a_stale_0/home/.tenstorrent-venv
+[2026-09-09 21:28:44] Resolved 43 packages in 190ms
+[2026-09-09 21:28:44] Downloading pydantic-core (2.0MiB)
+[2026-09-09 21:28:44] Downloading pygments (1.2MiB)
+[2026-09-09 21:28:44] Downloading tt-umd (2.3MiB)
+[2026-09-09 21:28:44] Downloading virtualenv (5.1MiB)
+[2026-09-09 21:28:44]  Downloaded pygments
+[2026-09-09 21:28:44]  Downloaded pydantic-core
+[2026-09-09 21:28:44]  Downloaded tt-umd
+[2026-09-09 21:28:44]  Downloaded virtualenv
+[2026-09-09 21:28:44] Prepared 43 packages in 203ms
+[2026-09-09 21:28:44] Installed 43 packages in 3ms
+[2026-09-09 21:28:44]  + annotated-types==0.8.0
+[2026-09-09 21:28:44]  + anyio==4.15.1
+[2026-09-09 21:28:44]  + certifi==2026.7.22
+[2026-09-09 21:28:44]  + cfgv==3.5.0
+[2026-09-09 21:28:44]  + charset-normalizer==3.5.1
+[2026-09-09 21:28:44]  + distlib==0.4.3
+[2026-09-09 21:28:44]  + distro==1.9.0
+[2026-09-09 21:28:44]  + elastic-transport==9.4.2
+[2026-09-09 21:28:44]  + elasticsearch==9.5.1
+[2026-09-09 21:28:44]  + filelock==3.32.6
+[2026-09-09 21:28:44]  + identify==2.6.19
+[2026-09-09 21:28:44]  + idna==3.19
+[2026-09-09 21:28:44]  + linkify-it-py==2.2.0
+[2026-09-09 21:28:44]  + markdown-it-py==4.2.0
+[2026-09-09 21:28:44]  + mdit-py-plugins==0.6.1
+[2026-09-09 21:28:44]  + mdurl==0.1.2
+[2026-09-09 21:28:44]  + nodeenv==1.10.0
+[2026-09-09 21:28:44]  + platformdirs==4.11.8
+[2026-09-09 21:28:44]  + pre-commit==4.6.2
+[2026-09-09 21:28:44]  + psutil==7.2.2
+[2026-09-09 21:28:44]  + pydantic==2.13.5
+[2026-09-09 21:28:44]  + pydantic-core==2.46.5
+[2026-09-09 21:28:44]  + pygments==2.21.0
+[2026-09-09 21:28:44]  + pyluwen==0.8.5
+[2026-09-09 21:28:44]  + python-dateutil==2.9.0.post0
+[2026-09-09 21:28:44]  + python-discovery==1.6.0
+[2026-09-09 21:28:44]  + pyyaml==6.0.2
+[2026-09-09 21:28:44]  + requests==2.34.2
+[2026-09-09 21:28:44]  + rich==15.0.0
+[2026-09-09 21:28:44]  + six==1.17.0
+[2026-09-09 21:28:44]  + sniffio==1.3.1
+[2026-09-09 21:28:44]  + tabulate==0.9.0
+[2026-09-09 21:28:44]  + textual==8.2.8
+[2026-09-09 21:28:44]  + tomli==2.4.1
+[2026-09-09 21:28:44]  + tqdm==4.70.0
+[2026-09-09 21:28:44]  + tt-flash==3.10.0
+[2026-09-09 21:28:44]  + tt-smi==6.1.0
+[2026-09-09 21:28:44]  + tt-tools-common==1.6.0
+[2026-09-09 21:28:44]  + tt-umd==0.9.8
+[2026-09-09 21:28:44]  + typing-extensions==4.16.0
+[2026-09-09 21:28:44]  + typing-inspection==0.4.4
+[2026-09-09 21:28:44]  + urllib3==2.7.0
+[2026-09-09 21:28:44]  + virtualenv==21.7.9
+[2026-09-09 21:28:44] [INFO] Updating firmware
+[2026-09-09 21:28:45] Stage: SETUP
+[2026-09-09 21:28:45] Stage: DETECT
+[2026-09-09 21:28:45] 	Detected Chips: 4
+[2026-09-09 21:28:45] Stage: FLASH
+[2026-09-09 21:28:45] 	Sub Stage: VERIFY
+[2026-09-09 21:28:45] 		Verifying fw-package can be flashed
+[2026-09-09 21:28:45] 		Verifying fw-package can be flashed: complete
+[2026-09-09 21:28:45] 		Flashing devices, this might take a minute...
+[2026-09-09 21:28:45] 		Verifying Blackhole[0] can be flashed... SUCCESS
+[2026-09-09 21:28:45] 	Stage: FLASH
+[2026-09-09 21:28:45] 		Sub Stage FLASH Step 1: Blackhole[0]
+[2026-09-09 21:28:45] 			ROM version is: (19, 13, 1, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:28:45] 			ROM does not need to be updated.
+[2026-09-09 21:28:45] 		Verifying Blackhole[1] can be flashed... SUCCESS
+[2026-09-09 21:28:45] 	Stage: FLASH
+[2026-09-09 21:28:45] 		Sub Stage FLASH Step 1: Blackhole[1]
+[2026-09-09 21:28:45] 			ROM version is: (19, 13, 1, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:28:45] 			ROM does not need to be updated.
+[2026-09-09 21:28:45] 		Verifying Blackhole[2] can be flashed... SUCCESS
+[2026-09-09 21:28:45] 	Stage: FLASH
+[2026-09-09 21:28:45] 		Sub Stage FLASH Step 1: Blackhole[2]
+[2026-09-09 21:28:45] 			ROM version is: (19, 13, 1, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:28:45] 			ROM does not need to be updated.
+[2026-09-09 21:28:45] 		Verifying Blackhole[3] can be flashed... SUCCESS
+[2026-09-09 21:28:45] 	Stage: FLASH
+[2026-09-09 21:28:45] 		Sub Stage FLASH Step 1: Blackhole[3]
+[2026-09-09 21:28:45] 			ROM version is: (19, 13, 1, 0). tt-flash version is: (19, 13, 1, 0)
+[2026-09-09 21:28:45] 			ROM does not need to be updated.
+[2026-09-09 21:28:45] FLASH SUCCESS
+[2026-09-09 21:28:45] [INFO] Installing Metalium via container
+[2026-09-09 21:28:45] [INFO] Creating wrapper script...
+[2026-09-09 21:28:45] [WARNING] /tmp/pytest-of-ttuser/pytest-4/test_update_refreshes_a_stale_0/home/.local/bin is not in your PATH.
+[2026-09-09 21:28:45] [WARNING] A restart may fix this, or you may need to update your shell RC
+[2026-09-09 21:28:45] [INFO] Skipping tt-metalium image pull (--no-pull-container-images); the tt-metalium wrapper will pull it on first run
+[2026-09-09 21:28:45] [INFO] Metalium installation completed
+[2026-09-09 21:28:45] [WARNING] You'll need to run "source /tmp/pytest-of-ttuser/pytest-4/test_update_refreshes_a_stale_0/home/.tenstorrent-venv/bin/activate" to use tenstorrent's Python tools.
+[2026-09-09 21:28:45] [WARNING] Skipping Forge container installation
+[2026-09-09 21:28:45] [INFO] Please reboot your system to complete the setup.
+[2026-09-09 21:28:45] [INFO] After rebooting, try running 'tt-smi' to see the status of your hardware.
+[2026-09-09 21:28:45] [INFO] Use 'tt-metalium' to access the Metalium programming environment
+[2026-09-09 21:28:45] [INFO] Usage examples:
+[2026-09-09 21:28:45] [INFO]   tt-metalium                   # Start an interactive shell
+[2026-09-09 21:28:45] [INFO]   tt-metalium [command]         # Run a specific command
+[2026-09-09 21:28:45] [INFO]   tt-metalium python script.py  # Run a Python script
+[2026-09-09 21:28:45] [INFO] ✅ Installation completed successfully.
+[2026-09-09 21:28:45] [INFO] Installation log saved to: /tmp/tenstorrent_install_5a22yf/install.log
