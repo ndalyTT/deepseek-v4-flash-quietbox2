@@ -17,10 +17,12 @@ mostly in autonomous Codex sessions, and is snapshotted here as of 2026-09-09.
   evidence, the Terminal-Bench harness integration, Tenstorrent support
   bundles, and the pins needed to rebuild the environment.
 
-If you are an agent, read `AGENTS.md` first.
+If you are an agent, read `AGENTS.md` first, then `artifacts/HANDOFF_20260918.md`.
 
 ## Status in one paragraph
 
+> **Resume here: `artifacts/HANDOFF_20260918.md`** (state, operating rules, improvement plan).
+>
 > **Update 2026-09-17:** see `artifacts/STATUS_20260917.md`. Firmware moved to
 > 19.13.1.0 on 2026-09-09 (unplanned, via a tt-installer test run), a
 > fabric-enabled vLLM for another model has run on all four devices since
